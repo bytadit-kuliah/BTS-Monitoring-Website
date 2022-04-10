@@ -1,0 +1,172 @@
+
+CREATE DATABASE BTS_DATA;
+
+USE BTS_DATA;
+
+CREATE TABLE ADMIN(
+	Id_Admin VARCHAR(10) PRIMARY KEY NOT NULL,
+    Nama_Admin VARCHAR(100),
+    Email_Admin NVARCHAR(100)
+);
+
+CREATE TABLE SURVEYOR(
+	Id_Surveyor VARCHAR(10) PRIMARY KEY NOT NULL,
+    Nama_Surveyor VARCHAR(100),
+    Email_Surveyor NVARCHAR(100),
+    Riwayat_Survey NVARCHAR(255),
+    Jumlah_Survey INT,
+    Id_Pembuat_Data VARCHAR(10) NOT NULL,
+    FOREIGN KEY(Id_Pembuat_Data) REFERENCES ADMIN(Id_Admin)
+);
+
+CREATE TABLE KUESIONER(
+	Id_Kuesioner VARCHAR(30) PRIMARY KEY NOT NULL,
+    Topik_Kuesioner NVARCHAR(255),
+    Deskripsi_Kuesioner TEXT,
+    Waktu_Dibuat DATETIME,
+    Id_Pembuat VARCHAR(10) NOT NULL,
+    FOREIGN KEY(Id_Pembuat) REFERENCES ADMIN(Id_Admin)
+);
+
+CREATE TABLE PERTANYAAN(
+	Id_Pertanyaan VARCHAR(30) PRIMARY KEY NOT NULL,
+    Isi_Pertanyaan TEXT,
+    Id_Kuesioner VARCHAR(30) NOT NULL,
+    FOREIGN KEY(Id_Kuesioner) REFERENCES KUESIONER(Id_Kuesioner)
+);
+
+CREATE TABLE PILIHAN_JAWABAN(
+	Id_Pil_Jwb VARCHAR(30) PRIMARY KEY NOT NULL,
+    Pilihan_Jawaban TEXT,
+    Id_Kuesioner VARCHAR(30) NOT NULL,
+    FOREIGN KEY(Id_Kuesioner) REFERENCES KUESIONER(Id_Kuesioner)
+);
+
+CREATE TABLE LOGIN(
+	Id_Log VARCHAR(30) PRIMARY KEY NOT NULL,
+    Waktu_Login DATETIME NOT NULL,
+    Id_Admin VARCHAR(10) NULL,
+    Id_Surveyor VARCHAR(10) NULL,
+    FOREIGN KEY(Id_Admin) REFERENCES ADMIN(Id_Admin),
+    FOREIGN KEY(Id_Surveyor) REFERENCES SURVEYOR(Id_Surveyor)
+);
+
+CREATE TABLE PASSWORD(
+	Id_Password VARCHAR(30) PRIMARY KEY NOT NULL,
+    Password NVARCHAR(30) NOT NULL,
+    Id_Admin VARCHAR(10) NULL,
+    Id_Surveyor VARCHAR(10) NULL,
+    FOREIGN KEY(Id_Admin) REFERENCES ADMIN(Id_Admin),
+    FOREIGN KEY(Id_Surveyor) REFERENCES SURVEYOR(Id_Surveyor)
+);
+
+CREATE TABLE JENIS_BTS(
+	Id_Jenis_BTS TINYINT PRIMARY KEY NOT NULL,
+    Jenis_BTS VARCHAR(50)
+);
+
+CREATE TABLE PEMILIK(
+	Id_Pemilik VARCHAR(10) PRIMARY KEY NOT NULL,
+    Nama_Pemilik VARCHAR(255),
+    Alamat_Pemilik TEXT,
+    NoTelp_Pemilik VARCHAR(100)
+);
+
+CREATE TABLE PARENT_WILAYAH(
+	Id_Parent INT PRIMARY KEY NOT NULL,
+    Nama_Kecamatan VARCHAR(255)
+);
+
+CREATE TABLE WILAYAH(
+	Id_Wilayah INT PRIMARY KEY NOT NULL,
+    Nama_Wilayah TEXT,
+    Level_Wilayah INT,
+    Id_Parent_Wilayah INT NOT NULL,
+    FOREIGN KEY(Id_Parent_Wilayah) REFERENCES PARENT_WILAYAH(Id_Parent)
+);
+
+CREATE TABLE INFO_BTS(
+	Id_BTS VARCHAR(5) PRIMARY KEY NOT NULL,
+    Id_Jenis_BTS TINYINT NOT NULL,
+    Nama_BTS VARCHAR(100),
+    Lokasi_BTS NVARCHAR(255),
+    Panjang_Tanah FLOAT(6,2),
+    Lebar_Tanah FLOAT(6,2),
+    Latitude FLOAT(10,6),
+    Longitude FLOAT(11,6),
+    Tinggi_Tower FLOAT(6,2),
+    Ada_Genset BOOL,
+    Ada_Tembok_Batas BOOL,
+    Waktu_Dibuat_Info DATETIME,
+    Id_Pemilik_BTS VARCHAR(10) NOT NULL,
+    Id_Pembuat_Info VARCHAR(10) NOT NULL,
+    Id_Wilayah INT NOT NULL,
+    FOREIGN KEY(Id_Pemilik_BTS) REFERENCES PEMILIK(Id_Pemilik),
+    FOREIGN KEY(Id_Pembuat_Info) REFERENCES ADMIN(Id_Admin),
+    FOREIGN KEY(Id_Wilayah) REFERENCES WILAYAH(Id_Wilayah),
+    FOREIGN KEY(Id_Jenis_BTS) REFERENCES JENIS_BTS(Id_Jenis_BTS)
+);
+
+CREATE TABLE BTS_FOTO(
+	Id_Foto_BTS INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Path_Foto TEXT,
+    Id_BTS VARCHAR(5) NOT NULL,
+    FOREIGN KEY(Id_BTS) REFERENCES INFO_BTS(Id_BTS)
+);
+
+CREATE TABLE MONITORING(
+	Id_Monitoring VARCHAR(20) PRIMARY KEY NOT NULL,
+    Tahun_Monitoring YEAR,
+    Waktu_Generate DATETIME,
+    Waktu_Kunjungan DATETIME,
+    Id_BTS VARCHAR(5) NOT NULL,
+    Id_Surveyor VARCHAR(10) NOT NULL,
+    FOREIGN KEY(Id_BTS) REFERENCES INFO_BTS(Id_BTS),
+    FOREIGN KEY(Id_Surveyor) REFERENCES SURVEYOR(Id_Surveyor)
+);
+
+CREATE TABLE JAWABAN_KUESIONER(
+	Id_Jawaban VARCHAR(10) PRIMARY KEY NOT NULL,
+    Jawaban_Kuesioner INT,
+    Waktu_Buat DATETIME,
+    Id_Kuesioner VARCHAR(30) NOT NULL,
+    Id_Surveyor VARCHAR(10) NOT NULL,
+    Id_Monitoring VARCHAR(20) NOT NULL,
+    FOREIGN KEY(Id_Kuesioner) REFERENCES KUESIONER(Id_Kuesioner),
+    FOREIGN KEY(Id_Surveyor) REFERENCES SURVEYOR(Id_Surveyor),
+    FOREIGN KEY(Id_Monitoring) REFERENCES MONITORING(Id_Monitoring)
+);
+
+CREATE TABLE EDIT_KUESIONER(
+    Waktu_Diedit DATETIME PRIMARY KEY NOT NULL,
+    Id_Editor VARCHAR(10) NOT NULL,
+    Id_Kuesioner VARCHAR(30) NOT NULL,
+    FOREIGN KEY(Id_Editor) REFERENCES ADMIN(Id_Admin),
+    FOREIGN KEY(Id_Kuesioner) REFERENCES KUESIONER(Id_Kuesioner)
+);
+
+CREATE TABLE EDIT_JAWABAN(
+	Waktu_Diedit DATETIME PRIMARY KEY NOT NULL,
+    Id_Editor VARCHAR(10) NOT NULL,
+    Id_Jawaban_Diedit VARCHAR(10) NOT NULL,
+    FOREIGN KEY(Id_Editor) REFERENCES SURVEYOR(Id_Surveyor),
+    FOREIGN KEY(Id_Jawaban_Diedit) REFERENCES JAWABAN_KUESIONER(Id_Jawaban)
+);
+
+CREATE TABLE EDIT_INFO_BTS(
+	Waktu_Diedit DATETIME PRIMARY KEY NOT NULL,
+    Id_Editor VARCHAR(10) NOT NULL,
+    Id_BTS_edit VARCHAR(5) NOT NULL,
+    FOREIGN KEY(Id_Editor) REFERENCES ADMIN(Id_Admin),
+    FOREIGN KEY(Id_BTS_edit) REFERENCES INFO_BTS(Id_BTS)
+);
+
+CREATE TABLE KONFIGURASI(
+	Id_Konfigurasi INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Nama_Konfigurasi NVARCHAR(20),
+    Value_Konfigurasi NVARCHAR(50),
+    Waktu_Dibuat_Konfigurasi DATETIME NOT NULL, 
+    Waktu_Diedit_Konfigurasi DATETIME,
+    Nama_Pembuat VARCHAR(100),
+    Nama_Pengedit_Konfigurasi VARCHAR(100)
+);
