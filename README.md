@@ -125,3 +125,5 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 4. [Playlist Belajar PHP Dasar - WP UNPAS](https://www.youtube.com/watch?v=l1W2OwV5rgY&list=PLFIM0718LjIUqXfmEIBE3-uzERZPh3vp6)
 5. [Contoh Bikin Aplikasi Laravel, Integrasi Design Template dengan laravel, migrasi DB, dll ](https://youtu.be/Hh1atKEzNWs)
 6. [Contoh Config APL](https://www.youtube.com/watch?v=5E5v9HvYsuc)
+
+...still updating
