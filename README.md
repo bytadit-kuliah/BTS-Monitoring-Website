@@ -5,11 +5,18 @@
 1. Ini adalah website yang menampung informasi BTS di Kota ABC
 2. Website terhubung/memiliki laman admin, untuk memonitoring Data BTS, dan laman Surveyor untuk memberikan data tentang BTS di Kota ABC.
 3. Website dibuat dengan Laravel 8 dan DataBase MySQL
-4. Website memiliki 3 macam layout, yakni:
+4. Website memiliki 3 jenis laman beserta layoutnya, yakni:
 
-a. Layout Admin, merupakan tampilan sistem informasi yang memberikan privileges bagi admin untuk mengelola website (Privileges Admin akan dijelaskan lebih lanjut)
-b. Layout Surveyor, merupakan tampilan sistem informasi yang diperuntukkan untuk surveyor (peran surveyor akan dijelaskan lebih lanjut)
-c. Layout Visitor, merupakan tampilan website biasa yang berisikan informasi tentang BTS yang ada di kota ABC, layout ini diperuntukkan untuk pengunjung yang tidak termasuk ke dalam admin maupun visitor, namun layout ini merupakan starting layout karena berisi link untuk login, baik sebagai surveyor maupun admin
+##### Layout Laman Admin
+![Admin Template](https://yukcoding.id/wp-content/uploads/2017/07/Download-Koleksi-Template-Bootstrap-Responsive-Gratis.jpg)
+Layout Admin, merupakan tampilan sistem informasi yang memberikan privileges bagi admin untuk mengelola website (Privileges Admin akan dijelaskan lebih lanjut)
+##### Layout Laman Surveyor
+![Surveyor Template](https://blogger.googleusercontent.com/img/a/AVvXsEjg9v7TPpArmaiP0HO3NQT5u968StLDSwCfXlNH35jLGnjEmqTEFL-s93S-JzqN0rG9XXgjjC9XnEcovxRoe-OS86uE75rS3fpXd9yP3cm3eC4dNBGlag_MJTnlnwr6AMcJmyvWFo0vaT67-E0HGZFjcYAJHLtGeV8plP_gTVSoU9MyhI34wBXtShB_=s1920)
+merupakan tampilan sistem informasi yang diperuntukkan untuk surveyor (peran surveyor akan dijelaskan lebih lanjut), tampilan boleh sama/mirip spt tampilan layout laman admin
+##### Layout Laman Visitor
+![Visitor Template](https://cdn.dribbble.com/users/774375/screenshots/16211602/media/bc781c162af2f5dd62547982775ed21f.png)
+merupakan tampilan website biasa yang berisikan informasi tentang BTS yang ada di kota ABC, layout ini diperuntukkan untuk pengunjung yang tidak termasuk ke dalam admin maupun visitor, layout ini merupakan starting layout karena akan berisi link untuk login, baik sebagai surveyor maupun admin. Untuk form login monggo gan mau didesign kyk gmn, yg penting bisa mengakomodasi admin sm surveyor
+
 
 3. Database menggunakan mySQL, penjelasan akan diberikan lebih lanjut
 4. ....soon akan diupdate lagi
@@ -31,8 +38,7 @@ c. Layout Visitor, merupakan tampilan website biasa yang berisikan informasi ten
 ### Penjelasan Database dan Kemungkinan Fitur
 
 #### Tabel Config Aplikasi
-Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alamat kominfo, dll, yang nantinya bakal kepake ditiap laman (visitor, admin, surveyor), 
-    coba liat video ini untuk sedikit insight tentang config [config insight](https://www.youtube.com/watch?v=5E5v9HvYsuc)
+Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alamat kominfo, dll, yang nantinya bakal kepake ditiap laman (visitor, admin, surveyor), coba liat video ini untuk sedikit insight tentang config [config insight](https://www.youtube.com/watch?v=5E5v9HvYsuc)
     
 #### Laman Visitor
 1. Fitur (button) untuk Login ke surveyor, atau admin 
@@ -41,6 +47,8 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 4. Info BTS, yg berupa page tersendiri berisi list BTS, dan nnti kemungkinan bakal ada gmapsnya.
 5. Tidak perlu pakai fitur pencarian klo gk bisa (klo mau nnti bisa dipake di page info bts, ini optional aja)
 6. (Mungkin) ada info pemilik BTS, (yg mungkin) bisa diwujudkan kyk list partner spt ini:
+![Logo Pemiliks](https://www.prestashop.com/forums/uploads/monthly_12_2014/post-869334-0-49000100-1417760311.jpg)
+![Logo Pemiliks](https://blogs.ncl.ac.uk/t4/files/2016/11/footerlogos.fw_.png)
 
 8. Design lain" spt web biasa
  
@@ -62,11 +70,11 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 
 #### Laman Surveyor
 1. Di Home ada jml survey yg udah dikerjakan, , jml upcoming survey (yg belum dikerjakan), jml bts yg udah dimonitor, dsb, designnya kek gini:
-   
-3. fitur edit profil, termasuk password
-4. Informasi BTS, yg digenerate dari laman admin (tabel INFO_BTS)
-5. Kuesioner, isinya ada survey baru yg belum dikerjain, ada list" riwayat pengisian survey/kuesioner (misal survey blabla", selesai pada bla"") nnti jawaban dri survey yg udah dikerjain itu bisa diedit lagi isinya sm surveyor, nnti bakal ada editing info
-6. Monitoring, isinya list" riwayat monitoring yg udah dilakuin, termasuk berisi BTS yg dimonitoring yg merefer ke tabel info_bts
+   ![Gbr Count](https://usebootstrap.com/assets/webp/adminlte-v3.webp)
+2. fitur edit profil, termasuk password
+3. Informasi BTS, yg digenerate dari laman admin (tabel INFO_BTS)
+4. Kuesioner, isinya ada survey baru yg belum dikerjain, ada list" riwayat pengisian survey/kuesioner (misal survey blabla", selesai pada bla"") nnti jawaban dri survey yg udah dikerjain itu bisa diedit lagi isinya sm surveyor, nnti bakal ada editing info
+5. Monitoring, isinya list" riwayat monitoring yg udah dilakuin, termasuk berisi BTS yg dimonitoring yg merefer ke tabel info_bts
 
 ### Tools yang dibutuhkan
 #### Front End
@@ -110,3 +118,10 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 5. Lengkapi tiap tools yang diperlukan, install sampai bisa digunakan
 6. Tetap koordinasi sm front end, terutama untuk kemungkinan fitur yg ada
 
+### Daftar Referensi, Video, dan Belajar
+1. [Koleksi Template Admin](https://yukcoding.id/download-koleksi-template-bootstrap-responsive-gratis/)
+2. [Playlist Belajar Laravel - YukCoding](https://youtube.com/playlist?list=PLTagRbmJ8etsOURVDlOryVKcNEUn6nFeu)
+3. [Playlist Belajar Laravel - WP UNPAS](https://www.youtube.com/watch?v=HqAMb6kqlLs&list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2)
+4. [Playlist Belajar PHP Dasar - WP UNPAS](https://www.youtube.com/watch?v=l1W2OwV5rgY&list=PLFIM0718LjIUqXfmEIBE3-uzERZPh3vp6)
+5. [Contoh Bikin Aplikasi Laravel, Integrasi Design Template dengan laravel, migrasi DB, dll ](https://youtu.be/Hh1atKEzNWs)
+6. [Contoh Config APL](https://www.youtube.com/watch?v=5E5v9HvYsuc)
