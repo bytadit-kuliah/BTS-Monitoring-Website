@@ -41,16 +41,16 @@ merupakan tampilan website biasa yang berisikan informasi tentang BTS yang ada d
 Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alamat kominfo, dll, yang nantinya bakal kepake ditiap laman (visitor, admin, surveyor), coba liat video ini untuk sedikit insight tentang config [config insight](https://www.youtube.com/watch?v=5E5v9HvYsuc)
     
 #### Laman Visitor
-1. Fitur (button) untuk Login ke surveyor, atau admin 
-2. Fitur Contact Form, yang direct ke laman admin
-3. Profil Kominfo
-4. Info BTS, yg berupa page tersendiri berisi list BTS, dan nnti kemungkinan bakal ada gmapsnya.
+1. Fitur (button) untuk Login ke surveyor, dan/atau admin 
+2. Fitur Contact Form, yang isinya pesan dan akan kedirect sbg pesan baru ke laman admin
+3. Profil Kominfo, spt biasa
+4. Info BTS, yg berupa page tersendiri berisi list BTS, dan nnti kemungkinan tiap info bts bakal ada gmaps utk nunjukin lokasinya.
 5. Tidak perlu pakai fitur pencarian klo gk bisa (klo mau nnti bisa dipake di page info bts, ini optional aja)
-6. (Mungkin) ada info pemilik BTS, (yg mungkin) bisa diwujudkan kyk list partner spt ini:
+6. (optional) ada info pemilik BTS, (yg mungkin) bisa diwujudkan kyk list partner spt ini:
 ![Logo Pemiliks](https://www.prestashop.com/forums/uploads/monthly_12_2014/post-869334-0-49000100-1417760311.jpg)
 ![Logo Pemiliks](https://blogs.ncl.ac.uk/t4/files/2016/11/footerlogos.fw_.png)
 
-8. Design lain" spt web biasa
+8. Design lain" spt landing page web biasa
  
 
 #### Laman Admin
@@ -89,7 +89,7 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 2. MySQL Server
 3. PHP 7.4
 4. XAMPP versi terbaru (include PHP 8, MySQL, Apache)
-5. PHP Composer (Dependency Manager)
+5. [PHP Composer (needs PHP 7.4)](https://getcomposer.org/)
 6. Browser
 7. Git
 8. Niat, waktu
@@ -126,4 +126,17 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 5. [Contoh Bikin Aplikasi Laravel, Integrasi Design Template dengan laravel, migrasi DB, dll ](https://youtu.be/Hh1atKEzNWs)
 6. [Contoh Config APL](https://www.youtube.com/watch?v=5E5v9HvYsuc)
 
-...still updating
+#### [Link DB ERD](https://lucid.app/lucidchart/23f827ba-14f6-47c7-8bb9-fb5828d430ea/edit?beaconFlowId=681F0BE4872C115C&invitationId=inv_e4e1f624-bc44-4c2d-a9ac-c44c9ef1dec8&page=uta8ncyJ8mfT#)
+
+#### [Link Sheet](https://docs.google.com/spreadsheets/d/1KJWBlI9jHXwi1i2Ha6F877Je4AebqTiH0rWxypQhqDE/edit#gid=0)
+
+#### [Link Mockup]()
+
+### TroubleShooting
+1. [https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel](https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel)
+2. [https://vitux.com/ubuntu-xampp/](https://vitux.com/ubuntu-xampp/)
+3. [https://medium.com/@kivaimuinde/resolve-opt-lampp-bin-mysql-server-264-kill-no-such-process-3a62d2331349](https://medium.com/@kivaimuinde/resolve-opt-lampp-bin-mysql-server-264-kill-no-such-process-3a62d2331349)
+4. [https://www.centerklik.com/error-xampp-starting-apache-fail-di-linux/](https://www.centerklik.com/error-xampp-starting-apache-fail-di-linux/)
+5. [https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel](https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel)
+6. 
+...still updating, silakan klo ada info tambahan, edit readme ini
