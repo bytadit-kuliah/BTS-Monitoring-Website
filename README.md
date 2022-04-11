@@ -104,7 +104,7 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 1. Yg plot grafik ada yg pake library js btw
 2. Pahami database, system request, dan kemungkinan fitur yang ada
 3. Silakan Buat Design, HTML, CSS, JS untuk tampilan pada layout Visitor, Admin, dan Surveyor
-4. Tampilan Layout Admin dan Visitor bisa pakai design yang sama, namun kontennya tetap berbeda (menyesuaikan database, dan system request yang diperlukan)
+4. Tampilan Layout Admin dan Surveyor bisa pakai design yang sama, namun kontennya tetap berbeda (menyesuaikan database, dan system request yang diperlukan)
 5. Untuk design, demi kecepatan, boleh juga pakai template design laravel yang sudah tersedia banyak di internet secara gratis (sudah ada bbrp contoh di folder Referensi terutama utk yg admin), namun tetap buat perbedaan dan kontennya tetap menyesuaikan system request
 6. Mockup Design boleh pakai figma atau apapun bebas, atau langsung ngoding jga boleh, penting jadi
 7. Tetap koordinasi dengan backend, supaya tetap satu pemahaman
