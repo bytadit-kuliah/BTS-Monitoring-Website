@@ -125,6 +125,7 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 4. [Playlist Belajar PHP Dasar - WP UNPAS](https://www.youtube.com/watch?v=l1W2OwV5rgY&list=PLFIM0718LjIUqXfmEIBE3-uzERZPh3vp6)
 5. [Contoh Bikin Aplikasi Laravel, Integrasi Design Template dengan laravel, migrasi DB, dll ](https://youtu.be/Hh1atKEzNWs)
 6. [Contoh Config APL](https://www.youtube.com/watch?v=5E5v9HvYsuc)
+7. [Tutor GIT, No DeepShit](https://rogerdudler.github.io/git-guide/)
 
 #### [Link DB ERD](https://lucid.app/lucidchart/23f827ba-14f6-47c7-8bb9-fb5828d430ea/edit?beaconFlowId=681F0BE4872C115C&invitationId=inv_e4e1f624-bc44-4c2d-a9ac-c44c9ef1dec8&page=uta8ncyJ8mfT#)
 
