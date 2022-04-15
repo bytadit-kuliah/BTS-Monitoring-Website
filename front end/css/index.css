@@ -1,3 +1,8 @@
+/*Montserrat*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+/*Bebas Neue*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
+
 * {
     font-family: sans-serif;
     margin: 0;
@@ -116,7 +121,7 @@ header nav ul li {
 #login {
     border-radius: 10px;
     border: 2px solid transparent;
-    padding: 5px 8px;
+    padding: 5px 10px;
 }
 
 #contact {
@@ -129,7 +134,7 @@ header nav ul li {
 }
 
 #contact:hover {
-    background: #787878;
+    background: rgba(0, 0, 0, 0.5);
     border: 2px solid #000;
 }
 
@@ -147,7 +152,7 @@ header nav ul li {
 }
 
 #login:hover {
-    background: #ADCDAA;
+    background: rgba(82, 120, 79, 0.5);
     border: 2px solid #52784F;
 }
 
@@ -164,18 +169,23 @@ header nav ul li {
     margin-bottom: 50px;
 }
 
-.banner .banner_content1 {
+.banner .banner_1 {
     text-align: left;
     padding-left: 50px;
     position: absolute;
     bottom: 10px;
 }
 
-.banner .banner_content1 h1 {
-    font-size: 50px;
+.banner .banner_1 h1 {
+    font-size: 75px;
+    font-family: 'Bebas Neue';
 }
 
-.banner .banner_content1 a {
+.banner .banner_1 p {
+    font-family: 'Franklin Gothic Medium';
+}
+
+.banner .banner_1 a {
     border-radius: 10px;
     border: 2px solid transparent;
     padding: 15px 15px;
@@ -183,25 +193,18 @@ header nav ul li {
     color: #fff;
 }
 
-.banner .banner_content1 a:hover {
-    background: #ADCDAA;
+.banner .banner_1 a:hover {
+    background: rgba(82, 120, 79, 0.5);
     color: #52784F;
     border: 2px solid #52784F;
 }
 
-.banner .banner_content2 {
+.banner .banner_2 {
     text-align: center;
-    padding-right: 50px;
-    position: absolute;
-    right: 10px;
+    padding-left: 800px;
 }
 
 /* Heading */
-.container_content{
-    height: 500px;
-    width: 100%;
-    text-align: center;
-}
 .heading h1 {
     display: grid;
     grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
@@ -213,11 +216,50 @@ header nav ul li {
     padding-right: 50px;
     margin-bottom: 25px;
 }
+
+.heading h1 span {
+    font-family: 'Montserrat';
+    font-size: 50px;
+    letter-spacing: 1px;
+    -webkit-text-fill-color: #F4D2EB;
+    text-shadow: 3px 3px #000;
+    transition: 0.5s;
+}
+
+.heading h1 span:hover {
+    -webkit-text-fill-color: #52784F;
+    transform: translate(0, -10px);
+}
+
 .heading h1::before,
 .heading h1::after {
     content: '';
     border-top: 6px double #F4D2EB;
 }
+
+/* container_content */
+.container_content {
+    height: 500px;
+    width: 100%;
+}
+
+/* content 1 */
+.content1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+}
+.c1_about1{
+    text-align: justify;
+}
+.c1_about2{
+    text-align: justify;
+}
+
 
 
 .break {
@@ -248,9 +290,11 @@ footer .footer_content img {
     height: 50px;
     transition: 0.25s;
 }
-footer .footer_content img:hover{
+
+footer .footer_content img:hover {
     transform: translate(0, -5px);
 }
+
 footer #fc a {
     color: #fff;
     padding-left: 25px;
