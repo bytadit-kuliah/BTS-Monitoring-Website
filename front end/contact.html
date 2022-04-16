@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diskominfo Surakarta - BTS</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 
 <body>
@@ -93,7 +93,7 @@
 
                     
                     <div class="button_send">
-                        <button>
+                        <button id="button_send">
                             Kirim Pesan
                         </button>
                     </div>
@@ -143,12 +143,17 @@
             }
         }
         function copyText(argument){            
-            /* Get the text field */
             var text = (document.getElementById(argument).querySelector('h1').innerText);
             
             navigator.clipboard.writeText(text);
             alert("Text telah disalin");
         }
+        
+        document.getElementById("button_send").onclick = function () {
+            event.preventDefault();
+            // data post codes here
+            location.href = "thanks.html";
+        };
     </script>
 </body>
 

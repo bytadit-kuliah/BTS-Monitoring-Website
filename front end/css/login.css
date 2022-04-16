@@ -1,0 +1,357 @@
+/*Montserrat*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+/*Bebas Neue*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
+/* Inder */
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+
+html {
+    background-color: #FDF7F2;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* Header */
+header {
+    padding: 0 20px;
+    background-color: #FDF7F2;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#brand {
+    display: flex;
+    align-items: center;
+}
+
+#brand a img {
+    margin-left: 25px;
+    width: 50px;
+}
+
+#brand ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#brand ul a {
+    color: #000;
+}
+
+#brand ul li {
+    padding: 5px;
+    margin-left: 15px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+.dropdown .dropbtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.drop_content {
+    display: none;
+    position: absolute;
+    background-color: #52784F;
+    min-width: 150px;
+    box-shadow: 0px 16px 32px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.drop_content a {
+    float: none;
+    color: #000;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.drop_content a:hover {
+    background-color: #ADCDAA;
+}
+
+.show {
+    display: block;
+}
+
+header nav {
+    margin-right: 25px;
+}
+
+header nav ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header nav ul a {
+    color: #000;
+}
+
+header nav ul li {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#contact:active,
+#login:active {
+    transform: scale(.95);
+}
+
+#contact a{
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #000;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#contact a:hover {
+    background-color: white;
+    border-color: black;
+    color: #000;
+}
+
+#login a{
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #52784F;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#login a {
+    color: #fff;
+}
+
+
+#login a:hover {
+    background-color: white;
+    border-color: #52784F;
+    color: #52784F;
+    
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    width: 100%;
+    background: #52784F;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+}
+
+footer .footer_content {
+    width: 100%;
+}
+
+footer .footer_content img {
+    width: 50px;
+    height: 50px;
+    transition: 0.25s;
+}
+
+footer .footer_content img:hover {
+    transform: translate(0, -5px);
+}
+
+footer .footer_content img:active {
+    filter: invert();
+    transition: 0s;
+}
+
+footer #fc a {
+    color: #fff;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
+/* login.html */
+.main_login .banner{
+    height: 80vh;
+    background: url(../image/vectorlogin.svg);
+    background-repeat: no-repeat;
+    background-position: -10px 0;
+    background-size: 95% fixed;
+
+    margin-bottom: 50px;
+}
+.banner_login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 20px;
+    bottom: 17%;
+    right: 15vw;
+    position: absolute;
+}
+.banner_login span{
+    color: #52784F;
+    font-weight: bolder;
+}
+.banner_login h1{
+    animation: fadeInDown 1s;
+}
+
+.card_login *{
+    font-family: 'Inder', sans-serif;
+}
+
+.card_login{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: space-evenly;
+
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width: 130%;
+    height: 450px;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    transition: none;
+    animation: fadeInLeft 1.2s forwards; 
+    animation-delay: 600ms;
+}
+
+/* keyframes animations */
+
+@keyframes fadeInDown{
+    from{
+        opacity: 0;
+        transform: translateY(-150%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft{
+    from{
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight{
+    from{
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* .box_input{
+    display: flex;
+    flex-direction: column;
+} */
+
+.input_field input,
+.input_field textarea
+{
+    font-size: 20px;
+    margin-top: 10px;
+    width: 380px;
+    height: 50px;
+    border-radius: 10px;
+    outline: 1px solid #52784F;
+    transition: none;
+    border:transparent;
+
+    padding-left: 50px;
+    resize: none;
+}
+
+.input_field #input_username{
+    background: url(../image/username.png) no-repeat scroll 12px center;
+    background-size: 7%;
+}
+
+
+.input_field #input_password{
+    background: url(../image/password.png) no-repeat scroll 12px center;
+    background-size: 7%;
+}
+
+.input_field input:focus{
+    outline: 3px solid #52784F;
+}
+.input_field #input_username:placeholder-shown,
+.input_field #input_password:placeholder-shown
+{
+    background-color: #F9F9FB;
+}
+
+.input_field .forgot_password{
+    padding-top: 10px;
+    text-align: right;
+}
+
+.input_field .forgot_password a{
+    color: #52784F;
+}
+
+.input_field .forgot_password a:hover{
+    color: #b8cdb7;
+}
+
+.button_login button{
+    font-size: 25px;
+    color: white;
+    padding: 15px;
+    width: 280px;
+    border: transparent;
+    border-radius: 50px;
+    background-color: #52784F;
+}
+
+.button_login button:hover{
+    cursor: pointer;
+    background-color: #7c9e7a;
+}
+.button_login button:active{
+    transform: scale(.95);
+}
