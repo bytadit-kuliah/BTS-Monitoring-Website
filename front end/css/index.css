@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
 /*Bebas Neue*/
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
+/* Inder */
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
 * {
     font-family: sans-serif;
@@ -197,6 +199,7 @@ header nav ul li {
 .banner .banner_2 {
     text-align: center;
     padding-left: 800px;
+    /* animation: fadeInLeft 1s;  */
 }
 
 /* Heading */
@@ -304,10 +307,11 @@ footer #fc a {
 
 /* login.html */
 .main_login .banner{
+    /* height: 80vh; */
     background: url(../image/vectorlogin.svg);
     background-repeat: no-repeat;
     background-position: -10px 0;
-    background-size: 95%;
+    background-size: 95% fixed;
 }
 .banner_login{
     display: flex;
@@ -323,6 +327,24 @@ footer #fc a {
     color: #52784F;
     font-weight: bolder;
 }
+.banner_login h1{
+    animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown{
+    from{
+        opacity: 0;
+        transform: translateY(-150%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card_login *{
+    font-family: 'Inder', sans-serif;
+}
 
 .card_login{
     display: flex;
@@ -336,7 +358,31 @@ footer #fc a {
     height: 450px;
     border-radius: 20px;
     margin-top: 10px;
+    padding-top: 10px;
     transition: none;
+    animation: fadeInLeft 1s; 
+}
+
+@keyframes fadeInLeft{
+    from{
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight{
+    from{
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* .box_input{
@@ -344,32 +390,40 @@ footer #fc a {
     flex-direction: column;
 } */
 
-.input_field input{
+.input_field input,
+.input_field textarea
+{
     font-size: 20px;
     margin-top: 10px;
     width: 380px;
     height: 50px;
     border-radius: 10px;
-    outline: 1px solid black;
+    outline: 1px solid #52784F;
     transition: none;
     border:transparent;
 
     padding-left: 50px;
+    resize: none;
 }
 
 .input_field #input_username{
-    background: url(../image/username.png) no-repeat scroll 12px 9px;
+    background: url(../image/username.png) no-repeat scroll 12px center;
     background-size: 7%;
 }
 
 
 .input_field #input_password{
-    background: url(../image/password.png) no-repeat scroll 12px 12px;
+    background: url(../image/password.png) no-repeat scroll 12px center;
     background-size: 7%;
 }
 
 .input_field input:focus{
     outline: 3px solid #52784F;
+}
+.input_field #input_username:placeholder-shown,
+.input_field #input_password:placeholder-shown
+{
+    background-color: #F9F9FB;
 }
 
 .input_field .forgot_password{
@@ -398,4 +452,203 @@ footer #fc a {
 .button_login button:hover{
     cursor: pointer;
     background-color: #7c9e7a;
+}
+.button_login button:active{
+    transform: scale(.95);
+}
+
+
+
+/* contact.html */
+.main_contact .banner{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+.banner_contact{
+    opacity: 0;
+    width: 100%;
+    font-size: 40px;
+    color: #52784F;
+    font-weight: lighter;
+    text-align: center;
+    animation: fadeInDown 1000ms forwards;
+}
+.banner_contact span{
+    color: black;
+    font-weight: bolder;
+}
+.grid_contact,
+.grid_card_form{
+    display: grid;
+    /* grid-template-columns: 1fr 3fr;
+    grid-template-rows: 3fr 1fr; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px 100px 20px 100px;
+    justify-content: space-between;
+}
+.grid_contact *{
+    font-family: 'Inder', sans-serif;
+}
+
+.grid_contact > *{
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.contact_card_small{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* height: 150px; */
+    width: 320px;
+    background-color: white;
+    border-radius: 20px;
+    transition: none;
+
+    animation: fadeInRight 1s forwards;
+    animation-delay: calc(500ms +var(--order)*200ms);
+}
+
+.mail_card,
+.box_input_name{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+.phone_card,
+.box_input_email{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+.location_card,
+.box_input_number{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+.box_input_message{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    height: auto;
+    width: auto;
+}
+.contact_card_big{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    height: auto;
+    width: auto;
+    border-radius: 20px;
+    background-color: white;
+
+    animation: fadeInLeft 1500ms forwards;
+    animation-delay: 500ms;
+
+}
+.contact_card_small:hover{
+    filter: invert(1);
+    cursor: pointer;
+    background-color: #ad87b0;
+}
+
+.contact_card_small img{
+    width: 50px;
+    align-self: center;    
+}
+.contact_card_small h1{
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    align-self: center;    
+}
+
+.grid_card_form{
+    padding: 50px;
+    grid-row-gap: 40px;
+    /* grid-column-gap: 150px; */
+}
+
+.grid_card_form label{
+    font-size: 20px;
+}
+
+.input_field #input_name{
+    background: url(../image/username.png) no-repeat scroll 13px center;
+    background-size: 7%;
+}
+.input_field #input_email{
+    background: url(../image/vectormail2.svg) no-repeat scroll  13px center;
+    background-size: 7%;
+}
+.input_field #input_number{
+    background: url(../image/vectorphone2.svg) no-repeat scroll 13px center;
+    background-size: 7%;
+}
+
+.input_field #input_name:placeholder-shown,
+.input_field #input_email:placeholder-shown,
+.input_field #input_number:placeholder-shown,
+.input_field #input_message:placeholder-shown
+{
+    background-color: #F9F9FB;
+}
+
+.box_input_message{
+    padding-left: 50px;
+}
+.box_input_message .input_field{
+    width: 100%;
+    height: 100%;
+}
+
+
+.input_field #input_message{
+    padding: 10px;
+    width: 100%;
+    height: 90%;
+}
+
+
+
+.button_send{
+    padding-bottom: 40px;
+}
+
+.button_send button{
+    font-size: 25px;
+    color: white;
+    padding: 15px;
+    width: 280px;
+    border: transparent;
+    border-radius: 50px;
+    background-color: #52784F;
+    
+}
+
+.button_send button:hover{
+    cursor: pointer;
+    background-color: #7c9e7a;
+}
+.button_send button:active{
+    transform: scale(.95);
 }
