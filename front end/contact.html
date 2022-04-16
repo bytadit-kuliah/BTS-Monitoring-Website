@@ -151,7 +151,17 @@
         
         document.getElementById("button_send").onclick = function () {
             event.preventDefault();
-            // data post codes here
+            
+            var nameVal = document.getElementById("input_name").value;
+            var emailVal = document.getElementById("input_email").value;
+            var numberVal = document.getElementById("input_number").value;
+            var messageVal = document.getElementById("input_message").value;
+            if(!nameVal || !emailVal || !numberVal || !messageVal){
+                alert('Mohon untuk melengkapi keseluruhan formulir!');
+                return;
+            }
+            
+            // put data post codes here
             location.href = "thanks.html";
         };
     </script>

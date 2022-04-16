@@ -62,7 +62,7 @@
                         </div>                        
                     </div>
                     <div class="button_login">
-                        <button>
+                        <button id="button_login">
                             Login
                         </button>
                     </div>
@@ -111,6 +111,32 @@
                 }
             }
         }
+        
+        document.getElementById("button_login").onclick = function () {
+            event.preventDefault();
+
+            // akun dummy
+            var user = 'admin';
+            var pass = 'admin';
+
+            var usernameVal = document.getElementById("input_username").value;
+            var passwordVal = document.getElementById("input_password").value;
+            if(!usernameVal || !passwordVal){
+                alert('Username atau Password tidak boleh kosong!')
+                return;
+            }
+            else{
+                // cek apakah valid ke akun dummy
+                if(usernameVal != 'admin' || passwordVal != 'admin'){
+                    alert('Username atau Password salah!')
+                    return;
+                }
+            }
+
+            alert('Selamat, Anda telah berhasil login')
+
+            // put data post codes here
+        };
     </script>
 </body>
 
