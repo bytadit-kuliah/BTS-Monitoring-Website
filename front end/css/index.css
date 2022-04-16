@@ -304,7 +304,7 @@ footer #fc a {
 
 /* login.html */
 .main_login .banner{
-    background: url(/image/vectorlogin.svg);
+    background: url(../image/vectorlogin.svg);
     background-repeat: no-repeat;
     background-position: -10px 0;
     background-size: 95%;
@@ -345,6 +345,7 @@ footer #fc a {
 } */
 
 .input_field input{
+    font-size: 20px;
     margin-top: 10px;
     width: 380px;
     height: 50px;
@@ -357,13 +358,13 @@ footer #fc a {
 }
 
 .input_field #input_username{
-    background: url(/image/username.png) no-repeat scroll 12px 9px;
+    background: url(../image/username.png) no-repeat scroll 12px 9px;
     background-size: 7%;
 }
 
 
 .input_field #input_password{
-    background: url(/image/password.png) no-repeat scroll 12px 12px;
+    background: url(../image/password.png) no-repeat scroll 12px 12px;
     background-size: 7%;
 }
 
