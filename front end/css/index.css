@@ -2,9 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
 /*Bebas Neue*/
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
-/* Inder */
-@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
+/* Typing */
 * {
     font-family: sans-serif;
     margin: 0;
@@ -65,6 +64,7 @@ header a {
     float: left;
     overflow: hidden;
 }
+
 .dropdown .dropbtn {
     cursor: pointer;
     border: none;
@@ -118,43 +118,47 @@ header nav ul li {
     margin-left: 10px;
 }
 
-#contact:active,
-#login:active {
-    transform: scale(.95);
+#contact,
+#login {
+    border-radius: 10px;
+    border: 2px solid transparent;
+    padding: 5px 10px;
 }
 
-#contact a{
-    border-radius: 15px;
-    border: 2px solid transparent;
+#contact {
     background-color: #000;
-    padding: 5px 10px;
+    height: 30px;
+}
+
+#contact a {
     color: #fff;
 }
 
-#contact a:hover {
-    background-color: white;
-    border-color: black;
+#contact:hover {
+    background: rgba(0, 0, 0, 0.25);
+    border: 2px solid #000;
+}
+
+#contact:hover a {
     color: #000;
 }
 
-#login a{
-    border-radius: 15px;
-    border: 2px solid transparent;
+#login {
     background-color: #52784F;
-    padding: 5px 10px;
-    color: #fff;
+    height: 30px;
 }
 
 #login a {
     color: #fff;
 }
 
+#login:hover {
+    background: rgba(82, 120, 79, 0.25);
+    border: 2px solid #52784F;
+}
 
-#login a:hover {
-    background-color: white;
-    border-color: #52784F;
+#login:hover a {
     color: #52784F;
-    
 }
 
 /* Banner */
@@ -191,7 +195,7 @@ header nav ul li {
 }
 
 .banner .banner_1 a:hover {
-    background: rgba(82, 120, 79, 0.5);
+    background: rgba(82, 120, 79, 0.25);
     color: #52784F;
     border: 2px solid #52784F;
 }
@@ -199,7 +203,6 @@ header nav ul li {
 .banner .banner_2 {
     text-align: center;
     padding-left: 800px;
-    /* animation: fadeInLeft 1s;  */
 }
 
 /* Heading */
@@ -219,26 +222,28 @@ header nav ul li {
     font-family: 'Montserrat';
     font-size: 50px;
     letter-spacing: 1px;
-    -webkit-text-fill-color: #F4D2EB;
+    -webkit-text-fill-color: #52784F;
     text-shadow: 3px 3px #000;
     transition: 0.5s;
 }
 
 .heading h1 span:hover {
-    -webkit-text-fill-color: #52784F;
+    -webkit-text-fill-color: #F4D2EB;
     transform: translate(0, -10px);
 }
 
 .heading h1::before,
 .heading h1::after {
     content: '';
-    border-top: 6px double #F4D2EB;
+    border-top: 6px double #52784F;
 }
 
 /* container_content */
 .container_content {
     height: 500px;
     width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 /* content 1 */
@@ -248,18 +253,122 @@ header nav ul li {
     grid-gap: 10px;
     text-align: center;
     align-items: center;
-    padding: 10px;
     margin: 0 auto;
 }
-.c1_about1{
+
+.c1_about1 {
+    text-align: justify;
+    padding: 10px;
+    text-indent: 25px;
+}
+
+.c1_about2 {
+    text-align: justify;
+    padding: 10px;
+    text-indent: 25px;
+}
+
+/* content 2 */
+.content2 {
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.content2 .box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-top: 100px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #52784F;
+}
+
+.content2 .box:hover {
+    border: 5px solid #52784F;
+}
+
+.content2 .box .box_content {
+    font-family: Helvetica;
+    color: #F4D2EB;
+}
+
+.content2 .box .box_content h5 {
+    font-size: 50px;
+}
+
+.content2 .box .box_content .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #F4D2EB;
+    color: #000;
+}
+
+.content2 .box:hover .overlay {
+    opacity: 1;
+}
+
+.content2 .box:hover .overlay p {
+    position: absolute;
+    text-align: center;
+    width: 75%;
+}
+
+/* content 3 */
+.content3{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    overflow: auto;
+}
+.content3 > div{
+    width: 50%;
     text-align: justify;
 }
-.c1_about2{
-    text-align: justify;
+.content3 .whatisbts1{
+    text-indent: 50px;
+}
+.content3 .whatisbts2{
+    text-align: center;
 }
 
+/* content 4 */
+.content4 {
+    text-align: center;
+    margin: auto;
+}
+.content4 table tr td{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.galeri{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    transition: transform 0.2s;
+}
+.galeri:hover{
+    transform: scale(1.25);
+    border: 3px solid #F4D2EB;
+}
 
-
+/* Break */
 .break {
     margin-bottom: 100px;
 }
@@ -291,11 +400,6 @@ footer .footer_content img {
 
 footer .footer_content img:hover {
     transform: translate(0, -5px);
-}
-
-footer .footer_content img:active {
-    filter: invert();
-    transition: 0s;
 }
 
 footer #fc a {
