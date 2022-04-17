@@ -251,7 +251,9 @@ footer #fc a {
     resize: none;
 }
 
-.input_field input:focus{
+.input_field input:focus,
+.input_field textarea:focus
+{
     outline: 3px solid #52784F;
 }
 
