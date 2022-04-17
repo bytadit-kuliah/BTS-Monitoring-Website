@@ -1,7 +1,9 @@
 header .navAdmin {
     margin-right: 75px;
 }
-
+header .navSurveyor {
+    margin-right: 75px;
+}
 .dropdown2 {
     float: left;
     overflow: hidden;
