@@ -38,15 +38,27 @@ merupakan tampilan website biasa yang berisikan informasi tentang BTS yang ada d
 ### Penjelasan Database dan Kemungkinan Fitur
 
 #### Tabel Config Aplikasi
-Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alamat kominfo, dll, yang nantinya bakal kepake ditiap laman (visitor, admin, surveyor), coba liat video ini untuk sedikit insight tentang config [config insight](https://www.youtube.com/watch?v=5E5v9HvYsuc)
+(ini berdasarkan pemahaman adit)
+Tabel Config ini adl dtabel yang row nya berisi masing" konfigurasi pada aplikasi, seperti logo (nnti akan upload gbr, klo di db pakai path gbr, menurutku kita jgn pakai blob, spy gk lemot), alamat, link sosmed, dll. 
+nnti tiap config ini akan ada id nya, jdi config alamat ada idnya sendiri, config logo sendiri, config sosmed, itu masing" punya id sendiri", 
+jdi klo liat di dbnya (updated sql), bakal ada: 
+1. id_config => id masing" confignya
+2. nama_config => diisi ini config buat apa, misal logo, atau alamat
+3. value_config => diisi nilainya, misal klo logo ya path gambarnya, klo alamat ya alamat kominfonya dimana, dst
+4. waktu buat dn waktu update, ini bisa pake current time
+jdi yg urusin config ini admin, nnti bakal ada tab config di laman admin.
+dan isi dri value" config ini bisa digunain di laman manapun, visitor, surveyor, dll, 
+misal digunain buat logo kominfo di laman visitor, ya brti tinggal fetch(ambil) data path logo dri tabel config ini.
+model klo bentukannya form ya kyk gini [config insight](https://www.youtube.com/watch?v=5E5v9HvYsuc), tpi nnti kita formnya buat masing" config aja, klo itu kan berurutan
     
 #### Laman Visitor
-1. Fitur (button) untuk Login ke surveyor, dan/atau admin 
+1. Fitur (button) untuk Login ke laman surveyor, dan/atau admin, dimana laman surveyor dn admin ini adl dashboard yg dibikin sama aja desainnya
 2. Fitur Contact Form, yang isinya pesan dan akan kedirect sbg pesan baru ke laman admin
 3. Profil Kominfo, spt biasa
 4. Info BTS, yg berupa page tersendiri berisi list BTS, dan nnti kemungkinan tiap info bts bakal ada gmaps utk nunjukin lokasinya.
 5. Tidak perlu pakai fitur pencarian klo gk bisa (klo mau nnti bisa dipake di page info bts, ini optional aja)
-6. (optional) ada info pemilik BTS, (yg mungkin) bisa diwujudkan kyk list partner spt ini:
+6. Info pemilik cukup dikasih di info bts aja, kasih logo jga boleh, nnti di fetch pathnya dri foto pemilik di tabel db
+7. (optional) utk info pemilik BTS, (mungkin) bisa juga diwujudkan kyk list partner spt ini:
 ![Logo Pemiliks](https://www.prestashop.com/forums/uploads/monthly_12_2014/post-869334-0-49000100-1417760311.jpg)
 ![Logo Pemiliks](https://blogs.ncl.ac.uk/t4/files/2016/11/footerlogos.fw_.png)
 
@@ -59,14 +71,15 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 3. Edit Profil, termasuk upload foto dan edit password
 4. Untuk sementara admin tidak bisa menghapus admin lain
 5. Kuesioner, ada list kuesioner yg udah dibuat, tiap kuesioner bisa dihapus atau diedit isinya, bisa juga bikin kuesioner baru, referensinya bisa cari di web survey kyk nusaresearch, swagbucks, dll
-6. Kuesioner berisi pertanyaan dan pilihan jawaban
+6. Kuesioner berisi pertanyaan dan pilihan jawaban, yg masing" bisa diedit isinya
 7. Bakal ada editing info
 8. Info BTS, ada list BTS, admin bisa nambah list, bisa ngedit info BTS, bisa juga ngedit infonya
 9. Info Pemilik BTS, admin bisa ngedit, nambah, ngehapus
 10. Wilayah, admin bisa ngedit, nambah, ngehapus list" wilayah yg ada BTSnya
-11. Pada Info BTS, form yg isinya berelasi dengan database, bisa dibuat dropdown yang langsung berisi list dri database yg dituju, misal form untuk pemilik, mk bisa berisi dropdown nama" pemilik BTS, jdi tidak perlu ngetik, 
+11. (Optional) Pada Info BTS, form yg isinya berelasi dengan database, bisa dibuat dropdown yang langsung berisi list dri database yg dituju, misal form untuk pemilik, mk bisa berisi dropdown nama" pemilik BTS, jdi tidak perlu ngetik, 
     (mungkin untuk ini, akan ada fitur dimana, jika isian berelasi dgn db (berupa dropdown), dan data yg diketikkan belum ada di db, maka otomatis datanya akan ditambahkan sbg data baru ke db, misal mau ngisi pemilik adl pertamina, tpi di dropdown tidak ada, mk admin bisa ngetik pertamina di isian pemilik, dan pertamina akan dijadikan data baru di tabel pemilik, (akan dibuatkan idnya juga)
-11. fitur logout
+12. Edit config
+13. fitur logout, jika logout, mk kembali ke form login di laman visitor
 
 #### Laman Surveyor
 1. Di Home ada jml survey yg udah dikerjakan, , jml upcoming survey (yg belum dikerjakan), jml bts yg udah dimonitor, dsb, designnya kek gini:
@@ -109,6 +122,7 @@ Ini adl database yang berisi konfigurasi aplikasi, seperti logo (kominfo), alama
 6. Mockup Design boleh pakai figma atau apapun bebas, atau langsung ngoding jga boleh, penting jadi
 7. Tetap koordinasi dengan backend, supaya tetap satu pemahaman
 8. Desgin Form untuk kuis, nnti isi pertanyaan dan pilihan jawaban kuis (mungkin) bisa dipikir bareng"
+9. Laman surveyor dan admin itu designnya boleh sama, yg beda adalah laman visitor yg lebih spt landing page. admin dan surveyor tidak perlu punya laman spt visitor, desgin laman mereka ya kyk template admin yg udh ada di folder template.
 
 #### Back End
 1. Belajar dulu PHP Dasar, Laravel, MySQL, HTML, dan JS
