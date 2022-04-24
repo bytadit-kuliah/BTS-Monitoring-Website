@@ -3,7 +3,6 @@
 /*Bebas Neue*/
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
 
-/* Typing */
 * {
     font-family: sans-serif;
     margin: 0;
@@ -326,20 +325,23 @@ header nav ul li {
 }
 
 /* content 3 */
-.content3{
+.content3 {
     display: flex;
     flex-wrap: wrap;
     align-content: space-around;
     overflow: auto;
 }
-.content3 > div{
+
+.content3>div {
     width: 50%;
     text-align: justify;
 }
-.content3 .whatisbts1{
+
+.content3 .whatisbts1 {
     text-indent: 50px;
 }
-.content3 .whatisbts2{
+
+.content3 .whatisbts2 {
     text-align: center;
 }
 
@@ -348,17 +350,20 @@ header nav ul li {
     text-align: center;
     margin: auto;
 }
-.content4 table tr td{
+
+.content4 table tr td {
     padding-left: 10px;
     padding-right: 10px;
 }
-.galeri{
+
+.galeri {
     width: 100%;
     height: auto;
     margin: 0 auto;
     transition: transform 0.2s;
 }
-.galeri:hover{
+
+.galeri:hover {
     transform: scale(1.25);
     border: 3px solid #F4D2EB;
 }
