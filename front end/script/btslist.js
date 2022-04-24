@@ -49,9 +49,7 @@ const getCardContent = (title, path) => {
                 corporis debitis ea eveniet in maiores, nam placeat quae, ratione rerum ullam?
             </p>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eligendiabo fugit, impedit iure libero nam nihil nisi perferendis
-                provident quaerat repellendus vitae voluptate? Aliquid amet architecto asperiores aut consequuntur
-                corporis debitis ea eveniet in maiores, nam placeat quae, ratione rerum ullam? fuga ullam? Aperiam blanditiis
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eligendi fuga ullam? Aperiam blanditiis
                 cupiditate dicta eius exercitationem explicabo fugit, impedit iure libero nam nihil nisi perferendis
                 provident quaerat repellendus vitae voluptate? Aliquid amet architecto asperiores aut consequuntur
                 corporis debitis ea eveniet in maiores, nam placeat quae, ratione rerum ullam?
@@ -132,3 +130,18 @@ $(window).scroll(function() {
         })
     }
 });
+
+function searchBTSList(){
+    let input = document.getElementById('search').value;
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('card');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].querySelector('h2').innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="flex";              
+        }
+    }
+}

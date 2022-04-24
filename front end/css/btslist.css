@@ -352,7 +352,9 @@ footer #fc a {
     animation: fadeInDown 1s forwards;
     animation-delay: calc(var(--order)*200ms); */
 }
-
+.cards .card:hover {
+    transform: scale(103%);
+}
 .cards .card h2 {
     margin: 0;
     align-self: center;
@@ -404,6 +406,8 @@ footer #fc a {
     border-radius: 50%;
     background-color: #F4D2EB;
     cursor : pointer;
+
+    border: 2px solid black ;
 }
 
 .button_close::before{
