@@ -327,7 +327,8 @@ footer #fc a {
     margin: 0 50px 100px 50px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    min-height: 400px;
     /* overflow: auto; */
 }
 
@@ -355,11 +356,19 @@ footer #fc a {
 .cards .card:hover {
     transform: scale(103%);
 }
-.cards .card h2 {
+.cards .card > h2 {
     margin: 0;
+    font-size: 50px;
+    margin-top: -50px;
+    margin-bottom: 50px;
     align-self: center;
+    /* color: #52784F; */
 }
-
+.cards .card > img{
+    width: 400px;
+    align-self: center;
+    border-radius: 10px;
+}
 .card-content {
     display: flex;
     flex-direction: column;
@@ -377,7 +386,7 @@ footer #fc a {
 }
 .card-content h2 {
     font-size: 80px;
-    color: #52784F;
+    /* color: #52784F; */
     text-align: center;
     margin-bottom: 60px;
     animation: slideRight 0.5s ease-out forwards;
