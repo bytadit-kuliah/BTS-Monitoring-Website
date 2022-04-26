@@ -365,7 +365,7 @@ footer #fc a {
     /* color: #52784F; */
 }
 .cards .card > img{
-    width: 400px;
+    width: 150%;
     align-self: center;
     border-radius: 10px;
 }

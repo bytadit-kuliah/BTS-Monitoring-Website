@@ -14,13 +14,15 @@ header .nav-item > a{
 
 .bg-bts-1 {
   --bs-bg-opacity: 1;
-  background-color: #FDF7F2;
+  background-color: #FDF7F2 !important;
 
 }
-
+.border-bts-3 {
+  border-color: #52784F !important;
+}
 .bg-bts-3 {
   --bs-bg-opacity: 1;
-  background-color: #52784F;
+  background-color: #52784F !important;
 
 }
 
