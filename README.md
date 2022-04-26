@@ -124,6 +124,27 @@ model klo bentukannya form ya kyk gini [config insight](https://www.youtube.com/
 8. Desgin Form untuk kuis, nnti isi pertanyaan dan pilihan jawaban kuis (mungkin) bisa dipikir bareng"
 9. Laman surveyor dan admin itu designnya boleh sama, yg beda adalah laman visitor yg lebih spt landing page. admin dan surveyor tidak perlu punya laman spt visitor, desgin laman mereka ya kyk template admin yg udh ada di folder template.
 
+#### [UPDATE BARU, ISI DASHBOARD]
+Isi dashboardnya ini ya ,
+admin :
+1. edit profile (sesuaiin database), didalamnya bakal ada edit password dan username(selama belum ada yg menggunakan)
+2. surveyor, bisa liat list surveyor, dmn tiap listnya ada info profil surveyor, dan ada riwayat survey. nah di riwayat survey ini, dia adl tabel sendiri, nnti bikin aja pop up/ expand pas diklik, ky listbts, itu nnti isinya semua survey yg ada/telah dibikin oleh admin, beserta keterangan dri pengerjaan survey oleh surveyor itu (status), apakah survei ini telah dikerjakan atau belum. (liat aja dbnya).
+Trus ada buat akun baru surveyor, yg diisi oleh admin pas bikin akun survyeor, cuma username,email, sm password, password boleh bebas(krn nnti bisa diganti oleh surveyor sendiri, yg penting tau password awalnya), tiap bikin akun, selain kasih input password kasih juga confirm password(buat validasi). Admin ga bisa ngedit info profil surveyor, tpi bisa ngehapus surveyor.
+3. kuesioner (sekarang ganti namanya jadi survey), bikin survey,tiap survey punya kode, tpi gausah bikin sendiri( krn auto increment), tiap survey punya bbrp pertanyaan, tiap pertanyaan punya bbrp jawaban, nnti bisa edit survey (termasuk pertanyaan, dan pilihan jawaban), bisa juga hapus survey, nnti ada tgl dibuat kuesioner(auto generate), ada nama admin pembuat survey (lihat database),
+4. Info_BTS(sekarang jadi BTS aja), buat info baru ttg bts (datanya apa aja liat di database), edit info, hapus info, nnti kasih gmaps sekalian jga boleh, nnti ada wktu"nya (autogenerate)
+5. wilayah(ini skrg ganti jadi desa), klo parent wilayah jdi kecamatan, liat dbnya
+6. edit config, ini ya liat aja dbnya, nnti ada nama config, sm value, sm tgl edit config
+7. PEMILIK, sesuaikan db
+8. Informasi Login User (Tabel USER_LOG), buat ngeliat siapa aja(user) yang udah login hari ini, nnti ada Id_User,Username, sm waktu loginnya
+9. grafik, nnti digenerate berdasarkan hasil survey, parameternya misal, grafik khusus untuk survey 1, nnti bisa dibuat tab per pertanyaan, absisnya diisi pil jawaban, ordinatnya brp jumlah yg ngisi jawaban tsbt, nnti geser ke tab pertanyaan lain, beda lagi grafiknya, simpelnya gtu, atau nnti dibikin gmn ya kedepan dipikirin lagi
+
+surveyor:
+1. sm sprti admin, nnti ada profil, dan edit profil, bisa ganti password yg sbelumnya udh dibuat sm admin, lengkapnya liat db
+3. MONITORING, intinya ini data kunjungan dan survey lapangan yang udah dilakuin oleh surveyor, satu monitoring buat satu tower bts, struktur datanya apa, liat aja dbnya. 
+2. SURVEY, klo ini beda sm punyanya admin, si surveyor bisa liat semua survey yg ada, baik yg dikerjakan atau belum, yg udah bisa dikasih warna ijo, yg belum merah misal, nnti dia bisa ngerjain survey baru yg belum dikerjain, atau ngedit jawaban dari survey yg udah dikerjain. waktu editnya otomatis kegenerate.
+jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
+
+
 #### Back End
 1. Belajar dulu PHP Dasar, Laravel, MySQL, HTML, dan JS
 2. Pahami alur pembuatan web dengan laravel
