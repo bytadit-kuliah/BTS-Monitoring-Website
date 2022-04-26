@@ -13,12 +13,12 @@
 <body>
     <!-- Header Awal -->
     <header>
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand ps-3" href="#">
-                <img src="image/BTS logo3.png" id="logo" alt="logo">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-bts-1">
+            <a class="navbar-brand ps-3 d-flex bg-bts-3" href="#" style="padding-bottom:18px; border-top-right-radius: 40px; justify-content: center;">
+                <img src="image/BTS logo3.png" id="logo" alt="logo" style="margin-left: -25px; margin-top:18px; width: 130px;">
             </a>
             <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -40,9 +40,20 @@
     <div id="layoutSidenav">
         <!-- Sidebar Awal -->
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark bg-bts-3" id="sidenavAccordion" style="background-color: #52784F; border-bottom-right-radius: 20px;">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+                        <div class="sb-sidenav-menu-heading">
+                            <div class="d-flex sb-nav-link-icon">
+                                <img src="./image/pp.png" style="width:50px; margin-right: 10px;">
+                                <div class="d-flex flex-column">
+                                    <small class="font-weight-normal" style="color:#F4D2EB; font-weight:lighter">Welcome</small>
+                                    <p >Admin Name</p>
+
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="sb-sidenav-menu-heading">General</div>
                         <a class="nav-link" href="dashboardAdmin.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
