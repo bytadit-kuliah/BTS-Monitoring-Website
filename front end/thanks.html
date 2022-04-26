@@ -46,6 +46,8 @@
                 <h1><span>Thank</span> You</h1>
                 <p>Terima kasih telah mengisi formulir kami. Pesan Anda telah diteruskan kepada <i>admin</i>, harap menunggu balasan. <br>
                     Kami akan terus berupaya untuk memberikan pelayanan terbaik kami kepada masyarakat.</p>
+                    <br>
+                    <p style="color:#52784F">Anda akan dikembalikan ke halaman utama dalam <span id="counter">5</span> detik</p>
             </div>
         </div>
 
@@ -89,7 +91,15 @@
                 }
             }
         }
-         setTimeout(function(){
+        
+
+        var ctr = document.getElementById('counter');
+        var number = 4
+        setInterval(function(){
+            ctr.innerHTML = number--;
+
+        },1000);
+        setTimeout(function(){
             window.location.href = 'index.html';
          }, 5000);
     </script>
