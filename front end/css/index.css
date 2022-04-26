@@ -73,7 +73,7 @@ header a {
 .drop_content {
     display: none;
     position: absolute;
-    background-color: #ADCDAA;
+    background-color: #52784F;
     min-width: 150px;
     box-shadow: 0px 16px 32px 2px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -88,7 +88,7 @@ header a {
 }
 
 .drop_content a:hover {
-    background-color: #52784F;
+    background-color: #ADCDAA;
 }
 
 .show {

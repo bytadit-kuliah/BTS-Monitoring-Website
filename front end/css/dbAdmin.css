@@ -17,15 +17,18 @@ header .nav-item > a{
   background-color: #FDF7F2 !important;
 
 }
+.bg-bts-2 {
+  --bs-bg-opacity: 1;
+  background-color: #F4D2EB  !important;
+
+}
 .border-bts-3 {
   border-color: #52784F !important;
 }
 .bg-bts-3 {
   --bs-bg-opacity: 1;
   background-color: #52784F !important;
-
 }
-
 
 
 :root {
