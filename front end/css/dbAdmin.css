@@ -1,3 +1,6 @@
+header .nav-item > a{
+  filter:invert(1);
+}
 #sidenavAccordion *{
   color: white;
 }

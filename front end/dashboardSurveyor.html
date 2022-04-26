@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - BTS Surveyor</title>
+    <link rel="icon" type="image/x-icon" href="image/BTS logo.png">
     <link rel="stylesheet" href="css/dbAdmin.css">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -14,12 +15,12 @@
 <body>
     <!-- Header Awal -->
     <header>
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand ps-3" href="#">
-                <img src="image/BTS logo3.png" id="logo" alt="logo">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-bts-1">
+            <a class="navbar-brand ps-3 d-flex bg-bts-3" href="#" style="padding-bottom:18px; border-top-right-radius: 40px; justify-content: center;">
+                <img src="image/BTS logo3.png" id="logo" alt="logo" style="margin-left: -25px; margin-top:18px; width: 100px;">
             </a>
             <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -41,11 +42,21 @@
     <div id="layoutSidenav">
         <!-- Sidebar Awal -->
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" style="background-color: #52784F; border-bottom-right-radius: 20px;">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+                        <div class="sb-sidenav-menu-heading">
+                            <div class="d-flex sb-nav-link-icon">
+                                <img src="./image/pp.png" style="width:50px; margin-right: 10px;">
+                                <div class="d-flex flex-column">
+                                    <small class="font-weight-normal" style="color:#F4D2EB; font-weight:lighter">Welcome</small>
+                                    <p >Surveyor Name</p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="sb-sidenav-menu-heading">General</div>
-                        <a class="nav-link" href="dashboardAdmin.html">
+                        <a class="nav-link" href="dashboardSurveyor.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -59,7 +70,7 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Edit Profil</a>
+                                <a class="nav-link" href="editProfileSurveyor.html">Edit Profil</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
@@ -71,9 +82,9 @@
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">BTS info</a>
-                                <a class="nav-link" href="#">Kuisioner</a>
-                                <a class="nav-link" href="#">Monitoring</a>
+                                <a class="nav-link" href="listBTSInfo.html">BTS info</a>
+                                <a class="nav-link" href="surveyList.html">Survey</a>
+                                <a class="nav-link" href="monitoringSurveyor.html">Monitoring</a>
                             </nav>
                         </div>
                     </div>
@@ -95,7 +106,7 @@
                             <div class="card bg-primary text-white mb-4">
                                 <div class="card-body">Edit Profil</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="editProfileSurveyor.html">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
@@ -111,7 +122,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-success text-white mb-4">
-                                <div class="card-body">Kuisioner</div>
+                                <div class="card-body">Survey</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="#">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
