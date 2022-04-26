@@ -127,14 +127,22 @@
             }
             else{
                 // cek apakah valid ke akun dummy
-                if(usernameVal != 'admin' || passwordVal != 'admin'){
+                if(usernameVal == 'surveyor' && passwordVal == 'surveyor'){                    
+                    alert('Selamat, Anda telah berhasil login sebagai surveyor');
+                    location.href = "dashboardSurveyor.html";
+
+                }
+                else if(usernameVal == 'admin' && passwordVal == 'admin'){                    
+                    alert('Selamat, Anda telah berhasil login sebagai admin');
+                    location.href = "dashboardAdmin.html";
+
+                }
+                else{
                     alert('Username atau Password salah!')
                     return;
                 }
             }
-
-            alert('Selamat, Anda telah berhasil login');
-            location.href = "indexAdmin.html";
+            
 
             // put data post codes here
         };
