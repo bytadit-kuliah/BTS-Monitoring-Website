@@ -29,9 +29,9 @@ CREATE TABLE ADMIN(
     Nama_Belakang VARCHAR(255),
     Email_Admin VARCHAR(255),
     Alamat TEXT,
-    FOREIGN KEY(Id_User) REFERENCES USER(Id_User),
-    FOREIGN KEY(Username) REFERENCES USER(Username),
-    FOREIGN KEY(Email_Admin) REFERENCES USER(Email)
+    FOREIGN KEY(Id_User) REFERENCES USER(Id_User)
+    -- FOREIGN KEY(Username) REFERENCES USER(Username),
+    -- FOREIGN KEY(Email_Admin) REFERENCES USER(Email)
 );
 
 CREATE TABLE SURVEYOR(

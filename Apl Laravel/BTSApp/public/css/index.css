@@ -1,0 +1,454 @@
+/*Montserrat*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+/*Bebas Neue*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
+
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+
+html {
+    background-color: #FDF7F2;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* Header */
+header {
+    padding: 0 20px;
+    background-color: #FDF7F2;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#brand {
+    display: flex;
+    align-items: center;
+}
+
+#brand a img {
+    margin-left: 25px;
+    width: 50px;
+}
+
+#brand ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#brand ul a {
+    color: #000;
+}
+
+#brand ul li {
+    padding: 5px;
+    margin-left: 15px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.drop_content {
+    display: none;
+    position: absolute;
+    background-color: #52784F;
+    min-width: 150px;
+    box-shadow: 0px 16px 32px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.drop_content a {
+    float: none;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.drop_content a:hover {
+    background-color: #ADCDAA;
+}
+
+.show {
+    display: block;
+}
+
+header nav {
+    margin-right: 25px;
+}
+
+header nav ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header nav ul li {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#contact:active,
+#login:active,
+#logout:active,
+#dashboard:active {
+    transform: scale(.95);
+}
+
+#contact a {
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #000;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#contact a:hover {
+    background-color: white;
+    border-color: black;
+    color: #000;
+}
+
+.dashboard button {
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #000;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+.dashboard button:hover {
+    background-color: white;
+    border-color: black;
+    color: #000;
+}
+
+#dashboard a {
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #000;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#dashboard a:hover {
+    background-color: white;
+    border-color: black;
+    color: #000;
+}
+
+#login a {
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #52784F;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#login a {
+    color: #fff;
+}
+
+
+#login a:hover {
+    background-color: #fff;
+    border-color: #52784F;
+    color: #52784F;
+
+}
+
+#logout a {
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #52784F;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#logout a {
+    color: #fff;
+}
+
+
+#logout a:hover {
+    background-color: #fff;
+    border-color: #52784F;
+    color: #52784F;
+
+}
+/* Banner */
+.banner {
+    background-color: #FDF7F2;
+    height: 600px;
+    align-items: center;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.banner .banner_1 {
+    text-align: left;
+    padding-left: 50px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.banner .banner_1 h1 {
+    font-size: 75px;
+    font-family: 'Bebas Neue';
+}
+
+.banner .banner_1 p {
+    font-family: 'Franklin Gothic Medium';
+}
+
+.banner .banner_1 a {
+    border-radius: 10px;
+    border: 2px solid transparent;
+    padding: 15px 15px;
+    background-color: #52784F;
+    color: #fff;
+}
+
+.banner .banner_1 a:hover {
+    background: #fff;
+    color: #52784F;
+    border: 2px solid #52784F;
+}
+
+.banner .banner_2 {
+    text-align: center;
+    padding-left: 800px;
+}
+
+/* Heading */
+.heading h1 {
+    display: grid;
+    grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    color: #52784F;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 25px;
+}
+
+.heading h1 span {
+    font-family: 'Montserrat';
+    font-size: 50px;
+    letter-spacing: 1px;
+    -webkit-text-fill-color: #52784F;
+    text-shadow: 3px 3px #000;
+    transition: 0.5s;
+}
+
+.heading h1 span:hover {
+    -webkit-text-fill-color: #F4D2EB;
+    transform: translate(0, -10px);
+}
+
+.heading h1::before,
+.heading h1::after {
+    content: '';
+    border-top: 6px double #52784F;
+}
+
+/* container_content */
+.container_content {
+    height: 500px;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* content 1 */
+.content1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.c1_about1 {
+    text-align: justify;
+    padding: 10px;
+    text-indent: 25px;
+}
+
+.c1_about2 {
+    text-align: justify;
+    padding: 10px;
+    text-indent: 25px;
+}
+
+/* content 2 */
+.content2 {
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.content2 .box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-top: 100px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #52784F;
+}
+
+.content2 .box:hover {
+    border: 5px solid #52784F;
+}
+
+.content2 .box .box_content {
+    font-family: Helvetica;
+    color: #F4D2EB;
+}
+
+.content2 .box .box_content h5 {
+    font-size: 50px;
+}
+
+.content2 .box .box_content .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #F4D2EB;
+    color: #000;
+}
+
+.content2 .box:hover .overlay {
+    opacity: 1;
+}
+
+.content2 .box:hover .overlay p {
+    position: absolute;
+    text-align: center;
+    width: 75%;
+}
+
+/* content 3 */
+.content3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    overflow: auto;
+}
+
+.content3>div {
+    width: 50%;
+    text-align: justify;
+}
+
+.content3 .whatisbts1 {
+    text-indent: 50px;
+}
+
+.content3 .whatisbts2 {
+    text-align: center;
+}
+
+/* content 4 */
+.content4 {
+    text-align: center;
+    margin: auto;
+}
+
+.content4 table tr td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.galeri {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    transition: transform 0.2s;
+}
+
+.galeri:hover {
+    transform: scale(1.25);
+    border: 3px solid #F4D2EB;
+}
+
+/* Break */
+.break {
+    margin-bottom: 100px;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    width: 100%;
+    background: #52784F;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+}
+
+footer .footer_content {
+    width: 100%;
+}
+
+footer .footer_content img {
+    width: 50px;
+    height: 50px;
+    transition: 0.25s;
+}
+
+footer .footer_content img:hover {
+    transform: translate(0, -5px);
+}
+
+footer #fc a {
+    color: #fff;
+    padding-left: 25px;
+    padding-right: 25px;
+}

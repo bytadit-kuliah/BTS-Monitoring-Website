@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diskominfo Surakarta - BTS</title>
+    <link rel="icon" type="image/x-icon" href="image/BTS logo.png">
+    <link rel="stylesheet" href="css/btslist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!--Header Awal-->
+    <header>
+        <div id="brand"><a href="#">
+                <img src="image/BTS logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#" class="drop_btn" onclick="dropdownFunction()">
+                            Information
+                        </a>
+                        <div class="drop_content" id="myDropdown">
+                            <a href="/about">Diskominfo Surakarta</a>
+                            <a href="/btslist">Data BTS Tower</a>
+                            <!-- <a href="btsmonitor.html">Data Monitoring</a> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+            @auth
+            <nav>
+                <ul>
+                    {{-- <li><p>Welcome {{ auth()->user()->username }}</p></li> --}}
+                    <li id="dashboard" class="dashboard">
+                        <button class="dashboard dropdown-item"><a href="/{{ auth()->user()->role }}">My Dashboard</a></button>
+                    <li id="logout">
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="dropdown-item">LogOut</button>
+                        </form>
+                    </li>
+                    {{-- <li id="login"><a href="/login">Log In</a></li> --}}
+                    <li id="contact"><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            @else
+            <nav>
+                <ul>
+                    <li id="contact"><a href="/contact">Contact Us</a></li>
+                    <li id="login"><a href="/login">Log In</a></li>
+                </ul>
+            </nav>
+            @endauth
+
+    </header>
+    <!--Header Akhir-->
+
+    <!--Main Awal-->
+    <main class="main_btslist">
+        <div class="banner">
+            <div class="banner_btslist">
+                <h1><span>BTS</span> List</h1>
+                <div class="search_container">
+                    <form action="">
+                        <input type="search" id="search" name="search" onkeyup="searchBTSList()" placeholder="masukkan nama BTS...">
+                        <button type="submit">
+                            <i class="fa fa-search" style="font-family:'FontAwesome' !important;"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div id="card" class="card" style="--order: 1"  data-type="indexgaleri1">
+                <h2>ABC0001</h2>
+                <img src="image/indexgaleri1.jpg" alt="ABC0001">
+            </div>
+            <div id="card" class="card" style="--order: 2" data-type="indexgaleri2">
+                <h2>ABC0002</h2>
+                <img src="image/indexgaleri2.jpg" alt="ABC0002">
+            </div>
+            <div id="card" class="card" style="--order: 3" data-type="indexgaleri3">
+                <h2>ABC0003</h2>
+                <img src="image/indexgaleri3.jpg" alt="ABC0003">
+            </div>
+            <div id="card" class="card" style="--order: 4" data-type="indexgaleri4">
+                <h2>ABC9999</h2>
+                <img src="image/indexgaleri4.jpg" alt="ABC9999">
+            </div>
+            <div id="card" class="card" style="--order: 5" data-type="indexgaleri5">
+                <h2>DEF1001</h2>
+                <img src="image/indexgaleri5.jpg" alt="DEF1001">
+            </div>
+            <div id="card" class="card" style="--order: 6" data-type="indexgaleri6">
+                <h2>DEF1002</h2>
+                <img src="image/indexgaleri6.jpg" alt="DEF1002">
+            </div>
+            <div id="card" class="card" style="--order: 7" data-type="indexgaleri1">
+                <h2>DEF1004</h2>
+                <img src="image/indexgaleri1.jpg" alt="DEF1004">
+            </div>
+            <div id="card" class="card" style="--order: 8" data-type="indexgaleri2">
+                <h2>DEF8999</h2>
+                <img src="image/indexgaleri2.jpg" alt="DEF8999">
+            </div>
+            <div id="card" class="card" style="--order: 9" data-type="indexgaleri3">
+                <h2>TES1234</h2>
+                <img src="image/indexgaleri3.jpg" alt="TES1234">
+            </div>
+            <div id="card" class="card" style="--order: 10" data-type="indexgaleri4">
+                <h2>TES5678</h2>
+                <img src="image/indexgaleri4.jpg" alt="TES5678">
+            </div>
+            <div id="card" class="card" style="--order: 11" data-type="indexgaleri5">
+                <h2>WOW1010</h2>
+                <img src="image/indexgaleri5.jpg" alt="WOW1010">
+            </div>
+            <div id="card" class="card" style="--order: 12" data-type="indexgaleri6">
+                <h2>WOW0101</h2>
+                <img src="image/indexgaleri6.jpg" alt="WOW0101">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="heading">
+            <!-- <h1><span>Selamat Datang di<br>Diskominfo BTS Surakarta</span></h1> -->
+        </div>
+
+    </main>
+    <!--Main Akhir-->
+
+    <!--Awal Footer-->
+    <footer>
+        <div class="footer_content">Copyright &copy; Diskominfo BTS Surakarta 2022 </div>
+        <div class="footer_content">
+            <a href="https://www.instagram.com"><img src="image/sosmed1.png" alt="ig"></a>
+            <a href="https://www.twitter.com"><img src="image/sosmed2.png" alt="tw"></a>
+            <a href="https://www.facebook.com"><img src="image/sosmed3.png" alt="fb"></a>
+            <a href="https://www.youtube.com"><img src="image/sosmed4.png" alt="yt"></a>
+            <a href="https://www.linkedin.com"><img src="image/sosmed5.png" alt="in"></a>
+            <a href="https://www.whatsapp.com"><img src="image/sosmed6.png" alt="wa"></a>
+        </div>
+        <div class="footer_content" id="fc">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+    <!--Akhir Footer-->
+
+    <script src="script/btslist.js"></script>
+    <script>
+        // Dropdown
+        function dropdownFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function (e) {
+            if (!e.target.matches('.drop_btn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

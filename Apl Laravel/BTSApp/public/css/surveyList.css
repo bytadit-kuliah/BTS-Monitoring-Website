@@ -1,0 +1,18 @@
+.survey-cards a{
+    text-decoration: none;
+    font-weight: bold;
+    /* color:whitesmoke ; */
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.survey-cards a:hover{
+    background-color: white;
+}
+.add-card a:hover{
+    background-color: #F8F9FA;
+}
+.card{
+    text-align: justify;
+    margin:10px;
+}

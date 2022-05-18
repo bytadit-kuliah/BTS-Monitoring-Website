@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diskominfo Surakarta - Contact</title>
+    <link rel="icon" type="image/x-icon" href="image/BTS logo.png">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+    <!--Header Awal-->
+    <header>
+        <div id="brand"><a href="#">
+                <img src="image/BTS logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#" class="drop_btn" onclick="dropdownFunction()">
+                            Information
+                        </a>
+                        <div class="drop_content" id="myDropdown">
+                            <a href="/about">Diskominfo Surakarta</a>
+                            <a href="/btslist">Data BTS Tower</a>
+                            <!-- <a href="btsmonitor.html">Data Monitoring</a> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+            @auth
+            <nav>
+                <ul>
+                    {{-- <li><p>Welcome {{ auth()->user()->username }}</p></li> --}}
+                    <li id="dashboard" class="dashboard">
+                        <button class="dashboard dropdown-item"><a href="/{{ auth()->user()->role }}">My Dashboard</a></button>
+                    <li id="logout">
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="dropdown-item">LogOut</button>
+                        </form>
+                    </li>
+                    {{-- <li id="login"><a href="/login">Log In</a></li> --}}
+                    <li id="contact"><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            @else
+            <nav>
+                <ul>
+                    <li id="contact"><a href="/contact">Contact Us</a></li>
+                    <li id="login"><a href="/login">Log In</a></li>
+                </ul>
+            </nav>
+            @endauth
+
+    </header>
+    <!--Header Akhir-->
+
+    <!--Main Awal-->
+    <main class="main_contact">
+        <div class="banner">
+            <div class="banner_contact">
+                <h1><span>Contacts</span> Information</h1>
+            </div>
+            <div class="grid_contact">
+                <div class="contact_card_small mail_card" id="mail_card" style="--order: 1" onclick="copyText(this.id)">
+                    <img src="image/vectormail.svg"></img>
+                    <h1>btsinfogais@gmail.com</h1>
+                </div>
+                <div class="contact_card_small phone_card" id="phone_card"style="--order: 2" onclick="copyText(this.id)">
+                    <img src="image/vectorphone.svg"></img>
+                    <h1>+(0271) 666-000</h1>
+
+                </div>
+                <a class="contact_card_small location_card" id="location_card" style="--order: 3" target='_blank' href="https://www.google.com/maps?ll=-7.569884,110.829688&z=13&t=m&hl=en-US&gl=US&mapclient=embed&cid=16612372468657095586">
+                    <img src="image/vectorlocation.svg"></img>
+                    <h1>Jl. Jendral Sudirman, Kedung Lumbu, Kec. Ps. Kliwon, Surakarta, Jawa Tengah.</h1>
+
+                </a>
+                <form class="contact_card_big" id="contact_form">
+                    <div class="grid_card_form">
+                        <div class="box_input box_input_name">
+                            <label for="input_name">Nama :</label>
+                            <div class="input_field">
+                                <input type="text" id="input_name" name="input_name" placeholder="masukkan nama Anda...">
+                            </div>
+                        </div>
+
+                        <div class="box_input box_input_email">
+                            <label for="input_email">Email :</label>
+                            <div class="input_field">
+                                <input type="email" id="input_email" name="input_email" placeholder="masukkan email Anda...">
+                            </div>
+                        </div>
+
+                        <div class="box_input box_input_number">
+                            <label for="input_number">Nomor :</label>
+                            <div class="input_field">
+                                <input type="tel" id="input_number" name="input_number" placeholder="masukkan email Anda...">
+                            </div>
+                        </div>
+
+                        <div class="box_input box_input_message">
+                            <label for="input_message">Pesan :</label>
+                            <div class="input_field">
+                                <textarea type="tel" id="input_message" name="input_message" placeholder="masukkan pesan Anda..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="button_send">
+                        <button id="button_send">
+                            Kirim Pesan
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="heading">
+            <!-- <h1><span>Selamat Datang di<br>Diskominfo BTS Surakarta</span></h1> -->
+        </div>
+
+    </main>
+    <!--Main Akhir-->
+
+    <!--Awal Footer-->
+    <footer>
+        <div class="footer_content">Copyright &copy; Diskominfo BTS Surakarta 2022 </div>
+        <div class="footer_content">
+            <a href="https://www.instagram.com"><img src="image/sosmed1.png" alt="ig"></a>
+            <a href="https://www.twitter.com"><img src="image/sosmed2.png" alt="tw"></a>
+            <a href="https://www.facebook.com"><img src="image/sosmed3.png" alt="fb"></a>
+            <a href="https://www.youtube.com"><img src="image/sosmed4.png" alt="yt"></a>
+            <a href="https://www.linkedin.com"><img src="image/sosmed5.png" alt="in"></a>
+            <a href="https://www.whatsapp.com"><img src="image/sosmed6.png" alt="wa"></a>
+        </div>
+        <div class="footer_content" id="fc">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+    <!--Akhir Footer-->
+
+    <script>
+        // Dropdown
+        function dropdownFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function (e) {
+            if (!e.target.matches('.drop_btn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+        function copyText(argument){
+            var text = (document.getElementById(argument).querySelector('h1').innerText);
+
+            navigator.clipboard.writeText(text);
+            alert("Text telah disalin");
+        }
+
+        document.getElementById("button_send").onclick = function () {
+            event.preventDefault();
+
+            var nameVal = document.getElementById("input_name").value;
+            var emailVal = document.getElementById("input_email").value;
+            var numberVal = document.getElementById("input_number").value;
+            var messageVal = document.getElementById("input_message").value;
+            if(!nameVal || !emailVal || !numberVal || !messageVal){
+                alert('Mohon untuk melengkapi keseluruhan formulir!');
+                return;
+            }
+
+            // put data post codes here
+            location.href = "thanks";
+        };
+    </script>
+</body>
+
+</html>
