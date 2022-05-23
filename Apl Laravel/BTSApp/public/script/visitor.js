@@ -1,1 +1,1 @@
-// masukkan semua script pada laman visitor disini, jgn sampai ada yg bentrok, nama variable, function, dll
+// masukkan script dari laman visitor yang bisa diletakkan disini
