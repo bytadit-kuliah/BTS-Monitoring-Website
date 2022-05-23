@@ -176,3 +176,53 @@ jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
 5. [https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel](https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel)
 6. 
 ...still updating, silakan klo ada info tambahan, edit readme ini
+
+### New Message Updated
+#### FrontEnd:
+1. Fokus saja pada dashboard, untuk laman visitor diskip dulu
+2. Sekarang untuk mengedit frontend pakainya views laravel, "BTS-Monitoring-Website/Apl Laravel/BTSApp/resources/views/"\
+3. file css dan js ada di folder public "BTS-Monitoring-Website/Apl Laravel/BTSApp/public/", css jangan banyak"/perpage, udah kubikin dua yg utama, dashboard.css sm visitor.css, taruh aja semua file css untuk dashboard dan visitor disitu 
+4. file js, jika sifatnya universal (digunakan di semua page), taruh saja(function, variable, dll) di satu file, (dashboard.js dan visitor.js), namun jika script js khusus untuk halaman tertentu, maka taruh saja di tiap page (view) nya.
+5. Disarankan untuk sering menggunakan class bootstrap, supaya css class/id yg dibuat tidak terlalu banyak
+6. Pada views, terdapat layout dan partials yang merupakan template dari laman visitor
+7. Layouts berisi main.blade.php, ini adalah layout html keseluruhan (head, body), dimana pada view ini semua css dan js diimport dimana templating akan dilakukan di body pakai @yield
+8. Partials berisi navbar.blade.php, ini adalah layout untuk navbar, navbar akan digunakan di semua page di visitor
+9. Pada views terdapat folder dashboard, yang tentu saja untuk tampilan dashboard
+10. Pada folder dashboard, terdapat folder layout, admin, dan surveyor
+11. Layout pada dashboard sekali lagi untuk templating, berisi header (tamplate header untuk tiap halaman dashboard), main (untuk templating head, dan body untuk tiap page dashboard), sidebar (template sidebar, krn tiap page di dashboard punya sidebar, jadi ngeditnya sekali saja di view sidebar ini)
+12. Untuk sidebar, taruh saja semua ul dan li dari link tiap page di file view ini, semuanya (admin sm surveyor)
+13. Kebanyakan view di dashboard, adalah index, create, edit, dan show, dan ini kuletakkan di dalam tiap folder. ini sudah sesuai template di controller ya teman", biarkan seperti itu aja namanya, yg kalian bikin adalah isinya. misal untuk page bts, index digunakan untuk tampilan awal ketika buka page bts, edit adalah view untuk page edit, show adalah page ketika kita klik tombol show, yg isinya data yg udah kita input, create adalah view page yg muncul ketika kita klik tombol add new bts. nanti juga ada tombol delete, namun ini tidak perlu dibikin view.
+14. Untuk page survey di surveyor, agak berbeda. index berisi semua survey yang akan atau telah diisi surveyor (bisa berbentuk card). nanti di tiap card ada tombol view, ketika tombol ini diklik view yang bekerja adalah show.blade.php. pada page show, ada tombol edit, ketika di klik, view yang bekerja adalah edit.blade.php
+<br>
+#### File" yang perlu diskip dulu
+1. Semua folder Monitoring di folder surveyor (krn nnti designnya perlu dibahas lagi)
+2. Folder Config di folder Admin, dibahas lagi nnti designnya gimana
+3. Semua view visitor, fokus dulu ke dashboard, visitor nanti saja (rencana mungkin saja, nanti akan dihilangkan)
+
+### Tolong bikin satu view lagi , yang isinya form login. (Email dan password, kasih remember me dan lupa password)
+
+### Requirements yang diperlukan:
+1. VSCode
+2. Git
+3. Browser
+4. XAMPP latest
+5. Composer latest (http://getcomposer.org)
+6. valet for laravel 
+7. Trix text editor (https://github.com/basecamp/trix)
+8. Laravel Sluggable (https://github.com/cviebrock/eloquent-sluggable)
+9. Laravel Generators (https://github.com/laracademy/generators)
+10. Xdebug (Optional)
+### VSCode Extensions:
+1. Laravel Artisan
+2. Laravel Blade
+3. Laravel Blade Formatter
+4. Laravel Blade Spacer
+5. Laravel Blade Wrapper
+6. Laravel Snippets 
+7. PHP Debug (Optional)
+
+### Untuk pengetahuan, monggo lihat playlist belajar Laravel 8 dari WP UNPAS (aku belajar dari sini)
+(https://www.youtube.com/watch?v=HqAMb6kqlLs&list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2) (kusarankan untuk front end, minimal lihat video konfigurasi sampai pengetahuan structurenya)
+### Jika butuh referensi repo aplikasi dari laravel, aku punya repo yang kubikin berdasarkan tutorial laravel dari WP UNPAS diatas, kalian bisa liat structure viewnya, controller, model, migrations, dll 
+##### ini file reponya : https://github.com/bytadit/belajar-laravel
+### Sementara ini dulu, kalau ada kesulitan monggo cari tutorial, atau tanya ke aku/ di grup 
