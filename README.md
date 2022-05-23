@@ -193,7 +193,7 @@ jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
 12. Untuk sidebar, taruh saja semua ul dan li dari link tiap page di file view ini, semuanya (admin sm surveyor)
 13. Kebanyakan view di dashboard, adalah index, create, edit, dan show, dan ini kuletakkan di dalam tiap folder. ini sudah sesuai template di controller ya teman", biarkan seperti itu aja namanya, yg kalian bikin adalah isinya. misal untuk page bts, index digunakan untuk tampilan awal ketika buka page bts, edit adalah view untuk page edit, show adalah page ketika kita klik tombol show, yg isinya data yg udah kita input, create adalah view page yg muncul ketika kita klik tombol add new bts. nanti juga ada tombol delete, namun ini tidak perlu dibikin view.
 14. Untuk page survey di surveyor, agak berbeda. index berisi semua survey yang akan atau telah diisi surveyor (bisa berbentuk card). nanti di tiap card ada tombol view, ketika tombol ini diklik view yang bekerja adalah show.blade.php. pada page show, ada tombol edit, ketika di klik, view yang bekerja adalah edit.blade.php
-<br>
+
 #### File" yang perlu diskip dulu
 1. Semua folder Monitoring di folder surveyor (krn nnti designnya perlu dibahas lagi)
 2. Folder Config di folder Admin, dibahas lagi nnti designnya gimana
@@ -222,7 +222,7 @@ jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
 7. PHP Debug (Optional)
 
 ### Untuk pengetahuan, monggo lihat playlist belajar Laravel 8 dari WP UNPAS (aku belajar dari sini)
-(https://www.youtube.com/watch?v=HqAMb6kqlLs&list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2) (kusarankan untuk front end, minimal lihat video konfigurasi sampai pengetahuan structurenya)
+#### (https://www.youtube.com/watch?v=HqAMb6kqlLs&list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2) (kusarankan untuk front end, minimal lihat video konfigurasi sampai pengetahuan structurenya)
 ### Jika butuh referensi repo aplikasi dari laravel, aku punya repo yang kubikin berdasarkan tutorial laravel dari WP UNPAS diatas, kalian bisa liat structure viewnya, controller, model, migrations, dll 
-##### ini file reponya : https://github.com/bytadit/belajar-laravel
+#### ini file reponya : https://github.com/bytadit/belajar-laravel
 ### Sementara ini dulu, kalau ada kesulitan monggo cari tutorial, atau tanya ke aku/ di grup 
