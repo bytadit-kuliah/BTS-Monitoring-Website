@@ -181,7 +181,7 @@ jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
 #### FrontEnd:
 1. Fokus saja pada dashboard, untuk laman visitor diskip dulu
 2. Sekarang untuk mengedit frontend pakainya views laravel, "BTS-Monitoring-Website/Apl Laravel/BTSApp/resources/views/"\
-3. file css dan js ada di folder public "BTS-Monitoring-Website/Apl Laravel/BTSApp/public/", css jangan banyak"/perpage, udah kubikin dua yg utama, dashboard.css sm visitor.css, taruh aja semua file css untuk dashboard dan visitor disitu 
+3. file css dan js ada di folder public "BTS-Monitoring-Website/Apl Laravel/BTSApp/public/", css jangan banyak"/perpage, udah kubikin dua yg utama, dashboard.css sm visitor.css, taruh aja class/id yg general untuk dashboard dan visitor disitu, klo memang ada page yg perlu file sendiri, yaudah bikin/pake aja file css khusus utk page itu
 4. file js, jika sifatnya universal (digunakan di semua page), taruh saja(function, variable, dll) di satu file, (dashboard.js dan visitor.js), namun jika script js khusus untuk halaman tertentu, maka taruh saja di tiap page (view) nya.
 5. Disarankan untuk sering menggunakan class bootstrap, supaya css class/id yg dibuat tidak terlalu banyak
 6. Pada views, terdapat layout dan partials yang merupakan template dari laman visitor
