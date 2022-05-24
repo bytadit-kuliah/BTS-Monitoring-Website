@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diskominfo Surakarta - Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
@@ -51,6 +51,7 @@
                     <script>alert('Login Gagal')</script>
                     {{ session('loginError') }}
                 @endif
+
                 <h1><span>Login</span> your account</h1>
                 <form class="card_login" action="/login" method="post">
                     @csrf

@@ -1,48 +1,39 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 class LoginController extends Controller
 {
-    public function index(){
-        return view('login.index', [
-            'title' => 'Login'
-        ]);
+    public function index()
+    {
+       return view('login.index', [
+           'title' => 'Login',
+           'active' => 'login'
+       ]);
     }
 
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            // 'email' => 'required|email:dns',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        // dd('Berhasil Login');
-
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            // $request->session()->flash('success', 'Login Success');
-            // $admin = DB::table('users')->where('username', 'like', '%'. 'admin'. '%');
-            $email = $request->email;
-            // dd($request->email);
-            // $surveyor = DB::table('users')->where('username', 'like', '%'. 'surveyor'. '%');
-            if(str_contains($email, 'surveyor')){
-                return redirect()->intended('/surveyor');
-            }else if(str_contains($email, 'admin')){
-                return redirect()->intended('/admin');
-            }
+            return redirect()->intended('/dashboard');
         }
 
-        return back()->with('loginError', 'Login Failed!');
-
-
-        // dd('berhasil login');
+        return back()->with('loginError', 'Login Failed');
     }
+
     public function logout(Request $request){
         Auth::logout();
 
@@ -50,6 +41,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }
