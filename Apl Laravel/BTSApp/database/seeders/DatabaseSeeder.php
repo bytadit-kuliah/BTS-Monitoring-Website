@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('admin1'),
             'is_admin' => true,
-            'is_surveyor' => false,
+            // 'is_surveyor' => false,
             'remember_token' =>  Str::random(20)
         ]);
 
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('surveyor1'),
             'is_admin' => false,
-            'is_surveyor' => true,
+            // 'is_surveyor' => true,
             'remember_token' =>  Str::random(20)
         ]);
 
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('surveyor2'),
             'is_admin' => false,
-            'is_surveyor' => true,
+            // 'is_surveyor' => true,
             'remember_token' =>  Str::random(20)
         ]);
     }

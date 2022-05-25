@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SurveyorController;
 
@@ -148,7 +149,7 @@ Route::redirect('/', destination:'login'); //auto redirect into login url
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::resource('/dashboard', AdminController::class)->middleware('auth');
+Route::resource('/dashboard', DashboardController::class)->middleware('auth');
 
 
 // Route::get('/admin', [AdminController::class, 'index']);

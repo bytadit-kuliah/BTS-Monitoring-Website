@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
             return $user->is_admin;
         });
         Gate::define('surveyor', function(User $user){
-            return $user->is_surveyor;
+            return !$user->is_admin;
         });
     }
 }

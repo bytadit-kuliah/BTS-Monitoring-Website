@@ -13,18 +13,18 @@ use App\Models\surveyor;
 class AdminController extends Controller
 {
     public function index(){
-        // $this->authorize('admin');
-        // return view('dashboard.admin.index', [
-        //     'admin' => admin::all()
-        // ]);
-
-        if(auth()->guest() || auth()->user()->is_admin !== 1){
-            return view('dashboard.surveyor.index', [
-                'surveyor' => surveyor::all()
-            ]);
-        }
+        $this->authorize('admin');
         return view('dashboard.admin.index', [
             'admin' => admin::all()
         ]);
+
+        // if(auth()->guest() || auth()->user()->is_admin !== 1){
+        //     return view('dashboard.surveyor.index', [
+        //         'surveyor' => surveyor::all()
+        //     ]);
+        // }
+        // return view('dashboard.admin.index', [
+        //     'admin' => admin::all()
+        // ]);
     }
 }
