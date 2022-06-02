@@ -200,7 +200,7 @@ jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
 3. Semua view visitor, fokus dulu ke dashboard, visitor nanti saja (rencana mungkin saja, nanti akan dihilangkan)
 
 ### Tolong bikin satu view lagi , yang isinya form login. (Email dan password, kasih remember me dan lupa password)
-
+## Views tolong klo sudah ada yg selesai langsung segera dicommit, krn backend baru bisa kerja kalau views udah ada, tolong kerjasamanya!
 ### Requirements yang diperlukan:
 1. VSCode
 2. Git
@@ -226,3 +226,4 @@ jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
 ### Jika butuh referensi repo aplikasi dari laravel, aku punya repo yang kubikin berdasarkan tutorial laravel dari WP UNPAS diatas, kalian bisa liat structure viewnya, controller, model, migrations, dll 
 #### ini file reponya : https://github.com/bytadit/belajar-laravel
 ### Sementara ini dulu, kalau ada kesulitan monggo cari tutorial, atau tanya ke aku/ di grup 
+
