@@ -41,30 +41,38 @@
 
     <!--Main Awal-->
     <main class="main_login">
-        <div class="banner">
-            <div class="banner_login">
+        <div class="banner row">
+            <div class="banner_login ">
+
                 @if(session()->has('success'))
-                    <script>alert('Login Sukses')</script>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
                 @endif
+
                 @if(session()->has('loginError'))
-                    <script>alert('Login Gagal')</script>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{ session('loginError') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
                 @endif
 
                 <h1><span>Login</span> your account</h1>
                 <form class="card_login" action="/login" method="post">
                     @csrf
-                    <div class="box_input box_input_username">
+                    <div class="box_input box_input_email">
                         <label for="email">Email :</label>
                         <div class="input_field">
-                            <input type="email" id="email" name="email" placeholder="masukkan email..." autofocus required>
+                            <input type="email" id="email" name="email" placeholder="masukkan email..." class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" autofocus required>
                         </div>
-                        {{-- @error('username')
+
+                        @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
-                        @enderror --}}
+                        @enderror
+
                     </div>
                     <div class="box_input box_input_password">
                         <label for="password">Password :</label>
