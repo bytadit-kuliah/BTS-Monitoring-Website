@@ -2,80 +2,78 @@
 
 <!-- Main Awal -->
 @section('container')
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Edit Pemilik BTS</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">list pemilik BTS:</li>
-        </ol>
-        <button type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Add New</button>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID Vendor</th>
-                    <th>Nama Vendor</th>
-                    <th>Alamat Vendor</th>
-                    <th>No. Telepon</th>
-                    <!-- <th>Pembuat Data</th> -->
-                    <!-- <th>Waktu Dibuat</th> -->
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>Telkomsel</td>
-                    <td>Jl. doang jadian kagak</td>
-                    <td>0888-1234-5678</td>
-                    <!-- <td>Aditya Bagus</td> -->
-                    <!-- <td>2020-07-07 10:20:30</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Tri</td>
-                    <td>Jl. in aja dulu</td>
-                    <td>0888-9999-1010</td>
-                    <!-- <td>Alin Nur</td> -->
-                    <!-- <td>2020-08-16 11:22:33</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>003</td>
-                    <td>XL Axiata</td>
-                    <td>Jl. buntu</td>
-                    <td>0888-7777-6666</td>
-                    <!-- <td>Christopher Aaron</td> -->
-                    <!-- <td>2020-11-22 15:30:45</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>004</td>
-                    <td>Indosat</td>
-                    <td>Jl. ninjaku</td>
-                    <td>0888-0888-0888</td>
-                    <!-- <td>Faris Izzuddin</td> -->
-                    <!-- <td>2020-12-28 17:00:10</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Pemilik BTS</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">list pemilik BTS:</li>
+    </ol>
+    <button type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Add New</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Vendor</th>
+                <th>Nama Vendor</th>
+                <th>Alamat Vendor</th>
+                <th>No. Telepon</th>
+                <!-- <th>Pembuat Data</th> -->
+                <!-- <th>Waktu Dibuat</th> -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Telkomsel</td>
+                <td>Jl. doang jadian kagak</td>
+                <td>0888-1234-5678</td>
+                <!-- <td>Aditya Bagus</td> -->
+                <!-- <td>2020-07-07 10:20:30</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Tri</td>
+                <td>Jl. in aja dulu</td>
+                <td>0888-9999-1010</td>
+                <!-- <td>Alin Nur</td> -->
+                <!-- <td>2020-08-16 11:22:33</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>XL Axiata</td>
+                <td>Jl. buntu</td>
+                <td>0888-7777-6666</td>
+                <!-- <td>Christopher Aaron</td> -->
+                <!-- <td>2020-11-22 15:30:45</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>Indosat</td>
+                <td>Jl. ninjaku</td>
+                <td>0888-0888-0888</td>
+                <!-- <td>Faris Izzuddin</td> -->
+                <!-- <td>2020-12-28 17:00:10</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 @endsection
 <!-- Main Akhir -->
 

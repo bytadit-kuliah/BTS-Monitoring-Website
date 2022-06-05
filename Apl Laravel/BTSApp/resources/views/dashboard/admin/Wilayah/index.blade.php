@@ -2,75 +2,73 @@
 
 <!-- Main Awal -->
 @section('container')
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Edit Wilayah BTS</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">list wilayah BTS:</li>
-        </ol>
-        <button type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Add New</button>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID Desa</th>
-                    <th>Nama Desa</th>
-                    <th>ID Kecamatan</th>
-                    <!-- <th>Pembuat Data</th> -->
-                    <!-- <th>Waktu Dibuat</th> -->
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Kecamatan Banjarsari</td>
-                    <td>6</td>
-                    <!-- <td>Aditya Bagus</td> -->
-                    <!-- <td>2020-07-07 10:20:30</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Kecamatan Jebres </td>
-                    <td>8</td>
-                    <!-- <td>Alin Nur</td> -->
-                    <!-- <td>2020-08-16 11:22:33</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Kecamatan Laweyan</td>
-                    <td>7</td>
-                    <!-- <td>Christopher Aaron</td> -->
-                    <!-- <td>2020-11-22 15:30:45</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Kecamatan Serengan</td>
-                    <td>5</td>
-                    <!-- <td>Faris Izzuddin</td> -->
-                    <!-- <td>2020-12-28 17:00:10</td> -->
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Wilayah BTS</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">list wilayah BTS:</li>
+    </ol>
+    <button type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Add New</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Desa</th>
+                <th>Nama Desa</th>
+                <th>ID Kecamatan</th>
+                <!-- <th>Pembuat Data</th> -->
+                <!-- <th>Waktu Dibuat</th> -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Kecamatan Banjarsari</td>
+                <td>6</td>
+                <!-- <td>Aditya Bagus</td> -->
+                <!-- <td>2020-07-07 10:20:30</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Kecamatan Jebres </td>
+                <td>8</td>
+                <!-- <td>Alin Nur</td> -->
+                <!-- <td>2020-08-16 11:22:33</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Kecamatan Laweyan</td>
+                <td>7</td>
+                <!-- <td>Christopher Aaron</td> -->
+                <!-- <td>2020-11-22 15:30:45</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Kecamatan Serengan</td>
+                <td>5</td>
+                <!-- <td>Faris Izzuddin</td> -->
+                <!-- <td>2020-12-28 17:00:10</td> -->
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 @endsection
 <!-- Main Akhir -->
 

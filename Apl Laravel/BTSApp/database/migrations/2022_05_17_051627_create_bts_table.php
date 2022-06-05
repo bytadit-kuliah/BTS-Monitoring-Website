@@ -23,7 +23,7 @@ return new class extends Migration
             $table->float('panjang_tanah');
             $table->float('lebar_tanah');
             $table->float('latitude');
-            $table->float('longtitude');
+            $table->float('longitude');
             $table->float('tinggi_tower');
             $table->boolean('ada_genset');
             $table->boolean('ada_tembokBatas');

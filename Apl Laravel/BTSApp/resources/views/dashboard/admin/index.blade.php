@@ -3,8 +3,7 @@
 
 <!-- Main Awal -->
 @section('container')
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Dashboard</h1>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Dashboard</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard Admin</li>
     </ol>
@@ -199,7 +198,6 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
 <!-- Main Akhir -->
 

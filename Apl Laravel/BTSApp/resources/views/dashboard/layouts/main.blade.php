@@ -16,6 +16,9 @@
         trix-toolbar [data-trix-button-group="file-tools"]{
             display: none;
         }
+        a, a > *{
+            cursor: pointer;
+        }
     </style>
 </head>
   <body>
@@ -27,7 +30,9 @@
                   @include('dashboard.layouts.sidebar')
                   <div id="layoutSidenav_content">
                       <main>
-                          @yield('container')
+                        <div class="container-fluid px-4">
+                            @yield('container')
+                        </div>
                       </main>
                       @include('dashboard.layouts.footer')
                   </div>

@@ -110,6 +110,23 @@ Route::get('/admin/list-survey', function () {
 
 // 
 
+// sementara admin (create, edit, show):
+
+// BTS
+Route::get('/admin/edit-bts/create', function () {
+    return view('dashboard.admin.bts.create');
+})->middleware('auth');
+
+Route::get('/admin/edit-bts/edit', function () {
+    return view('dashboard.admin.bts.edit');
+})->middleware('auth');
+
+Route::get('/admin/edit-bts/show', function () {
+    return view('dashboard.admin.bts.show');
+})->middleware('auth');
+
+
+// 
 
 
 
