@@ -5,7 +5,7 @@
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">
                         <div class="d-flex sb-nav-link-icon">
-                            <img src="./image/pp.png" style="width:50px; margin-right: 10px;">
+                            <img src="../image/pp.png" style="width:50px; margin-right: 10px;">
                             <div class="d-flex flex-column">
                                 <small class="font-weight-normal" style="color:#F4D2EB; font-weight:lighter">Welcome</small>
                                 <p >{{ auth()->user()->name }}</p>

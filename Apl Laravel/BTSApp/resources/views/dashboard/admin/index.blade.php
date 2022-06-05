@@ -203,7 +203,7 @@
 @endsection
 <!-- Main Akhir -->
 
-<!-- Footer Awal -->
+{{-- <!-- Footer Awal -->
 @section('footer')
 <div class="container-fluid px-4">
     <div class="d-flex align-items-center justify-content-between small">
@@ -216,4 +216,4 @@
     </div>
 </div>
 @endsection
-<!-- Footer Akhir -->
+<!-- Footer Akhir --> --}}

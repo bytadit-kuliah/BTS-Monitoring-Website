@@ -1,7 +1,7 @@
 <header>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-bts-1">
         <a class="navbar-brand ps-3 d-flex bg-bts-3" href="#" style="padding-bottom:18px; border-top-right-radius: 40px; justify-content: center;">
-            <img src="image/BTS logo3.png" id="logo" alt="logo" style="margin-left: -25px; margin-top:18px; width: 100px;">
+            <img src="../image/BTS logo3.png" id="logo" alt="logo" style="margin-left: -25px; margin-top:18px; width: 100px;">
         </a>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto">

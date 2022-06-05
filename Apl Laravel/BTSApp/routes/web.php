@@ -43,93 +43,120 @@ use App\Http\Controllers\SurveyorController;
 //     return view('welcome');
 // });
 
-// Route::get('/btslist', function () {
-//     return view('btslist');
+Route::get('/btslist', function () {
+    return view('btslist');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/btsmonitor', function () {
+    return view('btsmonitor');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+// Route::get('/admin', function () {
+//     return view('dashboardAdmin');
 // });
 
-// Route::get('/about', function () {
-//     return view('about');
+Route::get('/surveyor', function () {
+    return view('dashboard.surveyor.index');
+})->middleware('auth');
+
+
+
+
+// ADMIN
+
+
+Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/admin', function(){
+    return view('dashboard.admin.index');
+})->middleware('auth');
+
+Route::get('/admin/edit-profile', function(){
+    return view('dashboard.admin.profile.edit');
+})->middleware('auth');
+
+Route::get('/admin/edit-config', function () {
+    return view('dashboard.admin.config.index');
+})->middleware('auth');
+
+Route::get('/admin/edit-surveyor', function () {
+    return view('dashboard.admin.surveyor.index');
+})->middleware('auth');
+
+Route::get('/admin/edit-bts', function () {
+    return view('dashboard.admin.bts.index');
+})->middleware('auth');
+
+Route::get('/admin/edit-pemilik', function () {
+    return view('dashboard.admin.pemilik.index');
+})->middleware('auth');
+
+Route::get('/admin/edit-wilayah', function () {
+    return view('dashboard.admin.wilayah.index');
+})->middleware('auth');
+
+Route::get('/admin/list-survey', function () {
+    return view('dashboard.admin.survey.index');
+})->middleware('auth');
+
+
+// 
+
+
+
+
+// Route::get('/admin/edit-config', function () {
+//     return view('editConfig');
 // });
 
-// Route::get('/btsmonitor', function () {
-//     return view('btsmonitor');
+
+// Route::get('/admin/edit-profile', function () {
+//     return view('dashboard.admin.editProfileAdmin');
 // });
 
-// Route::get('/contact', function () {
-//     return view('contact');
-// });
+Route::get('/surveyor/edit-profile', function () {
+    return view('dashboard.surveyor.editProfileSurveyor');
+})->middleware('auth');
 
-// // Route::get('/admin', function () {
-// //     return view('dashboardAdmin');
-// // });
+Route::get('/surveyor/edit-jawaban-survey', function () {
+    return view('dashboard.surveyor.editJawabanSurvey');
+})->middleware('auth');
 
-// Route::get('/surveyor', function () {
-//     return view('surveyor.index');
-// })->middleware('auth');
+Route::get('/surveyor/isi-survey', function () {
+    return view('dashboard.surveyor.isiSurvey');
+})->middleware('auth');
 
-// Route::get('/admin/edit-bts', function () {
-//     return view('admin.editBTSInfo');
-// })->middleware('auth');
+Route::get('/surveyor/info-bts', function () {
+    return view('dashboard.surveyor.listBTSInfo');
+})->middleware('auth');
 
-// Route::get('/admin/edit-pemilik', function () {
-//     return view('admin.editBTSPemilik');
-// })->middleware('auth');
+Route::get('/admin/pesan', function () {
+    return view('dashboard.admin.messageList');
+})->middleware('auth');
 
-// Route::get('/admin/edit-wilayah', function () {
-//     return view('admin.editBTSWilayah');
-// })->middleware('auth');
+Route::get('/surveyor/monitoring', function () {
+    return view('dashboard.surveyor.monitoringSurveyor.index');
+})->middleware('auth');
 
-// Route::get('/admin/edit-surveyor', function () {
-//     return view('admin.editSurveyor');
-// })->middleware('auth');
+Route::get('/admin/buat-survey', function () {
+    return view('dashboard.admin.newSurvey');
+})->middleware('auth');
 
-// // Route::get('/admin/edit-config', function () {
-// //     return view('editConfig');
-// // });
+Route::get('dashboard.surveyor/survey', function () {
+    return view('dashboard.surveyor.surveyList');
+})->middleware('auth');
 
-// Route::get('/admin/list-survey', function () {
-//     return view('admin.editListSurvey');
-// })->middleware('auth');
-
-// // Route::get('/admin/edit-profile', function () {
-// //     return view('admin.editProfileAdmin');
-// // });
-
-// Route::get('/surveyor/edit-profile', function () {
-//     return view('surveyor.editProfileSurveyor');
-// })->middleware('auth');
-
-// Route::get('/surveyor/edit-jawaban-survey', function () {
-//     return view('surveyor.editJawabanSurvey');
-// })->middleware('auth');
-
-// Route::get('/surveyor/isi-survey', function () {
-//     return view('surveyor.isiSurvey');
-// })->middleware('auth');
-
-// Route::get('/surveyor/info-bts', function () {
-//     return view('surveyor.listBTSInfo');
-// })->middleware('auth');
-
-// Route::get('/admin/pesan', function () {
-//     return view('admin.messageList');
-// })->middleware('auth');
-
-// Route::get('/surveyor/monitoring', function () {
-//     return view('surveyor.monitoringSurveyor.index');
-// })->middleware('auth');
-
-// Route::get('/admin/buat-survey', function () {
-//     return view('admin.newSurvey');
-// })->middleware('auth');
-
-// Route::get('surveyor/survey', function () {
-//     return view('surveyor.surveyList');
-// })->middleware('auth');
-
-// Route::get('/thanks', function () {
-//     return view('thanks');
-// });
+Route::get('/thanks', function () {
+    return view('thanks');
+});
 
 // Route::get('/login', function () {
 //     return view('login');
@@ -141,6 +168,7 @@ use App\Http\Controllers\SurveyorController;
 // });
 
 
+// batas suci
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -151,21 +179,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::resource('/dashboard', DashboardController::class)->middleware('auth');
 
+// batas suci
 
-// Route::get('/admin', [AdminController::class, 'index']);
-// Route::get('/admin', function(){
-//     return view('admin.index');
-// })->middleware('auth');
-
-// Route::get('/admin/edit-profile', function(){
-//     return view('admin.editProfileAdmin');
-// })->middleware('auth');
-
-// Route::get('/admin/edit-config', function () {
-//     return view('admin.editConfig');
-// })->middleware('auth');
-
-// // Route::get('/surveyor', [SurveyorController::class, 'index']);
+// Route::get('/surveyor', [SurveyorController::class, 'index']);
 // Route::get('/surveyor', function(){
-//     return view('surveyor.index');
+//     return view('dashboard.surveyor.index');
 // })->middleware('auth');
