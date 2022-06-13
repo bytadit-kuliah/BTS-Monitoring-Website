@@ -28,13 +28,26 @@
   </head>
   <body>
 
-    @include('partials.navbar')
+    {{-- @include('partials.navbar') --}}
 
     <div class="container mt-4">
         @yield('container')
     </div>
 
+    @include('partials.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    <script>
+        function dropdownFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function (e) {
+            if (!e.target.matches('.drop_btn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
   </body>
 </html>

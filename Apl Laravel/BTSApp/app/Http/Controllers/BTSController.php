@@ -2,9 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bts;
 use Illuminate\Http\Request;
+use App\Models\bts_photo;
+use App\Models\jenis_bts;
+use App\Models\village;
+use App\Models\owner;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
-class ResourceController extends Controller
+class BTSController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +21,9 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.admin.BTS.index', [
+            'bts_list' => bts::all()
+        ]);
     }
 
     /**
@@ -23,7 +33,11 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.BTS.create', [
+            'bts_type' => jenis_bts::all(),
+            'villages' => village::all(),
+            'owners' => owner::all()
+        ]);
     }
 
     /**
@@ -40,33 +54,37 @@ class ResourceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\bts  $bts
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(bts $bts)
     {
-        //
+        return view('dashboard.admin.BTS.show', [
+            'bts' => $bts
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\bts  $bts
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(bts $bts)
     {
-        //
+        return view('dashboard.admin.BTS.edit', [
+            'bts' => $bts
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\bts  $bts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, bts $bts)
     {
         //
     }
@@ -74,11 +92,11 @@ class ResourceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\bts  $bts
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(bts $bts)
     {
-        //
+        bts::destroy($bts->id);
     }
 }

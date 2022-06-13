@@ -6,121 +6,38 @@
     {{-- <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">list BTS:</li>
     </ol> --}}
-    <a href="/admin/edit-bts/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID BTS</th>
-                <th>ID Jenis BTS</th>
-                <th>Nama BTS</th>
-                <th>ID Desa</th>
-                <th>Lok. BTS</th>
-                <th>Pem. BTS</th>
-                <th>Pj. Tanah</th>
-                <th>Lb. Tanah</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Tg. Tower</th>
-                <th>Ada Genset</th>
-                <th>Ada Tembok</th>
-                <th>Wkt. Dibuat</th>
-                <th>ID Pembuat</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>0001</td>
-                <td>1 kaki</td>
-                <td>ABC-0001</td>
-                <td>23</td>
-                <td>Jl.jl ke mana ya abc</td>
-                <td>Telkomsel</td>
-                <td>90</td>
-                <td>34</td>
-                <td>0.941982</td>
-                <td>106.19061</td>
-                <td>43.5</td>
-                <td>0</td>
-                <td>0</td>
-                <td>2004-07-12 21:23:44</td>
-                <td>001</td>
-                <td>
-                    <a href="/admin/edit-bts/show" class="show" title="Detail" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    {{-- <a href="/admin/bts/{{}}" class="show" title="Detail" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> --}}
-                    <a href="/admin/edit-bts/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    {{-- <a href="/admin/bts/{{}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> --}}
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-            </tr>
-            {{-- <tr>
-                <td>0002</td>
-                <td>3 kaki</td>
-                <td>ABC-0002</td>
-                <td>25</td>
-                <td>Jl.jl sersassa abc</td>
-                <td>Telkomsel</td>
-                <td>89</td>
-                <td>23</td>
-                <td>0.940911</td>
-                <td>106.18443</td>
-                <td>43.5</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2005-05-10 11:23:44</td>
-                <td>001</td>
-                <td>
-                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>0003</td>
-                <td>3 kaki</td>
-                <td>ABC-0003</td>
-                <td>24</td>
-                <td>Jl.jl ke meuda terus</td>
-                <td>Telkomsel</td>
-                <td>103</td>
-                <td>33</td>
-                <td>0.910914</td>
-                <td>110.18063</td>
-                <td>43.5</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2008-10-21 11:23:44</td>
-                <td>001</td>
-                <td>
-                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>9998</td>
-                <td>4 kaki</td>
-                <td>ABC-9999</td>
-                <td>13</td>
-                <td>Jl.jalan kidang kelapa</td>
-                <td>Tri</td>
-                <td>89</td>
-                <td>34</td>
-                <td>0.321231</td>
-                <td>111.18022</td>
-                <td>43.5</td>
-                <td>0</td>
-                <td>1</td>
-                <td>2008-11-11 13:23:44</td>
-                <td>001</td>
-                <td>
-                    <a class="show" title="Detail" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-            </tr> --}}
-        </tbody>
-    </table>
+    <a href="/dashboard/edit-bts/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
+
+    <div class="container">
+        <div class="row">
+            @foreach($bts_list as $bts)
+            <div class="card col-md-4 mb-3">
+                <h3 class="card-title"><a href="/dashboard/edit-bts/show" class="text-decoration-none text-dark">{{ $bts->namaBTS }}</a></h3>
+                <div style="max-height: 350px; overflow:hidden;">
+                    <img src="https://source.unsplash.com/1200x400?tower" alt="gbr" class="img-fluid">
+                </div>
+                <div class="card-body">
+                    <a href="/dashboard/edit-bts/{{ $bts->id }}" class="badge bg-info">
+                        <span data-feather="eye">
+
+                        </span>
+                    </a>
+                    <a href="/dashboard/edit-bts/{{ $bts->id }}/edit" class="badge bg-warning">
+                        <span data-feather="edit">
+                        </span>
+                    </a>
+                    <form action="/dashboard/edit-bts/{{ $bts->id }}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
+                    </form>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
 @endsection
 <!-- Main Akhir -->
 

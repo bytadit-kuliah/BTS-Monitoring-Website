@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\jenis_bts;
+use App\Models\owner;
+use App\Models\village;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -55,6 +58,40 @@ class DatabaseSeeder extends Seeder
             // 'is_surveyor' => true,
             'remember_token' =>  Str::random(20)
         ]);
+
+        jenis_bts::create([
+            'jenisBTS' => 'Kayu'
+        ]);
+        jenis_bts::create([
+            'jenisBTS' => 'Besi'
+        ]);
+        jenis_bts::create([
+            'jenisBTS' => 'Aluminium'
+        ]);
+
+        owner::create([
+            'nama' => 'Indoshit',
+            'foto' => '/abc....',
+            'alamat' => 'baki',
+            'no_telp' => '09998'
+        ]);
+        owner::create([
+            'nama' => 'Telkomnyet',
+            'foto' => '/abc....',
+            'alamat' => 'baki',
+            'no_telp' => '09998'
+        ]);
+
+        village::create([
+            'nama' => 'SukaMakmur',
+            'kecamatan_id' => '1'
+        ]);
+
+        village::create([
+            'nama' => 'SukaSukaSayaLah',
+            'kecamatan_id' => '2'
+        ]);
+
     }
 
 

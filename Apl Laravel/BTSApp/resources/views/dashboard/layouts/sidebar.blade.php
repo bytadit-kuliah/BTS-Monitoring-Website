@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="sb-sidenav-menu-heading">General</div>
-                    <a class="nav-link" href="/admin">
+                    <a class="nav-link" href="/dashboard">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
@@ -29,9 +29,9 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/admin/edit-profile">Edit Profil</a>
-                            <a class="nav-link" href="/admin/edit-config">Edit Config</a>
-                            <a class="nav-link" href="/admin/edit-surveyor">Edit Surveyor</a>
+                            <a class="nav-link" href="/dashboard/admin-profile">Edit Profil</a>
+                            <a class="nav-link" href="/dashboard/edit-config">Edit Config</a>
+                            <a class="nav-link" href="/dashboard/edit-surveyor">Edit Surveyor</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
@@ -43,10 +43,10 @@
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/admin/edit-bts">Edit Info BTS</a>
-                            <a class="nav-link" href="/admin/edit-pemilik">Edit Pemilik BTS</a>
-                            <a class="nav-link" href="/admin/edit-wilayah">Edit Wilayah BTS</a>
-                            <a class="nav-link" href="/admin/list-survey">Edit Survey</a>
+                            <a class="nav-link" href="/dashboard/edit-bts">Edit Info BTS</a>
+                            <a class="nav-link" href="/dashboard/edit-pemilik">Edit Pemilik BTS</a>
+                            <a class="nav-link" href="/dashboard/edit-wilayah">Edit Wilayah BTS</a>
+                            <a class="nav-link" href="/dashboard/list-survey">Edit Survey</a>
                         </nav>
                     </div>
                     @endcan
@@ -54,7 +54,7 @@
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="editProfileSurveyor.html">Edit Profil</a>
+                        <a class="nav-link" href="/dashboard/surveyor-profile">Edit Profil</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
@@ -66,9 +66,9 @@
                 <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="listBTSInfo.html">BTS info</a>
-                        <a class="nav-link" href="surveyList.html">Survey</a>
-                        <a class="nav-link" href="monitoringSurveyor.html">Monitoring</a>
+                        <a class="nav-link" href="/dashboard/info-bts">BTS info</a>
+                        <a class="nav-link" href="/dashboard/my-surveys">Survey</a>
+                        <a class="nav-link" href="/dashboard/my-monitoring">Monitoring</a>
                     </nav>
                 </div>
                 @endcan
