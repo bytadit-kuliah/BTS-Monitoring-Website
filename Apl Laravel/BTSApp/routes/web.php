@@ -5,7 +5,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\BTSController;
+// use App\Http\Controllers\BTSPhotoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SurveyorController;
 
@@ -212,3 +214,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::resource('/dashboard/edit-bts', BTSController::class)->middleware('auth');
+
+// Route::post('store', 'BTSController@store')->name('store.uploadBTSPhotos')->middleware('auth');
+
+// Route::put('/dashboard/edit-bts/{id}/edit','BTSController@update')->name('bts.update');
+
+Route::resource('/dashboard/edit-owner', OwnerController::class)->middleware('auth');

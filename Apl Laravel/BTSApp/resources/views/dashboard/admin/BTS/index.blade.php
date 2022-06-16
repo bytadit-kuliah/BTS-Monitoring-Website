@@ -6,30 +6,35 @@
     {{-- <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">list BTS:</li>
     </ol> --}}
+
+    @if(session()->has('success'))
+    <div class="alert alert-success col-lg-8" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <a href="/dashboard/edit-bts/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
 
     <div class="container">
         <div class="row">
             @foreach($bts_list as $bts)
-            <div class="card col-md-4 mb-3">
+            <div class="card col-md-3 m-3">
                 <h3 class="card-title"><a href="/dashboard/edit-bts/show" class="text-decoration-none text-dark">{{ $bts->namaBTS }}</a></h3>
                 <div style="max-height: 350px; overflow:hidden;">
                     <img src="https://source.unsplash.com/1200x400?tower" alt="gbr" class="img-fluid">
                 </div>
                 <div class="card-body">
                     <a href="/dashboard/edit-bts/{{ $bts->id }}" class="badge bg-info">
-                        <span data-feather="eye">
-
-                        </span>
+                        <i class="bi bi-eye-fill"></i>
                     </a>
                     <a href="/dashboard/edit-bts/{{ $bts->id }}/edit" class="badge bg-warning">
-                        <span data-feather="edit">
-                        </span>
+                        <i class="bi bi-pen-fill"></i>
                     </a>
                     <form action="/dashboard/edit-bts/{{ $bts->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
-                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></span></button>
                     </form>
                         </span>
                     </a>

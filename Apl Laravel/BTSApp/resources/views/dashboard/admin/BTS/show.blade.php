@@ -3,5 +3,5 @@
 
 <!-- Main Awal -->
 @section('container')
-    <h1 class="mt-4 border-3 rounded-3 border-bottom"><span>{{'Ini Nama BTS'}}</span></h1>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom"><span>{{ $bts->namaBTS }}</span></h1>
 @endsection

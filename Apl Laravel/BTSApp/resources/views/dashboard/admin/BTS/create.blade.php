@@ -7,7 +7,7 @@
         <li class="breadcrumb-item active">list BTS:</li>
     </ol> --}}
     <div class="row">
-        <form action="/dashboard/edit-bts" method="post" class="mb-5" enctype="multipart/form-data">
+        <form action="/dashboard/edit-bts/" method="post" class="mb-5" enctype="multipart/form-data">
             @csrf
             {{-- <div class="mb-3">
                 <span id="id">
@@ -141,8 +141,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="mb-3">
+            {{-- <div class="row">
+                <div class="mb-3 images-preview-div">
                     <label for="bts_photos" class="form-label @error('bts_photos') is-invalid @enderror">Foto-foto BTS</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input class="form-control" type="file" id="bts_photos" name="bts_photos" onchange="previewImage()" multiple>
@@ -152,13 +152,28 @@
                     </div>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
+
+            {{-- <div class="row">
+                <div class="mb-3 images-preview-div">
+            <form method="POST" action="{{ route('store.uploadBTSPhotos') }}" enctype="multipart/form-data" >
+                {{ csrf_field() }}
+                <div>
+                    <label>Choose Images</label>
+                    <input type="file"  name="bts_photos" multiple>
+                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                </div>
+                <hr>
+                <button type="submit" >Submit</button>
+            </form>
+                </div>
+            </div> --}}
 
             <button type="submit" class="btn btn-primary mt-4">Tambah BTS</button>
         </form>
     </div>
 
-    <script>
+    {{-- <script>
         function previewImage() {
         const image = document.querySelector('#bts_photos');
         const imgPreview = document.querySelector('.img-preview');
@@ -173,7 +188,29 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
-    </script>
+    </script> --}}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function() {
+        // Multiple images preview with JavaScript
+        var previewImages = function(input, imgPreviewPlaceholder) {
+            if(input.files){
+                var filesAmount = input.files.length;
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        };
+    $('#bts_photos').on('change', function() {
+        previewImages(this, 'div.images-preview-div');
+        });
+    });
+</script>
 @endsection
 
 @section('page-scripts')

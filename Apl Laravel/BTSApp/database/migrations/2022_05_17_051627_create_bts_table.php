@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('jenisBTS_id');
             $table->foreignId('desa_id');
-            $table->foreignId('pemilik_id');
+            $table->foreignId('owner_id');
             $table->string('namaBTS');
             $table->text('lokasi');
             $table->float('panjang_tanah');
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->float('latitude');
             $table->float('longitude');
             $table->float('tinggi_tower');
-            $table->boolean('ada_genset');
-            $table->boolean('ada_tembokBatas');
+            $table->boolean('genset');
+            $table->boolean('tembok_batas');
             $table->timestamp('publishedAt');
             $table->foreignId('publishedBy');
             $table->timestamps();

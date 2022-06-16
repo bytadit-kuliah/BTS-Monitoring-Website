@@ -12,6 +12,7 @@ class bts_photo extends Model
 
     public function bts()
     {
-    return $this->belongsTo(bts::class);
+        return $this->belongsTo('App\bts', 'bts_id');
     }
+
 }

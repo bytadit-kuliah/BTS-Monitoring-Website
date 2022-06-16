@@ -2,17 +2,28 @@
 
 <!-- Main Awal -->
 @section('container')
-    <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Pemilik BTS</h1>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Owner BTS</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">list pemilik BTS:</li>
+        <li class="breadcrumb-item active">List Owner BTS:</li>
     </ol>
+
+    @if(session()->has('success'))
+    <div class="alert alert-success col-lg-8" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
+
+    <div class="table-responsive col-lg-12">
     <button type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Add New</button>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID Vendor</th>
-                <th>Nama Vendor</th>
-                <th>Alamat Vendor</th>
+                <th>ID Owner</th>
+                <th>Foto</th>
+                <th>Nama Owner</th>
+                <th>Alamat Owner</th>
                 <th>No. Telepon</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
@@ -20,65 +31,46 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($owners as $owner)
             <tr>
-                <td>001</td>
-                <td>Telkomsel</td>
-                <td>Jl. doang jadian kagak</td>
-                <td>0888-1234-5678</td>
+                <td>{{ $owner->id }}</td>
+                <td>{{ $owner->foto }}</td>
+                <td>{{ $owner->nama }}</td>
+                <td>{{ $owner->alamat }}</td>
+                <td>{{ $owner->no_telp }}</td>
                 <!-- <td>Aditya Bagus</td> -->
                 <!-- <td>2020-07-07 10:20:30</td> -->
                 <td>
-                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a href="/dashboard/edit-owner/{{ $owner->id }}/edit" class="edit" title="Edit" data-toggle="tooltip">
+                        <i class="material-icons">
+                            &#xE254;
+                        </i>
+                    </a>
+                    {{-- <a>
+                    <form action="/dashboard/edit-owner/{{ $owner->id }}" method="post" class="d-inline delete" title="Delete" data-toggle="tooltip">
+                        @method('delete')
+                        @csrf
+                        <i class="material-icons" onclick="return confirm('Are you sure?')">
+                            &#xE872;
+                        </i>
+                    </form>
+                    </a> --}}
+                    <form action="/dashboard/edit-owner/{{ $owner->id }}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
+                    </form>
                 </td>
             </tr>
-            <tr>
-                <td>002</td>
-                <td>Tri</td>
-                <td>Jl. in aja dulu</td>
-                <td>0888-9999-1010</td>
-                <!-- <td>Alin Nur</td> -->
-                <!-- <td>2020-08-16 11:22:33</td> -->
-                <td>
-                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>003</td>
-                <td>XL Axiata</td>
-                <td>Jl. buntu</td>
-                <td>0888-7777-6666</td>
-                <!-- <td>Christopher Aaron</td> -->
-                <!-- <td>2020-11-22 15:30:45</td> -->
-                <td>
-                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>004</td>
-                <td>Indosat</td>
-                <td>Jl. ninjaku</td>
-                <td>0888-0888-0888</td>
-                <!-- <td>Faris Izzuddin</td> -->
-                <!-- <td>2020-12-28 17:00:10</td> -->
-                <td>
-                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
+    </div>
 @endsection
 <!-- Main Akhir -->
 
 @section('page-scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
             var actions = $("table td:last-child").html();
@@ -135,5 +127,5 @@
                 $(".add-new").removeAttr("disabled");
             });
         });
-        </script>
+        </script> --}}
 @endsection

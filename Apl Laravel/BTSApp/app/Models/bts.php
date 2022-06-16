@@ -11,7 +11,8 @@ class bts extends Model
     protected $guarded = ['id'];
 
     public function bts_photos(){
-        return $this->hasMany(bts_photo::class);
+        // return $this->hasMany(bts_photo::class);
+        return $this->hasMany('App\bts_photo', 'bts_id');
     }
     public function jenisBTS()
     {
@@ -25,9 +26,9 @@ class bts extends Model
     {
     return $this->belongsTo(owner::class);
     }
-    public function edit_bts(){
-        return $this->hasMany(edit_bts::class);
-    }
+    // public function edit_bts(){
+    //     return $this->hasMany(edit_bts::class);
+    // }
     public function monitorings(){
         return $this->hasMany(monitoring::class);
     }

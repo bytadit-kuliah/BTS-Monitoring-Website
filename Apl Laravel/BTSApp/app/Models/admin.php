@@ -14,12 +14,12 @@ class admin extends Model
     {
     return $this->belongsTo(User::class);
     }
-    public function edit_bts(){
-        return $this->hasMany(edit_bts::class);
-    }
-    public function edit_surveys(){
-        return $this->hasMany(edit_survey::class);
-    }
+    // public function edit_bts(){
+    //     return $this->hasMany(edit_bts::class);
+    // }
+    // public function edit_surveys(){
+    //     return $this->hasMany(edit_survey::class);
+    // }
 
 
 }
