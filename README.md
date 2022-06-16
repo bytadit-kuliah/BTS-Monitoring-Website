@@ -2,10 +2,9 @@
 [WEB PROGRAMMING PROJECT]  : A Base Transceiver Station Website based on Laravel 8, Made By Group 3
 
 ### Penjelasan Umum
-1. Ini adalah website yang menampung informasi BTS di Kota ABC
+1. Ini adalah website tipe dashboard yang menampung hasil monitoring BTS di Kota ABC
 2. Website terhubung/memiliki laman admin, untuk memonitoring Data BTS, dan laman Surveyor untuk memberikan data tentang BTS di Kota ABC.
 3. Website dibuat dengan Laravel 8 dan DataBase MySQL
-4. Website memiliki 3 jenis laman beserta layoutnya, yakni:
 
 ##### Layout Laman Admin
 ![Admin Template](https://yukcoding.id/wp-content/uploads/2017/07/Download-Koleksi-Template-Bootstrap-Responsive-Gratis.jpg)
@@ -13,21 +12,12 @@ Layout Admin, merupakan tampilan sistem informasi yang memberikan privileges bag
 ##### Layout Laman Surveyor
 ![Surveyor Template](https://blogger.googleusercontent.com/img/a/AVvXsEjg9v7TPpArmaiP0HO3NQT5u968StLDSwCfXlNH35jLGnjEmqTEFL-s93S-JzqN0rG9XXgjjC9XnEcovxRoe-OS86uE75rS3fpXd9yP3cm3eC4dNBGlag_MJTnlnwr6AMcJmyvWFo0vaT67-E0HGZFjcYAJHLtGeV8plP_gTVSoU9MyhI34wBXtShB_=s1920)
 merupakan tampilan sistem informasi yang diperuntukkan untuk surveyor (peran surveyor akan dijelaskan lebih lanjut), tampilan boleh sama/mirip spt tampilan layout laman admin
-##### Layout Laman Visitor
-![Visitor Template](https://cdn.dribbble.com/users/774375/screenshots/16211602/media/bc781c162af2f5dd62547982775ed21f.png)
-merupakan tampilan website biasa yang berisikan informasi tentang BTS yang ada di kota ABC, layout ini diperuntukkan untuk pengunjung yang tidak termasuk ke dalam admin maupun visitor, layout ini merupakan starting layout karena akan berisi link untuk login, baik sebagai surveyor maupun admin. Untuk form login monggo gan mau didesign kyk gmn, yg penting bisa mengakomodasi admin sm surveyor
 
 
 3. Database menggunakan mySQL, penjelasan akan diberikan lebih lanjut
 4. ....soon akan diupdate lagi
 
 ### System Request
-
-#### Laman Visitor
-1. Kemampuan Untuk menampilkan profile company biasa (kominfo kota ABC), yg berisi alamat, logo, dll
-2. Kemampuan untuk menampilkan informasi BTS yang ada di kota ABC
-3. Kemampuan untuk menampilkan hasil monitoring BTS dan grafiknya (masih dikaji ulang, perlu atau gak)
-4. Laman Visitor bisa dikatakan sbg landing page (+ tambahan utk laaman info bts, dsb), yg punya header footer spt web biasa
 
 #### Laman Admin
 1. Kemampuan melihat plotting/grafik berdasarkan hasil survey
@@ -50,20 +40,6 @@ jdi yg urusin config ini admin, nnti bakal ada tab config di laman admin.
 dan isi dri value" config ini bisa digunain di laman manapun, visitor, surveyor, dll, 
 misal digunain buat logo kominfo di laman visitor, ya brti tinggal fetch(ambil) data path logo dri tabel config ini.
 model klo bentukannya form ya kyk gini [config insight](https://www.youtube.com/watch?v=5E5v9HvYsuc), tpi nnti kita formnya buat masing" config aja, klo itu kan berurutan
-    
-#### Laman Visitor
-1. Fitur (button) untuk Login ke laman surveyor, dan/atau admin, dimana laman surveyor dn admin ini adl dashboard yg dibikin sama aja desainnya
-2. Fitur Contact Form, yang isinya pesan dan akan kedirect sbg pesan baru ke laman admin
-3. Profil Kominfo, spt biasa
-4. Info BTS, yg berupa page tersendiri berisi list BTS, dan nnti kemungkinan tiap info bts bakal ada gmaps utk nunjukin lokasinya.
-5. Tidak perlu pakai fitur pencarian klo gk bisa (klo mau nnti bisa dipake di page info bts, ini optional aja)
-6. Info pemilik cukup dikasih di info bts aja, kasih logo jga boleh, nnti di fetch pathnya dri foto pemilik di tabel db
-7. (optional) utk info pemilik BTS, (mungkin) bisa juga diwujudkan kyk list partner spt ini:
-![Logo Pemiliks](https://www.prestashop.com/forums/uploads/monthly_12_2014/post-869334-0-49000100-1417760311.jpg)
-![Logo Pemiliks](https://blogs.ncl.ac.uk/t4/files/2016/11/footerlogos.fw_.png)
-
-8. Design lain" spt landing page web biasa
- 
 
 #### Laman Admin
 1. Tambah, Hapus Surveyor
@@ -109,9 +85,9 @@ model klo bentukannya form ya kyk gini [config insight](https://www.youtube.com/
 
 ### Catatan & Job Desc Untuk Developer
 1. Untuk saat ini admin tidak bisa dibuat oleh siapapun (sudah pakem), tpi mungkin kedepan, admin baru bisa dibuat oleh admin lama (tpi yg jelas tidak bisa signup sendiri sbg admin)
-2. Surveyor, untuk sementara hanya bisa dibuat oleh admin, tpi mungkin kedepan visitor bisa jadi surveyor lewat fitur sign up yg mungkin bakal disediakan di laman visitor
+2. Surveyor, ada fitur registrasi
 3. Silakan pakai template, referensi, library, maupun contoh apapun bebas, yang terpenting bisa memudahkan, cepet selesai dan tetap ATM (jgn full jiplak)
-4. Tetap komunikasi satu sama lain !!
+4. Tetap komunikasi satu sama lain, via pc klo mau intens !!
 
 #### Front End
 1. Yg plot grafik ada yg pake library js btw
@@ -199,7 +175,7 @@ jawaban survey bakal jadi pertimbangan grafik survey, liat dbnya
 2. Folder Config di folder Admin, dibahas lagi nnti designnya gimana
 3. Semua view visitor, fokus dulu ke dashboard, visitor nanti saja (rencana mungkin saja, nanti akan dihilangkan)
 
-### Tolong bikin satu view lagi , yang isinya form login. (Email dan password, kasih remember me dan lupa password)
+### Tolong modifikasi view login
 ## Views tolong klo sudah ada yg selesai langsung segera dicommit, krn backend baru bisa kerja kalau views udah ada, tolong kerjasamanya!
 ### Requirements yang diperlukan:
 1. VSCode
