@@ -1,0 +1,151 @@
+/* dari surveyList.css */
+/* .survey-cards a{
+    text-decoration: none;
+    font-weight: bold;
+    color:whitesmoke ;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.survey-cards a:hover{
+    background-color: white;
+}
+.card{
+    text-align: justify;
+    margin:10px;
+} */
+
+/*  */
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+header {
+    position: sticky;
+}
+
+@keyframes slideDown {
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideRight {
+    0%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+        
+    }
+}
+.cards {
+    margin: 0 50px 100px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: 400px;
+    /* overflow: auto; */
+}
+
+.cards .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 30%;
+    height: 300px;
+    background-color: white;
+    color: black;
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 100px;
+    border-radius: 20px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+.cards .card:hover {
+    transform: scale(103%);
+}
+.cards .card > h2 {
+    margin: 0;
+    font-size: 40px;
+    margin-bottom: 50px;
+    align-self: center;
+    /* color: #52784F; */
+}
+.cards .card > img{
+    width: 150%;
+    align-self: center;
+    border-radius: 10px;
+}
+.card-content {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    
+    padding: 250px 100px 25px 0px;
+    overflow: auto;
+    height: 100%;
+    color: black;
+}
+.card-content *{
+    z-index: 100;
+}
+.card-content > * {
+    font-family: 'Inder', sans-serif;
+    /* transform: translateY(-35px); */
+    opacity: 0;
+}
+.card-content h2 {
+    font-size: 70px;
+    font-weight: bold;
+    /* color: #52784F; */
+    text-align: center;
+    margin-bottom: 60px;
+    animation: slideRight 0.5s ease-out forwards;
+}
+.card-content img {
+    width: 60%;
+    border-radius: 10px;
+    align-self: center;
+    background-color: #fff;
+    margin-bottom: 10px;
+    animation: slideRight 0.5s ease-out 0.2s forwards;
+}
+.card-content p {
+    text-align: justify;
+    animation: slideRight 0.5s ease-out 0.4s forwards;
+    padding: 5px;
+}
+
+.button_close{      
+    position: fixed;
+    z-index: 100;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #F4D2EB;
+    cursor : pointer;
+
+    border: 2px solid black ;
+}
+
+.button_close::before{
+    content: 'X';
+    font-weight: bolder;
+}
+.button_close:hover{
+    transition: none;
+    transform: scale(105%);
+}
+.button_close:active{
+    transition: none;
+    transform: scale(90%);
+}

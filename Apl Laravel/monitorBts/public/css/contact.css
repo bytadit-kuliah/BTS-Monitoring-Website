@@ -1,0 +1,460 @@
+/*Montserrat*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+/*Bebas Neue*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
+/* Inder */
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+
+html {
+    background-color: #FDF7F2;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* Header */
+header {
+    padding: 0 20px;
+    background-color: #FDF7F2;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#brand {
+    display: flex;
+    align-items: center;
+}
+
+#brand a img {
+    margin-left: 25px;
+    width: 50px;
+}
+
+#brand ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#brand ul a {
+    color: #000;
+}
+
+#brand ul li {
+    padding: 5px;
+    margin-left: 15px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+.dropdown .dropbtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.drop_content {
+    display: none;
+    position: absolute;
+    background-color: #52784F;
+    min-width: 150px;
+    box-shadow: 0px 16px 32px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.drop_content a {
+    float: none;
+    color: #000;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.drop_content a:hover {
+    background-color: #ADCDAA;
+}
+
+.show {
+    display: block;
+}
+
+header nav {
+    margin-right: 25px;
+}
+
+header nav ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header nav ul a {
+    color: #000;
+}
+
+header nav ul li {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#contact:active,
+#login:active {
+    transform: scale(.95);
+}
+
+#contact a{
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #000;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#contact a:hover {
+    background-color: white;
+    border-color: black;
+    color: #000;
+}
+
+#login a{
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #52784F;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#login a {
+    color: #fff;
+}
+
+
+#login a:hover {
+    background-color: white;
+    border-color: #52784F;
+    color: #52784F;
+    
+}
+
+/* Banner */
+.banner {
+    margin-bottom: 50px;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    width: 100%;
+    background: #52784F;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+}
+
+footer .footer_content {
+    width: 100%;
+}
+
+footer .footer_content img {
+    width: 50px;
+    height: 50px;
+    transition: 0.25s;
+}
+
+footer .footer_content img:hover {
+    transform: translate(0, -5px);
+}
+
+footer .footer_content img:active {
+    filter: invert();
+    transition: 0s;
+}
+
+footer #fc a {
+    color: #fff;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* keyframes animations */
+@keyframes fadeInDown{
+    from{
+        opacity: 0;
+        transform: translateY(-150%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInLeft{
+    from{
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight{
+    from{
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input_field input,
+.input_field textarea
+{
+    font-size: 20px;
+    margin-top: 10px;
+    width: 380px;
+    height: 50px;
+    border-radius: 10px;
+    outline: 1px solid #52784F;
+    transition: none;
+    border:transparent;
+
+    padding-left: 50px;
+    resize: none;
+}
+
+.input_field input:focus,
+.input_field textarea:focus
+{
+    outline: 3px solid #52784F;
+}
+
+/* contact.html */
+.main_contact .banner{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+.banner_contact{
+    opacity: 0;
+    width: 100%;
+    font-size: 40px;
+    color: #52784F;
+    font-weight: lighter;
+    text-align: center;
+    animation: fadeInDown 1000ms forwards;
+}
+.banner_contact span{
+    color: black;
+    font-weight: bolder;
+}
+.grid_contact,
+.grid_card_form{
+    display: grid;
+    /* grid-template-columns: 1fr 3fr;
+    grid-template-rows: 3fr 1fr; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px 100px 20px 100px;
+    justify-content: space-between;
+}
+.grid_contact *{
+    font-family: 'Inder', sans-serif;
+}
+
+.grid_contact > *{
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.contact_card_small{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* height: 150px; */
+    width: 320px;
+    background-color: white;
+    border-radius: 20px;
+    transition: none;
+
+    animation: fadeInRight 1s forwards;
+    animation-delay: calc(500ms +var(--order)*200ms);
+}
+
+.mail_card,
+.box_input_name{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+.phone_card,
+.box_input_email{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+.location_card,
+.box_input_number{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+.box_input_message{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    height: auto;
+    width: auto;
+}
+.contact_card_big{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    height: auto;
+    width: auto;
+    border-radius: 20px;
+    background-color: white;
+
+    animation: fadeInLeft 1500ms forwards;
+    animation-delay: 500ms;
+
+}
+.contact_card_small:hover{
+    filter: invert(1);
+    cursor: pointer;
+    background-color: #ad87b0;
+}
+
+.contact_card_small img{
+    width: 50px;
+    align-self: center;    
+}
+.contact_card_small h1{
+    font-size: 18px;
+    padding-left:15px;
+    padding-right:15px;
+    font-weight: normal;
+    text-align: center;
+    align-self: center;
+
+    color: black;
+    text-decoration: none;    
+}
+
+.grid_card_form{
+    padding: 50px;
+    grid-row-gap: 40px;
+    /* grid-column-gap: 150px; */
+}
+
+.grid_card_form label{
+    font-size: 20px;
+}
+
+.grid_card_form .input_field input,
+.grid_card_form .input_field textarea{
+    width: auto;
+    min-width: 300px;
+}
+
+.input_field #input_name{
+    background: url(../image/username.png) no-repeat scroll 13px center;
+    background-size: 7%;
+}
+.input_field #input_email{
+    background: url(../image/vectormail2.svg) no-repeat scroll  13px center;
+    background-size: 7%;
+}
+.input_field #input_number{
+    background: url(../image/vectorphone2.svg) no-repeat scroll 13px center;
+    background-size: 7%;
+}
+
+.input_field #input_name:placeholder-shown,
+.input_field #input_email:placeholder-shown,
+.input_field #input_number:placeholder-shown,
+.input_field #input_message:placeholder-shown
+{
+    background-color: #F9F9FB;
+}
+
+.box_input_message{
+    padding-left: 50px;
+}
+.box_input_message .input_field{
+    width: 100%;
+    height: 100%;
+}
+
+.input_field #input_message{
+    padding: 10px;
+    width: 100%;
+    height: 90%;
+}
+
+.button_send{
+    padding-bottom: 40px;
+}
+
+.button_send button{
+    font-size: 25px;
+    color: white;
+    padding: 15px;
+    width: 280px;
+    border: transparent;
+    border-radius: 50px;
+    background-color: #52784F;
+    
+}
+
+.button_send button:hover{
+    cursor: pointer;
+    background-color: #7c9e7a;
+}
+.button_send button:active{
+    transform: scale(.95);
+}
