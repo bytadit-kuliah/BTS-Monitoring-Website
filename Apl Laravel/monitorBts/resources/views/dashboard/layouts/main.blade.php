@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="/css/trix.css">
     <script type="text/javascript" src="/script/trix.js"></script>
     <link rel="icon" type="image/x-icon" href="/image/BTS logo.png">
-
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- table icons (edit-surveyor, edit-bts, ...) -->

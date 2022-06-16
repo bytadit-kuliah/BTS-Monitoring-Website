@@ -12,4 +12,17 @@ class Owner extends Model
     public function btslist(){
         return $this->hasMany(Btslist::class);
     }
+    // public function getRouteKeyName()
+    // {
+    //     return 'id';
+    // }
+
+    // public function sluggable(): array
+    // {
+    //     return [
+    //         'slug' => [
+    //             'source' => 'title'
+    //         ]
+    //     ];
+    // }
 }

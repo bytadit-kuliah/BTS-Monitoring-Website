@@ -7,8 +7,8 @@
                         <div class="d-flex sb-nav-link-icon">
                             <img src="/./image/pp.png" style="width:50px; margin-right: 10px;">
                             <div class="d-flex flex-column">
-                                <small class="font-weight-normal" style="color:#F4D2EB; font-weight:lighter">Welcome</small>
-                                <p >{{ auth()->user()->name }}</p>
+                                <small class="font-weight-normal" style="color:#F4D2EB; font-weight:lighter">Selamat Datang</small>
+                                <p >{{ auth()->user()->firstName }}</p>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="/dashboard/edit-bts">Edit Info BTS</a>
-                            <a class="nav-link" href="/dashboard/edit-owner">Edit Pemilik BTS</a>
+                            <a class="nav-link" href="/dashboard/owners">Edit Owner BTS</a>
                             <a class="nav-link" href="/dashboard/edit-wilayah">Edit Wilayah BTS</a>
                             <a class="nav-link" href="/dashboard/list-survey">Edit Survey</a>
                         </nav>
