@@ -2,10 +2,10 @@
 
 @section('container')
 
-<div class="row justify-content-center">
-    <div class="col-lg-5">
+<div class="row justify-content-center banner_register">
+    <div class="col-lg-5 card_register p-4">
         <main class="form-registration w-100 m-auto">
-            <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
+            <h1 class="h3 mb-3 fw-normal text-center">Registration <span>Form</span></h1>
             <form action="/register" method="post">
               {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
                 @csrf

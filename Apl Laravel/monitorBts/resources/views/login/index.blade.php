@@ -5,7 +5,7 @@
 
 
 <div class="row justify-content-end m-5 banner_login">
-  <div class="col-lg-4 card_login p-5">
+  <div class="col-lg-4 card_login p-4">
   
       @if(session()->has('success'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">

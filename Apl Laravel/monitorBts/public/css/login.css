@@ -217,15 +217,18 @@ body{
     right: 15vw;
     position: absolute; */
 }
-.banner_login span{
+.banner_login span,
+.banner_register span{
     color: #52784F;
     font-weight: bolder;
 }
-.banner_login h1{
+/* .banner_login h1,
+.banner_register h1{
     animation: fadeInDown 1s;
-}
+} */
 
-.card_login *{
+.card_login *,
+.card_register *{
     font-family: 'Inder', sans-serif;
 }
 
@@ -245,9 +248,22 @@ body{
     padding-top: 10px;
     transition: none;
     animation: fadeInLeft 1.2s forwards; 
-    animation-delay: 600ms;
+    /* animation-delay: 600ms; */
 }
+.card_register{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: space-evenly;
 
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    transition: none;
+    animation: fadeInDown 1.2s forwards; 
+    /* animation-delay: 400ms; */
+}
 /* keyframes animations */
 
 @keyframes fadeInDown{
