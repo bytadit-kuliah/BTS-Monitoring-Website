@@ -26,11 +26,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
   </head>
-  <body>
+  <body style='background-color:#FDF7F2'>
 
     {{-- @include('partials.navbar') --}}
+    <!--Header Awal-->
+    <header>
+        <div id="brand"><a href="#">
+                <img src="image/BTS logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#" class="drop_btn" onclick="dropdownFunction()">
+                            Information
+                        </a>
+                        <div class="drop_content" id="myDropdown">
+                            <a href="/about">Diskominfo Surakarta</a>
+                            <a href="/btslist">Data BTS Tower</a>
+                            <!-- <a href="btsmonitor.html">Data Monitoring</a> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <nav>
+            <ul>
+                <li id="contact"><a href="/contact">Contact Us</a></li>
+                {{-- <li id="login"><a href="/login">Log In</a></li> --}}
+            </ul>
+        </nav>
+    </header>
+    <!--Header Akhir-->
 
-    <div class="container mt-4">
+    <div class="container">
         @yield('container')
     </div>
 
