@@ -39,6 +39,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 // Route::resource('/dashboard/edit-bts', BTSController::class)->middleware('auth');
 
 Route::resource('/dashboard/owners', OwnerController::class)->middleware('auth');
+Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
 
 
 

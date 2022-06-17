@@ -20,11 +20,11 @@ return new class extends Migration
             $table->foreignId('owner_id');
             $table->string('nama');
             $table->text('lokasi');
-            $table->float('panjang');
-            $table->float('lebar');
+            $table->float('panjangTanah');
+            $table->float('lebarTanah');
             $table->float('latitude');
             $table->float('longitude');
-            $table->float('tinggi');
+            $table->float('tinggiTower');
             $table->boolean('genset');
             $table->boolean('tembokBatas');
             $table->foreignId('user_id');

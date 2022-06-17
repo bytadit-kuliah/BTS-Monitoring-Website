@@ -22,11 +22,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
+        // Seeder For Creating User
         User::create([
             'username' => 'admin1',
             'firstName' => 'Ucok',
@@ -37,7 +33,6 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
             'remember_token' =>  Str::random(20)
         ]);
-
         User::create([
             'username' => 'surveyor1',
             'firstName' => 'Aditya',
@@ -60,46 +55,141 @@ class DatabaseSeeder extends Seeder
             'remember_token' =>  Str::random(20)
         ]);
 
+        // Seedr For BTS Types
         Btstype::create([
-            'type' => 'Kayu'
+            'type' => 'Rooftop'
         ]);
         Btstype::create([
-            'type' => 'Besi'
-        ]);
-        Btstype::create([
-            'type' => 'Aluminium'
+            'type' => 'Greenfield'
         ]);
 
+        // Seeder For Owners
         Owner::create([
-            'nama' => 'Indoshit',
-            'foto' => '/abc....',
-            'alamat' => 'baki',
-            'noTelp' => '09998'
+            'nama' => 'Indosat',
+            'foto' => '/abc',
+            'alamat' => 'Jl. Medan Merdeka Barat No. 21, Jakarta Pusat',
+            'noTelp' => '021-30003001'
         ]);
         Owner::create([
-            'nama' => 'Telkomnyet',
-            'foto' => '/abc....',
-            'alamat' => 'baki',
-            'noTelp' => '09998'
+            'nama' => 'Telkomsel',
+            'foto' => '/abc',
+            'alamat' => 'Jl. Jendral Gatot Subroto, Jakarta Selatan',
+            'noTelp' => '080-71811811 '
+        ]);
+        Owner::create([
+            'nama' => 'XL Axiata',
+            'foto' => '/abc',
+            'alamat' => 'Jl. H.R. Rasuna Said X5 Kav. 11-12, Jakarta Selatan',
+            'noTelp' => '021-57959817'
+        ]);
+        Owner::create([
+            'nama' => 'Bakrie Telcom',
+            'foto' => '/abc',
+            'alamat' => 'Jl. H.R Rasuna Said Kav. B-1, Jakarta',
+            'noTelp' => '021-91101112'
         ]);
 
+        // Seeder For Kecamatan di Kota Surakarta
         Kecamatan::create([
-            'nama' => 'Gumpang'
+            'nama' => 'Banjarsari'
         ]);
-
         Kecamatan::create([
             'nama' => 'Jebres'
         ]);
+        Kecamatan::create([
+            'nama' => 'Laweyan'
+        ]);
+        Kecamatan::create([
+            'nama' => 'Pasar Kliwon'
+        ]);
+        Kecamatan::create([
+            'nama' => 'Serengan'
+        ]);
 
+        // Seeder Kelurahan for Kecamatan Banjarsari
         Village::create([
-            'nama' => 'SukaMakmur',
+            'nama' => 'Kadipiro',
             'kecamatan_id' => '1'
         ]);
-
         Village::create([
-            'nama' => 'SukaSukaSayaLah',
+            'nama' => 'Sumber',
+            'kecamatan_id' => '1'
+        ]);
+        Village::create([
+            'nama' => 'Manahan',
+            'kecamatan_id' => '1'
+        ]);
+        Village::create([
+            'nama' => 'Gilingan',
+            'kecamatan_id' => '1'
+        ]);
+        // Seeder Kelurahan for Kecamatan Jebres
+        Village::create([
+            'nama' => 'Jebres',
             'kecamatan_id' => '2'
         ]);
-
+        Village::create([
+            'nama' => 'Jagalan',
+            'kecamatan_id' => '2'
+        ]);
+        Village::create([
+            'nama' => 'Mojosongo',
+            'kecamatan_id' => '2'
+        ]);
+        Village::create([
+            'nama' => 'Sewu',
+            'kecamatan_id' => '2'
+        ]);
+        // Seeder Kelurahan for Kecamatan Laweyan
+        Village::create([
+            'nama' => 'Penumping',
+            'kecamatan_id' => '3'
+        ]);
+        Village::create([
+            'nama' => 'Purwosari',
+            'kecamatan_id' => '3'
+        ]);
+        Village::create([
+            'nama' => 'Jajar',
+            'kecamatan_id' => '3'
+        ]);
+        Village::create([
+            'nama' => 'Karangasem',
+            'kecamatan_id' => '3'
+        ]);
+        // Seeder Kelurahan for Kecamatan Pasar Kliwon
+        Village::create([
+            'nama' => 'Semanggi',
+            'kecamatan_id' => '4'
+        ]);
+        Village::create([
+            'nama' => 'Pasar Kliwon',
+            'kecamatan_id' => '4'
+        ]);
+        Village::create([
+            'nama' => 'Danukusuman',
+            'kecamatan_id' => '4'
+        ]);
+        Village::create([
+            'nama' => 'Gajahan',
+            'kecamatan_id' => '4'
+        ]);
+        // Seeder Kelurahan for Kecamatan Serengan
+        Village::create([
+            'nama' => 'Kratonan',
+            'kecamatan_id' => '5'
+        ]);
+        Village::create([
+            'nama' => 'Serengan',
+            'kecamatan_id' => '5'
+        ]);
+        Village::create([
+            'nama' => 'Joyontakan',
+            'kecamatan_id' => '5'
+        ]);
+        Village::create([
+            'nama' => 'Kemlayan',
+            'kecamatan_id' => '5'
+        ]);
     }
 }
