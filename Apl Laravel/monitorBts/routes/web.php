@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\BtslistController;
 // use App\Http\Controllers\AdminController;
 // use App\Http\Controllers\SurveyorController;
 
@@ -41,7 +42,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::resource('/dashboard/owners', OwnerController::class)->middleware('auth');
 Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
 
-
+// Route::get('/dashboard/btslists/{id}/create', [BtslistController::class, 'store']);
 
 
 // Route::post('store', 'BTSController@store')->name('store.uploadBTSPhotos')->middleware('auth');

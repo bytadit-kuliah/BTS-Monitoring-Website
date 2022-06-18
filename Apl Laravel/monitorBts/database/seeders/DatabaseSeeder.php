@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'lastName' => 'Subejo',
             'email' => 'admin1@gmail.com',
             'email_verified_at' => now(),
+            'noTelp' => '085749383186',
             'password' => bcrypt('admin1'),
             'is_admin' => true,
             'remember_token' =>  Str::random(20)
@@ -39,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'lastName' => 'Bagus',
             'email' => 'surveyor1@gmail.com',
             'email_verified_at' => now(),
+            'noTelp' => '088749383186',
             'password' => bcrypt('surveyor1'),
             'is_admin' => false,
             'remember_token' =>  Str::random(20)
@@ -50,6 +52,7 @@ class DatabaseSeeder extends Seeder
             'lastName' => 'Aaron',
             'email' => 'surveyor2@gmail.com',
             'email_verified_at' => now(),
+            'noTelp' => '083749383186',
             'password' => bcrypt('surveyor2'),
             'is_admin' => false,
             'remember_token' =>  Str::random(20)

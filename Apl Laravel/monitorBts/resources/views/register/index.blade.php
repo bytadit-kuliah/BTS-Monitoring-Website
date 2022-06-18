@@ -45,6 +45,15 @@
                 </div>
                 @enderror
               </div>
+              <div class="form-floating mt-2">
+                <input type="text" class="form-control @error('noTelp') is-invalid @enderror" id="noTelp" name="noTelp" placeholder="noTelp" required value={{ old('noTelp') }}>
+                <label for="noTelp">Nomor Telepon</label>
+                @error('noTelp')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+              </div>
               <div class="form-floating mb-4 mt-2">
                 <input type="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password" required value={{ old('password') }}>
                 <label for="password">Password</label>
@@ -54,7 +63,10 @@
                 </div>
                 @enderror
               </div>
-
+              <div class="form-floating mb-4 mt-2">
+                <input type="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" name="password_confirmation" placeholder="Password"  required autocomplete="current-password">
+                <label for="password">Confirm Password</label>
+              </div>
               {{-- <div class="checkbox mb-3">
                 <label>
                   <input type="checkbox" value="remember-me"> Remember me

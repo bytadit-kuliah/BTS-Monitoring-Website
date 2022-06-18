@@ -14,24 +14,24 @@
     </div>
     @endif
 
-    <a href="/dashboard/edit-bts/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
+    <a href="/dashboard/btslists/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
 
     <div class="container">
         <div class="row">
-            @foreach($bts_list as $bts)
+            @foreach($btslists as $btslist)
             <div class="card col-md-3 m-3">
-                <h3 class="card-title"><a href="/dashboard/edit-bts/show" class="text-decoration-none text-dark">{{ $bts->namaBTS }}</a></h3>
+                <h3 class="card-title"><a href="/dashboard/btslists/show" class="text-decoration-none text-dark">{{ $btslist->nama }}</a></h3>
                 <div style="max-height: 350px; overflow:hidden;">
-                    <img src="https://source.unsplash.com/1200x400?tower" alt="gbr" class="img-fluid">
+                    <img src="https://source.unsplash.com/1200x400?tower" alt="{{ $btslist->nama }}" class="img-fluid">
                 </div>
                 <div class="card-body">
-                    <a href="/dashboard/edit-bts/{{ $bts->id }}" class="badge bg-info">
+                    <a href="/dashboard/btslists/{{ $btslist->id }}" class="badge bg-info">
                         <i class="bi bi-eye-fill"></i>
                     </a>
-                    <a href="/dashboard/edit-bts/{{ $bts->id }}/edit" class="badge bg-warning">
+                    <a href="/dashboard/btslists/{{ $btslist->id }}/edit" class="badge bg-warning">
                         <i class="bi bi-pen-fill"></i>
                     </a>
-                    <form action="/dashboard/edit-bts/{{ $bts->id }}" method="post" class="d-inline">
+                    <form action="/dashboard/btslists/{{ $btslist->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></span></button>

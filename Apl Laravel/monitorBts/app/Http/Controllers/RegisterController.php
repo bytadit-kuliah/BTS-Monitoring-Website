@@ -28,7 +28,8 @@ class RegisterController extends Controller
             'lastName' => 'required|max:255',
             // 'email' => 'required|email:dns|unique:users',
             'email' => 'required|unique:users',
-            'password' => 'required|min:5|max:255'
+            'noTelp' => 'required',
+            'password' => 'required|confirmed|min:5|max:255',
         ]);
 
         // $validatedData['password'] = bcrypt($validatedData['password']);

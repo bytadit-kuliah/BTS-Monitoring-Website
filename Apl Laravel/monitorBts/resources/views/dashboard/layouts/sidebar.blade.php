@@ -43,7 +43,7 @@
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/dashboard/edit-bts">Edit Info BTS</a>
+                            <a class="nav-link" href="/dashboard/btslists">Edit Info BTS</a>
                             <a class="nav-link" href="/dashboard/owners">Edit Owner BTS</a>
                             {{-- <a class="nav-link" href="/dashboard/edit-wilayah">Edit Wilayah BTS</a> --}}
                             <a class="nav-link" href="/dashboard/list-survey">Edit Survey</a>
