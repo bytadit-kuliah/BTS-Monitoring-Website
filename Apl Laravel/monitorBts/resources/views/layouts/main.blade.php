@@ -58,7 +58,7 @@
     </header>
     <!--Header Akhir-->
 
-    <div class="container">
+    <div class="container" style='min-height:73vh'>
         @yield('container')
     </div>
 
