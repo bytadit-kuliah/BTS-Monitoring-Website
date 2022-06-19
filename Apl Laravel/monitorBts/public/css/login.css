@@ -159,7 +159,7 @@ header nav ul li {
 
 /* Footer */
 footer {
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     bottom: 0;
     left: 0;
@@ -200,13 +200,14 @@ footer #fc a {
 
 /* login.html */
 /* .main_login .banner{ */
-body{
+/* body{
     background: url(../image/vectorlogin.svg);
     background-repeat: no-repeat;
-    background-position: 0 76px;
+    background-position: 0 110px;
     background-size: fixed;
-    margin-bottom: 55px;
-}
+
+    min-height: 110vh;
+} */
 .banner_login{
     /* display: flex;
     flex-direction: column;
@@ -253,6 +254,7 @@ body{
 .card_register{
     opacity: 0;
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center ;
     justify-content: space-evenly;
@@ -262,6 +264,7 @@ body{
     border-radius: 20px;
     transition: none;
     animation: fadeInDown 1.2s forwards; 
+    margin-bottom: 10px;
     /* animation-delay: 400ms; */
 }
 /* keyframes animations */
