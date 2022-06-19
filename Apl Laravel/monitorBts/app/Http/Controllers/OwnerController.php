@@ -48,11 +48,12 @@ class OwnerController extends Controller
             'nama' => 'required|max:255',
             'alamat' => 'required',
             'noTelp' => 'required',
-            'foto' => 'image|file|max:2048'
+            // 'foto' => 'image|file|max:2048'
+            'foto' => 'max:2048'
         ]);
 
         if($request->file('foto')){
-            $validatedData['foto'] = $request->file('foto')->store('owner-foto');
+            $validatedData['foto'] = $request->file('foto')->store('owners-foto');
         }
 
         // $validatedData['user_id'] = auth()->user()->id;
@@ -100,7 +101,7 @@ class OwnerController extends Controller
             'nama' => 'required|max:255',
             'alamat' => 'required',
             'noTelp' => 'required',
-            'foto' => 'image|file|max:2048'
+            'foto' => 'max:2048'
         ];
 
 // // mengatasi masalah slug tidak bisa sama spt sebelumnya
@@ -114,7 +115,7 @@ class OwnerController extends Controller
             if($request->oldFoto){
                 Storage::delete($request->oldFoto);
             }
-            $validatedData['foto'] = $request->file('foto')->store('owner-foto');
+            $validatedData['foto'] = $request->file('foto')->store('owners-foto');
         }
 
         // $validatedData['user_id'] = auth()->user()->id;

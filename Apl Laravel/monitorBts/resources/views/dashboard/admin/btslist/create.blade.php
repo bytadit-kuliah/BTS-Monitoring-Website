@@ -71,12 +71,14 @@
                             @endif
                         @endforeach
                     </select>
+
                 </div>
                 <div class="col-md-2 mb-3">
                     <label for="village_id" class="form-label">Desa</label>
-                    <select class="form-select" name="village_id">
+                    <select class="form-select" name="village_id" >
                         {{-- Post::where('user_id', auth()->user()->id)->get() --}}
-                        @foreach ($villages as $village)
+                    @foreach ($villages as $village)
+                        {{-- @foreach ($villages->where('kecamatan_id', $selectedKecamatan) as $village) --}}
                             @if(old('village_id') == $village->id)
                                 <option value="{{ $village->id }}" selected>{{ $village->nama }}</option>
                             @else
@@ -84,6 +86,7 @@
                             @endif
                         @endforeach
                     </select>
+                    <h5>{{ print_r(old('kecamatan_id')) }}</h5>
 
                 </div>
                 <div class="col-md-2 mb-3">
@@ -153,8 +156,19 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="images" class="form-label @error('images') is-invalid @enderror">Foto Bts</label>
+                <img class="img-preview img-fluid mb-3 col-sm-5">
+                <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
+                @error('images')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div> --}}
+{{-- MAIN IMAGE --}}
+            <div class="mb-3">
+                <label for="images" class="form-label @error('images') is-invalid @enderror">BTS Images</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5">
                 <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
                 @error('images')
@@ -164,12 +178,13 @@
                 @enderror
             </div>
 
+
             {{-- <div class="row">
                 <div class="mb-3 images-preview-div">
-                    <label for="bts_photos" class="form-label @error('bts_photos') is-invalid @enderror">Foto-foto BTS</label>
+                    <label for="images" class="form-label @error('images') is-invalid @enderror">Foto-foto BTS</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input class="form-control" type="file" id="bts_photos" name="bts_photos" onchange="previewImage()" multiple>
-                    @error('bts_photos')
+                    <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
+                    @error('images')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -215,38 +230,56 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        $(function() {
-        // Multiple images preview with JavaScript
-        var previewImages = function(input, imgPreviewPlaceholder) {
-            if(input.files){
-                var filesAmount = input.files.length;
-                for (i = 0; i < filesAmount; i++) {
-                    var reader = new FileReader();
-                    reader.onload = function(event) {
-                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
-                    }
-                    reader.readAsDataURL(input.files[i]);
-                }
-            }
-        };
+        var kecamatan_id = document.getElementById('kecamatan_id').value
+    </script>
+    <script>
+        // $(function() {
+        // // Multiple images preview with JavaScript
+        // var previewImages = function(input, imgPreviewPlaceholder) {
+        //     if(input.files){
+        //         var filesAmount = input.files.length;
+        //         for (i = 0; i < filesAmount; i++) {
+        //             var reader = new FileReader();
+        //             reader.onload = function(event) {
+        //                 $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+        //             }
+        //             reader.readAsDataURL(input.files[i]);
+        //         }
+        //     }
+        // };
 
     function previewImage() {
-        const foto = document.querySelector('#images');
+        const btsfoto = document.querySelector('#images');
         const imgPreview = document.querySelector('.img-preview');
 
         imgPreview.style.display = 'block';
 
         const oFReader = new FileReader();
-        oFReader.readAsDataURL(foto.files[0]);
+        oFReader.readAsDataURL(btsfoto.files[0]);
 
         oFReader.onload = function (oFREvent) {
             imgPreview.src = oFREvent.target.result;
         }
     }
-    $('#bts_photos').on('change', function() {
-        previewImages(this, 'div.images-preview-div');
-        });
-    });
+
+    // function previewImage() {
+    //     const btsphotos = document.querySelector('#images');
+    //     const imgPreview = document.querySelector('.img-preview');
+
+    //     imgPreview.style.display = 'block';
+
+    //     const oFReader = new FileReader();
+    //     oFReader.readAsDataURL(btsphotos.files[0]);
+
+    //     oFReader.onload = function (oFREvent) {
+    //         imgPreview.src = oFREvent.target.result;
+    //     }
+    // }
+
+    // $('#images').on('change', function() {
+    //     previewImages(this, 'div.images-preview-div');
+    //     });
+    // });
 </script>
 @endsection
 

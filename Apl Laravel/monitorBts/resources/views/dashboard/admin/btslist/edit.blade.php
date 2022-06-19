@@ -7,44 +7,41 @@
         <li class="breadcrumb-item active">list BTS:</li>
     </ol> --}}
     <div class="row">
-
-        <form action="{{ route('bts.update') }}" method="post" class="mb-5" enctype="multipart/form-data">
-            {{-- @method('put')
-            @csrf --}}
-            {{ csrf_field() }}
-            {{ method_field('put') }}
+        <form action="/dashboard/btslists/{{ $btslist->id }}" method="post" class="mb-5" enctype="multipart/form-data">
+            @method('put')
+            @csrf
             {{-- <div class="mb-3">
                 <span id="id">
                 </span>
             </div> --}}
-
+            {{-- <input id="id" type="hidden" name="id" value="{{ $btslists->id }}"> --}}
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="namaBTS" class="form-label">Nama BTS</label>
-                    <input type="text" class="form-control @error('namaBTS') is-invalid @enderror" id="namaBTS" name="namaBTS" required autofocus value="{{ old('namaBTS', $bts->namaBTS) }}">
-                    @error('namaBTS')
+                    <label for="nama" class="form-label">Nama BTS</label>
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" required autofocus value="{{ old('nama', $btslist->nama) }}">
+                    @error('nama')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="jenisBTS_id" class="form-label">Jenis BTS</label>
-                    <select class="form-select" name="jenisBTS_id">
-                        @foreach ($bts_type as $jenis_bts)
-                            @if(old('jenisBTS_id', $bts->jenisBTS_id) == $jenis_bts->id)
-                                <option value="{{ $jenis_bts->id }}" selected>{{ $jenis_bts->jenisBTS }}</option>
+                    <label for="btstype_id" class="form-label">Jenis BTS</label>
+                    <select class="form-select" name="btstype_id">
+                        @foreach ($btstypes as $btstype)
+                            @if(old('btstype_id', $btslist->btstype_id) == $btstype->id)
+                                <option value="{{ $btstype->id }}" selected>{{ $btstype->type }}</option>
                             @else
-                                <option value="{{ $jenis_bts->id }}">{{ $jenis_bts->jenisBTS }}</option>
+                                <option value="{{ $btstype->id }}">{{ $btstype->type }}</option>
                             @endif
                         @endforeach
                     </select>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="owner_id" class="form-label">Pemilik</label>
+                    <label for="owner_id" class="form-label">Owner</label>
                     <select class="form-select" name="owner_id">
                         @foreach ($owners as $owner)
-                            @if(old('owner_id', $bts->owner_id) == $owner->id)
+                            @if(old('owner_id', $btslist->owner_id) == $owner->id)
                                 <option value="{{ $owner->id }}" selected>{{ $owner->nama }}</option>
                             @else
                                 <option value="{{ $owner->id }}">{{ $owner->nama }}</option>
@@ -55,20 +52,34 @@
             </div>
 
             <div class="row">
-                <div class="col-md-5 mb-3">
+                <div class="col-md-4 mb-3">
                     <label for="lokasi" class="form-label">Alamat</label>
-                    <input type="text" class="form-control @error('lokasi') is-invalid @enderror" id="lokasi" name="lokasi" required autofocus value="{{ old('lokasi', $bts->lokasi) }}">
+                    <input type="text" class="form-control @error('lokasi') is-invalid @enderror" id="lokasi" name="lokasi" required autofocus value="{{ old('lokasi', $btslist->lokasi) }}">
                     @error('lokasi')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
                 </div>
-                <div class="col-md-3 mb-3">
-                    <label for="desa_id" class="form-label">Desa</label>
-                    <select class="form-select" name="desa_id">
+                <div class="col-md-2 mb-3">
+                    <label for="kecamatan_id" class="form-label">Kecamatan</label>
+                    <select class="form-select" name="kecamatan_id">
+                        @foreach ($kecamatans as $kecamatan)
+                            @if(old('kecamatan_id', $btslist->kecamatan_id) == $kecamatan->id)
+                                <option value="{{ $kecamatan->id }}" selected>{{ $kecamatan->nama }}</option>
+                            @else
+                                <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="village_id" class="form-label">Desa</label>
+                    <select class="form-select" name="village_id" >
+                        {{-- Post::where('user_id', auth()->user()->id)->get() --}}
                         @foreach ($villages as $village)
-                            @if(old('desa_id', $bts->desa_id) == $village->id)
+                            {{-- @foreach ($villages->where('kecamatan_id', $kecamatans->id)->get() as $village) --}}
+                            @if(old('village_id', $btslist->village_id) == $village->id)
                                 <option value="{{ $village->id }}" selected>{{ $village->nama }}</option>
                             @else
                                 <option value="{{ $village->id }}">{{ $village->nama }}</option>
@@ -77,17 +88,16 @@
                     </select>
 
                 </div>
-
                 <div class="col-md-2 mb-3">
                     <label for="genset" class="form-label">Genset</label>
-                    <select class="form-select @error('genset') is-invalid @enderror" id="genset" name="genset" required autofocus value="{{ old('genset', $bts->genset) }}">
+                    <select class="form-select @error('genset') is-invalid @enderror" id="genset" name="genset" required autofocus value="{{ old('genset', $btslist->genset) }}">
                         <option value="1">Ada</option>
                         <option value="0">Tidak Ada</option>
                     </select>
                 </div>
                 <div class="col-md-2 mb-3">
-                    <label for="tembok_batas" class="form-label">Tembok Batas</label>
-                    <select class="form-select @error('tembok_batas') is-invalid @enderror" id="tembok_batas" name="tembok_batas" required autofocus value="{{ old('tembok_batas', $bts->tembok_batas) }}">
+                    <label for="tembokBatas" class="form-label">Tembok Batas</label>
+                    <select class="form-select @error('tembokBatas') is-invalid @enderror" id="tembokBatas" name="tembokBatas" required autofocus value="{{ old('tembokBatas', $btslist->tembokBatas) }}">
                         <option value="1">Ada</option>
                         <option value="0">Tidak Ada</option>
                     </select>
@@ -96,27 +106,27 @@
 
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="panjang_tanah" class="form-label">Panjang Tanah</label>
-                    <input type="number" class="form-control @error('panjang_tanah') is-invalid @enderror" id="panjang_tanah" name="panjang_tanah" required autofocus value="{{ old('panjang_tanah', $bts->panjang_tanah) }}">
-                    @error('panjang_tanah')
+                    <label for="panjangTanah" class="form-label">Panjang Tanah</label>
+                    <input type="number" class="form-control @error('panjangTanah') is-invalid @enderror" id="panjangTanah" name="panjangTanah" required autofocus value="{{ old('panjangTanah', $btslist->panjangTanah) }}">
+                    @error('panjangTanah')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="lebar_tanah" class="form-label">Lebar Tanah</label>
-                    <input type="number" class="form-control @error('lebar_tanah') is-invalid @enderror" id="lebar_tanah" name="lebar_tanah" required autofocus value="{{ old('lebar_tanah', $bts->lebar_tanah) }}">
-                    @error('lebar_tanah')
+                    <label for="lebarTanah" class="form-label">Lebar Tanah</label>
+                    <input type="number" class="form-control @error('lebarTanah') is-invalid @enderror" id="lebarTanah" name="lebarTanah" required autofocus value="{{ old('lebarTanah', $btslist->lebarTanah) }}">
+                    @error('lebarTanah')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="tinggi_tower" class="form-label">Tinggi Tower</label>
-                    <input type="number" class="form-control @error('tinggi_tower') is-invalid @enderror" id="tinggi_tower" name="tinggi_tower" required autofocus value="{{ old('tinggi_tower', $bts->tinggi_tower) }}">
-                    @error('tinggi_tower')
+                    <label for="tinggiTower" class="form-label">Tinggi Tower</label>
+                    <input type="number" class="form-control @error('tinggiTower') is-invalid @enderror" id="tinggiTower" name="tinggiTower" required autofocus value="{{ old('tinggiTower', $btslist->tinggiTower) }}">
+                    @error('tinggiTower')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -127,7 +137,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="latitude" class="form-label">Latitude</label>
-                    <input type="text" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude', $bts->latitude) }}">
+                    <input type="text" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude', $btslist->latitude) }}">
                     @error('latitude')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -136,7 +146,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="longitude" class="form-label">Longitude</label>
-                    <input type="text" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude', $bts->longitude) }}">
+                    <input type="text" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude', $btslist->longitude) }}">
                     @error('longitude')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -145,12 +155,54 @@
                 </div>
             </div>
 
+            {{-- <div class="mb-3">
+                <label for="images" class="form-label @error('images') is-invalid @enderror">Foto Bts</label>
+                <img class="img-preview img-fluid mb-3 col-sm-5">
+                <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
+                @error('images')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div> --}}
+{{-- MAIN IMAGE --}}
+
+<div class="mb-3">
+    <label for="images" class="form-label @error('images') is-invalid @enderror">BTS Photos</label>
+    <input type="hidden" name="oldImages" id="oldImages" value="{{ $btsimgs }}" multiple>
+    {{-- @if ($btsphoto->url->where('btslist_id', $btslist->id))
+    <img src="{{ asset('storage/' . $post->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+        @else
+    <img class="img-preview img-fluid mb-3 col-sm-5">
+    @endif --}}
+
+    <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
+    @error('images')
+    <div class="invalid-feedback">
+        {{ $message }}
+    </div>
+    @enderror
+</div>
+
+{{--
+            <div class="mb-3">
+                <label for="images" class="form-label @error('images') is-invalid @enderror">BTS Images</label>
+                <img class="img-preview img-fluid mb-3 col-sm-5">
+                <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
+                @error('images')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div> --}}
+
+
             {{-- <div class="row">
                 <div class="mb-3 images-preview-div">
-                    <label for="bts_photos" class="form-label @error('bts_photos') is-invalid @enderror">Foto-foto BTS</label>
+                    <label for="images" class="form-label @error('images') is-invalid @enderror">Foto-foto BTS</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input class="form-control" type="file" id="bts_photos" name="bts_photos" onchange="previewImage()" multiple>
-                    @error('bts_photos')
+                    <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
+                    @error('images')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -160,7 +212,7 @@
 
             {{-- <div class="row">
                 <div class="mb-3 images-preview-div">
-            <form method="POST" action="{{ route('store.uploadBTSPhotos') }}" enctype="multipart/form-data" >
+            <form method="POST" action="{{ route('store.uploadimagess') }}" enctype="multipart/form-data" >
                 {{ csrf_field() }}
                 <div>
                     <label>Choose Images</label>
@@ -168,12 +220,12 @@
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                 </div>
                 <hr>
-                <button type="submit" >Update</button>
+                <button type="submit" >Submit</button>
             </form>
                 </div>
             </div> --}}
 
-            <button type="submit" class="btn btn-primary mt-4">Update BTS</button>
+            <button type="submit" class="btn btn-primary mt-4">Update Data BTS</button>
         </form>
     </div>
 
@@ -196,24 +248,53 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        $(function() {
-        // Multiple images preview with JavaScript
-        var previewImages = function(input, imgPreviewPlaceholder) {
-            if(input.files){
-                var filesAmount = input.files.length;
-                for (i = 0; i < filesAmount; i++) {
-                    var reader = new FileReader();
-                    reader.onload = function(event) {
-                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
-                    }
-                    reader.readAsDataURL(input.files[i]);
-                }
-            }
-        };
-    $('#bts_photos').on('change', function() {
-        previewImages(this, 'div.images-preview-div');
-        });
-    });
+        // $(function() {
+        // // Multiple images preview with JavaScript
+        // var previewImages = function(input, imgPreviewPlaceholder) {
+        //     if(input.files){
+        //         var filesAmount = input.files.length;
+        //         for (i = 0; i < filesAmount; i++) {
+        //             var reader = new FileReader();
+        //             reader.onload = function(event) {
+        //                 $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+        //             }
+        //             reader.readAsDataURL(input.files[i]);
+        //         }
+        //     }
+        // };
+
+    function previewImage() {
+        const btsfoto = document.querySelector('#images');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(btsfoto.files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+
+    // function previewImage() {
+    //     const btsphotos = document.querySelector('#images');
+    //     const imgPreview = document.querySelector('.img-preview');
+
+    //     imgPreview.style.display = 'block';
+
+    //     const oFReader = new FileReader();
+    //     oFReader.readAsDataURL(btsphotos.files[0]);
+
+    //     oFReader.onload = function (oFREvent) {
+    //         imgPreview.src = oFREvent.target.result;
+    //     }
+    // }
+
+    // $('#images').on('change', function() {
+    //     previewImages(this, 'div.images-preview-div');
+    //     });
+    // });
 </script>
 @endsection
 

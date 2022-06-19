@@ -40,7 +40,7 @@
                         <img src="{{ asset('storage/' . $owner->foto) }}" alt="{{ $owner->nama }}" class="img-fluid mt-3">
                     </div>
                     @else
-                    <img src="https://source.unsplash.com/100x100?{{ $owner->nama }}" alt="{{ $owner->nama }}" class="img-fluid mt-3">
+                    <img src="https://source.unsplash.com/100x100?tower" alt="{{ $owner->nama }}" class="img-fluid mt-3">
                     @endif
                 </td>
                 <td>{{ $owner->nama }}</td>

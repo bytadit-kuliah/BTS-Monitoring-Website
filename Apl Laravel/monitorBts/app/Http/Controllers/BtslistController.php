@@ -9,6 +9,10 @@ use App\Models\Kecamatan;
 use App\Models\Btstype;
 use App\Models\Btsphoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class BtslistController extends Controller
 {
@@ -29,7 +33,7 @@ class BtslistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $request, Kecamatan $kecamatan)
     {
         // $kecamatan = new Kecamatan();
         // $kecamatan_id =  $kecamatan->id;
@@ -37,13 +41,19 @@ class BtslistController extends Controller
         return view('dashboard.admin.btslist.create', [
 
             'btslists' => Btslist::all(),
+            'request' => $request,
             'btstypes' => Btstype::all(),
+            'kecamatans' => Kecamatan::all(),
+            'kecamatan' => $kecamatan,
             'villages' => Village::all(),
-            // 'villages' => Village::where('kecamatan_id', $kecamatan_id)->get(),
+            // 'villages' => Village::where('kecamatan_id', '1')->get(),
             // 'posts' => Post::where('user_id', auth()->user()->id)->get()
             'owners' => Owner::all(),
-            'kecamatans' => Kecamatan::all()
+            // 'selected' => print_r($request->kecamatan_id)
+            // 'selectedKecamatan' => Kecamatan::first()->kecamatan_id,
+            'value' => $request->kecamatan_id
         ]);
+
     }
 
     /**
@@ -54,7 +64,7 @@ class BtslistController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $this->validate($request, [
             'nama' => 'required|max:255',
             'btstype_id' => 'required',
             'owner_id' => 'required',
@@ -68,40 +78,34 @@ class BtslistController extends Controller
             'tinggiTower' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
-            'btsphoto' => 'image|file|max:2048'
-            // 'bts_photos' => 'image|file|max:3000'
+            'images' => 'max:2048'
         ]);
 
-        $validatedData['user_id'] = auth()->user()->id;
+        $btslist = new Btslist;
+        $btslist->nama = $request->nama;
+        $btslist->btstype_id = $request->btstype_id;
+        $btslist->owner_id = $request->owner_id;
+        $btslist->lokasi = $request->lokasi;
+        $btslist->village_id = $request->village_id;
+        $btslist->genset = $request->genset;
+        $btslist->tembokBatas = $request->tembokBatas;
+        $btslist->panjangTanah = $request->panjangTanah;
+        $btslist->lebarTanah = $request->lebarTanah;
+        $btslist->tinggiTower = $request->tinggiTower;
+        $btslist->latitude = $request->latitude;
+        $btslist->longitude = $request->longitude;
+        $btslist->user_id = auth()->user()->id;;
+        $btslist->save();
 
-        // $btslists = new Btslist;
-        // foreach ($request->file('btsphoto') as $imagefile) {
-        //     $image = new Btsphoto;
-        //     $path = $imagefile->store('bts-photo');
-        //     $image->url = $path;
-        //     $image->btslist_id = $btslists->id;
-        //     $image->save();
-        // }
-        // foreach($request->file('foto') as ){
-        //     $validatedData['foto'] = $request->file('foto')->store('owner-foto');
-        // }
-        Btslist::create($validatedData);
-        // $btslists = Btslist::all();
-        if($request->hasfile('images'))
-        {
-           foreach($request->file('images') as $key => $file)
-           {
-            //    $btslists = new Btslist;
-               $path = $file->store('images');
-               $insert[$key]['url'] = $path;
-               $insert[$key]['btslist_id'] = $request->id;
-           }
+        foreach ($request->file('images') as $imagefile) {
+            $image = new Btsphoto;
+            $path = $imagefile->store('btsphotos');
+            $image->url = $path;
+            $image->btslist_id = $btslist->id;
+            $image->save();
         }
-        Btsphoto::insert($insert);
 
-        // return redirect('/dashboard/btslists')->with('success', 'Data BTS Baru Berhasil Ditambahkan');
-        return $validatedData;
-
+        return redirect('/dashboard/btslists')->with('success', 'Data BTS Baru Berhasil Ditambahkan');
     }
 
     /**
@@ -110,9 +114,12 @@ class BtslistController extends Controller
      * @param  \App\Models\Btslist  $btslist
      * @return \Illuminate\Http\Response
      */
-    public function show(Btslist $btslist)
+    public function show(Btslist $btslist, Btsphoto $btsphoto)
     {
-        //
+        return view('dashboard.admin.btslist.show', [
+            'btslist' => $btslist,
+            'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get()
+        ]);
     }
 
     /**
@@ -121,9 +128,20 @@ class BtslistController extends Controller
      * @param  \App\Models\Btslist  $btslist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Btslist $btslist)
+    public function edit(Btslist $btslist, Btsphoto $btsphoto)
     {
-        //
+        return view('dashboard.admin.btslist.edit', [
+            'btslist' => $btslist,
+            'btsphoto' => $btsphoto,
+            'btslists' => Btslist::all(),
+            'btstypes' => Btstype::all(),
+            'kecamatans' => Kecamatan::all(),
+            'villages' => Village::all(),
+            // 'villages' => Village::where('kecamatan_id', '1')->get(),
+            // 'posts' => Post::where('user_id', auth()->user()->id)->get()
+            'owners' => Owner::all(),
+            'btsimgs' => Btsphoto::where('btslist_id', $btslist->id)->get()
+        ]);
     }
 
     /**
@@ -133,9 +151,101 @@ class BtslistController extends Controller
      * @param  \App\Models\Btslist  $btslist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Btslist $btslist)
+    public function update(Request $request, $id)
     {
-        //
+        // $this->validate($request, [
+        //     'nama' => 'required|max:255',
+        //     'btstype_id' => 'required',
+        //     'owner_id' => 'required',
+        //     'lokasi' => 'required',
+        //     'village_id' => 'required',
+        //     'kecamatan_id' => 'required',
+        //     'genset' => 'required',
+        //     'tembokBatas' => 'required',
+        //     'panjangTanah' => 'required',
+        //     'lebarTanah' => 'required',
+        //     'tinggiTower' => 'required',
+        //     'latitude' => 'required',
+        //     'longitude' => 'required',
+        //     'images' => 'max:2048'
+        // ]);
+
+        // $btslist = new Btslist;
+        // $btslist->nama = $request->nama;
+        // $btslist->btstype_id = $request->btstype_id;
+        // $btslist->owner_id = $request->owner_id;
+        // $btslist->lokasi = $request->lokasi;
+        // $btslist->village_id = $request->village_id;
+        // $btslist->genset = $request->genset;
+        // $btslist->tembokBatas = $request->tembokBatas;
+        // $btslist->panjangTanah = $request->panjangTanah;
+        // $btslist->lebarTanah = $request->lebarTanah;
+        // $btslist->tinggiTower = $request->tinggiTower;
+        // $btslist->latitude = $request->latitude;
+        // $btslist->longitude = $request->longitude;
+        // $btslist->user_id = auth()->user()->id;
+        // $btslist->where('id', $btslist->id)->update();
+
+        // foreach ($request->file('images') as $imagefile) {
+        //     $image = new Btsphoto;
+        //     $path = $imagefile->store('btsphotos');
+        //     $image->url = $path;
+        //     $image->btslist_id = $btslist->id;
+        //     $image->where('id', $image->id)->update();
+        // }
+
+        // $rules = array(
+        //     'name'       => 'required',
+        //     'email'      => 'required|email',
+        //     'shark_level' => 'required|numeric'
+        // );
+        // ==================================
+        $btslist = Btslist::findOrFail($id);
+
+        $this->validate($request, [
+            'nama' => 'required|max:255',
+            'btstype_id' => 'required',
+            'owner_id' => 'required',
+            'lokasi' => 'required',
+            'village_id' => 'required',
+            'kecamatan_id' => 'required',
+            'genset' => 'required',
+            'tembokBatas' => 'required',
+            'panjangTanah' => 'required',
+            'lebarTanah' => 'required',
+            'tinggiTower' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'images' => 'max:2048|required'
+        ]);
+
+        $input = $request->except(['kecamatan_id', 'images']);
+        $btslist->fill($input)->save();
+// ================================================================
+        // $btsphoto = Btsphoto::where('btstype_id', $id);
+
+        // $inputgbr = $request->only('images');
+        // $btsphoto->url->fill($inputgbr)->save();
+
+        if($request->file('images')){
+            Btsphoto::where('btslist_id', $id)->delete();
+        }
+        // Klo update harus milih gambar lagi
+        foreach ($request->file('images') as $imagefile) {
+            // if($request->oldImages){
+            //     Storage::delete($request->oldImages);
+            // }
+            // Btsphoto::where('btslist_id', $id)->delete();
+            // $btsphoto->url = $request->get('images');
+            $image = new Btsphoto;
+            $path = $imagefile->store('btsphotos');
+            $image->url = $path;
+            $image->btslist_id = $id;
+            $image->save();
+        }
+
+
+        return redirect('/dashboard/btslists')->with('success', 'Data BTS Berhasil Diupdate');
     }
 
     /**
