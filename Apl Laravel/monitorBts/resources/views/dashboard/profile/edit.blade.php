@@ -3,12 +3,12 @@
 <!-- Main Awal -->
 @section('container')
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Profil</h1>
-    {{-- @if(session()->has('success'))
+    @if(session()->has('success'))
     <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @endif --}}
+    @endif
     <form class="col mb-5" action="/dashboard/users/{{ $user->id }}" method="post" enctype="multipart/form-data" >
     {{-- <form class="col mb-5" action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data" > --}}
 
@@ -77,7 +77,7 @@
                         </div>
                         @enderror
                     </div>
-                    @can('admin')
+                    {{-- @can('admin')
                     <div class="col-md-8 mb-3">
                         <label class="form-label" for='alamat'>Alamat</label>
                         <input id='alamat' type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="masukkan alamat Anda..." value="{{ old('alamat', $user->alamat) }}" autocomplete="alamat" autofocus>
@@ -87,8 +87,8 @@
                         </div>
                         @enderror
                     </div>
-                    @endcan
-                    @can('surveyor')
+                    @endcan --}}
+                    {{-- @can('surveyor') --}}
                     <div class="col-md-4 mb-3">
                         <label class="form-label" for='alamat'>Alamat</label>
                         <input id='alamat' type="text" name="alamat"class="form-control @error('alamat') is-invalid @enderror" placeholder="masukkan alamat Anda..." value="{{ old('alamat', $user->alamat) }}" autocomplete="alamat" autofocus>
@@ -98,16 +98,12 @@
                         </div>
                         @enderror
                     </div>
-                    <div class="col-md-4 mb-3">
+                    {{-- <div class="col-md-4 mb-3">
                         <label class="form-label" for='jmlSurvey'>Jumlah Survey</label>
                         <input id='jmlSurvey' name="jmlSurvey" type="number" span=1 class="form-control @error('jmlSurvey') is-invalid @enderror" required value="{{ old('jmlSurvey', $user->jmlSurvey) }}" disabled autocomplete="jmlSurvey" autofocus>
-                        {{-- @error('jmlSurvey')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror --}}
-                    </div>
-                    @endcan
+
+                    </div> --}}
+                    {{-- @endcan --}}
                     <div class="col-md-4 mb-3">
                         <label class="form-label" for='noTelp'>Nomor Telepon</label>
                         <input id='noTelp' name="noTelp" type="text" class="form-control @error('noTelp') is-invalid @enderror" placeholder="masukkan Nomor Telepon Anda..." required value="{{ old('noTelp', $user->noTelp) }}" autocomplete="noTelp" autofocus>
@@ -129,7 +125,41 @@
                         @enderror
                     </div> --}}
                     <div class="mb-3 col-md-12">
-                        <label for="photo" class="form-label @error('photo') is-invalid @enderror">Foto Profil</label><br>
+                        <label>Ganti Password</label>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        {{-- <label class="form-label" for='noTelp'>Nomor Telepon</label> --}}
+                        <input id='current_password' name="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" placeholder="current password" value="{{ old('current_password') }}" >
+                        @error('current_password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        {{-- <label class="form-label" for='noTelp'>Nomor Telepon</label> --}}
+                        <input id='new_password' name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="new password">
+                        @error('password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        {{-- <label class="form-label" for='noTelp'>Nomor Telepon</label> --}}
+                        <input id='confirm_password' name="confirm_password" type="password" class="form-control @error('confirm_password') is-invalid @enderror" placeholder="confirm new password">
+                        @error('confirm_password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    {{-- <div class="mb-3 col-md-2">
+                        <button class="btn btn-success">Ubah Password</button>
+                    </div> --}}
+
+                    <div class="mb-3 col-md-6">
+                        <label for="photo" class="form-label @error('photo') is-invalid @enderror">Foto Profil</label>
                         @if($user->photo)
                         <img src="{{ asset('storage/' . $user->photo) }}" class="img-preview img-fluid mb-3 col-sm-5 rounded-5" style="max-height:300px;max-width:300px">
                             @else

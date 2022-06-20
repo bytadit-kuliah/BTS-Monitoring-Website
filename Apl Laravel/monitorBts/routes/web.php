@@ -45,10 +45,11 @@ Route::resource('/dashboard/owners', OwnerController::class)->middleware('auth')
 Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
 // Route::resource('/dashboard/profiles', ProfileController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
+// except('index')
 // Route::put('/dashboard/users/{user}','UserController@update');
 // Route::get('/dashboard/users/{user}/edit','UserController@edit');
 
-// Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('is_admin');
 // Route::post('/dashboard/users', [UserController::class, 'store'])->middleware('auth'); // nyimpen data
 // Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware('auth'); // nyimpen data
 // Route::get('/dashboard/users/{user}', [UserController::class, 'show'])->middleware('auth'); // nyimpen data

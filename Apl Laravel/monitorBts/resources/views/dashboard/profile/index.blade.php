@@ -57,9 +57,9 @@
                 @endif
 
                 <td>
-                    <a href="/dashboard/users/{{ $user->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
+                    {{-- <a href="/dashboard/users/{{ $user->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
-                    </a>
+                    </a> --}}
                     <a href="/dashboard/users/{{ $user->id }}/show" class="show badge bg-success" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a>

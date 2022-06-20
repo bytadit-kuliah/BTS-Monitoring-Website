@@ -149,6 +149,39 @@ class UserController extends Controller
         //     'alamat' => '',
         //     'photo' => 'max:2048'
         // ];
+        // if($request->currentPassword){
+        // $passes = Hash::check($request->currentPassword, auth()->user()->password);
+        // // if($passes){
+        //     $request->validate([
+        //         'currentPassword' => ['max:255', $passes],
+        //         'newPassword' => ['required_with:currentPassword'],
+        //         'confirmNew' => ['same:new_password'],
+        //     ]);
+        //     $validatedData['password'] = Hash::make($request->newPassword);
+        // // }
+        // }
+
+
+        // $user = Auth::user();
+
+        if($request->current_password){
+
+            $userPassword = $user->password;
+
+            if (!Hash::check($request->current_password, $userPassword)) {
+                return back()->withErrors(['current_password'=>'password not match']);
+            }
+
+            $request->validate([
+                'current_password' => 'min:5',
+                'password' => 'required_with:current_password',
+                'confirm_password' => 'same:password',
+            ]);
+
+            $user->password = Hash::make($request->password);
+
+            $user->save();
+        }
 
         $validatedData = $request->validate($rules);
 
@@ -190,7 +223,8 @@ class UserController extends Controller
         //     $image->save();
         // }
 
-        return redirect('/dashboard/users')->with('success', 'Data berhasil diupdate');
+        // return redirect('/dashboard/users')->with('success', 'Data berhasil diupdate');
+        return back()->with('success', 'Data berhasil diupdate');
     }
 
     /**
