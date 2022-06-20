@@ -21,10 +21,14 @@ class BtslistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Btslist $btslist, Btsphoto $btsphoto)
     {
         return view('dashboard.admin.btslist.index', [
-            'btslists' => Btslist::all()
+            'btslists' => Btslist::all(),
+            'btslist' => $btslist,
+            'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get(),
+            // 'firstPhoto' => $btsphoto->where('btslist_id', $btslist->id)->get(),
+            'btsphoto' => $btsphoto
         ]);
     }
 
@@ -78,7 +82,7 @@ class BtslistController extends Controller
             'tinggiTower' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
-            'images' => 'max:2048'
+            'images' => 'required|max:2048'
         ]);
 
         $btslist = new Btslist;
@@ -114,7 +118,7 @@ class BtslistController extends Controller
      * @param  \App\Models\Btslist  $btslist
      * @return \Illuminate\Http\Response
      */
-    public function show(Btslist $btslist, Btsphoto $btsphoto)
+    public function show(Btslist $btslist)
     {
         return view('dashboard.admin.btslist.show', [
             'btslist' => $btslist,

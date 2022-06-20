@@ -168,7 +168,7 @@
             </div> --}}
 {{-- MAIN IMAGE --}}
             <div class="mb-3">
-                <label for="images" class="form-label @error('images') is-invalid @enderror">BTS Images</label>
+                <label for="images" class="form-label @error('images') is-invalid @enderror">BTS Photos</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5">
                 <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
                 @error('images')

@@ -169,6 +169,7 @@
 
 <div class="mb-3">
     <label for="images" class="form-label @error('images') is-invalid @enderror">BTS Photos</label>
+    <img class="img-preview img-fluid mb-3 col-sm-5">
     <input type="hidden" name="oldImages" id="oldImages" value="{{ $btsimgs }}" multiple>
     {{-- @if ($btsphoto->url->where('btslist_id', $btslist->id))
     <img src="{{ asset('storage/' . $post->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
