@@ -19,8 +19,9 @@
         <div class="row-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 @if($user->photo)
-                    <div style="max-height: 100px; max-width:100px; overflow:hidden;">
-                        <img width="300" height="300" src="{{ asset('storage/' . $user->photo) }}" alt="foto admin" class="rounded-5 border border-2" style="max-height:300px;max-width:300px">
+                    <div style="max-height: 300px; max-width:300px; overflow:hidden;">
+                        <img src="{{ asset('storage/' . $user->photo) }}" alt="foto admin" class="rounded-5 border border-2" style="max-height:300px;max-width:300px">
+                        {{-- <img src="{{ asset('storage/' . $user->photo) }}" alt="foto admin"  class="img-preview img-fluid mb-3 col-sm-5 rounded-5 border border-2" style="max-height:600px;max-width:600px"> --}}
                         {{-- <img src="{{ asset('storage/' . $user->photo) }}" class="img-preview img-fluid mb-3 col-sm-5 rounded-5" style="max-height:300px;max-width:300px"> --}}
                     </div>
                 @else
