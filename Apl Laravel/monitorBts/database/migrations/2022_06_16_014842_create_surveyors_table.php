@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('surveyors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('foto');
+            $table->string('fotoSurveyor');
             // $table->string('firstName');
             // $table->string('lastName');
             $table->text('alamat');

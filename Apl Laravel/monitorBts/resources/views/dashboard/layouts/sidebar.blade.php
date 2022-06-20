@@ -29,9 +29,9 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/dashboard/admin-profile">Edit Profil</a>
-                            <a class="nav-link" href="/dashboard/edit-config">Edit Config</a>
-                            <a class="nav-link" href="/dashboard/edit-surveyor">Edit Surveyor</a>
+                            <a class="nav-link" href="/dashboard/users/{{ auth()->user()->id }}/edit">Edit Profil</a>
+                            <a class="nav-link" href="/dashboard/edit-config">Config</a>
+                            <a class="nav-link" href="/dashboard/users">Data Surveyor</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
@@ -43,10 +43,10 @@
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/dashboard/btslists">Edit Info BTS</a>
-                            <a class="nav-link" href="/dashboard/owners">Edit Owner BTS</a>
+                            <a class="nav-link" href="/dashboard/btslists">Info BTS</a>
+                            <a class="nav-link" href="/dashboard/owners">Data Owner BTS</a>
                             {{-- <a class="nav-link" href="/dashboard/edit-wilayah">Edit Wilayah BTS</a> --}}
-                            <a class="nav-link" href="/dashboard/list-survey">Edit Survey</a>
+                            <a class="nav-link" href="/dashboard/list-survey">Buat Survey</a>
                         </nav>
                     </div>
                     @endcan
@@ -54,7 +54,7 @@
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/dashboard/surveyor-profile">Edit Profil</a>
+                        <a class="nav-link" href="/dashboard/users/{{ auth()->user()->id }}/edit">Edit Profile</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
@@ -66,9 +66,9 @@
                 <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/dashboard/info-bts">BTS info</a>
-                        <a class="nav-link" href="/dashboard/my-surveys">Survey</a>
-                        <a class="nav-link" href="/dashboard/my-monitoring">Monitoring</a>
+                        <a class="nav-link" href="/dashboard/info-bts">Data BTS</a>
+                        <a class="nav-link" href="/dashboard/my-surveys">Isi Survey</a>
+                        <a class="nav-link" href="/dashboard/my-monitoring">Data Monitoring</a>
                     </nav>
                 </div>
                 @endcan

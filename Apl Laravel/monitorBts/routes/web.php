@@ -7,6 +7,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\BtslistController;
+// use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 // use App\Http\Controllers\AdminController;
 // use App\Http\Controllers\SurveyorController;
 
@@ -41,6 +43,28 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 
 Route::resource('/dashboard/owners', OwnerController::class)->middleware('auth');
 Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
+// Route::resource('/dashboard/profiles', ProfileController::class)->middleware('auth');
+Route::resource('/dashboard/users', UserController::class)->middleware('auth');
+// Route::put('/dashboard/users/{user}','UserController@update');
+// Route::get('/dashboard/users/{user}/edit','UserController@edit');
+
+// Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('auth');
+// Route::post('/dashboard/users', [UserController::class, 'store'])->middleware('auth'); // nyimpen data
+// Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware('auth'); // nyimpen data
+// Route::get('/dashboard/users/{user}', [UserController::class, 'show'])->middleware('auth'); // nyimpen data
+// // Route::patch('/dashboard/users/{user}', [UserController::class, 'update'])->middleware('auth'); // nyimpen data
+// Route::patch('/dashboard/users/{user}', [UserController::class, 'update'])->middleware('auth')->name('profile.update'); // nyimpen data
+// Route::delete('/dashboard/users/{user}', [UserController::class, 'delete'])->middleware('auth'); // nyimpen data
+// // Route::get('/dashboard/users/{user}/edit', [UserController::class, 'edit'])->middleware('auth')->name('profile.edit'); // nyimpen data
+// Route::get('/dashboard/users/{user}/edit', [UserController::class, 'edit'])->middleware('auth'); // nyimpen data
+
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('profile', 'ProfileController@edit')->name('profile.edit');
+// });
+
+
+// Route::get('/dashboard/users/{user}',  ['as' => 'dashboard.profile.edit', 'uses' => 'UserController@edit']);
+// Route::patch('/dashboard/users/{user}/update',  ['as' => 'dashboard.profile.update', 'uses' => 'UserController@update']);
 
 // Route::get('/dashboard/btslists/{id}/create', [BtslistController::class, 'store']);
 

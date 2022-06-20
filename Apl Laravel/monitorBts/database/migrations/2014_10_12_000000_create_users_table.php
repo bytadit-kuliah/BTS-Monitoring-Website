@@ -22,7 +22,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('noTelp');
             $table->string('password');
+            $table->string('alamat')->nullable();
+            $table->string('photo')->nullable();
             $table->boolean('is_admin')->default(false);
+            $table->integer('jmlSurvey')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

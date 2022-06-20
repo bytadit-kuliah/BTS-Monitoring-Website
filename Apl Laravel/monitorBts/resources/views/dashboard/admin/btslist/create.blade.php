@@ -86,7 +86,7 @@
                             @endif
                         @endforeach
                     </select>
-                    <h5>{{ print_r(old('kecamatan_id')) }}</h5>
+                    {{-- <h5>{{ print_r(old('kecamatan_id')) }}</h5> --}}
 
                 </div>
                 <div class="col-md-2 mb-3">
