@@ -197,6 +197,12 @@ class UserController extends Controller
 
         User::where('id', $user->id)->update($validatedData);
 
+        // if($request->role == "role"){
+        //     $user = new User;
+        //     $user->is_admin = 1;
+        //     $user->save();
+        // }
+
 
         // $user = User::findOrFail($id);
 
@@ -242,4 +248,6 @@ class UserController extends Controller
 
         return redirect('/dashboard/users')->with('success', 'Surveyor has been deleted');
     }
+
+
 }

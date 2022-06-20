@@ -16,7 +16,7 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/users/create" class="btn btn-success mb-4">Input user Baru</a>
+    <a href="/dashboard/users/create" class="btn btn-success mb-4">Add New Surveyor</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -60,17 +60,22 @@
                     {{-- <a href="/dashboard/users/{{ $user->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a> --}}
+                    <form action="/dashboard/users/{{ $user->id }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
+                    </form>
                     <a href="/dashboard/users/{{ $user->id }}/show" class="show badge bg-success" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a>
                     {{-- <a href="/dashboard/users/{{ $user->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}
-                    <form action="/dashboard/users/{{ $user->id }}" method="post" class="badge bg-danger border-0">
-                        @method('delete')
+                    {{-- <form action="/dashboard/users/{{ $user->id }}" method="post">
+                        @method('patch')
                         @csrf
-                        <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
-                    </form>
+                        <button type="submit" class="badge bg-warning border-0" id="role" name="role" value = "role" title="Make Admin" data-toggle="tooltip" onclick="return confirm('Make this user role to admin?')"><i class="bi bi-trash-fill"></i></button>
+                    </form> --}}
                 </td>
             </tr>
             @endforeach
