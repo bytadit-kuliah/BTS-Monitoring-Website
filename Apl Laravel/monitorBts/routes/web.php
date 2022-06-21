@@ -78,3 +78,12 @@ Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('is
 // Route::put('/dashboard/edit-bts/{id}/edit','BTSController@update')->name('bts.update');
 
 // Route::resource('/dashboard/edit-owner', OwnerController::class)->middleware('auth');
+Route::get('/dashboard/list-survey', function(){
+    return view('dashboard.admin.survey.index');
+})->middleware('auth');
+Route::get('/dashboard/show-survey', function(){
+    return view('dashboard.admin.survey.show');
+})->middleware('auth');
+Route::get('/dashboard/create-survey', function(){
+    return view('dashboard.admin.survey.create');
+})->middleware('auth');
