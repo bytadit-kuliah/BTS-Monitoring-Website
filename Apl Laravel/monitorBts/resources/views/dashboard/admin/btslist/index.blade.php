@@ -2,7 +2,7 @@
 
 <!-- Main Awal -->
 @section('container')
-    <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Info BTS</h1>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Data BTS</h1>
     {{-- <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">list BTS:</li>
     </ol> --}}
@@ -17,8 +17,8 @@
     <a href="/dashboard/btslists/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
 
     <div class="container">
-        <div class="row">
-            @foreach($btslists as $btslist)
+
+            {{-- @foreach($btslists as $btslist)
             <div class="card col-md-3 m-3">
                 <h3 class="card-title"><a href="/dashboard/btslists/show" class="text-decoration-none text-dark">{{ $btslist->nama }}</a></h3>
                 <div style="max-height: 350px; overflow:hidden;">
@@ -32,6 +32,7 @@
                     <a href="/dashboard/btslists/{{ $btslist->id }}" class="badge bg-info">
                         <i class="bi bi-eye-fill"></i>
                     </a>
+                    @can('admin')
                     <a href="/dashboard/btslists/{{ $btslist->id }}/edit" class="badge bg-warning">
                         <i class="bi bi-pen-fill"></i>
                     </a>
@@ -40,12 +41,37 @@
                         @csrf
                         <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></span></button>
                     </form>
-                        </span>
+                    @endcan
                     </a>
                 </div>
             </div>
-            @endforeach
-        </div>
+            @endforeach --}}
+            {{-- <h3>Nyobain Laravel 8 ajax pagination with search</h3> --}}
+            <div id="search">
+                <form id="searchform" name="searchform">
+                    <div class="row">
+                    <div class="col-lg-10 col-md-8 col-mb-8">
+                        <div class="form-group">
+                            <input type="text" placeholder="search bts by name...." name="nama" id="name" value="{{request()->get('nama','')}}" class="form-control" />
+                            @csrf
+                        </div>
+                    </div>
+                    {{-- <div class="form-group">
+                      <label>Search by body</label>
+                      <input type="text" name="body" value="{{request()->get('body','')}}" class="form-control" />
+                    </div> --}}
+                    <div class="col-lg-2 col-md-2 col-mb-2">
+                        <a class='btn btn-success' href='/dashboard/btslists' id='search_btn'>Search</a>
+                    </div>
+                </div>
+                </form>
+            </div>
+            {{-- <h3 align="center"><span id="total_records"></span>Data Found</h3> --}}
+            <div id="pagination_data">
+                <div class="row">
+                    @include("dashboard.admin.btslist.btsdata",["btslists"=>$btslists])
+                </div>
+            </div>
     </div>
 @endsection
 <!-- Main Akhir -->
@@ -117,5 +143,30 @@
             //     $(".add-new").removeAttr("disabled");
             // });
         });
+    </script>
+
+
+    <script>
+        $(function() {
+      $(document).on("click", "#pagination a,#search_btn", function() {
+        // $(document).on("keyup", "#search", function() {
+
+        //get url and make final url for ajax
+        var url = $(this).attr("href");
+        var append = url.indexOf("?") == -1 ? "?" : "&";
+        var finalURL = url + append + $("#searchform").serialize();
+
+        //set to current url
+        window.history.pushState({}, null, finalURL);
+
+        $.get(finalURL, function(data) {
+
+          $("#pagination_data").html(data);
+        });
+
+        return false;
+      })
+
+    });
     </script>
 @endsection

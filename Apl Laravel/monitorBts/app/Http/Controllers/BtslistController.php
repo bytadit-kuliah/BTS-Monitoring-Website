@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 class BtslistController extends Controller
 {
@@ -21,16 +22,58 @@ class BtslistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Btslist $btslist, Btsphoto $btsphoto)
+    public function index(Request $request, Btslist $btslist, Btsphoto $btsphoto)
     {
+
+        $btslists=Btslist::when($request->has("nama"),function($q)use($request){
+            return $q->where("nama","like","%".$request->get("nama")."%");
+        })->paginate(5);
+        $total_data=$btslists->count();
+        if($request->ajax()){
+            return view('dashboard.admin.btslist.btsdata ',[
+                // 'btslists' => Btslist::all(),
+                'btslists' => $btslists,
+                'total_card' => $total_data,
+                // 'btslist' => $btslist,
+                'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get(),
+                // 'firstPhoto' => $btsphoto->where('btslist_id', $btslist->id)->get(),
+                'btsphoto' => $btsphoto
+            ]);
+        }
         return view('dashboard.admin.btslist.index', [
-            'btslists' => Btslist::all(),
-            'btslist' => $btslist,
+            // 'btslists' => Btslist::all(),
+            'btslists' => $btslists,
+            'total_card' => $total_data,
+            // 'btslist' => $btslist,
             'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get(),
             // 'firstPhoto' => $btsphoto->where('btslist_id', $btslist->id)->get(),
             'btsphoto' => $btsphoto
         ]);
     }
+
+// public function search(Request $request, Btslist $btslist){
+
+//     if($request->ajax()){
+
+//     $output="";
+//     $results=$btslist->where('nama','LIKE','%'.$request->search.'%')->get();
+
+//     if($results){
+
+//         foreach ($results as $key => $result) {
+//             $output.='<tr>'.
+//                     '<td>'.$result->id.'</td>'.
+//                     '<td>'.$result->title.'</td>'.
+//                     '<td>'.$result->description.'</td>'.
+//                     '<td>'.$result->price.'</td>'.
+//                     '</tr>';
+//         }
+//         return Response($output);
+
+//    }
+//    }
+
+// }
 
     /**
      * Show the form for creating a new resource.
@@ -267,4 +310,63 @@ class BtslistController extends Controller
 
         return redirect('/dashboard/btslists')->with('success', 'Owner has been deleted');
     }
+
+
+    // function action(Request $request, Btslist $btslist, Btsphoto $btsphoto)
+    // {
+    //     if($request->ajax()){
+    //         $output = '';
+    //         $query = $request->get('query');
+    //         if($query != ''){
+    //         $btsdata = DB::table('btslists')
+    //             ->where('nama', 'like', '%'.$query.'%')
+    //             // ->orWhere('Address', 'like', '%'.$query.'%')
+    //             // ->orWhere('City', 'like', '%'.$query.'%')
+    //             // ->orWhere('PostalCode', 'like', '%'.$query.'%')
+    //             // ->orWhere('Country', 'like', '%'.$query.'%')
+    //             ->orderBy('id', 'desc')
+    //             ->get();
+    //         $photodata = DB::table('btsphotos')
+    //             ->firstWhere('btslist_id', )
+    //             // ->orWhere('Address', 'like', '%'.$query.'%')
+    //             // ->orWhere('City', 'like', '%'.$query.'%')
+    //             // ->orWhere('PostalCode', 'like', '%'.$query.'%')
+    //             // ->orWhere('Country', 'like', '%'.$query.'%')
+    //             ->orderBy('id', 'desc')
+    //             ->get();
+    //         }
+    //     else
+    //         $btsdata = DB::table('btslists')
+    //         ->orderBy('id', 'desc')
+    //         ->get();
+    //     }
+    //     $total_card = $btsdata->count();
+    //     if($total_card > 0){
+    //       foreach($btsdata as $card){
+    //           $output .= '
+    //           <tr>
+    //           <td>'.$card->CustomerName.'</td>
+    //           <td>'.$card->Address.'</td>
+    //           <td>'.$card->City.'</td>
+    //           <td>'.$card->PostalCode.'</td>
+    //           <td>'.$card->Country.'</td>
+    //           </tr>
+    //           ';
+    //         }
+    //     }
+    //   else{
+    //    $output = '
+    //    <tr>
+    //     <td align="center" colspan="5">No Data Found</td>
+    //    </tr>
+    //    ';
+    //   }
+    //   $btsdata = array(
+    //    'table_data'  => $output,
+    //    'total_data'  => $total_row
+    //   );
+
+    //   echo json_encode($btsdata);
+    //  }
+    // }
 }

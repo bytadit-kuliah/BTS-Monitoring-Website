@@ -100,7 +100,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-
+        return view('dashboard.profile.show', [
+            'user' => $user,
+            'users' => User::all(),
+        ]);
     }
 
     /**

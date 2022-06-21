@@ -6,7 +6,7 @@
                     <div class="sb-sidenav-menu-heading">
                         <div class="d-flex sb-nav-link-icon">
                             @if(auth()->user()->photo)
-                                <img src="{{ asset('storage/' . auth()->user()->photo) }}" style="width:50px; margin-right: 10px;">
+                                <img src="{{ asset('storage/' . auth()->user()->photo) }}" style="margin-right:10px;vertical-align:middle;width:50px;height:50px;border-radius:50%;">
                             @else
                                 <img src="/./image/pp.png" style="width:50px; margin-right: 10px;">
                             @endif
@@ -70,7 +70,7 @@
                 <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/dashboard/info-bts">Data BTS</a>
+                        <a class="nav-link" href="/dashboard/btslists">Data BTS</a>
                         <a class="nav-link" href="/dashboard/my-surveys">Isi Survey</a>
                         <a class="nav-link" href="/dashboard/my-monitoring">Data Monitoring</a>
                     </nav>

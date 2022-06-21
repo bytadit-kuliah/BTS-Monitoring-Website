@@ -38,11 +38,11 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                     @if($user->photo)
-                    <div style="max-height: 100px; max-width:100px; overflow:hidden;">
-                        <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->firstName }}" class="img-fluid mt-3">
+                    <div style="max-height: 150px; max-width:150px; overflow:hidden;">
+                        <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->firstName }}" class="img-thumbnail">
                     </div>
                     @else
-                    <img src="https://source.unsplash.com/100x100?person" alt="{{ $user->firstName }}" class="img-fluid mt-3">
+                    <img src="https://source.unsplash.com/100x100?person" alt="{{ $user->firstName }}" class="img-thumbnail">
                     @endif
                 </td>
                 <td>{{ $user->firstName . ' ' . $user->lastName }}</td>
@@ -65,7 +65,7 @@
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
                     </form>
-                    <a href="/dashboard/users/{{ $user->id }}/show" class="show badge bg-success" title="Show" data-toggle="tooltip">
+                    <a href="/dashboard/users/{{ $user->id }}" class="show badge bg-success" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a>
                     {{-- <a href="/dashboard/users/{{ $user->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">

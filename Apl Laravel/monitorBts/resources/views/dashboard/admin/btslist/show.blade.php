@@ -7,12 +7,14 @@
             <h1 class="mb-3">{{ $btslist->name }}</h1>
 
            <a href="/dashboard/btslists" class="btn btn-success"><span data-feather='arrow-left'></span>Back</a>
+           @can('admin')
            <a href="/dashboard/btslists/{{ $btslist->id }}/edit" class="btn btn-warning"><span data-feather='edit'></span>Edit Data</a>
            <form action="/dashboard/btslists/{{ $btslist->id }}" method="post" class="d-inline">
             @method('delete')
             @csrf
             <button class="btn btn-danger" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span>Delete</button>
            </form>
+           @endcan
            <br>
 
            @if($btsphotos)
