@@ -15,7 +15,7 @@
             </div> --}}
             {{-- <input id="id" type="hidden" name="id" value="{{ $btslists->id }}"> --}}
             <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-5 mb-3">
                     <label for="nama" class="form-label">Nama BTS</label>
                     <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" required autofocus value="{{ old('nama') }}">
                     @error('nama')
@@ -36,9 +36,9 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-4 mb-3">
                     <label for="provider_id" class="form-label">Provider</label>
-                    <select class="form-select" name="provider_id[]" multiple="multiple">
+                    <select class="js-example-basic-multiple" name="provider_id[]" multiple="multiple" style="width: 100%">
                         @foreach ($providers as $provider)
                             @if(old('provider_id') == $provider->id)
                                 <option value="{{ $provider->id }}" selected>{{ $provider->nama }}</option>
@@ -326,5 +326,8 @@
                 longInput.value = str+',';
             }
         }
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
     </script>
 @endsection
