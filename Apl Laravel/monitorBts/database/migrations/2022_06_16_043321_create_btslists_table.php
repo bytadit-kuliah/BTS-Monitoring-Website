@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('btstype_id');
             $table->foreignId('village_id');
-            $table->foreignId('owner_id');
+            // $table->foreignId('owner_id');
             $table->string('nama');
             $table->text('lokasi');
             $table->float('panjangTanah');

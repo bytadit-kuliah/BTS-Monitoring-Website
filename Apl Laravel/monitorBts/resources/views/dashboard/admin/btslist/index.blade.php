@@ -68,7 +68,7 @@
             </div>
             {{-- <h3 align="center"><span id="total_records"></span>Data Found</h3> --}}
             <div id="pagination_data">
-                <div class="row">
+                <div class="container">
                     @include("dashboard.admin.btslist.btsdata",["btslists"=>$btslists])
                 </div>
             </div>

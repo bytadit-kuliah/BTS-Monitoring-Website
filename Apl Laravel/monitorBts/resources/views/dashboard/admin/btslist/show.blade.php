@@ -34,7 +34,16 @@
                     <h5 class="mb-2">Tipe BTS : {{ $btslist->btstype->type }}</h5>
                 </li>
                 <li>
-                    <h5 class="mb-2">Owner : {{ $btslist->owner->nama }}</h5>
+                    <h5 class="mb-2">Provider :</h5>
+                    @if($btslist->provider)
+                        <ul>
+                            @foreach($btslist->provider as $providerBtslist)
+                                <li>{{ $providerBtslist->nama }}</li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>None</p>
+                    @endif
                 </li>
                 <li>
                     <h5 class="mb-2">Alamat : {{ $btslist->lokasi }}</h5>

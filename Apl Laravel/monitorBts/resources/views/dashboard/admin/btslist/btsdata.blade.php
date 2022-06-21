@@ -1,5 +1,6 @@
-@foreach($btslists as $btslist)
-            <div class="card col-md-3 m-3">
+    <div class="row">
+        @foreach($btslists as $btslist)
+            <div class="card col-md-3 m-3 p-2">
                 <h3 class="card-title"><a href="/dashboard/btslists/show" class="text-decoration-none text-dark">{{ $btslist->nama }}</a></h3>
                 <div style="max-height: 350px; overflow:hidden;">
                     @if($btsphotos)
@@ -25,7 +26,8 @@
                     </a>
                 </div>
             </div>
-            @endforeach
-            <div id="pagination">
-                {{ $btslists->links() }}
-            </div>
+        @endforeach
+    </div>
+    <div id="pagination">
+        {{ $btslists->links() }}
+    </div>

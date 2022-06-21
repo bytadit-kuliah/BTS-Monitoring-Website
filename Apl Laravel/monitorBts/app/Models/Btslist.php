@@ -25,5 +25,9 @@ class Btslist extends Model
     public function btsphoto(){
         return $this->hasMany(Btsphoto::class);
     }
+    public function provider()
+    {
+        return $this->belongsToMany(Provider::class);
+    }
 
 }

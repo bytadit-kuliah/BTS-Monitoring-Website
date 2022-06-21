@@ -139,6 +139,6 @@ class OwnerController extends Controller
         }
         Owner::destroy($owner->id);
 
-        return redirect('/dashboard/owners')->with('success', 'Owner has been deleted');
+        return redirect('/dashboard/owners')->with('success', 'Owner berhasil dihapus');
     }
 }

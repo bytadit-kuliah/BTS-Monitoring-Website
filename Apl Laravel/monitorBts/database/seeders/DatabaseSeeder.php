@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Btstype;
 use App\Models\Kecamatan;
 use App\Models\Owner;
+use App\Models\Provider;
 use App\Models\Village;
 use Illuminate\Support\Str;
 
@@ -86,6 +87,32 @@ class DatabaseSeeder extends Seeder
             'noTelp' => '021-57959817'
         ]);
         Owner::create([
+            'nama' => 'Bakrie Telcom',
+            'foto' => '/abc',
+            'alamat' => 'Jl. H.R Rasuna Said Kav. B-1, Jakarta',
+            'noTelp' => '021-91101112'
+        ]);
+
+        // Seeder For Providers
+        Provider::create([
+            'nama' => 'Indosat',
+            'foto' => '/abc',
+            'alamat' => 'Jl. Medan Merdeka Barat No. 21, Jakarta Pusat',
+            'noTelp' => '021-30003001'
+        ]);
+        Provider::create([
+            'nama' => 'Telkomsel',
+            'foto' => '/abc',
+            'alamat' => 'Jl. Jendral Gatot Subroto, Jakarta Selatan',
+            'noTelp' => '080-71811811 '
+        ]);
+        Provider::create([
+            'nama' => 'XL Axiata',
+            'foto' => '/abc',
+            'alamat' => 'Jl. H.R. Rasuna Said X5 Kav. 11-12, Jakarta Selatan',
+            'noTelp' => '021-57959817'
+        ]);
+        Provider::create([
             'nama' => 'Bakrie Telcom',
             'foto' => '/abc',
             'alamat' => 'Jl. H.R Rasuna Said Kav. B-1, Jakarta',

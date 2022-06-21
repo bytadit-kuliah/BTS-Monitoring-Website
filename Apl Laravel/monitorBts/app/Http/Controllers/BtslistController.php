@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Btslist;
-use App\Models\Owner;
+
+use App\Models\Provider;
 use App\Models\Village;
 use App\Models\Kecamatan;
 use App\Models\Btstype;
@@ -95,7 +96,7 @@ class BtslistController extends Controller
             'villages' => Village::all(),
             // 'villages' => Village::where('kecamatan_id', '1')->get(),
             // 'posts' => Post::where('user_id', auth()->user()->id)->get()
-            'owners' => Owner::all(),
+            'providers' => Provider::all(),
             // 'selected' => print_r($request->kecamatan_id)
             // 'selectedKecamatan' => Kecamatan::first()->kecamatan_id,
             'value' => $request->kecamatan_id
@@ -114,7 +115,7 @@ class BtslistController extends Controller
         $this->validate($request, [
             'nama' => 'required|max:255',
             'btstype_id' => 'required',
-            'owner_id' => 'required',
+            'provider_id' => 'required',
             'lokasi' => 'required',
             'village_id' => 'required',
             'kecamatan_id' => 'required',
@@ -131,7 +132,7 @@ class BtslistController extends Controller
         $btslist = new Btslist;
         $btslist->nama = $request->nama;
         $btslist->btstype_id = $request->btstype_id;
-        $btslist->owner_id = $request->owner_id;
+        // $btslist->provider_id = $request->provider_id;
         $btslist->lokasi = $request->lokasi;
         $btslist->village_id = $request->village_id;
         $btslist->genset = $request->genset;
@@ -143,6 +144,16 @@ class BtslistController extends Controller
         $btslist->longitude = $request->longitude;
         $btslist->user_id = auth()->user()->id;;
         $btslist->save();
+
+        $provider = Provider::find($request->provider_id);
+        $btslist->provider()->attach($provider);
+        // return $provider;
+        // $input = $request->all();
+        // $provider_id = $input['provider_id'];
+        // $input['provider_id'] = implode(',', $provider_id);
+
+        // User::create($input);
+        // return redirect()->back();
 
         foreach ($request->file('images') as $imagefile) {
             $image = new Btsphoto;
@@ -186,7 +197,7 @@ class BtslistController extends Controller
             'villages' => Village::all(),
             // 'villages' => Village::where('kecamatan_id', '1')->get(),
             // 'posts' => Post::where('user_id', auth()->user()->id)->get()
-            'owners' => Owner::all(),
+            'providers' => Provider::all(),
             'btsimgs' => Btsphoto::where('btslist_id', $btslist->id)->get()
         ]);
     }
@@ -203,7 +214,7 @@ class BtslistController extends Controller
         // $this->validate($request, [
         //     'nama' => 'required|max:255',
         //     'btstype_id' => 'required',
-        //     'owner_id' => 'required',
+        //     'provider_id' => 'required',
         //     'lokasi' => 'required',
         //     'village_id' => 'required',
         //     'kecamatan_id' => 'required',
@@ -220,7 +231,7 @@ class BtslistController extends Controller
         // $btslist = new Btslist;
         // $btslist->nama = $request->nama;
         // $btslist->btstype_id = $request->btstype_id;
-        // $btslist->owner_id = $request->owner_id;
+        // $btslist->provider_id = $request->provider_id;
         // $btslist->lokasi = $request->lokasi;
         // $btslist->village_id = $request->village_id;
         // $btslist->genset = $request->genset;
@@ -252,7 +263,7 @@ class BtslistController extends Controller
         $this->validate($request, [
             'nama' => 'required|max:255',
             'btstype_id' => 'required',
-            'owner_id' => 'required',
+            'provider_id' => 'required',
             'lokasi' => 'required',
             'village_id' => 'required',
             'kecamatan_id' => 'required',
@@ -266,8 +277,10 @@ class BtslistController extends Controller
             'images' => 'max:2048|required'
         ]);
 
-        $input = $request->except(['kecamatan_id', 'images']);
+        $input = $request->except(['kecamatan_id', 'images', 'provider_id']);
         $btslist->fill($input)->save();
+        $provider = Provider::find($request->provider_id);
+        $btslist->provider()->sync($provider);
 // ================================================================
         // $btsphoto = Btsphoto::where('btstype_id', $id);
 
@@ -303,12 +316,12 @@ class BtslistController extends Controller
      */
     public function destroy(Btslist $btslist)
     {
-        // if($owner->foto){
-        //     Storage::delete($owner->foto);
+        // if($provider->foto){
+        //     Storage::delete($provider->foto);
         // }
         Btslist::destroy($btslist->id);
 
-        return redirect('/dashboard/btslists')->with('success', 'Owner has been deleted');
+        return redirect('/dashboard/btslists')->with('success', 'Data BTS telah dihapus');
     }
 
 

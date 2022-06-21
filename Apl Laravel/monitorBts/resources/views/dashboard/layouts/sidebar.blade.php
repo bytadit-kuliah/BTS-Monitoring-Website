@@ -48,7 +48,7 @@
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="/dashboard/btslists">Info BTS</a>
-                            <a class="nav-link" href="/dashboard/owners">Data Owner BTS</a>
+                            <a class="nav-link" href="/dashboard/providers">Data Provider BTS</a>
                             {{-- <a class="nav-link" href="/dashboard/edit-wilayah">Edit Wilayah BTS</a> --}}
                             <a class="nav-link" href="/dashboard/list-survey">Buat Survey</a>
                         </nav>

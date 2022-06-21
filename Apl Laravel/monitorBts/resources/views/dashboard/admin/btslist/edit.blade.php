@@ -37,14 +37,26 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-3 mb-3">
-                    <label for="owner_id" class="form-label">Owner</label>
-                    <select class="form-select" name="owner_id">
-                        @foreach ($owners as $owner)
-                            @if(old('owner_id', $btslist->owner_id) == $owner->id)
-                                <option value="{{ $owner->id }}" selected>{{ $owner->nama }}</option>
+                {{-- <div class="col-md-3 mb-3">
+                    <label for="provider_id" class="form-label">Provider</label>
+                    <select class="form-select" name="provider_id">
+                        @foreach ($providers as $provider)
+                            @if(old('provider_id', $btslist->provider_id) == $provider->id)
+                                <option value="{{ $provider->id }}" selected>{{ $provider->nama }}</option>
                             @else
-                                <option value="{{ $owner->id }}">{{ $owner->nama }}</option>
+                                <option value="{{ $provider->id }}">{{ $provider->nama }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div> --}}
+                <div class="col-md-3 mb-3">
+                    <label for="provider_id" class="form-label">Provider</label>
+                    <select class="form-select" name="provider_id[]" multiple="multiple">
+                        @foreach ($providers as $provider)
+                            @if(old('provider_id', $btslist->provider_id) == $provider->id)
+                                <option value="{{ $provider->id }}" selected>{{ $provider->nama }}</option>
+                            @else
+                                <option value="{{ $provider->id }}">{{ $provider->nama }}</option>
                             @endif
                         @endforeach
                     </select>

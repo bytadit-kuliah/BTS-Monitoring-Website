@@ -2,9 +2,9 @@
 
 <!-- Main Awal -->
 @section('container')
-    <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Owner BTS</h1>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Provider BTS</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">List Owner BTS:</li>
+        <li class="breadcrumb-item active">List Provider BTS:</li>
     </ol>
 
     @if(session()->has('success'))
@@ -16,7 +16,7 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/owners/create" class="btn btn-success mb-4">Input Owner Baru</a>
+    <a href="/dashboard/providers/create" class="btn btn-success mb-4">Add New</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -25,35 +25,47 @@
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>No.Telepon</th>
+                <th>List BTS</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($owners as $owner)
+            @foreach ($providers as $provider)
             <tr>
-                <td>{{ $owner->id }}</td>
+                <td>{{ $provider->id }}</td>
                 <td>
-                    @if($owner->foto)
+                    @if($provider->foto)
                     <div style="max-height: 100px; max-width:100px; overflow:hidden;">
-                        <img src="{{ asset('storage/' . $owner->foto) }}" alt="{{ $owner->nama }}" class="img-fluid mt-3">
+                        <img src="{{ asset('storage/' . $provider->foto) }}" alt="{{ $provider->nama }}" class="img-fluid mt-3">
                     </div>
                     @else
-                    <img src="https://source.unsplash.com/100x100?tower" alt="{{ $owner->nama }}" class="img-fluid mt-3">
+                    <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->nama }}" class="img-fluid mt-3">
                     @endif
                 </td>
-                <td>{{ $owner->nama }}</td>
-                <td>{{ $owner->alamat }}</td>
-                <td>{{ $owner->noTelp }}</td>
+                <td>{{ $provider->nama }}</td>
+                <td>{{ $provider->alamat }}</td>
+                <td>{{ $provider->noTelp }}</td>
                 <td>
-                    <a href="/dashboard/owners/{{ $owner->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
+                    @if($provider->btslist)
+                        <ul>
+                            @foreach($provider->btslist as $btslistProvider)
+                                <li>{{ $btslistProvider->nama }}</li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>None</p>
+                    @endif
+                </td>
+                <td>
+                    <a href="/dashboard/providers/{{ $provider->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a>
-                    {{-- <a href="/dashboard/owners/{{ $owner->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
+                    {{-- <a href="/dashboard/providers/{{ $provider->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}
-                    <form action="/dashboard/owners/{{ $owner->id }}" method="post" class="badge bg-danger border-0">
+                    <form action="/dashboard/providers/{{ $provider->id }}" method="post" class="badge bg-danger border-0">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
