@@ -2,9 +2,9 @@
 
 <!-- Main Awal -->
 @section('container')
-    <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Provider BTS</h1>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Monitoring</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">List Provider BTS:</li>
+        <li class="breadcrumb-item active">List Data Monitoring:</li>
     </ol>
 
     @if(session()->has('success'))
@@ -16,56 +16,57 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/providers/create" class="btn btn-success mb-4">Add New</a>
+    <a href="/dashboard/monitorings/create" class="btn btn-success mb-4">Add New</a>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Foto</th>
-                <th>Nama</th>
-                <th>Alamat</th>
-                <th>No.Telepon</th>
-                <th>List BTS</th>
+                <th>Nama Monitoring</th>
+                <th >Nama BTS</th>
+                <th>Waktu Monitoring</th>
+                <th style="width:40%">Catatan</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($providers as $provider)
+            @foreach ($monitorings as $monitoring)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>
-                    @if($provider->foto)
+                {{-- <td>
+                    @if($monitoring->foto)
                     <div style="max-height: 100px; max-width:100px; overflow:hidden;">
-                        <img src="{{ asset('storage/' . $provider->foto) }}" alt="{{ $provider->nama }}" class="img-fluid mt-3">
+                        <img src="{{ asset('storage/' . $monitoring->foto) }}" alt="{{ $monitoring->nama }}" class="img-fluid mt-3">
                     </div>
                     @else
-                    <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->nama }}" class="img-fluid mt-3">
+                    <img src="https://source.unsplash.com/100x100?tower" alt="{{ $monitoring->nama }}" class="img-fluid mt-3">
                     @endif
-                </td>
-                <td>{{ $provider->nama }}</td>
-                <td>{{ $provider->alamat }}</td>
-                <td>{{ $provider->noTelp }}</td>
-                <td>
-                    @if($provider->btslist)
+                </td> --}}
+                <td>{{ $monitoring->nama }}</td>
+                <td>{{ $monitoring->btslist->nama }}</td>
+                <td>{{ $monitoring->waktu_monitoring }}</td>
+                <td> {!! $monitoring->catatan !!}</td>
+                {{-- <td> {{  $monitoring->catatan  }}</td> --}}
+                {{-- <td>
+                    @if($monitoring->btslist)
                         <ul>
-                            @foreach($provider->btslist as $btslistProvider)
-                                <li>{{ $btslistProvider->nama }}</li>
+                            @foreach($monitoring->btslist as $btslistmonitoring)
+                                <li>{{ $btslistmonitoring->nama }}</li>
                             @endforeach
                         </ul>
                     @else
                         <p>None</p>
                     @endif
-                </td>
+                </td> --}}
                 <td>
-                    <a href="/dashboard/providers/{{ $provider->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
+                    <a href="/dashboard/monitorings/{{ $monitoring->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a>
-                    {{-- <a href="/dashboard/providers/{{ $provider->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
+                    {{-- <a href="/dashboard/monitorings/{{ $monitoring->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}
-                    <form action="/dashboard/providers/{{ $provider->id }}" method="post" class="badge bg-danger border-0">
+                    <form action="/dashboard/monitorings/{{ $monitoring->id }}" method="post" class="badge bg-danger border-0">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>

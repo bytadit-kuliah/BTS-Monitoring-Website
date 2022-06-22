@@ -64,7 +64,7 @@
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
                     aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                    Data BTS
+                    Activities
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
@@ -72,7 +72,7 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="/dashboard/btslists">Data BTS</a>
                         <a class="nav-link" href="/dashboard/my-surveys">Isi Survey</a>
-                        <a class="nav-link" href="/dashboard/my-monitoring">Data Monitoring</a>
+                        <a class="nav-link" href="/dashboard/monitorings">Data Monitoring</a>
                     </nav>
                 </div>
                 @endcan

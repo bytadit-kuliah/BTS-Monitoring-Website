@@ -51,7 +51,7 @@
                 </div> --}}
                 <div class="col-md-3 mb-3">
                     <label for="provider_id" class="form-label">Provider</label>
-                    <select class="js-example-basic-multiple" name="provider_id[]" multiple="multiple">
+                    <select class="js-example-basic-multiple" name="provider_id[]" multiple="multiple" style="width: 100%">
                         @foreach ($providers as $provider)
                             @if(old('provider_id', $btslist->provider_id) == $provider->id)
                                 <option value="{{ $provider->id }}" selected>{{ $provider->nama }}</option>
@@ -339,8 +339,6 @@
         //         imgPreview.src = oFREvent.target.result;
         //     }
         // }
-
-
 
         function latitude( str ){
             var latInput = document.getElementById('latitude');

@@ -5,16 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Surveyor extends Model
+class Offeredanswer extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
-    public function monitoring(){
-        return $this->hasMany(Monitoring::class);
-    }
     // many-to-many
     public function question()
     {
@@ -24,9 +18,8 @@ class Surveyor extends Model
     {
         return $this->belongsToMany(Survey::class);
     }
-    public function offeredanswer()
+    public function surveyor()
     {
-        return $this->belongsToMany(Offeredanswer::class);
+        return $this->belongsToMany(Surveyor::class);
     }
-
 }

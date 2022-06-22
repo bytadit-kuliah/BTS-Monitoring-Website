@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProviderController;
@@ -43,6 +44,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 // Route::resource('/dashboard/edit-bts', BTSController::class)->middleware('auth');
 
 Route::resource('/dashboard/owners', OwnerController::class)->middleware('auth');
+Route::resource('/dashboard/monitorings', MonitoringController::class)->middleware('auth');
 Route::resource('/dashboard/providers', ProviderController::class)->middleware('auth');
 Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
 // Route::resource('/dashboard/profiles', ProfileController::class)->middleware('auth');
