@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('survey_question_offeredanswer_surveyor', function (Blueprint $table) {
+        Schema::create('survey_question_offeredanswer_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('survey_id');
             $table->foreignId('question_id');
             $table->foreignId('offeredanswer_id');
-            $table->foreignId('surveyor_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey_question_offeredanswer_surveyor');
+        Schema::dropIfExists('survey_question_offeredanswer_user');
     }
 };

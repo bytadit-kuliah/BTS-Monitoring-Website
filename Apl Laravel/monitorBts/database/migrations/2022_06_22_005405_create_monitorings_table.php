@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('catatan');
             $table->date('waktu_monitoring');
             $table->foreignId('btslist_id');
-            $table->foreignId('surveyor_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

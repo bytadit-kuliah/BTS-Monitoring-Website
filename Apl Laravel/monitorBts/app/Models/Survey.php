@@ -18,8 +18,11 @@ class Survey extends Model
     {
         return $this->belongsToMany(Offeredanswer::class);
     }
-    public function surveyor()
-    {
-        return $this->belongsToMany(Surveyor::class);
+    // public function surveyor()
+    // {
+    //     return $this->belongsToMany(Surveyor::class);
+    // }
+    public function user(){
+        return $this->belongsToMany(User::class);
     }
 }

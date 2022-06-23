@@ -55,7 +55,7 @@ class MonitoringController extends Controller
         //     $validatedData['foto'] = $request->file('foto')->store('providers-foto');
         // }
 
-        $validatedData['surveyor_id'] = auth()->user()->id;
+        $validatedData['user_id'] = auth()->user()->id;
         // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
         $validatedData['catatan'] = Str::limit($request->catatan, 300);
         // $validatedData['catatan'] = $request->catatan;
@@ -110,7 +110,7 @@ class MonitoringController extends Controller
 //         }
 
         $validatedData = $request->validate($rules);
-        $validatedData['surveyor_id'] = auth()->user()->id;
+        $validatedData['user_id'] = auth()->user()->id;
         $validatedData['catatan'] = Str::limit($request->catatan, 300);
 
         // $validatedData['catatan'] = Str::limit(strip_tags($request->catatan), 500);

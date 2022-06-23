@@ -51,4 +51,20 @@ class User extends Authenticatable
     public function btslist(){
         return $this->hasMany(Btslist::class);
     }
+    public function monitoring(){
+        return $this->hasMany(Monitoring::class);
+    }
+    // many-to-many
+    public function question()
+    {
+        return $this->belongsToMany(Question::class);
+    }
+    public function survey()
+    {
+        return $this->belongsToMany(Survey::class);
+    }
+    public function offeredanswer()
+    {
+        return $this->belongsToMany(Offeredanswer::class);
+    }
 }

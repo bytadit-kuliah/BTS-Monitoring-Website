@@ -18,8 +18,11 @@ class Offeredanswer extends Model
     {
         return $this->belongsToMany(Survey::class);
     }
-    public function surveyor()
-    {
-        return $this->belongsToMany(Surveyor::class);
+    // public function surveyor()
+    // {
+    //     return $this->belongsToMany(Surveyor::class);
+    // }
+    public function user(){
+        return $this->belongsToMany(User::class);
     }
 }

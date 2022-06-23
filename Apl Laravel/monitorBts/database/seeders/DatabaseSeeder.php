@@ -10,6 +10,7 @@ use App\Models\Kecamatan;
 use App\Models\Owner;
 use App\Models\Provider;
 use App\Models\Village;
+use App\Models\Offeredanswer;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -221,5 +222,23 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Kemlayan',
             'kecamatan_id' => '5'
         ]);
+        // Offeredanswer Seeds
+        Offeredanswer::create([
+            'isi' => 'Sangat Baik'
+        ]);
+        Offeredanswer::create([
+            'isi' => 'Baik'
+        ]);
+        Offeredanswer::create([
+            'isi' => 'Cukup'
+        ]);
+        Offeredanswer::create([
+            'isi' => 'Buruk'
+        ]);
+        Offeredanswer::create([
+            'isi' => 'Sangat Buruk'
+        ]);
+
+
     }
 }
