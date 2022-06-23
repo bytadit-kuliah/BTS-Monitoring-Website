@@ -3,7 +3,7 @@
 @section('container')
 <div class="container">
     <div class="row mb-5">
-        <div class="col-lg-8">
+        <div class="col-lg-12 justify-content-center text-center">
             <h1 class="mb-3">{{ $btslist->name }}</h1>
 
            <a href="/dashboard/btslists" class="btn btn-success"><span data-feather='arrow-left'></span>Back</a>

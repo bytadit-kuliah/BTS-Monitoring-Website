@@ -28,7 +28,7 @@
 
            @if($user->photo)
            <div style="max-height: 150px; max-width:150px; overflow:hidden;">
-               <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->firstName }}" class="img-fluid mt-3">
+               <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->firstName }}" class="w-75 rounded-5 img-fluid mb-5 mt-5">
            </div>
            @else
            <img src="https://source.unsplash.com/100x100?person" alt="{{ $user->firstName }}" class="img-fluid mt-3">
