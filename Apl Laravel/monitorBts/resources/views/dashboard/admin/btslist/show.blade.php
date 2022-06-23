@@ -31,7 +31,7 @@
                     <div class="carousel-inner">
                         @foreach ($btsphotos as $btsphoto)
                             <div class="carousel-item active">
-                                <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-5">
+                                <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3">
                             </div>
                         @endforeach
                     </div>
