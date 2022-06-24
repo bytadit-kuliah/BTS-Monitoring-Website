@@ -50,7 +50,7 @@
                             <a class="nav-link" href="/dashboard/btslists">Info BTS</a>
                             <a class="nav-link" href="/dashboard/providers">Data Provider BTS</a>
                             {{-- <a class="nav-link" href="/dashboard/edit-wilayah">Edit Wilayah BTS</a> --}}
-                            <a class="nav-link" href="/dashboard/list-survey">Buat Survey</a>
+                            <a class="nav-link" href="/dashboard/surveys">Data Survey</a>
                         </nav>
                     </div>
                     @endcan

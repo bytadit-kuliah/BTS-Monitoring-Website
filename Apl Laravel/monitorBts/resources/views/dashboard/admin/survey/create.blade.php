@@ -1,152 +1,234 @@
 @extends('dashboard.layouts.main')
 
-<!-- Main Awal -->
 @section('container')
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Buat Survey Baru</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item">Edit Survey</li>
-            <li class="breadcrumb-item active">new survey</li>
-        </ol>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">silakan isi tiap pertanyaan untuk survey baru:</li>
-        </ol>
-        <button type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Add New</button>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Pertanyaan</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <input type="text" value="Contoh pertanyaan pertama ?"/>
-                    </td>
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <!-- <tr>
-                <td>2</td>
-                <td><input/></td>
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><input/></td>
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td><input/></td>
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>    -->
-            </tbody>
-        </table>
-        <div class="row">
-        <button type="button" class="btn btn-info w-25  mb-4 m-lg-auto" style="background: #52784F; color: #fff">Tambah Survey</button>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Buat Survey Baru</h1>
+</div>
+
+<div class="col-lg-12">
+    <form action="/dashboard/surveys" method="post" class="mb-5" enctype="multipart/form-data">
+        @csrf
+        <div class="col-lg-8 mb-3">
+          <label for="name" class="form-label">Nama Survey</label>
+          <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" required autofocus value="{{ old('name') }}">
+          @error('name')
+          <div class="invalid-feedback">
+              {{ $message }}
+          </div>
+          @enderror
+        </div>
+        <div class="col-lg-8 mb-3">
+            {{-- <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" required value="{{ old('description') }}"> --}}
+            {{-- <div class="form-floating"> --}}
+                <label for="description">Description</label>
+                <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" required value="{{ old('description') }}" rows="5" style="height:100%;"></textarea>
+                @error('description')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            {{-- </div> --}}
         </div>
 
-    </div>
+        <div class="col-md-8 mb-3">
+            <label for="btslist_id" class="form-label">Nama BTS</label>
+            <select class="js-example-basic-multiple" name="btslist_id[]" multiple="multiple" style="width: 100%">
+                @foreach ($btslists as $btslist)
+                    @if(old('btslist_id') == $btslist->id)
+                        <option value="{{ $btslist->id }}" selected>{{ $btslist->nama }}</option>
+                    @else
+                        <option value="{{ $btslist->id }}">{{ $btslist->nama }}</option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+        <div class="col-md-12 mb-3">
+            <a href="#" class="Qnew btn btn-dark mb-3">Add a Question</a>
+            <div class="container-fluid" id="questionbar">
+                {{-- <div class="row bg-light mb-3" id="questionlists">
+                        <div class="d-inline p-2 my-3 col-lg-11">
+                            <input type="text" class="form-control" placeholder="Input question" name="addMoreInputFields[0][questions]">
+                        </div>
+                        <div class="d-inline p-2 my-3 col-lg-1">
+                            <a href="#" class="Qdelete btn btn-danger">Delete</a>
+                        </div>
+                        <div class="row" id="answerbar">
+                            <div class="row" id="jawaban"> --}}
+                                {{-- <div class="d-inline p-2 m-2 col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="addMoreInputFields[0][answer]">
+                                </div> --}}
+
+                                {{-- <div class="d-inline p-2 m-2 col-lg-1">
+                                    <a href="#" class="Adelete btn btn-danger">X</a>
+                                </div> --}}
+
+                                {{-- <div class="d-inline p-2 m-2 col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
+                                </div>
+                                <div class="d-inline p-2 m-2 col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
+                                </div>
+                                <div class="d-inline p-2 m-2 col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
+                                </div>
+                                <div class="d-inline p-2 m-2 col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        {{-- <div class="p-2 m-2 col-lg-12">
+                            <a href="#" class="Anew btn btn-success">+</a>
+                        </div> --}}
+                {{-- </div> --}}
 
 
-    <!-- <div class="container-fluid px-4">
-        <h1 class="mt-4">Buat Survey Baru</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item">Edit Survey</li>
-            <li class="breadcrumb-item active">new survey</li>
-        </ol>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">silakan isi tiap pertanyaan untuk survey baru:</li>
-        </ol>
-        <div class="col">
-            <div id="survey-answers">
 
-                <form class="mx-0 mx-sm-auto card">
-                    <div class="text-center card-header">
-                        <strong>Pertanyaan 1</strong>
+                <div class="row bg-light mb-3" id="questionlists">
+                    <div class="d-inline p-2 my-3 col-lg-11">
+                        <input type="text" class="form-control" placeholder="Input Question" name="question[0]">
                     </div>
-
-                    <div class="text-center mb-3 card-body">
-                        <input class="form-check-input w-100 h-auto">
+                    <div class="d-inline p-2 my-3 col-lg-1">
+                        <a href="#" class="Qdelete btn btn-danger">Delete</a>
                     </div>
-                </form>
-
-
+                    @error('question')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                    <div class="row" id="answerbar">
+                        <div class="row" id="jawaban">
+                            <div class="d-inline p-2 m-2 col-lg-4">
+                                <input type="text" class="form-control @error('optionOne') is-invalid @enderror" placeholder="Add Answer Option" name="optionOne[]">
+                                @error('optionOne')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="d-inline p-2 m-2 col-lg-4">
+                                <input type="text" class="form-control @error('optionTwo') is-invalid @enderror" placeholder="Add Answer Option" name="optionTwo[]">
+                                @error('optionTwo')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="d-inline p-2 m-2 col-lg-4">
+                                <input type="text" class="form-control @error('optionThree') is-invalid @enderror" placeholder="Add Answer Option" name="optionThree[]">
+                                @error('optionThree')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="d-inline p-2 m-2 col-lg-4">
+                                <input type="text" class="form-control @error('optionFour') is-invalid @enderror" placeholder="Add Answer Option" name="optionFour[]">
+                                @error('optionFour')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
-<!-- Main Akhir -->
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-            var actions = $("table td:last-child").html();
-            // Append table with add row form on add new button click
-            $(".add-new").click(function(){
-                $(this).attr("disabled", "disabled");
-                var index = $("table tbody tr:last-child").index();
-                var row = '<tr>' +
-                    // '<td><input type="text" class="form-control" name="kode" id="kode"></td>' +
-                    '<td>2</td>' +
-                    '<td><input type="text" class="form-control" name="question" id="question"></td>' +
-                    '<td>' + actions + '</td>' +
-                '</tr>';
-                $("table").append(row);
-                $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-            // Add row on add button click
-            $(document).on("click", ".add", function(){
-                var empty = false;
-                var input = $(this).parents("tr").find('input[type="text"]');
-                input.each(function(){
-                    if(!$(this).val()){
-                        $(this).addClass("error");
-                        empty = true;
-                    } else{
-                        $(this).removeClass("error");
-                    }
-                });
-                $(this).parents("tr").find(".error").first().focus();
-                if(!empty){
-                    input.each(function(){
-                        $(this).parent("td").html($(this).val());
-                    });
-                    $(this).parents("tr").find(".add, .edit").toggle();
-                    $(".add-new").removeAttr("disabled");
-                }
-            });
-            // Edit row on edit button click
-            $(document).on("click", ".edit", function(){
-                $(this).parents("tr").find("td:not(:last-child)").each(function(){
-                    $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-                });
-                $(this).parents("tr").find(".add, .edit").toggle();
-                $(".add-new").attr("disabled", "disabled");
-            });
-            // Delete row on delete button click
-            $(document).on("click", ".delete", function(){
-                $(this).parents("tr").remove();
-                $(".add-new").removeAttr("disabled");
-            });
+
+        <button type="submit" class="btn btn-success">Input Data</button>
+      </form>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
         });
-        </script>
+
+</script>
+{{-- <script type="text/javascript">
+    $(function() {
+        $('a.Qnew').click(function(e) {
+            e.preventDefault();
+            $('#questionbar').append('<div class="row" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input question" name="questions"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div></div>');
+        });
+        $('a.Qdelete').click(function (e) {
+            e.preventDefault();
+            if ($('#questionbar input').length > 1) {
+                $('#questionbar').children().last().remove();
+            }
+        });
+    });
+</script> --}}
+{{-- <script type="text/javascript">
+    var i = 0;
+    $(".Qnew").click(function () {
+        ++i;
+        $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input question" name="addMoreInputFields[' + i +
+            '][questions]"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="addMoreInputFields[0][answer]"></div><div class="d-inline p-2 m-2 col-lg-1"><a href="#" class="Adelete btn btn-danger">X</a></div></div></div><div class="p-2 m-2 col-lg-12"><a href="#" class="Anew btn btn-success">+</a></div></div>'
+            );
+    });
+    $(document).on('click', '.Qdelete', function () {
+        $(this).parents('.row').remove();
+    });
+</script> --}}
+
+{{-- <script type="text/javascript">
+    var i = 0;
+    $(".Qnew").click(function () {
+        ++i;
+        $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input question" name="addMoreInputFields[' + i +
+            '][questions]"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div></div></div></div>'
+            );
+    });
+    $(document).on('click', '.Qdelete', function () {
+        $(this).parents('.row').remove();
+    });
+</script> --}}
+
+{{-- <script type="text/javascript">
+    var j = 0;
+    $(".Anew").click(function () {
+        ++j;
+        $("#answerbar").append('<div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="addMoreInputFields['+ j +
+                        '][answer]"></div><div class="d-inline p-2 m-2 col-lg-1"><a href="#" class="Adelete btn btn-danger">X</a></div></div>'
+            );
+    });
+    $(document).on('click', '.Adelete', function () {
+        $(this).parents('#jawaban').remove();
+    });
+</script> --}}
+
+<script type="text/javascript">
+    var i = 0;
+    $(".Qnew").click(function () {
+        ++i;
+        $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input Question" name="question['+ i +
+            ']"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionOne['+ i +
+                ']"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionTwo['+ i +
+                    ']"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionThree['+ i +
+                        ']"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionFour['+ i +
+                            ']"></div></div></div></div>'
+        );
+    });
+    $(document).on('click', '.Qdelete', function () {
+        $(this).parents('.row').remove();
+    });
+</script>
+
+{{-- <script type="text/javascript">
+    var i = 0;
+    $(".Qnew").click(function () {
+        ++i;
+        $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input Question" name="question['+ i +
+            ']"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionOne"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionTwo"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionThree"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionFour"></div></div></div></div>'
+        );
+    });
+    $(document).on('click', '.Qdelete', function () {
+        $(this).parents('.row').remove();
+    });
+</script> --}}
+
 @endsection

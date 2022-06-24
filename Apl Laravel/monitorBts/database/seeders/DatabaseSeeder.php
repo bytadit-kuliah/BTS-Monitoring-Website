@@ -10,6 +10,7 @@ use App\Models\Kecamatan;
 use App\Models\Owner;
 use App\Models\Provider;
 use App\Models\Village;
+use App\Models\Survey;
 use App\Models\Offeredanswer;
 use Illuminate\Support\Str;
 
@@ -223,22 +224,26 @@ class DatabaseSeeder extends Seeder
             'kecamatan_id' => '5'
         ]);
         // Offeredanswer Seeds
-        Offeredanswer::create([
-            'isi' => 'Sangat Baik'
-        ]);
-        Offeredanswer::create([
-            'isi' => 'Baik'
-        ]);
-        Offeredanswer::create([
-            'isi' => 'Cukup'
-        ]);
-        Offeredanswer::create([
-            'isi' => 'Buruk'
-        ]);
-        Offeredanswer::create([
-            'isi' => 'Sangat Buruk'
-        ]);
+        // Offeredanswer::create([
+        //     'isi' => 'Sangat Baik'
+        // ]);
+        // Offeredanswer::create([
+        //     'isi' => 'Baik'
+        // ]);
+        // Offeredanswer::create([
+        //     'isi' => 'Cukup'
+        // ]);
+        // Offeredanswer::create([
+        //     'isi' => 'Buruk'
+        // ]);
+        // Offeredanswer::create([
+        //     'isi' => 'Sangat Buruk'
+        // ]);
 
+        Survey::create([
+            'name' => 'Survey Kesehatan',
+            'description' => 'Ini adalah survey tentang kesehatan jiwa'
+        ]);
 
     }
 }

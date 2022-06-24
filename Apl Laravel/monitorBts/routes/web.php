@@ -55,7 +55,8 @@ Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 // Route::get('/dashboard/users/{user}/edit','UserController@edit');
 
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('is_admin');
-Route::resource('/dashboard/surveys', BtslistController::class)->middleware('auth');
+Route::resource('/dashboard/surveys', SurveyController::class)->middleware('auth');
+Route::resource('/dashboard/btslists/surveys', SurveyController::class)->middleware('auth');
 
 // Route::post('/dashboard/users', [UserController::class, 'store'])->middleware('auth'); // nyimpen data
 // Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware('auth'); // nyimpen data

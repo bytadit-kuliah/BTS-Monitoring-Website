@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('questiontype_id');
-            $table->text('isi');
+            // $table->foreignId('questiontype_id');
+            $table->foreignId('survey_id');
+            $table->text('question');
             $table->timestamps();
         });
     }

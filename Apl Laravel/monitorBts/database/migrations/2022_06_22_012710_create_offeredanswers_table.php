@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('offeredanswers', function (Blueprint $table) {
             $table->id();
-            $table->text('isi');
+            $table->foreignId('question_id');
+            $table->text('option');
             $table->timestamps();
         });
     }

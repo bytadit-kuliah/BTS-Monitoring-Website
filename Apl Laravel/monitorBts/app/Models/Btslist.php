@@ -32,5 +32,12 @@ class Btslist extends Model
     {
         return $this->belongsToMany(Provider::class);
     }
+    public function answer(){
+        return $this->hasMany(Answer::class);
+    }
+    public function survey()
+    {
+        return $this->belongsToMany(Survey::class);
+    }
 
 }
