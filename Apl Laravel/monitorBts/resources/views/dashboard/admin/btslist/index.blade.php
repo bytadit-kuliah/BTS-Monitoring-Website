@@ -47,23 +47,23 @@
             </div>
             @endforeach --}}
             {{-- <h3>Nyobain Laravel 8 ajax pagination with search</h3> --}}
-            <div id="search">
+            <div id="search" >
                 <form id="searchform" name="searchform">
-                    <div class="row">
-                    <div class="col-lg-10 col-md-8 col-mb-8">
-                        <div class="form-group">
-                            <input type="text" placeholder="search bts by name...." name="nama" id="name" value="{{request()->get('nama','')}}" class="form-control" />
-                            @csrf
+                    <div class="row justify-content-around mb-3">
+                        <div class="col-lg-10 col-md-8 col-mb-8">
+                            <div class="form-group">
+                                <input type="text" placeholder="search bts by name...." name="nama" id="name" value="{{request()->get('nama','')}}" class="form-control" />
+                                @csrf
+                            </div>
+                        </div>
+                        {{-- <div class="form-group">
+                        <label>Search by body</label>
+                        <input type="text" name="body" value="{{request()->get('body','')}}" class="form-control" />
+                        </div> --}}
+                        <div class="col-sm-2 col-sm-1 text-center">
+                            <a class='btn btn-success' href='/dashboard/btslists' id='search_btn'>Search</a>
                         </div>
                     </div>
-                    {{-- <div class="form-group">
-                      <label>Search by body</label>
-                      <input type="text" name="body" value="{{request()->get('body','')}}" class="form-control" />
-                    </div> --}}
-                    <div class="col-lg-2 col-md-2 col-mb-2">
-                        <a class='btn btn-success' href='/dashboard/btslists' id='search_btn'>Search</a>
-                    </div>
-                </div>
                 </form>
             </div>
             {{-- <h3 align="center"><span id="total_records"></span>Data Found</h3> --}}
