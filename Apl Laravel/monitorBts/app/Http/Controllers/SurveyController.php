@@ -105,10 +105,10 @@ class SurveyController extends Controller
                 $dua->save();
             }
             if($request->optionThree) {
-                $tigas = new Offeredanswer();
-                $tigas->option = $request->optionThree[$key];
-                $tigas->question_id = $tanya->id;
-                $tigas->save();
+                $tiga = new Offeredanswer();
+                $tiga->option = $request->optionThree[$key];
+                $tiga->question_id = $tanya->id;
+                $tiga->save();
             }
             if($request->optionFour) {
                 $empat = new Offeredanswer();
@@ -161,8 +161,18 @@ class SurveyController extends Controller
      * @param  \App\Models\Survey  $survey
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Survey $survey)
+    public function destroy(Survey $survey, Question $question)
     {
-        //
+        $questions = Question::all();
+        // destroy offered answers by question_id
+        foreach($questions->where('survey_id', $survey->id) as $questionlist){
+            Offeredanswer::where('question_id', $questionlist->id)->delete();
+        }
+        // destroy questions by survey_id
+        Question::where('survey_id', $survey->id)->delete();
+        // destroy survey by id
+        Survey::destroy($survey->id);
+
+        return redirect('/dashboard/surveys')->with('success', 'Survey telah dihapus');
     }
 }

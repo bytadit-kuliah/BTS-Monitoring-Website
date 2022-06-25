@@ -240,10 +240,10 @@ class DatabaseSeeder extends Seeder
         //     'isi' => 'Sangat Buruk'
         // ]);
 
-        Survey::create([
-            'name' => 'Survey Kesehatan',
-            'description' => 'Ini adalah survey tentang kesehatan jiwa'
-        ]);
+        // Survey::create([
+        //     'name' => 'Survey Kesehatan',
+        //     'description' => 'Ini adalah survey tentang kesehatan jiwa'
+        // ]);
 
     }
 }

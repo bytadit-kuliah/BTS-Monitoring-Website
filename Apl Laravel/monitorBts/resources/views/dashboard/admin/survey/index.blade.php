@@ -24,6 +24,11 @@
                     <!-- <a href="#" class="card-link">Edit Jawaban</a> -->
                 </div> --}}
             </div>
+            <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="badge bg-danger border-0">
+                @method('delete')
+                @csrf
+                <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
+            </form>
         </div>
         @endforeach
         <div class="card text-black bg-light border-3 add-card survey-card" style="width: 18rem; margin:10px">
