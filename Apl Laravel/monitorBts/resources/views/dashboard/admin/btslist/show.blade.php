@@ -71,7 +71,7 @@
                         <td> 
                             @if($btslist->provider)
                                 @foreach($btslist->provider as $providerBtslist)
-                                    @if ($loop->iteration==0)
+                                    @if ($loop->iteration==1)
                                         {{ $providerBtslist->nama }}
                                     @else
                                         {{ ','.$providerBtslist->nama }}
@@ -96,31 +96,43 @@
                     </tr>
                     <tr>
                         <td class='table-light'>Genset</td>
-                        <td> {{ $btslist->genset }} </td>
+                        <td> 
+                            @if($btslist->genset == 1)
+                                {{"Ada"}}
+                            @else
+                                {{"Tidak Ada"}}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td class='table-light'>Tembok Batas</td>
-                        <td>  {{ $btslist->tembokBatas }} </td>
+                        <td> 
+                            @if($btslist->tembokBatas == 1)
+                                {{"Ada"}}
+                            @else
+                                {{"Tidak Ada"}}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td class='table-light'>Panjang Tanah</td>
-                        <td> {{ $btslist->panjangTanah }} </td>
+                        <td> {{ $btslist->panjangTanah.' satuan' }} </td>
                     </tr>
                     <tr>
                         <td class='table-light'>Lebar Tanah</td>
-                        <td> {{ $btslist->lebarTanah }} </td>
+                        <td> {{ $btslist->lebarTanah.' satuan' }} </td>
                     </tr>
                     <tr>
                         <td class='table-light'>Tinggi Tower</td>
-                        <td> {{ $btslist->tinggiTower }} </td>
+                        <td> {{ $btslist->tinggiTower.' meter' }} </td>
                     </tr>
                     <tr>
                         <td class='table-light'>Latitude</td>
-                        <td> {{ $btslist->latitude }} </td>
+                        <td> {{ $btslist->latitude.'°'.'S' }} </td>
                     </tr>
                     <tr >
                         <td class='table-light' >Longitude</td>
-                        <td> {{ $btslist->longitude }} </td>
+                        <td> {{ $btslist->longitude.'°'.'E' }} </td>
                     </tr>
                 </tbody>
             </table>
