@@ -46,14 +46,14 @@
                 <td>{{ $owner->nama }}</td>
                 <td>{{ $owner->alamat }}</td>
                 <td>{{ $owner->noTelp }}</td>
-                <td>
+                <td class='text-center align-middle'>
                     <a href="/dashboard/owners/{{ $owner->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a>
                     {{-- <a href="/dashboard/owners/{{ $owner->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}
-                    <form action="/dashboard/owners/{{ $owner->id }}" method="post" class="badge bg-danger border-0">
+                    <form action="/dashboard/owners/{{ $owner->id }}" method="post">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>

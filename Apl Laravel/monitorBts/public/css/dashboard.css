@@ -12876,3 +12876,8 @@ header .nav-item > a{
     width: 16px;
     height: 16px;
   }
+
+  .fixedTable{
+    table-layout: fixed;
+    overflow-wrap: break-word;
+  }

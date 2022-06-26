@@ -8,7 +8,7 @@
     </ol>
 
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
+    <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -58,14 +58,14 @@
                         <p>None</p>
                     @endif
                 </td>
-                <td>
+                <td class='text-center align-middle'>
                     <a href="/dashboard/providers/{{ $provider->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a>
                     {{-- <a href="/dashboard/providers/{{ $provider->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}
-                    <form action="/dashboard/providers/{{ $provider->id }}" method="post" class="badge bg-danger border-0">
+                    <form action="/dashboard/providers/{{ $provider->id }}" method="post">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
