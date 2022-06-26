@@ -30,7 +30,10 @@ header .nav-item > a{
     --bs-bg-opacity: 1;
     background-color: #52784F !important;
   }
-
+  .bg-bts-3 .card-header:first-child{
+    background: rgba(0, 0, 0, .13) url('http://fc02.deviantart.net/fs71/i/2011/274/6/f/ocean__sky__stars__and_you_by_muddymelly-d4bg1ub.png');
+    background-blend-mode: darken;
+  }
 
   :root {
     --bs-blue: #0d6efd;
