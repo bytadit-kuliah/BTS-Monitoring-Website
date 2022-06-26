@@ -17,10 +17,10 @@
 
     <div class="table-responsive col-lg-12">
     <a href="/dashboard/providers/create"   class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
-    <table class="table table-bordered">
-        <thead>
+    <table class="table">
+        <thead class="table-success ">
             <tr>
-                <th>No.</th>
+                <th style='border-top-left-radius:1rem'>No.</th>
                 <th>Foto</th>
                 <th>Nama</th>
                 <th>Alamat</th>
@@ -28,7 +28,7 @@
                 <th>List BTS</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
-                <th>Aksi</th>
+                <th style='border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
         <tbody>

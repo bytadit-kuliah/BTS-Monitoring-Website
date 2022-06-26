@@ -17,17 +17,17 @@
 
     <div class="table-responsive col-lg-12">
     <a href="/dashboard/monitorings/create"  class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
-    <table class="table table-bordered fixedTable">
-        <thead>
+    <table class="table fixedTable">
+        <thead class="table-success ">
             <tr>
-                <th style='width:3.8%'>No.</th>
+                <th style='width:3.8%; border-top-left-radius:1rem'>No.</th>
                 <th style='width:16%'>Nama Monitoring</th>
                 <th style='width:16%'>Nama BTS</th>
                 <th style='width:13%'>Waktu Monitoring</th>
                 <th style="width:35%">Catatan</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
-                <th style='width:4%'>Aksi</th>
+                <th style='width:4%; border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
         <tbody>
