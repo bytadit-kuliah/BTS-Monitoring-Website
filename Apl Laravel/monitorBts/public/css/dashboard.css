@@ -12879,7 +12879,7 @@ header .nav-item > a{
     width: 16px;
     height: 16px;
   }
-
+/* new 26/06/2022 */
   .fixedTable{
     table-layout: fixed;
     overflow-wrap: break-word;

@@ -16,7 +16,7 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/users/create" class="btn btn-success mb-4">Add New Surveyor</a>
+    <a href="/dashboard/users/create" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New Surveyor</a>
     <table class="table table-bordered">
         <thead>
             <tr>

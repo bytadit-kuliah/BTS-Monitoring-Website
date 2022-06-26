@@ -14,7 +14,7 @@
     </div>
     @endif
 
-    <a href="/dashboard/btslists/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
+    <a href="/dashboard/btslists/create" type="button" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
 
     {{-- <div class="container"> --}}
 
@@ -61,7 +61,7 @@
                         <input type="text" name="body" value="{{request()->get('body','')}}" class="form-control" />
                         </div> --}}
                         <div class="col-sm-2 col-sm-1 text-center">
-                            <a class='btn btn-success' href='/dashboard/btslists' id='search_btn'>Search</a>
+                            <a href='/dashboard/btslists' id='search_btn' class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff">Search</a>
                         </div>
                     </div>
                 </form>

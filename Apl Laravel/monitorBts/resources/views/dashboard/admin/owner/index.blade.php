@@ -16,7 +16,7 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/owners/create" class="btn btn-success mb-4">Input Owner Baru</a>
+    <a href="/dashboard/owners/create"  class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Input Owner Baru</a>
     <table class="table table-bordered">
         <thead>
             <tr>
