@@ -8,15 +8,15 @@
     </ol> --}}
 
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
+    <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
 
-    <a href="/dashboard/btslists/create" type="button" class="btn btn-info add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
+    <a href="/dashboard/btslists/create" type="button" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
 
-    <div class="container">
+    {{-- <div class="container"> --}}
 
             {{-- @foreach($btslists as $btslist)
             <div class="card col-md-3 m-3">
@@ -47,10 +47,10 @@
             </div>
             @endforeach --}}
             {{-- <h3>Nyobain Laravel 8 ajax pagination with search</h3> --}}
-            <div id="search" >
+            <div id="search">
                 <form id="searchform" name="searchform">
-                    <div class="row justify-content-around mb-3">
-                        <div class="col-lg-10 col-md-8 col-mb-8">
+                    <div class="row justify-content-around mb-3 ">
+                        <div class="col-lg-10 col-md-8">
                             <div class="form-group">
                                 <input type="text" placeholder="search bts by name...." name="nama" id="name" value="{{request()->get('nama','')}}" class="form-control" />
                                 @csrf
@@ -61,7 +61,7 @@
                         <input type="text" name="body" value="{{request()->get('body','')}}" class="form-control" />
                         </div> --}}
                         <div class="col-sm-2 col-sm-1 text-center">
-                            <a class='btn btn-success' href='/dashboard/btslists' id='search_btn'>Search</a>
+                            <a href='/dashboard/btslists' id='search_btn' class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff">Search</a>
                         </div>
                     </div>
                 </form>
@@ -72,7 +72,7 @@
                     @include("dashboard.admin.btslist.btsdata",["btslists"=>$btslists])
                 </div>
             </div>
-    </div>
+    {{-- </div> --}}
 @endsection
 <!-- Main Akhir -->
 

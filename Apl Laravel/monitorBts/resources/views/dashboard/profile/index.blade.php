@@ -8,7 +8,7 @@
     </ol>
 
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
+    <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -16,11 +16,11 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/users/create" class="btn btn-success mb-4">Add New Surveyor</a>
-    <table class="table table-bordered">
-        <thead>
+    <a href="/dashboard/users/create" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New Surveyor</a>
+    <table class="table">
+        <thead class="table-success ">
             <tr>
-                <th>No.</th>
+                <th style='border-top-left-radius:1rem'>No.</th>
                 <th>Foto</th>
                 <th>Nama</th>
                 <th>E-mail</th>
@@ -29,7 +29,7 @@
                 <th>Role</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
-                <th>Aksi</th>
+                <th style='border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
         <tbody>

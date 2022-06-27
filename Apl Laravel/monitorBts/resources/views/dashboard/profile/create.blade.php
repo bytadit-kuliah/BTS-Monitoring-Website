@@ -2,7 +2,6 @@
 
 <!-- Main Awal -->
 @section('container')
-    <h1 class="mt-4 border-3 rounded-3 border-bottom">Add New Surveyor</h1>
     {{-- @if(session()->has('success'))
     <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}

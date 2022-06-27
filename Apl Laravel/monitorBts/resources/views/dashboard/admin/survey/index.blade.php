@@ -4,7 +4,7 @@
 @section('container')
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Survey</h1>
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
+    <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -14,20 +14,21 @@
     </ol> --}}
     <div class="d-flex flex-wrap survey-cards" style="justify-content:space-evenly;">
         @foreach ($surveys as $survey)
-        <div class="card text-white bg-warning border-3 survey-card" style="max-width: 18rem; margin:10px">
+        <div class="card text-white bg-bts-3 border-3 survey-card" style="width: 18rem; margin:10px">
             <h3 class="card-header">{{ $survey->name }}</h3>
             <div class="card-body">
-                {{-- <h6 class="card-title">{{ $survey->name }}</h6> --}}
                 <p class="card-text">{{ $survey->description }}</p>
+                {{-- <h6 class="card-title">{{ $survey->name }}</h6> --}}
                 {{-- <div class="d-flex" style="justify-content: flex-end;">
                     <a class="text-black-50" href="/dashboard/show-survey" class="card-link">Lihat</a>
                     <!-- <a href="#" class="card-link">Edit Jawaban</a> -->
                 </div> --}}
             </div>
-            <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="badge bg-danger border-0">
+            <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$survey->question->count()}}</span> pertanyaan</p>
+            <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="card-footer text-center ">
                 @method('delete')
                 @csrf
-                <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
+                <button class="badge bg-danger border-0 " title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
             </form>
         </div>
         @endforeach

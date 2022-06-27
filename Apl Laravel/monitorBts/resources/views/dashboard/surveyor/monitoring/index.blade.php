@@ -8,7 +8,7 @@
     </ol>
 
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
+    <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -16,18 +16,18 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/monitorings/create" class="btn btn-success mb-4">Add New</a>
-    <table class="table table-bordered">
-        <thead>
+    <a href="/dashboard/monitorings/create"  class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
+    <table class="table fixedTable">
+        <thead class="table-success ">
             <tr>
-                <th>No.</th>
-                <th>Nama Monitoring</th>
-                <th >Nama BTS</th>
-                <th>Waktu Monitoring</th>
-                <th style="width:40%">Catatan</th>
+                <th style='width:3.8%; border-top-left-radius:1rem'>No.</th>
+                <th style='width:16%'>Nama Monitoring</th>
+                <th style='width:16%'>Nama BTS</th>
+                <th style='width:13%'>Waktu Monitoring</th>
+                <th style="width:35%">Catatan</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
-                <th>Aksi</th>
+                <th style='width:4%; border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -59,14 +59,14 @@
                         <p>None</p>
                     @endif
                 </td> --}}
-                <td>
+                <td class='text-center align-middle'>
                     <a href="/dashboard/monitorings/{{ $monitoring->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a>
                     {{-- <a href="/dashboard/monitorings/{{ $monitoring->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}
-                    <form action="/dashboard/monitorings/{{ $monitoring->id }}" method="post" class="badge bg-danger border-0">
+                    <form action="/dashboard/monitorings/{{ $monitoring->id }}" method="post" class="border-0">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>

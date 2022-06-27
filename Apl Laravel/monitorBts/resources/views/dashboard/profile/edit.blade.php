@@ -186,7 +186,7 @@
             </div>
         </div> --}}
         <div class="mt-5 text-center">
-            <button type="submit" class="btn btn-success">Save Profile</button>
+            <button type="submit"  class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff">Save Profile</button>
         </div>
     </form>
 @endsection

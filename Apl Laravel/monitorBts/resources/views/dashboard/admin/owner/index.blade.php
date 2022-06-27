@@ -8,7 +8,7 @@
     </ol>
 
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
+    <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -16,7 +16,7 @@
 
 
     <div class="table-responsive col-lg-12">
-    <a href="/dashboard/owners/create" class="btn btn-success mb-4">Input Owner Baru</a>
+    <a href="/dashboard/owners/create"  class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Input Owner Baru</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -46,14 +46,14 @@
                 <td>{{ $owner->nama }}</td>
                 <td>{{ $owner->alamat }}</td>
                 <td>{{ $owner->noTelp }}</td>
-                <td>
+                <td class='text-center align-middle'>
                     <a href="/dashboard/owners/{{ $owner->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a>
                     {{-- <a href="/dashboard/owners/{{ $owner->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}
-                    <form action="/dashboard/owners/{{ $owner->id }}" method="post" class="badge bg-danger border-0">
+                    <form action="/dashboard/owners/{{ $owner->id }}" method="post">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
