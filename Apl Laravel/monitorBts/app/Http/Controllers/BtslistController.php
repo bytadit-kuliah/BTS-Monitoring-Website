@@ -146,7 +146,7 @@ class BtslistController extends Controller
         $btslist->save();
 
         $provider = Provider::find($request->provider_id);
-        $btslist->provider()->attach($provider);
+        $btslist->providers()->attach($provider);
         // return $provider;
         // $input = $request->all();
         // $provider_id = $input['provider_id'];
@@ -280,7 +280,7 @@ class BtslistController extends Controller
         $input = $request->except(['kecamatan_id', 'images', 'provider_id']);
         $btslist->fill($input)->save();
         $provider = Provider::find($request->provider_id);
-        $btslist->provider()->sync($provider);
+        $btslist->providers()->sync($provider);
 // ================================================================
         // $btsphoto = Btsphoto::where('btstype_id', $id);
 
@@ -314,12 +314,22 @@ class BtslistController extends Controller
      * @param  \App\Models\Btslist  $btslist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Btslist $btslist)
+    public function destroy(Btslist $btslist, Request $request)
     {
         // if($provider->foto){
         //     Storage::delete($provider->foto);
         // }
         Btslist::destroy($btslist->id);
+        // DB::table('btslist_provider')->where('btslist_id', '=', $btslist->id)->delete();
+        $provider = Provider::find($request->provider_id);
+        $btslist->providers()->detach($provider);
+
+
+        // $provider = Provider::find($request->provider_id);
+        // $btslist->providers()->attach($provider);
+
+        // $provider = Provider::find($request->provider_id);
+        // $btslist->providers()->sync($provider);
 
         return redirect('/dashboard/btslists')->with('success', 'Data BTS telah dihapus');
     }

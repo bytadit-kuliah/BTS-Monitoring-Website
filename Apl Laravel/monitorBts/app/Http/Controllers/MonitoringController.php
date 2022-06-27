@@ -61,6 +61,12 @@ class MonitoringController extends Controller
         // $validatedData['catatan'] = $request->catatan;
         Monitoring::create($validatedData);
 
+        // $provider = Provider::find($request->provider_id);
+        // $btslist->providers()->attach($provider);
+
+        // $provider = Provider::find($request->provider_id);
+        // $btslist->providers()->sync($provider);
+
         return redirect('/dashboard/monitorings')->with('success', 'Data Monitoring telah ditambahkan');
     }
 

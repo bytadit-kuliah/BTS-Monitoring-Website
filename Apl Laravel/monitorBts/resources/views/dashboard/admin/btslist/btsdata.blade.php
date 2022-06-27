@@ -37,7 +37,7 @@
 {{-- VVV test view VVV --}}
 {{-- <div class="row justify-content-around">
     @for ($i = 0; $i < 11; $i++)
-    
+
     <div class="card col-md-3 m-3 p-2 text-center rounded-4">
         <h3 class="card-title"><a href="/dashboard/btslists/show" class="text-decoration-none text-dark">nama</a></h3>
         <div style="max-height: 350px; overflow:hidden;">
@@ -60,6 +60,6 @@
             </a>
         </div>
     </div>
-        
+
     @endfor
 </div> --}}

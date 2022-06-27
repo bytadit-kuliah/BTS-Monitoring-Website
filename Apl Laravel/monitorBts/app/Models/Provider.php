@@ -9,7 +9,7 @@ class Provider extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    public function btslist()
+    public function btslists()
     {
         return $this->belongsToMany(Btslist::class);
     }

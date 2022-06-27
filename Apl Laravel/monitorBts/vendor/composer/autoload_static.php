@@ -508,6 +508,7 @@ class ComposerStaticInitd1500a6e893972754246e4f485d51c1f
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\AnswerController' => __DIR__ . '/../..' . '/app/Http/Controllers/AnswerController.php',
         'App\\Http\\Controllers\\BtslistController' => __DIR__ . '/../..' . '/app/Http/Controllers/BtslistController.php',
         'App\\Http\\Controllers\\BtsphotoController' => __DIR__ . '/../..' . '/app/Http/Controllers/BtsphotoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',

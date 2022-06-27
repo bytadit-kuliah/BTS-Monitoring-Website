@@ -28,16 +28,21 @@ class Btslist extends Model
     public function monitoring(){
         return $this->hasMany(Monitoring::class);
     }
-    public function provider()
+    public function providers()
     {
         return $this->belongsToMany(Provider::class);
     }
     public function answer(){
         return $this->hasMany(Answer::class);
     }
-    public function survey()
+    public function surveys()
     {
         return $this->belongsToMany(Survey::class);
     }
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
+
+
 
 }

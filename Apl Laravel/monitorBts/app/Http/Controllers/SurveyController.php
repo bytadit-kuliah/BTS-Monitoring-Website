@@ -9,6 +9,7 @@ use App\Models\Offeredanswer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class SurveyController extends Controller
 {
@@ -59,12 +60,6 @@ class SurveyController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'description' => 'required',
-            // 'questions' => 'required',
-            // 'ans1' => 'required',
-            // 'ans2' => 'required',
-            // 'ans3' => 'required',
-            // 'ans4' => 'required',
-            // 'ans5' => 'required',
         ]);
 
         $survey = new Survey;
@@ -75,7 +70,7 @@ class SurveyController extends Controller
         $survey->save();
 
         $btslist = Btslist::find($request->btslist_id);
-        $survey->btslist()->attach($btslist);
+        $survey->btslists()->attach($btslist);
 
         // Quiestionnaire
 
@@ -161,7 +156,7 @@ class SurveyController extends Controller
      * @param  \App\Models\Survey  $survey
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Survey $survey, Question $question)
+    public function destroy(Survey $survey, Question $question, Request $request)
     {
         $questions = Question::all();
         // destroy offered answers by question_id
@@ -172,6 +167,12 @@ class SurveyController extends Controller
         Question::where('survey_id', $survey->id)->delete();
         // destroy survey by id
         Survey::destroy($survey->id);
+
+        // DB::delete('delete from btslist_survey where survey_id = ?',[$survey->id]);
+        // DB::table('btslist_survey')->where('survey_id', '=', $survey->id)->delete();
+        $btslist = Btslist::find($request->btslist_id);
+        $survey->btslists()->detach($btslist);
+        // $surveys = Survey::find($survey->id);
 
         return redirect('/dashboard/surveys')->with('success', 'Survey telah dihapus');
     }

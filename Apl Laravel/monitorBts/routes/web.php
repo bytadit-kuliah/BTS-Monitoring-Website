@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ProviderController;
@@ -56,7 +57,8 @@ Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('is_admin');
 Route::resource('/dashboard/surveys', SurveyController::class)->middleware('auth');
-Route::resource('/dashboard/btslists/surveys', SurveyController::class)->middleware('auth');
+// Route::resource('/dashboard/btslists/surveys', SurveyController::class)->middleware('auth');
+Route::resource('/dashboard/answers', AnswerController::class)->middleware('auth');
 
 // Route::post('/dashboard/users', [UserController::class, 'store'])->middleware('auth'); // nyimpen data
 // Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware('auth'); // nyimpen data
