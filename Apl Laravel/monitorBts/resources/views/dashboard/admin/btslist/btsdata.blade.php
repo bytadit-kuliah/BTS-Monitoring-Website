@@ -1,15 +1,15 @@
 <div class="row justify-content-around">
     @foreach($btslists as $btslist)
-            <div class="card col-md-3 m-3 p-2 text-center rounded-4">
+            <div class="card justify-content-between align-items-between col-md-3 m-3 p-2 text-center rounded-4">
                 <h3 class="card-title"><a href="/dashboard/btslists/{{ $btslist->id }}" class="text-decoration-none text-dark">{{ $btslist->nama }}</a></h3>
-                <div class='card-img-top d-flex align-self-center justify-content-center mw-100' style="height: 150px;overflow:hidden;" >
+                <div class='card-img-top d-flex align-items-center justify-content-center mw-100' style="height: 150px;overflow:hidden;" >
                     @if($btsphotos)
                         <img src="{{ asset('storage/' . $btsphoto->firstWhere('btslist_id', $btslist->id)->url) }}" class="img-thumbnail rounded-3" alt="{{ $btslist->nama }}">
                         @else
                         <img src="https://source.unsplash.com/1200x400?tower" alt="{{ $btslist->nama }}" class="img-fluid rounded-3">
                     @endif
                 </div>
-                <div class="card-body">
+                <div class="card-footer mt-3 rounded-3">
                     <a href="/dashboard/btslists/{{ $btslist->id }}" class="badge bg-info">
                         <i class="bi bi-eye-fill"></i>
                     </a>

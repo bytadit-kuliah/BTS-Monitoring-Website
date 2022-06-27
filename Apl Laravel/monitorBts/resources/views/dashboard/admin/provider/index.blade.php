@@ -38,7 +38,7 @@
                 <td>
                     @if($provider->foto)
                     <div style="max-height: 100px; max-width:100px; overflow:hidden;">
-                        <img src="{{ asset('storage/' . $provider->foto) }}" alt="{{ $provider->nama }}" class="img-fluid mt-3">
+                        <img src="{{ asset('storage/' . $provider->foto) }}" alt="{{ $provider->nama }}" class="img-fluid mt-3" style='width:100px; height:100px'>
                     </div>
                     @else
                     <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->nama }}" class="img-fluid mt-3">

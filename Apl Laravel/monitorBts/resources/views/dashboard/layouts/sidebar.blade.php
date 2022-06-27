@@ -4,15 +4,16 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">
-                        <div class="d-flex sb-nav-link-icon">
-                            @if(auth()->user()->photo)
-                                <img src="{{ asset('storage/' . auth()->user()->photo) }}" style="margin-right:10px;vertical-align:middle;width:50px;height:50px;border-radius:50%;">
-                            @else
-                                <img src="/./image/pp.png" style="width:50px; margin-right: 10px;">
-                            @endif
-                            <div class="d-flex flex-column">
+                        <div class="row sb-nav-link-icon align-items-center">
+                                @if(auth()->user()->photo)
+                                    <div class='col-md-2 offset-md-1' style="width:50px;height:50px;border-radius:50%;background-image:url('{{ asset('storage/' . auth()->user()->photo) }}'); background-size: cover;"></div>
+                                    {{-- <img src="{{ asset('storage/' . auth()->user()->photo) }}" class='' style="width:50px;height:auto;border-radius:50%;object-fit: cover;"> --}}
+                                @else
+                                    <div class='col-md-2 offset-md-1' style="width:50px;height:50px;border-radius:50%;background-image:url('/./image/pp.png'); background-size: cover;"></div>
+                                @endif
+                            <div class="flex flex-column col-md-8 ">
                                 <small class="font-weight-normal" style="color:#F4D2EB; font-weight:lighter">Selamat Datang</small>
-                                <p >{{ auth()->user()->firstName }}</p>
+                                <p class='text-break'>{{ auth()->user()->firstName }}</p>
                             </div>
                         </div>
                     </div>
