@@ -7,7 +7,7 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard Admin</li>
     </ol>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-xl-12 col-md-6">
             <div class="card bg-bts-3 text-white mb-4">
                 <div class="card-body">
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="row">
         <div class="col-xl-3 col-md-6">
             <div class="card bg-primary text-white mb-4">

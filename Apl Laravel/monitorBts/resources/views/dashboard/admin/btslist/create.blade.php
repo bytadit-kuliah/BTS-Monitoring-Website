@@ -108,7 +108,10 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="panjangTanah" class="form-label">Panjang Tanah</label>
-                    <input type="number" class="form-control @error('panjangTanah') is-invalid @enderror" id="panjangTanah" name="panjangTanah" required autofocus value="{{ old('panjangTanah') }}">
+                    <div class="input-group row m-0">
+                        <input type="number" class="col form-control @error('panjangTanah') is-invalid @enderror" id="panjangTanah" name="panjangTanah" required autofocus value="{{ old('panjangTanah') }}" aria-describedby="basic-addon1">
+                        <span class="col-md-2 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon1">meter</span>
+                    </div>
                     @error('panjangTanah')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -117,7 +120,10 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="lebarTanah" class="form-label">Lebar Tanah</label>
-                    <input type="number" class="form-control @error('lebarTanah') is-invalid @enderror" id="lebarTanah" name="lebarTanah" required autofocus value="{{ old('lebarTanah') }}">
+                    <div class="input-group row m-0">
+                        <input type="number" class="col form-control @error('lebarTanah') is-invalid @enderror" id="lebarTanah" name="lebarTanah" required autofocus value="{{ old('lebarTanah') }}" aria-describedby="basic-addon2">
+                        <span class="col-md-2 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">meter</span>
+                    </div>
                     @error('lebarTanah')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -126,7 +132,10 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="tinggiTower" class="form-label">Tinggi Tower</label>
-                    <input type="number" class="form-control @error('tinggiTower') is-invalid @enderror" id="tinggiTower" name="tinggiTower" required autofocus value="{{ old('tinggiTower') }}">
+                    <div class="input-group row m-0">
+                        <input type="number" class="col form-control @error('tinggiTower') is-invalid @enderror" id="tinggiTower" name="tinggiTower" required autofocus value="{{ old('tinggiTower') }}" aria-describedby="basic-addon2">
+                        <span class="col-md-2 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">meter</span>
+                    </div>
                     @error('tinggiTower')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -138,7 +147,10 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="latitude" class="form-label">Latitude</label>
-                    <input type="text" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude') }}">
+                    <div class="input-group row m-0">
+                        <input type="text" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude') }}">
+                        <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°S</span>
+                    </div>
                     @error('latitude')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -147,7 +159,10 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="longitude" class="form-label">Longitude</label>
-                    <input type="text" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude') }}">
+                    <div class="input-group row m-0">
+                        <input type="text" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude') }}">
+                        <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°E</span>
+                    </div>
                     @error('longitude')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -207,7 +222,7 @@
                 </div>
             </div> --}}
 
-            <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Tambah BTS</button>
+            <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Tambah BTS</button>
         </form>
     </div>
 

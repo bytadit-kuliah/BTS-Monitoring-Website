@@ -6,7 +6,7 @@
         <div class="col-lg-12 justify-content-center text-center">
             <h1 class="mb-3">{{ $btslist->name }}</h1>
 
-           <a href="/dashboard/btslists" class="btn btn-success"><span data-feather='arrow-left'></span>Back</a>
+           <a href="/dashboard/btslists" class="btn btn-success add-new" style="background: #52784F; color: #fff"><span data-feather='arrow-left'></span>Back</a>
            @can('admin')
            <a href="/dashboard/btslists/{{ $btslist->id }}/edit" class="btn btn-warning"><span data-feather='edit'></span>Edit Data</a>
            <form action="/dashboard/btslists/{{ $btslist->id }}" method="post" class="d-inline">
@@ -116,11 +116,11 @@
                     </tr>
                     <tr>
                         <td class='table-light'>Panjang Tanah</td>
-                        <td> {{ $btslist->panjangTanah.' satuan' }} </td>
+                        <td> {{ $btslist->panjangTanah.' meter' }} </td>
                     </tr>
                     <tr>
                         <td class='table-light'>Lebar Tanah</td>
-                        <td> {{ $btslist->lebarTanah.' satuan' }} </td>
+                        <td> {{ $btslist->lebarTanah.' meter' }} </td>
                     </tr>
                     <tr>
                         <td class='table-light'>Tinggi Tower</td>
