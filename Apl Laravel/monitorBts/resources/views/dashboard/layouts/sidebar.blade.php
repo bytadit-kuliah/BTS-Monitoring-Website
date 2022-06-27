@@ -71,7 +71,7 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="/dashboard/btslists">Data BTS</a>
-                        <a class="nav-link" href="/dashboard/answers">Isi Survey</a>
+                        <a class="nav-link" href="/dashboard/mysurveys">Isi Survey</a>
                         <a class="nav-link" href="/dashboard/monitorings">Data Monitoring</a>
                     </nav>
                 </div>

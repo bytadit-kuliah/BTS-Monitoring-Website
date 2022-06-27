@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use Illuminate\Http\Request;
 use App\Models\Survey;
+// use App\Models\Status;
+use App\Models\Mysurvey;
 use App\Models\Btslist;
 use App\Models\Monitoring;
 use App\Models\Question;
@@ -76,6 +78,9 @@ class AnswerController extends Controller
             'surveys' => Survey::all(),
             'btslist' => $btslist,
             'survey' => $survey,
+            'user' => $user,
+            // 'statuses' => Status::all(),
+            'mysurveys' => Mysurvey::all(),
             'monitorings' => $monitorings
             // 'monitoring' => $monitoring
             // 'villages' => Village::where('kecamatan_id', '1')->get(),
@@ -107,9 +112,12 @@ class AnswerController extends Controller
             'btslists' => Btslist::all(),
             'request' => $request,
             'surveys' => Survey::all(),
+            // 'statuses' => Status::all(),
+            'mysurveys' => Mysurvey::all(),
             'btslist' => $btslist,
             'survey' => $survey,
-            'monitorings' => $monitorings
+            'monitorings' => $monitorings,
+            'monitorings2' => Monitoring::all()
             // 'monitoring' => $monitoring
             // 'villages' => Village::where('kecamatan_id', '1')->get(),
             // 'posts' => Post::where('user_id', auth()->user()->id)->get()
@@ -128,7 +136,7 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

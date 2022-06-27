@@ -65,6 +65,12 @@ class User extends Authenticatable
     public function answer(){
         return $this->hasMany(Answer::class);
     }
+    // public function status(){
+    //     return $this->hasMany(Status::class);
+    // }
+    public function mysurvey(){
+        return $this->hasMany(Mysurvey::class);
+    }
     // many-to-many
     // public function question()
     // {

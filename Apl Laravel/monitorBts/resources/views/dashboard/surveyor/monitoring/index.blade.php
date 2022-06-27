@@ -31,7 +31,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($monitorings as $monitoring)
+            @foreach ($monitorings->where('user_id', auth()->user()->id) as $monitoring)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 {{-- <td>

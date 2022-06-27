@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\MysurveyController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\BtslistController;
 // use App\Http\Controllers\ProfileController;
@@ -51,6 +52,8 @@ Route::resource('/dashboard/providers', ProviderController::class)->middleware('
 Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
 // Route::resource('/dashboard/profiles', ProfileController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
+Route::resource('/dashboard/mysurveys', MysurveyController::class)->middleware('auth');
+
 // except('index')
 // Route::put('/dashboard/users/{user}','UserController@update');
 // Route::get('/dashboard/users/{user}/edit','UserController@edit');

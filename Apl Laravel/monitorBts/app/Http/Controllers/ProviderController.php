@@ -44,7 +44,7 @@ class ProviderController extends Controller
      * @param  \App\Http\Requests\StoreProviderRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, )
     {
         $validatedData = $request->validate([
             'nama' => 'required|max:255',

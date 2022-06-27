@@ -24,7 +24,7 @@
                             @if ($loop->iteration == 0)
                                 <button type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             @else
-                                <button type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide-to="{{$loop->iteration}}" aria-label="Slide {{($loop->iteration)+1}}"></button>                            
+                                <button type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide-to="{{$loop->iteration}}" aria-label="Slide {{($loop->iteration)+1}}"></button>
                             @endif
                         @endforeach
                     </div>
@@ -68,14 +68,14 @@
                     </tr>
                     <tr>
                         <td class='table-light'>Provider</td>
-                        <td> 
-                            @if($btslist->provider)
-                                @foreach($btslist->provider as $providerBtslist)
+                        <td>
+                            @if($btslist->providers)
+                                @foreach($btslist->providers as $providerBtslist)
                                     @if ($loop->iteration==1)
                                         {{ $providerBtslist->nama }}
                                     @else
                                         {{ ','.$providerBtslist->nama }}
-                                    @endif                                
+                                    @endif
                                 @endforeach
                             @else
                                 -
@@ -96,7 +96,7 @@
                     </tr>
                     <tr>
                         <td class='table-light'>Genset</td>
-                        <td> 
+                        <td>
                             @if($btslist->genset == 1)
                                 {{"Ada"}}
                             @else
@@ -106,7 +106,7 @@
                     </tr>
                     <tr>
                         <td class='table-light'>Tembok Batas</td>
-                        <td> 
+                        <td>
                             @if($btslist->tembokBatas == 1)
                                 {{"Ada"}}
                             @else

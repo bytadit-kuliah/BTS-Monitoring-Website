@@ -281,6 +281,7 @@ class BtslistController extends Controller
         $btslist->fill($input)->save();
         $provider = Provider::find($request->provider_id);
         $btslist->providers()->sync($provider);
+
 // ================================================================
         // $btsphoto = Btsphoto::where('btstype_id', $id);
 

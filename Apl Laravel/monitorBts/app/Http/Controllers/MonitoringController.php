@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Monitoring;
 use App\Models\Btslist;
+use App\Models\Survey;
+use App\Models\User;
+// use App\Models\Status;
+use App\Models\Mysurvey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +46,7 @@ class MonitoringController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Survey $survey, User $user)
     {
         $validatedData = $request->validate([
             'nama' => 'required|max:255',
@@ -61,6 +65,28 @@ class MonitoringController extends Controller
         // $validatedData['catatan'] = $request->catatan;
         Monitoring::create($validatedData);
 
+        // $survey_btslist = Survey::find($survey->btslists());
+        // $survey->btslists()->attach($btslist);
+
+        // $btslist = Btslist::find($request->btslist_id);
+        // $survey->btslists()->attach($btslist);
+
+
+        $btslist = Btslist::find($request->btslist_id);
+        // $survey_btslist = Survey::find($btslist->id);
+        // $user->btslists()->attach($btslist);
+        // $user->surveys()->attach($survey_btslist);
+        // $btslist_many->surveys()->attach($category, ['file_id' => $file->id]);
+        foreach ($btslist->surveys as $survey) {
+            $mysurvey = new Mysurvey;
+            $mysurvey->btslist_id = $request->btslist_id;
+            $mysurvey->user_id = auth()->user()->id;
+            $mysurvey->survey_id = $survey->id;
+            // $mysurvey->mysurvey = true;
+            $mysurvey->save();
+            // echo $survey->name;
+        }
+        // return $btslist_many->surveys();
         // $provider = Provider::find($request->provider_id);
         // $btslist->providers()->attach($provider);
 
