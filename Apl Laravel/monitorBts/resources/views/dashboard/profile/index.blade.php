@@ -39,7 +39,7 @@
                 <td>
                     @if($user->photo)
                     <div style="max-height: 150px; max-width:150px; overflow:hidden;">
-                        <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->firstName }}" class="img-thumbnail">
+                        <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->firstName }}" class="img-thumbnail" style='width:100px; height:100px'>
                     </div>
                     @else
                     <img src="https://source.unsplash.com/100x100?person" alt="{{ $user->firstName }}" class="img-thumbnail">

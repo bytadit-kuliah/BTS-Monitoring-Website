@@ -96,7 +96,7 @@
             @enderror
         </div> --}}
 
-        <button type="submit" class="btn btn-success">Input Data</button>
+        <button type="submit" class="btn btn-success add-new" style="background: #52784F; color: #fff">Input Data</button>
       </form>
 </div>
 

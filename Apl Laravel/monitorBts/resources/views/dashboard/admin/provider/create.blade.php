@@ -58,7 +58,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-success">Input Data</button>
+        <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Tambah</button>
       </form>
 </div>
 
