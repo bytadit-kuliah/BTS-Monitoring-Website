@@ -12,9 +12,6 @@
         <div class="col-md-8 mb-3">
             <label for="survey_id" class="form-label">Nama Survey</label>
             <select class="form-select" name="survey_id">
-                {{-- foreach($btslists as $btslist){
-                    return $btslist->surveys;
-                }//dapet data survey --}}
             @foreach ($monitorings as $monitoring)
                 @foreach ($btslists->where('id', $monitoring->btslist_id) as $btslist)
                     @foreach ($btslist->surveys as $btslist_survey)

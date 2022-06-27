@@ -48,9 +48,9 @@
                 <td>{{ $provider->alamat }}</td>
                 <td>{{ $provider->noTelp }}</td>
                 <td>
-                    @if($provider->btslist)
+                    @if($provider->btslists)
                         <ul>
-                            @foreach($provider->btslist as $btslistProvider)
+                            @foreach($provider->btslists as $btslistProvider)
                                 <li>{{ $btslistProvider->nama }}</li>
                             @endforeach
                         </ul>
