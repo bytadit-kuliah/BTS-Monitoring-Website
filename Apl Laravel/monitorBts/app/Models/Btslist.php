@@ -39,9 +39,9 @@ class Btslist extends Model
     {
         return $this->belongsToMany(Survey::class);
     }
-    public function users(){
-        return $this->belongsToMany(User::class);
-    }
+    // public function users(){
+    //     return $this->belongsToMany(User::class);
+    // }
     // public function status(){
     //     return $this->hasMany(Status::class);
     // }

@@ -22,9 +22,9 @@ class Survey extends Model
     // {
     //     return $this->belongsToMany(Surveyor::class);
     // }
-    public function users(){
-        return $this->belongsToMany(User::class);
-    }
+    // public function users(){
+    //     return $this->belongsToMany(User::class);
+    // }
     public function answer(){
         return $this->hasMany(Answer::class);
     }

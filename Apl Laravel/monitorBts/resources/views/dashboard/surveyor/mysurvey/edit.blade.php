@@ -5,7 +5,7 @@
     @if($mysurvey->status == false)
         <h1 class="mt-4 border-3 rounded-3 border-bottom">Isi Survey {{ $mysurvey->survey->name }}</h1>
     @else
-        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Survey {{ $mysurvey->survey->name }}</h1>
+        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Jawaban Survey {{ $mysurvey->survey->name }}</h1>
     @endif
     <div class="row">
         <form action="/dashboard/mysurveys/{{ $mysurvey->id }}" method="post" class="mb-5" enctype="multipart/form-data">
