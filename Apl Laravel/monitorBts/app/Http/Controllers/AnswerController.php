@@ -73,6 +73,23 @@ class AnswerController extends Controller
         //     return $btslist->surveys;
         // }//dapet data survey
 
+        // $answers = Answer::all();
+        // $answers = Answer::where('btslist_id', $request->btslist_id);
+
+
+        $answers = DB::table('answers')
+        ->selectRaw('count(*) as answer_count, offeredanswer_id')
+        ->where('btslist_id', '=', 5)
+        ->groupBy('offeredanswer_id')
+        ->get();
+
+        // $data = [];
+        // foreach($answers as $answer){
+        //     $data[] = $answer->btslist->nama;
+        // }
+        // print_r($datas)
+        return $answers;
+        // return $data;
 
 
 
