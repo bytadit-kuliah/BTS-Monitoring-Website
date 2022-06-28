@@ -12,7 +12,7 @@
             <div class="card bg-primary text-white mb-4">
                 <div class="card-body">
                     <div>BTS Termonitor</div>
-                    <h3 class="text-white">4</h3>
+                    <h3 class="text-white">{{ $monitorings->count() }}</h3>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="surveyList.html">View Details</a>
@@ -24,7 +24,7 @@
             <div class="card bg-danger text-white mb-4">
                 <div class="card-body">
                     <div>Survey Belum Terisi</div>
-                    <h3 class="text-white">3</h3>
+                    <h3 class="text-white">{{ $survey_undone->count() }}</h3>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="surveyList.html">View Details</a>
@@ -36,7 +36,7 @@
             <div class="card bg-bts-3 text-white mb-4">
                 <div class="card-body">
                     <div>Survey Terisi</div>
-                    <h3 class="text-white">2</h3>
+                    <h3 class="text-white">{{ $survey_done->count() }}</h3>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="surveyList.html">View Details</a>
