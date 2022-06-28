@@ -231,27 +231,27 @@ class DatabaseSeeder extends Seeder
             'company' => 'Diskominfo BTS Surakarta'
         ]);
 
-        $faker = Faker::create('id_ID');
-        for($i = 1; $i <= 20; $i++){
-            DB::table("btslists")->insert([
-                "btstype_id" => $faker->randomElement([1, 2]),
-                "village_id" => $faker->numberBetween(1, 20),
-                "nama" => $faker->company,
-                "lokasi" => $faker->address,
-                "panjangTanah" => $faker->numberBetween(100, 500),
-                "lebarTanah" => $faker->numberBetween(100, 500),
-                "latitude" => $faker->numberBetween(100, 500),
-                "longitude" => $faker->numberBetween(100, 500),
-                "tinggiTower" => $faker->numberBetween(100, 200),
-                "genset" => $faker->randomElement([0, 1]),
-                "tembokBatas" => $faker->randomElement([0, 1]),
-                "user_id" => 1,
-            ]);
-            DB::table("btsphotos")->insert([
-                "url" => "https://en.wikipedia.org/wiki/Tower#/media/File:Tokyo_Sky_Tree_2012.JPG",
-                "btslist_id" => $i,
-            ]);
-        }
+        // $faker = Faker::create('id_ID');
+        // for($i = 1; $i <= 20; $i++){
+        //     DB::table("btslists")->insert([
+        //         "btstype_id" => $faker->randomElement([1, 2]),
+        //         "village_id" => $faker->numberBetween(1, 20),
+        //         "nama" => $faker->company,
+        //         "lokasi" => $faker->address,
+        //         "panjangTanah" => $faker->numberBetween(100, 500),
+        //         "lebarTanah" => $faker->numberBetween(100, 500),
+        //         "latitude" => $faker->numberBetween(100, 500),
+        //         "longitude" => $faker->numberBetween(100, 500),
+        //         "tinggiTower" => $faker->numberBetween(100, 200),
+        //         "genset" => $faker->randomElement([0, 1]),
+        //         "tembokBatas" => $faker->randomElement([0, 1]),
+        //         "user_id" => 1,
+        //     ]);
+        //     DB::table("btsphotos")->insert([
+        //         "url" => "https://en.wikipedia.org/wiki/Tower#/media/File:Tokyo_Sky_Tree_2012.JPG",
+        //         "btslist_id" => $i,
+        //     ]);
+        // }
 
 
 

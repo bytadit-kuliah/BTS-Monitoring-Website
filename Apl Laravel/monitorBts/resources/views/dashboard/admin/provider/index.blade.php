@@ -37,16 +37,16 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                     @if($provider->foto)
-                    {{-- <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
-                        <img src="{{ asset('storage/' . $provider->foto) }}" alt="{{ $provider->nama }}" class="img-fluid mt-3" style='width:100px; height:100px'>
-                    </div> --}}
                     <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
-                        <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->name }}" class="img-thumbnail">
+                        <img src="{{ asset('storage/' . $provider->foto) }}" alt="{{ $provider->nama }}" class="img-fluid mt-3" style='width:100px; height:100px'>
                     </div>
                     @else
                     <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
-                        <img src="https://source.unsplash.com/100x100?tower" alt="{{ $user->firstName }}" class="img-thumbnail">
+                        <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->name }}" class="img-thumbnail">
                     </div>
+                    {{-- <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
+                        <img src="https://source.unsplash.com/100x100?tower" alt="{{ $user->firstName }}" class="img-thumbnail">
+                    </div> --}}
                     @endif
                 </td>
                 <td>{{ $provider->nama }}</td>
