@@ -3,9 +3,9 @@
 <!-- Main Awal -->
 @section('container')
     @if($mysurvey->status == false)
-        <h1 class="mt-4 border-3 rounded-3 border-bottom">Isi Survey {{ $mysurvey->survey->name }}</h1>
+        <h1 class="mt-4 border-3 rounded-3 border-bottom">Isi Survey <span class="fw-bolder">{{ $mysurvey->survey->name }}</span></h1>
     @else
-        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Jawaban Survey {{ $mysurvey->survey->name }}</h1>
+        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Jawaban Survey <span class="fw-bolder">{{ $mysurvey->survey->name }}</span></h1>
     @endif
     <div class="row">
         <form action="/dashboard/mysurveys/{{ $mysurvey->id }}" method="post" class="mb-5" enctype="multipart/form-data">
@@ -180,12 +180,12 @@
                         <div class="row col-5">
                             <h4 class="fw-bold text-center mt-3"></h4>
                             {{-- <form class=" bg-white px-4" action=""> --}}
-                                <p class="fw-bold" name="nama_survey">{{ $question->question }}</p>
+                                <p class="fw-bold fs-4" name="nama_survey">{{ $question->question }}</p>
                                 <input type="hidden" name="question_id[{{$q}}]" id="question_id" value="{{ old('question_id', $question->id) }}">
                                 {{-- <input class="fw-bold" name="question_id" value="{{ $question->question }}"> --}}
 
                                 @foreach ($question->offeredanswer as $key => $offeredanswer)
-                                  <div class="form-check mb-2">
+                                  <div class="form-check mb-2 mx-4">
                                     <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id" >
                                     <label class="form-check-label" for="offeredanswer_id">
                                         {{ $offeredanswer->option }}

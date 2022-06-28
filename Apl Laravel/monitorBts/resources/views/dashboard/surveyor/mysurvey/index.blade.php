@@ -17,7 +17,7 @@
         @foreach ($mysurveys->where('user_id', auth()->user()->id)->where('status', true) as $mysurvey)
         <div class="card text-white bg-bts-3 border-3 survey-card" style="width: 18rem; margin:10px">
             <h3 class="card-header">{{ $mysurvey->survey->name }}</h3>
-            <div class="card-body">
+            <div class="card-body scroll">
                 <p class="card-text">{{ $mysurvey->survey->description }}</p>
                 {{-- <h6 class="card-title">{{ $survey->name }}</h6> --}}
                 {{-- <div class="d-flex" style="justify-content: flex-end;">
@@ -49,7 +49,7 @@
         @foreach ($mysurveys->where('user_id', auth()->user()->id)->where('status', false) as $mysurvey)
         <div class="card text-white bg-danger border-3 survey-card" style="width: 18rem; margin:10px">
             <h3 class="card-header">{{ $mysurvey->survey->name }}</h3>
-            <div class="card-body">
+            <div class="card-body scroll">
                 <p class="card-text">{{ $mysurvey->survey->description }}</p>
                 {{-- <h6 class="card-title">{{ $survey->name }}</h6> --}}
                 {{-- <div class="d-flex" style="justify-content: flex-end;">
