@@ -30,7 +30,7 @@ class BtslistController extends Controller
 
         $btslists=Btslist::when($request->has("nama"),function($q)use($request){
             return $q->where("nama","like","%".$request->get("nama")."%");
-        })->paginate(6);
+        })->paginate(9);
         $total_data=$btslists->count();
         if($request->ajax()){
             return view('dashboard.admin.btslist.btsdata ',[
