@@ -148,7 +148,7 @@
                     <label for="latitude" class="form-label">Latitude</label>
                     <div class="input-group row m-0">
                         <input type="number" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude') }}" step=".01">
-                        <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°S</span>
+                        {{-- <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°S</span> --}}
                     </div>
                     @error('latitude')
                     <div class="invalid-feedback">
@@ -160,7 +160,7 @@
                     <label for="longitude" class="form-label">Longitude</label>
                     <div class="input-group row m-0">
                         <input type="number" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude') }}" step=".01">
-                        <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°E</span>
+                        {{-- <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°E</span> --}}
                     </div>
                     @error('longitude')
                     <div class="invalid-feedback">
