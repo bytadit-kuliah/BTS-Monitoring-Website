@@ -221,7 +221,9 @@
                 </div>
             </div> --}}
 
-            <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i>Tambah BTS</button>
+            <div class="button-container justify-content-center d-flex">
+                <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Tambah BTS</button>
+            </div>
         </form>
     </div>
 

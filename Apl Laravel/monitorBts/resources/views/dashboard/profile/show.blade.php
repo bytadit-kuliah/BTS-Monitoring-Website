@@ -62,10 +62,12 @@
                     <td class='table-light'>Alamat</td>
                     <td> {{ $user->alamat }} </td>
                 </tr>
-                <tr>
-                    <td class='table-light'>Jumlah Survey</td>
-                    <td>  {{ $user->jmlSurvey }} </td>
-                </tr>
+                @if(!$user->is_admin)
+                    <tr>
+                        <td class='table-light'>Jumlah Survey</td>
+                        <td>  {{ $user->mysurvey->count() }} </td>
+                    </tr>
+                @endif
             </tbody>
         </table>
 

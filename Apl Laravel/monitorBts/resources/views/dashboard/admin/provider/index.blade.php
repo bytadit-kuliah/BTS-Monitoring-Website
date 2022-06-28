@@ -3,9 +3,9 @@
 <!-- Main Awal -->
 @section('container')
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Provider BTS</h1>
-    <ol class="breadcrumb mb-4">
+    {{-- <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">List Provider BTS:</li>
-    </ol>
+    </ol> --}}
 
     @if(session()->has('success'))
     <div class="alert alert-success col-lg-12" role="alert">

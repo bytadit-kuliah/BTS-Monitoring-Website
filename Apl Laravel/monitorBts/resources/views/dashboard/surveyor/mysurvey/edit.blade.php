@@ -3,12 +3,15 @@
 <!-- Main Awal -->
 @section('container')
     @if($mysurvey->status == false)
-        <h1 class="mt-4 border-3 rounded-3 border-bottom">Isi Survey <span class="fw-bolder">{{ $mysurvey->survey->name }}</span></h1>
+        <h1 class="mt-4 border-3 rounded-3 border-bottom">Isi Survey <span class="fw-bolder fs-2 text-danger">{{ '('.$mysurvey->survey->name.')' }}</span></h1>
     @else
-        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Jawaban Survey <span class="fw-bolder">{{ $mysurvey->survey->name }}</span></h1>
+        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Jawaban Survey <span class="fw-bolder fs-2 text-bts-3">{{ '('.$mysurvey->survey->name.')' }}</span></h1>
     @endif
     <div class="row">
-        <form action="/dashboard/mysurveys/{{ $mysurvey->id }}" method="post" class="mb-5" enctype="multipart/form-data">
+        <div class="button-container justify-content-center d-flex">
+            <a href="/dashboard/mysurveys" class="btn btn-success add-new mb-3 text-center" style="background: #52784F; color: #fff"><span data-feather='arrow-left'></span>Back</a>
+        </div>
+           <form action="/dashboard/mysurveys/{{ $mysurvey->id }}" method="post" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
             {{-- <div class="row">
@@ -179,7 +182,7 @@
                         <h5>{{ $offeredanswer->option }}</h5> --}}
                         <div class="col-lg-12">
                             {{-- <form class=" bg-white px-4" action=""> --}}
-                                <p class="card-header bg-bts-3 text-white fw-bold fs-4 text-center " name="nama_survey">{{ $question->question }}</p>
+                                <p class="card-header {{$mysurvey->status ? 'bg-bts-3' : 'bg-danger'}} text-white fw-bold fs-4 text-center " name="nama_survey">{{ $question->question }}</p>
                                 <input type="hidden" name="question_id[{{$q}}]" id="question_id" value="{{ old('question_id', $question->id) }}">
                                 {{-- <input class="fw-bold" name="question_id" value="{{ $question->question }}"> --}}
                                 <div class="card-body bg-light rounded-bottom border-bottom border-5">

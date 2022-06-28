@@ -240,6 +240,21 @@ class UserController extends Controller
         // return redirect('/dashboard/users')->with('success', 'Data berhasil diupdate');
         return back()->with('success', 'Data berhasil diupdate');
     }
+    
+    public function promote(Request $request, User $user)
+    {   
+        
+        $user->answer->where('user_id',$user->id)->each->delete();
+        $user->monitoring->where('user_id',$user->id)->each->delete();
+        $user->mysurvey->where('user_id',$user->id)->each->delete();
+
+
+        $user->is_admin = 1;
+        $user->save();
+
+        return back()->with('success', 'User id '.$user->id.' berhasil diangkat menjadi Administrator');
+
+    }
 
     /**
      * Remove the specified resource from storage.

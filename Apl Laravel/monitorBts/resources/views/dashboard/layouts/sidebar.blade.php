@@ -37,7 +37,7 @@
                             <a class="nav-link" href="/dashboard/users/{{ auth()->user()->id }}/edit">Edit Profil</a>
                             <a class="nav-link" href="/dashboard/configs/1/edit">Config</a>
                             <a class="nav-link" href="/dashboard/answers">Test Grafik</a>
-                            <a class="nav-link" href="/dashboard/users">Data Surveyor</a>
+                            <a class="nav-link" href="/dashboard/users">Data User</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"

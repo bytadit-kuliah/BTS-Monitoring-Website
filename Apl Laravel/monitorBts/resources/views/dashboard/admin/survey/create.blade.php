@@ -8,7 +8,7 @@
 <div class="col-lg-12">
     <form action="/dashboard/surveys" method="post" class="mb-5" enctype="multipart/form-data">
         @csrf
-        <div class="col-lg-8 mb-3">
+        <div class="col-lg-12 mb-3">
           <label for="name" class="form-label">Nama Survey</label>
           <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" required autofocus value="{{ old('name') }}">
           @error('name')
@@ -17,7 +17,7 @@
           </div>
           @enderror
         </div>
-        <div class="col-lg-8 mb-3">
+        <div class="col-lg-12 mb-3">
             {{-- <label for="description" class="form-label">Description</label>
             <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" required value="{{ old('description') }}"> --}}
             {{-- <div class="form-floating"> --}}
@@ -31,7 +31,7 @@
             {{-- </div> --}}
         </div>
 
-        <div class="col-md-8 mb-3">
+        <div class="col-md-12 mb-3">
             <label for="btslist_id" class="form-label">Nama BTS</label>
             <select class="js-example-basic-multiple" name="btslist_id[]" multiple="multiple" style="width: 100%">
                 @foreach ($btslists as $btslist)
@@ -44,7 +44,7 @@
             </select>
         </div>
         <div class="col-md-12 mb-3">
-            <a href="#" class="Qnew btn btn-dark mb-3">Add a Question</a>
+            <a href="#" class="Qnew btn btn-dark mb-3">Tambah Pertanyaan</a>
             <div class="container-fluid" id="questionbar">
                 {{-- <div class="row bg-light mb-3" id="questionlists">
                         <div class="d-inline p-2 my-3 col-lg-11">
@@ -99,7 +99,7 @@
                     @enderror
                     <div class="row" id="answerbar">
                         <div class="row" id="jawaban">
-                            <div class="d-inline p-2 m-2 col-lg-4">
+                            <div class="d-inline my-2 col-lg-6">
                                 <input type="text" class="form-control @error('optionOne') is-invalid @enderror" placeholder="Add Answer Option" name="optionOne[]">
                                 @error('optionOne')
                                 <div class="invalid-feedback">
@@ -107,7 +107,7 @@
                                 </div>
                                 @enderror
                             </div>
-                            <div class="d-inline p-2 m-2 col-lg-4">
+                            <div class="d-inline my-2 col-lg-6">
                                 <input type="text" class="form-control @error('optionTwo') is-invalid @enderror" placeholder="Add Answer Option" name="optionTwo[]">
                                 @error('optionTwo')
                                 <div class="invalid-feedback">
@@ -115,7 +115,9 @@
                                 </div>
                                 @enderror
                             </div>
-                            <div class="d-inline p-2 m-2 col-lg-4">
+                        </div>
+                        <div class="row" id="jawaban">
+                            <div class="d-inline my-2 col-lg-6">
                                 <input type="text" class="form-control @error('optionThree') is-invalid @enderror" placeholder="Add Answer Option" name="optionThree[]">
                                 @error('optionThree')
                                 <div class="invalid-feedback">
@@ -123,7 +125,7 @@
                                 </div>
                                 @enderror
                             </div>
-                            <div class="d-inline p-2 m-2 col-lg-4">
+                            <div class="d-inline my-2 col-lg-6">
                                 <input type="text" class="form-control @error('optionFour') is-invalid @enderror" placeholder="Add Answer Option" name="optionFour[]">
                                 @error('optionFour')
                                 <div class="invalid-feedback">
@@ -136,8 +138,9 @@
                 </div>
             </div>
         </div>
-
-        <button type="submit" class="btn btn-success">Input Data</button>
+        <div class="button-container justify-content-center d-flex">
+            <button type="submit" class=" btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff">Input Data</button>
+        </div>
       </form>
 </div>
 
@@ -206,10 +209,10 @@
     $(".Qnew").click(function () {
         ++i;
         $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input Question" name="question['+ i +
-            ']"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionOne['+ i +
-                ']"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionTwo['+ i +
-                    ']"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionThree['+ i +
-                        ']"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionFour['+ i +
+            ']"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionOne['+ i +
+                ']"></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionTwo['+ i +
+                    ']"></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionThree['+ i +
+                        ']"></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionFour['+ i +
                             ']"></div></div></div></div>'
         );
     });

@@ -5,7 +5,7 @@
     <h1 class="h2">Input Data Monitoring Baru</h1>
 </div>
 
-<div class="col-lg-8">
+<div class="col-lg-12">
     <form action="/dashboard/monitorings" method="post" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
@@ -18,30 +18,31 @@
           @enderror
         </div>
 
-        <div class="col-md-2 mb-3">
-            <label for="btslist_id" class="form-label">Pilih BTS</label>
-            <select class="form-select" name="btslist_id" style="width: 400px">
-                {{-- Post::where('user_id', auth()->user()->id)->get() --}}
-                @foreach ($btslists as $btslist)
-                {{-- @foreach ($btslists->where('kecamatan_id', $selectedKecamatan) as $btslist) --}}
-                    @if(old('btslist_id') == $btslist->id)
-                        <option value="{{ $btslist->id }}" selected>{{ $btslist->nama }}</option>
-                    @else
-                        <option value="{{ $btslist->id }}">{{ $btslist->nama }}</option>
-                    @endif
-                @endforeach
-            </select>
-            {{-- <h5>{{ print_r(old('kecamatan_id')) }}</h5> --}}
-        </div>
-
-        <div class="mb-3">
-            <label for="waktu_monitoring" class="form-label">Waktu Monitoring</label>
-            <input type="date" class="form-control @error('waktu_monitoring') is-invalid @enderror" id="waktu_monitoring" name="waktu_monitoring" required autofocus value="{{ old('waktu_monitoring') }}">
-            @error('waktu_monitoring')
-            <div class="invalid-feedback">
-                {{ $message }}
+        <div class="row md-3 mb-3">
+            <div class="col-lg-6">
+                <label for="btslist_id" class="form-label">Pilih BTS</label>
+                <select class="form-select w-100" name="btslist_id" style="">
+                    {{-- Post::where('user_id', auth()->user()->id)->get() --}}
+                    @foreach ($btslists as $btslist)
+                    {{-- @foreach ($btslists->where('kecamatan_id', $selectedKecamatan) as $btslist) --}}
+                        @if(old('btslist_id') == $btslist->id)
+                            <option value="{{ $btslist->id }}" selected>{{ $btslist->nama }}</option>
+                        @else
+                            <option value="{{ $btslist->id }}">{{ $btslist->nama }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
-            @enderror
+            <div class="col-lg-6">
+                <label for="waktu_monitoring" class="form-label">Waktu Monitoring</label>
+                <input type="date" class="form-control @error('waktu_monitoring') is-invalid @enderror" id="waktu_monitoring" name="waktu_monitoring" required autofocus value="{{ old('waktu_monitoring') }}">
+                @error('waktu_monitoring')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            {{-- <h5>{{ print_r(old('kecamatan_id')) }}</h5> --}}
         </div>
 
         {{-- <div class="mb-3">
