@@ -67,6 +67,7 @@ Route::resource('/dashboard/mysurveys', MysurveyController::class)->middleware('
 // Route::get('/dashboard/users/{user}/edit','UserController@edit');
 
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('is_admin');
+Route::get('/dashboard/users/{user}/promote', [UserController::class, 'promote'])->middleware('is_admin');
 Route::resource('/dashboard/surveys', SurveyController::class)->middleware('auth');
 // Route::resource('/dashboard/btslists/surveys', SurveyController::class)->middleware('auth');
 Route::resource('/dashboard/answers', AnswerController::class)->middleware('auth');

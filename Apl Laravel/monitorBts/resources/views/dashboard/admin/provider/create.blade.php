@@ -5,7 +5,7 @@
     <h1 class="h2">Input Data Provider Baru</h1>
 </div>
 
-<div class="col-lg-8">
+<div class="col-lg-12">
     <form action="/dashboard/providers" method="post" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
@@ -58,7 +58,9 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Tambah</button>
+        <div class="button-container justify-content-center d-flex">
+            <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Tambah</button>
+        </div>
       </form>
 </div>
 

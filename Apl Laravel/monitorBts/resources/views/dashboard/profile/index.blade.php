@@ -2,9 +2,9 @@
 
 <!-- Main Awal -->
 @section('container')
-    <h1 class="mt-4 border-3 rounded-3 border-bottom">List Surveyor</h1>
+    <h1 class="mt-4 border-3 rounded-3 border-bottom">Data User</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">List Surveyor :</li>
+        <li class="breadcrumb-item active">Administrator dan Surveyor </li>
     </ol>
 
     @if(session()->has('success'))
@@ -29,11 +29,12 @@
                 <th>Role</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
-                <th style='border-top-right-radius:1rem'>Aksi</th>
+                <th style='width:70px;border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($users->where('is_admin', 0) as $user)
+            @foreach ($users as $user)
+            {{-- @foreach ($users->where('is_admin', 0) as $user) --}}
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>
@@ -56,18 +57,32 @@
                     <td>Surveyor</td>
                 @endif
 
-                <td>
+                <td class="text-center">
                     {{-- <a href="/dashboard/users/{{ $user->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a> --}}
-                    <form action="/dashboard/users/{{ $user->id }}" method="post">
+                    {{-- <form action="/dashboard/users/{{ $user->id }}" method="post">
                         @method('delete')
                         @csrf
                         <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
-                    </form>
+                    </form> --}}
                     <a href="/dashboard/users/{{ $user->id }}" class="show badge bg-success" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a>
+
+                    @if(!$user->is_admin)
+                        <form action="/dashboard/users/{{ $user->id }}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
+                        </form>
+                    @endif
+
+                    @if(!$user->is_admin)
+                        <a href="/dashboard/users/{{ $user->id }}/promote" class="promote badge bg-warning" title="Promote" data-toggle="tooltip"onclick="return confirm('yakin promote?')">
+                            <i class="bi bi-star-fill"></i>
+                        </a>
+                    @endif
                     {{-- <a href="/dashboard/users/{{ $user->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a> --}}

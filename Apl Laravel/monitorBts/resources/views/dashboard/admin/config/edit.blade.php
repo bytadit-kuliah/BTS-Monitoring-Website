@@ -1,9 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Edit Config</h1>
-</div>
+<h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Config</h1>
 
 @if(session()->has('success'))
 <div class="alert alert-success col-lg-12" role="alert">
@@ -12,7 +10,7 @@
 </div>
 @endif
 
-<div class="col-lg-8">
+<div class="col-lg-12">
     <form action="/dashboard/configs/{{ $configs->id }}" method="post" class="mb-5" enctype="multipart/form-data">
         @method('put')
         @csrf
@@ -44,7 +42,9 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-success add-new" style="background: #52784F; color: #fff">Update Data</button>
+        <div class="button-container justify-content-center d-flex">
+            <button type="submit" class="btn btn-success add-new" style="background: #52784F; color: #fff">Update Data</button>
+        </div>
       </form>
 </div>
 

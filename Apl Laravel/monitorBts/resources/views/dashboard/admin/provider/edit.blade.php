@@ -5,7 +5,7 @@
     <h1 class="h2">Edit Data Provider {{ $provider->nama }}</h1>
 </div>
 
-<div class="col-lg-8">
+<div class="col-lg-12">
     <form action="/dashboard/providers/{{ $provider->id }}" method="post" class="mb-5" enctype="multipart/form-data">
         @method('put')
         @csrf

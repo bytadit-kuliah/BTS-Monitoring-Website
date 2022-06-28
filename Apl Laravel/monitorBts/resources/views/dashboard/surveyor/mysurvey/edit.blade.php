@@ -3,12 +3,15 @@
 <!-- Main Awal -->
 @section('container')
     @if($mysurvey->status == false)
-        <h1 class="mt-4 border-3 rounded-3 border-bottom">Isi Survey <span class="fw-bolder">{{ $mysurvey->survey->name }}</span></h1>
+        <h1 class="mt-4 border-3 rounded-3 border-bottom">Isi Survey <span class="fw-bolder fs-2 text-danger">{{ '('.$mysurvey->survey->name.')' }}</span></h1>
     @else
-        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Jawaban Survey <span class="fw-bolder">{{ $mysurvey->survey->name }}</span></h1>
+        <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Jawaban Survey <span class="fw-bolder fs-2 text-bts-3">{{ '('.$mysurvey->survey->name.')' }}</span></h1>
     @endif
     <div class="row">
-        <form action="/dashboard/mysurveys/{{ $mysurvey->id }}" method="post" class="mb-5" enctype="multipart/form-data">
+        <div class="button-container justify-content-center d-flex">
+            <a href="/dashboard/mysurveys" class="btn btn-success add-new mb-3 text-center" style="background: #52784F; color: #fff"><span data-feather='arrow-left'></span>Back</a>
+        </div>
+           <form action="/dashboard/mysurveys/{{ $mysurvey->id }}" method="post" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
             {{-- <div class="row">
@@ -174,43 +177,48 @@
                     @php
                     $q = $key
                     @endphp
-                    <div class="row bg-light mb-3" id="questionlists">
+                    <div class="row mb-4 rounded-5" id="questionlists">
                         {{-- <h5>{{ $question->question }}</h5>
                         <h5>{{ $offeredanswer->option }}</h5> --}}
-                        <div class="row col-5">
-                            <h4 class="fw-bold text-center mt-3"></h4>
+                        <div class="col-lg-12">
                             {{-- <form class=" bg-white px-4" action=""> --}}
-                                <p class="fw-bold fs-4" name="nama_survey">{{ $question->question }}</p>
+                                <p class="card-header {{$mysurvey->status ? 'bg-bts-3' : 'bg-danger'}} text-white fw-bold fs-4 text-center " name="nama_survey">{{ $question->question }}</p>
                                 <input type="hidden" name="question_id[{{$q}}]" id="question_id" value="{{ old('question_id', $question->id) }}">
                                 {{-- <input class="fw-bold" name="question_id" value="{{ $question->question }}"> --}}
-                                @if($mysurvey->status==false)
-                                    @foreach ($question->offeredanswer as $key => $offeredanswer)
-                                        <div class="form-check mb-2 mx-4">
-                                            <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" >
-                                            <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
-                                                {{ $offeredanswer->option }}
-                                            </label>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    @foreach ($question->offeredanswer as $key => $offeredanswer)
-                                    <div class="form-check mb-2 mx-4">
-                                        @foreach (Auth::user()->answer as $key => $question)
-                                            @if($question->offeredanswer_id == $offeredanswer->id)
-                                                <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" checked >
-                                                @break
-                                            @elseif($loop->last)
+                                <div class="card-body bg-light rounded-bottom border-bottom border-5">
+                                    @if($mysurvey->status==false)
+                                        @foreach ($question->offeredanswer as $key => $offeredanswer)
+                                            <div class="form-check mb-2 ">
                                                 <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" >
-                                                @break
-                                            @endif
+                                                <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
+                                                    {{ $offeredanswer->option }}
+                                                </label>
+                                            </div>
                                         @endforeach
-                
-                                        <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
-                                            {{ $offeredanswer->option }}
-                                        </label>
-                                    </div>
-                                    @endforeach
-                                @endif
+                                    @else
+                                        @foreach ($question->offeredanswer as $key => $offeredanswer)
+                                            <?php $counter=$loop->iteration?>
+                                            <div class="form-check mb-2 ">
+                                                @foreach (Auth::user()->answer as $key => $question)
+                                                    @if($question->offeredanswer_id == $offeredanswer->id)
+                                                        <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$counter}}]" checked >
+                                                        <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$counter}}]">
+                                                            {{ $offeredanswer->option }}
+                                                        </label>
+                                                        @break
+                                                    @elseif($loop->last)
+                                                        <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$counter}}]" >
+                                                        <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$counter}}]">
+                                                            {{ $offeredanswer->option }}
+                                                        </label>
+                                                        @break
+                                                    @endif
+                                                @endforeach
+                        
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
                                 {{-- </form> --}}
                         </div>
                         {{-- @foreach (Auth::user()->answer as $key => $question)
@@ -226,10 +234,12 @@
                         </div> --}}
                     </div>
                     @endforeach
+                    <div class="button-container justify-content-center d-flex">
+                        <button type="submit" class=" btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff">Submit</button>
+                    </div>
                 </div>
             </div>
 
-            <button type="submit" class="text-end btn btn-success mt-4">Submit</button>
         </form>
     </div>
 
