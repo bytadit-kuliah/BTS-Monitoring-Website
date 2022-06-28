@@ -72,6 +72,31 @@
                <img src="https://source.unsplash.com/400x200?{{ $btslist->btstype->type }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3">
            @endif
 
+           <div class="mapouter my-3">
+                <div class="gmap_canvas"><iframe width="100%" height="400" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q={{$btslist->latitude}},{{$btslist->longitude}}&hl=es;z=14&amp;output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                        href="https://123movies-to.org"></a><br>
+                    <style>
+                        .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 400px;
+                            width: 100%;
+                        }
+                    </style><a href="https://www.embedgooglemap.net">create custom map free</a>
+                    <style>
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 400px;
+                            width: 100%;
+                            border-radius: 10px;
+                        }
+                    </style>
+                </div>
+            </div>
+
             <table class="table ">
                 <thead class="table-success ">
                     <th style='border-top-left-radius:1rem'>
@@ -152,11 +177,11 @@
                     </tr>
                     <tr>
                         <td class='table-light'>Latitude</td>
-                        <td> {{ $btslist->latitude.'°'.'S' }} </td>
+                        <td> {{ $btslist->latitude}} </td>
                     </tr>
                     <tr >
                         <td class='table-light' >Longitude</td>
-                        <td> {{ $btslist->longitude.'°'.'E' }} </td>
+                        <td> {{ $btslist->longitude}} </td>
                     </tr>
                 </tbody>
             </table>
