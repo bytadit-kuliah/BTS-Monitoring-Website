@@ -186,14 +186,26 @@
 
                                 @foreach ($question->offeredanswer as $key => $offeredanswer)
                                   <div class="form-check mb-2 mx-4">
-                                    <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id" >
-                                    <label class="form-check-label" for="offeredanswer_id">
+                                    @foreach (Auth::user()->answer as $key => $question)
+                                        @if($question->offeredanswer_id == $offeredanswer->id)
+                                            <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" checked >
+                                            @break
+                                        @elseif($loop->last)
+                                            <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" >
+                                            @break
+                                        @endif
+                                    @endforeach
+            
+                                    <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
                                         {{ $offeredanswer->option }}
                                     </label>
                                   </div>
                                 @endforeach
                                 {{-- </form> --}}
                         </div>
+                        {{-- @foreach (Auth::user()->answer as $key => $question)
+                        {{$question}}
+                        @endforeach --}}
 
                         {{-- <div class="row" id="answerbar">
                             <div class="row" id="jawaban">
