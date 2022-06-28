@@ -8,6 +8,8 @@ use App\Models\Provider;
 use App\Models\Village;
 use App\Models\Kecamatan;
 use App\Models\Btstype;
+use App\Models\Mysurvey;
+use App\Models\Survey;
 use App\Models\Config;
 use App\Models\Btsphoto;
 use App\Models\Monitoring;
@@ -338,10 +340,14 @@ class BtslistController extends Controller
         //     Storage::delete($provider->foto);
         // }
         Monitoring::where('btslist_id', $btslist->id)->delete();
+        Mysurvey::where('btslist_id', $btslist->id)->delete();
         Btslist::destroy($btslist->id);
         // DB::table('btslist_provider')->where('btslist_id', '=', $btslist->id)->delete();
         $provider = Provider::find($request->provider_id);
         $btslist->providers()->detach($provider);
+
+        $survey = Survey::find($request->survey_id);
+        $btslist->surveys()->detach($survey);
 
 
         // $provider = Provider::find($request->provider_id);

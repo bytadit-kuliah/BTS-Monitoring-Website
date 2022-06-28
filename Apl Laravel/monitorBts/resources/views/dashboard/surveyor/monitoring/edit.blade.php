@@ -21,7 +21,7 @@
 
         <div class="col-md-2 mb-3">
             <label for="btslist_id" class="form-label">Pilih BTS</label>
-            <select class="form-select" name="btslist_id" >
+            <select class="form-select" name="btslist_id" style="width:400px">
                 {{-- Post::where('user_id', auth()->user()->id)->get() --}}
                 @foreach ($btslists as $btslist)
                 {{-- @foreach ($btslists->where('kecamatan_id', $selectedKecamatan) as $btslist) --}}
