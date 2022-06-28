@@ -31,9 +31,9 @@
     {{-- @include('partials.navbar') --}}
     <!--Header Awal-->
     <header>
-        <div id="brand"><a href="#">
+        <div id="brand"><a href="/">
                 <img src="image/BTS logo.png" alt="logo"></a>
-            <ul>
+            {{-- <ul>
                 <li><a href="/">Home</a></li>
                 <li>
                     <div class="dropdown">
@@ -47,12 +47,12 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> --}}
         </div>
         <nav>
             <ul>
-                <li id="contact"><a href="/contact">Contact Us</a></li>
-                {{-- <li id="login"><a href="/login">Log In</a></li> --}}
+                {{-- <li id="contact"><a href="/contact">Contact Us</a></li> --}}
+                <li id="login"><a href="/login">Log In</a></li>
             </ul>
         </nav>
     </header>

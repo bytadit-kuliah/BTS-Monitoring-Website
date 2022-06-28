@@ -28,10 +28,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/', function(){
+    return view('index')->with('title','BTS Diskominfo Surakarta');
+})->name('landing')->middleware('guest');
+
+// Route::redirect('/', destination:'login'); //auto redirect into login url
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::redirect('/', destination:'login'); //auto redirect into login url
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']); // nyimpen data
