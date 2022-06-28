@@ -41,6 +41,22 @@ class DashboardController extends Controller
     	// return view('echart',compact('laptop_count','phone_count','desktop_count'));
 
         // foreach($request->)
+        $answers = DB::table('answers')
+        ->selectRaw('count(*) as answer_count, offeredanswer_id')
+        // ->where('btslist_id', '=', 5)
+        ->groupBy('offeredanswer_id')
+        ->get();
+        $label= array();
+        $count = array();
+        foreach($answers as $i){
+            array_push($label, $i->offeredanswer_id);
+            array_push($count, $i->answer_count);
+
+            // dd($i->answer_count, $i->offeredanswer_id);
+        }
+        // dd($answers);
+
+        // return $answers;
 
         return view('dashboard.admin.index', [
             'admin' => Admin::all(),
@@ -48,7 +64,9 @@ class DashboardController extends Controller
             'surveys' => Survey::all(),
             'btslists' => Btslist::all(),
             'surveyors' => User::where('is_admin', false),
-            'configs' => Config::all()->first()
+            'configs' => Config::all()->first(),
+            'label' => $label,
+            'count' => $count
             // 'btslists' => Answer::where('btslist_id', $request->btslist_id),
             // 'surveys' => Answer::where('survey_id', $request->survey_id),
             // 'questions' => Answer::where('question_id', $request->survey_id)

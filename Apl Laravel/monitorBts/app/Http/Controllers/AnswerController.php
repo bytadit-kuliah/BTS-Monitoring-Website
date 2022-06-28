@@ -202,4 +202,22 @@ class AnswerController extends Controller
     {
         //
     }
+    public function test(Request $request){
+        $answers = DB::table('answers')
+        ->selectRaw('count(*) as answer_count, offeredanswer_id')
+        // ->where('btslist_id', '=', 5)
+        ->groupBy('offeredanswer_id')
+        ->get();
+        $a= array();
+        $b = array();
+        foreach($answers as $i){
+            array_push($a, $i->answer_count);
+            array_push($b, $i->offeredanswer_id);
+
+            // dd($i->answer_count, $i->offeredanswer_id);
+        }
+        dd($answers);
+
+        return $answers;
+    }
 }
