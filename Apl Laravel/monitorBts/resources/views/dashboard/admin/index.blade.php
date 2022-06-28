@@ -215,7 +215,46 @@
     </div>
 </div>
 <script>
+    
+    const getChartData = () => {
+        var label = JSON.parse("{{ json_encode($label) }}");
+        var count = JSON.parse("{{ json_encode($count) }}");
+        console.log(label, count);
+        // Pie Chart
+        const ctx = document.getElementById('myPieChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: label,
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: count,
+                    backgroundColor: [
+                    '#198754',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    '#ffc107',
+                    '#dc3545'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+        // ...
+    }
     document.getElementById('copyright').innerHTML = new Date().getFullYear();
+
+    $(document).ready(function() {
+        getChartData();
+    });
 </script>
 </footer>
 @endsection

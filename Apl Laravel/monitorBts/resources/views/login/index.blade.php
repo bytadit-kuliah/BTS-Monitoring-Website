@@ -2,7 +2,11 @@
 
 @section('container')
 
-
+<style>
+  #login{
+    display: none
+  }
+  </style>
 
 <div class="row justify-content-end m-5 banner_login">
   <div class="col-lg-4 card_login p-4">
@@ -21,8 +25,8 @@
         </div>
       @endif
   
-      <main class="form-signin w-100 m-auto">
-          <h1 class="h3 mb-3 fw-normal text-center">Please <span>Login</span></h1>
+      <main class="form-signin w-100 m-auto d-flex justify-content-evenly flex-column h-100">
+          <h1 class="fs-2 mb-3 text-center ">Please <span>Login</span></h1>
           <form action="/login" method="post">
           @csrf
             {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}

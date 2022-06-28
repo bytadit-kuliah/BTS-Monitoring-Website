@@ -61,6 +61,7 @@ Route::resource('/dashboard/configs', ConfigController::class)->middleware('auth
 // Route::resource('/dashboard/profiles', ProfileController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/dashboard/mysurveys', MysurveyController::class)->middleware('auth');
+Route::get('/test', [AnswerController::class, 'test'])->middleware('auth');
 
 // except('index')
 // Route::put('/dashboard/users/{user}','UserController@update');

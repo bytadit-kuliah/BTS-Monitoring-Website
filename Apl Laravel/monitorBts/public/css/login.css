@@ -201,12 +201,11 @@ footer #fc a {
 /* login.html */
 /* .main_login .banner{ */
 /* body{
-    background: url(../image/vectorlogin.svg);
+    background-image: url(../image/vectorlogin.png);
     background-repeat: no-repeat;
     background-position: 0 110px;
     background-size: fixed;
 
-    min-height: 110vh;
 } */
 .banner_login{
     /* display: flex;
