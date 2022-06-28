@@ -35,7 +35,8 @@
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="/dashboard/users/{{ auth()->user()->id }}/edit">Edit Profil</a>
-                            <a class="nav-link" href="/dashboard/edit-config">Config</a>
+                            <a class="nav-link" href="/dashboard/configs/1/edit">Config</a>
+                            <a class="nav-link" href="/dashboard/answers">Test Grafik</a>
                             <a class="nav-link" href="/dashboard/users">Data Surveyor</a>
                         </nav>
                     </div>

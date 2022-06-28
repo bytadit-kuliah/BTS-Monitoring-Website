@@ -6,6 +6,7 @@ use App\Models\Monitoring;
 use App\Models\Btslist;
 use App\Models\Survey;
 use App\Models\User;
+use App\Models\Config;
 // use App\Models\Status;
 use App\Models\Mysurvey;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class MonitoringController extends Controller
     public function index()
     {
         return view('dashboard.surveyor.monitoring.index', [
-            'monitorings' => Monitoring::all()
+            'monitorings' => Monitoring::all(),
+            'configs' => Config::all()->first(),
         ]);
     }
 
@@ -36,7 +38,8 @@ class MonitoringController extends Controller
     {
         return view('dashboard.surveyor.monitoring.create', [
             'monitorings' => Monitoring::all(),
-            'btslists' => Btslist::all()
+            'btslists' => Btslist::all(),
+            'configs' => Config::all()->first(),
         ]);
     }
 
@@ -117,7 +120,8 @@ class MonitoringController extends Controller
     {
         return view('dashboard.surveyor.monitoring.edit', [
             'monitoring' => $monitoring,
-            'btslists' => Btslist::all()
+            'btslists' => Btslist::all(),
+            'configs' => Config::all()->first(),
         ]);
     }
 

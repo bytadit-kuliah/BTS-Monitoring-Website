@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Config;
 
 class RegisterController extends Controller
 {
     public function index(){
         return view('register.index', [
             'title' => 'Register',
-            'active' => 'register'
+            'active' => 'register',
+            'configs' => Config::all()->first(),
         ]);
     }
     public function store(Request $request){

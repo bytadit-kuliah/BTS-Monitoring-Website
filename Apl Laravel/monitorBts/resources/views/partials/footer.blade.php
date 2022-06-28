@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer_content">Copyright &copy; Diskominfo BTS Surakarta 2022 </div>
+    <div class="footer_content">Copyright &copy; Diskominfo BTS Surakarta <span id="copyright"></span></div>
     <div class="footer_content">
         <a href="https://www.instagram.com"><img src="image/sosmed1.png" alt="ig"></a>
         <a href="https://www.twitter.com"><img src="image/sosmed2.png" alt="tw"></a>
@@ -12,6 +12,9 @@
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
     </div> --}}
-
 </footer>
+<script>
+    document.getElementById('copyright').innerHTML = new Date().getFullYear();
+</script>
+
 

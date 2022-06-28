@@ -12,6 +12,7 @@ use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\MysurveyController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\BtslistController;
+use App\Http\Controllers\ConfigController;
 // use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 // use App\Http\Controllers\AdminController;
@@ -37,6 +38,14 @@ Route::get('/', function(){
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
+<<<<<<< HEAD
+// Route::get('/dashboard/btslists/create', 'BtslistController@getVillage')->middleware('auth');
+// Route::get('/dashboard/btslists/create', [BtslistController::class, 'getVillage'])->middleware('auth');
+
+
+Route::redirect('/', destination:'login'); //auto redirect into login url
+=======
+>>>>>>> acb9992efee4d5f182899f6f4a5d47dc9773a2dd
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']); // nyimpen data
@@ -50,11 +59,14 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 // })->middleware('auth');
 
 // Route::resource('/dashboard/edit-bts', BTSController::class)->middleware('auth');
+// Route::post('/dashboard/btslists/create', BtslistController::class)->middleware('auth');
 
 Route::resource('/dashboard/owners', OwnerController::class)->middleware('auth');
 Route::resource('/dashboard/monitorings', MonitoringController::class)->middleware('auth');
 Route::resource('/dashboard/providers', ProviderController::class)->middleware('auth');
 Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
+Route::resource('/dashboard/configs', ConfigController::class)->middleware('auth');
+
 // Route::resource('/dashboard/profiles', ProfileController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/dashboard/mysurveys', MysurveyController::class)->middleware('auth');

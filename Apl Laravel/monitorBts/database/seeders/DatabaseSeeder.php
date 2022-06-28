@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Btstype;
 use App\Models\Kecamatan;
 use App\Models\Owner;
+use App\Models\Config;
 use App\Models\Provider;
 use App\Models\Village;
 use App\Models\Survey;
@@ -222,6 +223,10 @@ class DatabaseSeeder extends Seeder
         Village::create([
             'nama' => 'Kemlayan',
             'kecamatan_id' => '5'
+        ]);
+// Config Seeder
+        Config::create([
+            'company' => 'Diskominfo BTS Surakarta'
         ]);
         // Offeredanswer Seeds
         // Offeredanswer::create([

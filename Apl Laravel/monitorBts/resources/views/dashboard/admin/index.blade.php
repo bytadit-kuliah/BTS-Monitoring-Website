@@ -38,7 +38,7 @@
             <div class="card bg-warning text-white mb-4">
                 <div class="card-body">
                     <div>Jumlah Survey</div>
-                    <h3 class="text-white">5</h3>
+                    <h3 class="text-white">{{ $surveys->count() }}</h3>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="/admin/list-survey">View Details</a>
@@ -201,17 +201,22 @@
 @endsection
 <!-- Main Akhir -->
 
-{{-- <!-- Footer Awal -->
+<!-- Footer Awal -->
 @section('footer')
+<footer class="py-4 bg-light mt-auto">
 <div class="container-fluid px-4">
     <div class="d-flex align-items-center justify-content-between small">
-        <div class="text-muted">Copyright &copy; Diskominfo BTS Surakarta 2022</div>
-        <div>
+        <div class="text-muted">Copyright &copy; {{ $configs->company }} <span id="copyright"></span> </div>
+        {{-- <div>
             <a href="#">Privacy Policy</a>
             &middot;
             <a href="#">Terms &amp; Conditions</a>
-        </div>
+        </div> --}}
     </div>
 </div>
+<script>
+    document.getElementById('copyright').innerHTML = new Date().getFullYear();
+</script>
+</footer>
 @endsection
-<!-- Footer Akhir --> --}}
+<!-- Footer Akhir -->

@@ -6,6 +6,7 @@ use App\Models\Survey;
 use App\Models\Btslist;
 // use App\Models\Status;
 use App\Models\Mysurvey;
+use App\Models\Config;
 use App\Models\Question;
 use App\Models\Monitoring;
 use App\Models\Offeredanswer;
@@ -26,6 +27,7 @@ class SurveyController extends Controller
         return view('dashboard.admin.survey.index', [
             'surveys' => Survey::all(),
             'survey' => $survey,
+            'configs' => Config::all()->first(),
             // 'questions' => Question::where('survey_id', $survey->id)->get(),
             // 'offeredanswers' => Offeredanswer::where('question_id', $question->id)->get(),
             // 'offeredanswer' => $offeredanswer,
@@ -44,6 +46,7 @@ class SurveyController extends Controller
 
             'surveys' => Survey::all(),
             'survey' => $survey,
+            'configs' => Config::all()->first(),
             'questions' => Question::where('survey_id', $survey->id)->get(),
             'offeredanswers' => Offeredanswer::where('question_id', $question->id)->get(),
             'offeredanswer' => $offeredanswer,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Owner;
+use App\Models\Config;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Str;
 // use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,8 @@ class OwnerController extends Controller
     public function index()
     {
         return view('dashboard.admin.owner.index', [
-            'owners' => Owner::all()
+            'owners' => Owner::all(),
+            'configs' => Config::all()->first()
         ]);
         // return Owner::all();
     }
@@ -32,7 +34,8 @@ class OwnerController extends Controller
     public function create()
     {
         return view('dashboard.admin.owner.create', [
-            'owners' => Owner::all()
+            'owners' => Owner::all(),
+            'configs' => Config::all()->first()
         ]);
     }
 
@@ -84,7 +87,8 @@ class OwnerController extends Controller
     public function edit(Owner $owner)
     {
         return view('dashboard.admin.owner.edit', [
-            'owner' => $owner
+            'owner' => $owner,
+            'configs' => Config::all()->first(),
         ]);
     }
 

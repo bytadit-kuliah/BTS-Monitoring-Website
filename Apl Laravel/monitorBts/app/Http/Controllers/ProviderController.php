@@ -10,6 +10,7 @@ use App\Models\Provider;
 // use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use App\Models\Config;
 
 class ProviderController extends Controller
 {
@@ -21,7 +22,8 @@ class ProviderController extends Controller
     public function index()
     {
         return view('dashboard.admin.provider.index', [
-            'providers' => Provider::all()
+            'providers' => Provider::all(),
+            'configs' => Config::all()->first(),
         ]);
         // return Provider::all();
     }
@@ -34,7 +36,8 @@ class ProviderController extends Controller
     public function create()
     {
         return view('dashboard.admin.provider.create', [
-            'providers' => Provider::all()
+            'providers' => Provider::all(),
+            'configs' => Config::all()->first(),
         ]);
     }
 
@@ -86,7 +89,8 @@ class ProviderController extends Controller
     public function edit(Provider $provider)
     {
         return view('dashboard.admin.provider.edit', [
-            'provider' => $provider
+            'provider' => $provider,
+            'configs' => Config::all()->first(),
         ]);
     }
 

@@ -60,9 +60,11 @@
                     </div>
                     @enderror
                 </div>
+
+
                 <div class="col-md-2 mb-3">
                     <label for="kecamatan_id" class="form-label">Kecamatan</label>
-                    <select class="form-select" name="kecamatan_id">
+                    <select class="form-select" name="kecamatan_id" id="kecamatan_id">
                         @foreach ($kecamatans as $kecamatan)
                             @if(old('kecamatan_id') == $kecamatan->id)
                                 <option value="{{ $kecamatan->id }}" selected>{{ $kecamatan->nama }}</option>
@@ -71,14 +73,11 @@
                             @endif
                         @endforeach
                     </select>
-
                 </div>
                 <div class="col-md-2 mb-3">
                     <label for="village_id" class="form-label">Desa</label>
-                    <select class="form-select" name="village_id" >
-                        {{-- Post::where('user_id', auth()->user()->id)->get() --}}
+                    <select class="form-select" name="village_id" id="village_id">
                     @foreach ($villages as $village)
-                        {{-- @foreach ($villages->where('kecamatan_id', $selectedKecamatan) as $village) --}}
                             @if(old('village_id') == $village->id)
                                 <option value="{{ $village->id }}" selected>{{ $village->nama }}</option>
                             @else
@@ -86,9 +85,9 @@
                             @endif
                         @endforeach
                     </select>
-                    {{-- <h5>{{ print_r(old('kecamatan_id')) }}</h5> --}}
-
                 </div>
+
+
                 <div class="col-md-2 mb-3">
                     <label for="genset" class="form-label">Genset</label>
                     <select class="form-select @error('genset') is-invalid @enderror" id="genset" name="genset" required autofocus value="{{ old('genset') }}">
@@ -296,6 +295,42 @@
     //     });
     // });
 </script>
+{{-- <script>
+    $(function() {
+        $('select[name=kecamatan_id]').change(function() {
+
+            var url = '/dashboard/btslists/create';
+
+            $.get(url, function(data) {
+                var select = $('form select[name=village_id]');
+
+                select.empty();
+
+                $.each(data,function(key, value) {
+                    select.append('<option value=' + value.id + '>' + value.nama + '</option>');
+                });
+            });
+        });
+    });
+</script> --}}
+
+
+{{-- <script>
+    $('#kecamatan_id').on('change', e => {
+        $('#village_id').empty()
+        $.ajax({
+            // url: `/departments/${e.value}/users`,
+            url: `/dashboard/btslists/create`,
+
+            success: data => {
+                data.villages.forEach(village =>
+                    $('#village_id').append(`<option value="${village.id}">${village.nama}</option>`)
+                )
+            }
+        })
+    })
+</script> --}}
+
 @endsection
 
 @section('page-scripts')

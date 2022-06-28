@@ -6,6 +6,7 @@ use App\Models\Mysurvey;
 use Illuminate\Http\Request;
 use App\Models\Answer;
 use App\Models\Survey;
+use App\Models\Config;
 // use App\Models\Status;
 use App\Models\Btslist;
 use App\Models\Monitoring;
@@ -32,6 +33,7 @@ class MysurveyController extends Controller
             'user' => $user,
             // 'statuses' => Status::all(),
             'mysurveys' => Mysurvey::all(),
+            'configs' => Config::all()->first(),
             'monitorings' => $monitorings
             // 'monitoring' => $monitoring
             // 'villages' => Village::where('kecamatan_id', '1')->get(),
@@ -89,6 +91,7 @@ class MysurveyController extends Controller
             'btslists' => Btslist::all(),
             'request' => $request,
             'surveys' => Survey::all(),
+            'configs' => Config::all()->first(),
             'btslist' => $btslist,
             'survey' => $survey,
             'questions' => Question::all(),

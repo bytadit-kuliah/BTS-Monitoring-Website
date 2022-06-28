@@ -2,7 +2,7 @@
 <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
         <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Diskominfo BTS Surakarta 2022</div>
+            <div class="text-muted">Copyright &copy; {{ $config->company }} <span id="copyright"></span></div>
             <div>
                 <a href="#">Privacy Policy</a>
                 &middot;
@@ -10,4 +10,7 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('copyright').innerHTML = new Date().getFullYear();
+    </script>
 </footer>
