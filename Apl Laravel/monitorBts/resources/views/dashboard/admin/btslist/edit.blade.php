@@ -120,7 +120,7 @@
                 <div class="col-md-4 mb-3">
                     <label for="panjangTanah" class="form-label">Panjang Tanah</label>
                     <div class="input-group row m-0">
-                        <input type="number" class="form-control @error('panjangTanah') is-invalid @enderror" id="panjangTanah" name="panjangTanah" required autofocus value="{{ old('panjangTanah', $btslist->panjangTanah) }}">
+                        <input type="number" class="form-control @error('panjangTanah') is-invalid @enderror" id="panjangTanah" name="panjangTanah" required autofocus value="{{ old('panjangTanah', $btslist->panjangTanah) }}" step=".01">
                         <span class="col-md-2 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">meter</span>
                     </div>
                     @error('panjangTanah')
@@ -132,7 +132,7 @@
                 <div class="col-md-4 mb-3">
                     <label for="lebarTanah" class="form-label">Lebar Tanah</label>
                     <div class="input-group row m-0">
-                        <input type="number" class="form-control @error('lebarTanah') is-invalid @enderror" id="lebarTanah" name="lebarTanah" required autofocus value="{{ old('lebarTanah', $btslist->lebarTanah) }}">
+                        <input type="number" class="form-control @error('lebarTanah') is-invalid @enderror" id="lebarTanah" name="lebarTanah" required autofocus value="{{ old('lebarTanah', $btslist->lebarTanah) }}" step=".01">
                         <span class="col-md-2 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">meter</span>
                     </div>
                     @error('lebarTanah')
@@ -144,7 +144,7 @@
                 <div class="col-md-4 mb-3">
                     <label for="tinggiTower" class="form-label">Tinggi Tower</label>
                     <div class="input-group row m-0">
-                        <input type="number" class="form-control @error('tinggiTower') is-invalid @enderror" id="tinggiTower" name="tinggiTower" required autofocus value="{{ old('tinggiTower', $btslist->tinggiTower) }}">
+                        <input type="number" class="form-control @error('tinggiTower') is-invalid @enderror" id="tinggiTower" name="tinggiTower" required autofocus value="{{ old('tinggiTower', $btslist->tinggiTower) }}" step=".01">
                         <span class="col-md-2 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">meter</span>
                     </div>
                     @error('tinggiTower')
@@ -159,7 +159,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="latitude" class="form-label">Latitude</label>
                     <div class="input-group row m-0">
-                        <input type="text" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude', $btslist->latitude) }}">
+                        <input type="number" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude', $btslist->latitude) }}" step=".01">
                         <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°S</span>
                     </div>
                     @error('latitude')
@@ -171,7 +171,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="longitude" class="form-label">Longitude</label>
                     <div class="input-group row m-0">
-                        <input type="text" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude', $btslist->longitude) }}">
+                        <input type="number" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude', $btslist->longitude) }}" step=".01">
                         <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°E</span>
                     </div>
                     @error('longitude')

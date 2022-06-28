@@ -52,13 +52,17 @@
         <nav>
             <ul>
                 {{-- <li id="contact"><a href="/contact">Contact Us</a></li> --}}
-                <li id="login"><a href="/login">Log In</a></li>
+                @if (Auth::check())
+                    <li id="login"><a href="/dashboard">{{Auth::user()->firstName}}</a></li>
+                @else
+                    <li id="login"><a href="/login">Log In</a></li>
+                @endif
             </ul>
         </nav>
     </header>
     <!--Header Akhir-->
 
-    <div class="container" style='min-height:73vh'>
+    <div class="container" style='min-height:100vh'>
         @yield('container')
     </div>
 

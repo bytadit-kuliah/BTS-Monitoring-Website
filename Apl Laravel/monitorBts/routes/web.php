@@ -30,7 +30,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function(){
     return view('index')->with('title','BTS Diskominfo Surakarta');
-})->name('landing')->middleware('guest');
+})->name('landing');
 
 // Route::redirect('/', destination:'login'); //auto redirect into login url
 

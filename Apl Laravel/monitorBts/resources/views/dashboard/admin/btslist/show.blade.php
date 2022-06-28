@@ -47,11 +47,11 @@
                         @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden=""></span>
+                        <span class="carousel-control-prev-icon" style="filter: invert(100%);" aria-hidden=""></span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden=""></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="carousel-control-next-icon" style="filter: invert(100%);" aria-hidden=""></span>
+                        <span class="visually-hidden ">Next</span>
                     </button>
                 </div>
            @else
