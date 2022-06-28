@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use Illuminate\Http\Request;
 use App\Models\Survey;
-// use App\Models\Status;
 use App\Models\Mysurvey;
 use App\Models\Btslist;
 use App\Models\Monitoring;
@@ -13,6 +12,7 @@ use App\Models\Question;
 use App\Models\Offeredanswer;
 use App\Models\User;
 use App\Models\Config;
+use Carbon\Carbon;
 
 use DB;
 class AnswerController extends Controller
@@ -24,86 +24,8 @@ class AnswerController extends Controller
      */
     public function index(Request $request, Btslist $btslist, User $user, Survey $survey, Monitoring $monitoring)
     {
-        // $monitoring = Monitoring::where('user_id', $user->id);
-        // return view('dashboard.surveyor.answer.index', [
-        //     'surveys' => Survey::all(),
-        //     // 'surveys' => $survey->btslist()->where('btslist_id', $monitoring->btslist_id),
-        //     // 'surveys' => DB::table('btslist_survey')->where('btslist_id', '=', $monitoring->btslist_id),
-        //     'survey' => $survey,
-        //     'monitorings' => Monitoring::where('user_id', auth()->user()->id),
-        //     'btslists' => Btslist::all(),
-        //     'btslist' => $btslist,
-        //     // 'questions' => Question::where('survey_id', $survey->id)->get(),
-        //     // 'offeredanswers' => Offeredanswer::where('question_id', $question->id)->get(),
-        //     // 'offeredanswer' => $offeredanswer,
-        //     'request' => $request
-        // ]);
-
-        // $surveys=Survey::when($request->has("nama"),function($q)use($request){
-        //     return $q->where("nama","like","%".$request->get("nama")."%");
-        // })->paginate(5);
-        // $total_data=$surveys->count();
-        // if($request->ajax()){
-        //     return view('dashboard.surveyor.survey.btsdata ',[
-        //         // 'surveys' => survey::all(),
-        //         'surveys' => $surveys,
-        //         'total_card' => $total_data,
-        //         // 'survey' => $survey,
-        //         'btsphotos' => Btsphoto::where('survey_id', $survey->id)->get(),
-        //         // 'firstPhoto' => $btsphoto->where('survey_id', $survey->id)->get(),
-        //         'btsphoto' => $btsphoto
-        //     ]);
-        // }
-        // return view('dashboard.admin.btslist.index', [
-        //     // 'btslists' => Btslist::all(),
-        //     'btslists' => $btslists,
-        //     'total_card' => $total_data,
-        //     // 'btslist' => $btslist,
-        //     'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get(),
-        //     // 'firstPhoto' => $btsphoto->where('btslist_id', $btslist->id)->get(),
-        //     'btsphoto' => $btsphoto
-        // ]);
 
         $monitorings = Monitoring::where('user_id', auth()->user()->id)->get();
-
-        // foreach($surveys as $survey){
-        //     return $survey->btslists;
-        // } //dapet data btslist
-        // foreach($btslists as $btslist){
-        //     return $btslist->surveys;
-        // }//dapet data survey
-
-        // $answers = Answer::all();
-        // $answers = Answer::where('btslist_id', $request->btslist_id);
-
-
-        $answers = DB::table('answers')
-        ->selectRaw('count(*) as answer_count, offeredanswer_id')
-        ->where('btslist_id', '=', 5)
-        ->groupBy('offeredanswer_id')
-        ->get();
-
-        // $data = [];
-        // foreach($answers as $answer){
-        //     $data[] = $answer->btslist->nama;
-        // }
-        // print_r($datas)
-        return $answers;
-        // return $data;
-
-
-
-        // $btslists = Btslist::all();
-        // $surveys = Survey::all();
-        // // return $surveys;
-        // // return $btslists;
-        // $data = [];
-        // foreach($btslists as $btslist){
-        //     $data[] =  $btslist->surveys;
-        // }
-        // return $data;
-
-
 
         return view('dashboard.surveyor.answer.index', [
 
@@ -114,16 +36,8 @@ class AnswerController extends Controller
             'survey' => $survey,
             'configs' => Config::all()->first(),
             'user' => $user,
-            // 'statuses' => Status::all(),
             'mysurveys' => Mysurvey::all(),
             'monitorings' => $monitorings
-            // 'monitoring' => $monitoring
-            // 'villages' => Village::where('kecamatan_id', '1')->get(),
-            // 'posts' => Post::where('user_id', auth()->user()->id)->get()
-            // 'providers' => Provider::all(),
-            // 'selected' => print_r($request->kecamatan_id)
-            // 'selectedKecamatan' => Kecamatan::first()->kecamatan_id,
-            // 'value' => $request->kecamatan_id
         ]);
     }
 
@@ -154,13 +68,6 @@ class AnswerController extends Controller
             'survey' => $survey,
             'monitorings' => $monitorings,
             'monitorings2' => Monitoring::all()
-            // 'monitoring' => $monitoring
-            // 'villages' => Village::where('kecamatan_id', '1')->get(),
-            // 'posts' => Post::where('user_id', auth()->user()->id)->get()
-            // 'providers' => Provider::all(),
-            // 'selected' => print_r($request->kecamatan_id)
-            // 'selectedKecamatan' => Kecamatan::first()->kecamatan_id,
-            // 'value' => $request->kecamatan_id
         ]);
     }
 

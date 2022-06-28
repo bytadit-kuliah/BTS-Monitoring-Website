@@ -40,9 +40,7 @@ class BtslistController extends Controller
                 'configs' => Config::all()->first(),
                 'btslists' => $btslists,
                 'total_card' => $total_data,
-                // 'btslist' => $btslist,
                 'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get(),
-                // 'firstPhoto' => $btsphoto->where('btslist_id', $btslist->id)->get(),
                 'btsphoto' => $btsphoto
             ]);
         }

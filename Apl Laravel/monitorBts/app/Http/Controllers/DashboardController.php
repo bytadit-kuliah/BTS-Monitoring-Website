@@ -13,8 +13,12 @@ use App\Models\Surveyor;
 use App\Models\Monitoring;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
+use Redirect,Response;
+
 use App\Models\Config;
+Use DB;
+use Carbon\Carbon;
 class DashboardController extends Controller
 {
     public function index(Request $request, Config $config){
@@ -28,19 +32,6 @@ class DashboardController extends Controller
                 'monitorings' => Monitoring::where('user_id', auth()->user()->id)
             ]);
         }
-
-        // $Btslist = Answer::where('btslist_id', $request->btslist_id);
-        // $Survey = Answer::where('survey_id', $request->survey_id);
-        // $Question
-        // $Laptop = Product::where('product_type','Laptop')->get();
-    	// $Phone = Product::where('product_type','Phone')->get();
-    	// $Desktop = Product::where('product_type','Desktop')->get();
-    	// $laptop_count = count($Laptop);
-    	// $phone_count = count($Phone);
-    	// $desktop_count = count($Desktop);
-    	// return view('echart',compact('laptop_count','phone_count','desktop_count'));
-
-        // foreach($request->)
 
         return view('dashboard.admin.index', [
             'admin' => Admin::all(),

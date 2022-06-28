@@ -36,7 +36,6 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="/dashboard/users/{{ auth()->user()->id }}/edit">Edit Profil</a>
                             <a class="nav-link" href="/dashboard/configs/1/edit">Config</a>
-                            <a class="nav-link" href="/dashboard/answers">Test Grafik</a>
                             <a class="nav-link" href="/dashboard/users">Data User</a>
                         </nav>
                     </div>
@@ -51,7 +50,6 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="/dashboard/btslists">Info BTS</a>
                             <a class="nav-link" href="/dashboard/providers">Data Provider BTS</a>
-                            {{-- <a class="nav-link" href="/dashboard/edit-wilayah">Edit Wilayah BTS</a> --}}
                             <a class="nav-link" href="/dashboard/surveys">Data Survey</a>
                         </nav>
                     </div>

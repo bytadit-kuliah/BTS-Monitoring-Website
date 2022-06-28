@@ -13,7 +13,7 @@
         <li class="breadcrumb-item active">Survey aktif:</li>
     </ol> --}}
     <div class="d-flex flex-wrap survey-cards" style="justify-content:space-evenly;">
-        @foreach ($surveys as $survey)
+        @foreach ($surveys as $key=>$survey)
         <div class="card text-white bg-bts-3 border-3 survey-card" style="width: 18rem; margin:10px">
             <h3 class="card-header">{{ $survey->name }}</h3>
             <div class="card-body scroll">
@@ -26,17 +26,28 @@
             </div>
             {{-- <p class='card-header text-end text-light'>
                 <span class='fw-bolder text-light'>
-                    <ul>
+
                     for:
                     @foreach ($survey->btslists as $btslist)
-                        <li>
-                            {{$btslist->nama}}
-                        </li>
+                            {{$btslist->nama . ', '}}
                     @endforeach
-                    </ul>
+
                 </span>
             </p> --}}
-            <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$survey->question->count()}}</span> pertanyaan</p>
+
+            {{-- <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$survey->question->count()}}</span> pertanyaan</p>
+            <div class="accordion" id="myAccordion[{{ $key }}]">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne[{{ $key }}]">
+                        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne[{{ $key }}]">1. What is HTML?</button>
+                    </h2>
+                    <div id="collapseOne[{{ $key }}]" class="accordion-collapse collapse" data-bs-parent="#myAccordion[{{ $key }}]">
+                        <div class="card-body">
+                            <p>well</p>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
             <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="card-footer text-center ">
                 @method('delete')
                 @csrf

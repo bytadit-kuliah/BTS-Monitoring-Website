@@ -186,26 +186,6 @@
                 </tbody>
             </table>
         </div>
-
-        <div id="map" style="max-width:1000px; max-height:1000px"></div>
-
     </div>
 </div>
-
-<script>
-    $(document).ready(function (){
-     var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-     var myOptions = {
-         zoom: 4,
-         center: myLatlng,
-         mapTypeId: google.maps.MapTypeId.ROADMAP
-         }
-      map = new google.maps.Map($('#map'), myOptions);
-      var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-      title:"Fast marker"
-     });
-}
-</script>
 @endsection
