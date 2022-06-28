@@ -25,6 +25,7 @@
                     <!-- <a href="#" class="card-link">Edit Jawaban</a> -->
                 </div> --}}
             </div>
+            <p class='card-header text-first text-light'><span class='fw-bolder text-light'>{{ 'BTS ' . $mysurvey->btslist->nama }}</span></p>
             <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$mysurvey->survey->question->count()}}</span> pertanyaan</p>
             {{-- <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="card-footer text-center ">
                 @method('delete')
@@ -57,6 +58,7 @@
                     <!-- <a href="#" class="card-link">Edit Jawaban</a> -->
                 </div> --}}
             </div>
+            <p class='card-header text-first text-light'><span class='fw-bolder text-light'>{{ 'BTS ' . $mysurvey->btslist->nama }}</span></p>
             <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$mysurvey->survey->question->count()}}</span> pertanyaan</p>
             {{-- <form action="/dashboard/answers/{{ $survey->id }}" method="post" class="card-footer text-center ">
                 @method('delete')

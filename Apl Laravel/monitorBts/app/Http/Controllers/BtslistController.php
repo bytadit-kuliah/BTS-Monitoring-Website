@@ -8,7 +8,9 @@ use App\Models\Provider;
 use App\Models\Village;
 use App\Models\Kecamatan;
 use App\Models\Btstype;
+use App\Models\Config;
 use App\Models\Btsphoto;
+use App\Models\Monitoring;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -33,6 +35,7 @@ class BtslistController extends Controller
         if($request->ajax()){
             return view('dashboard.admin.btslist.btsdata ',[
                 // 'btslists' => Btslist::all(),
+                'configs' => Config::all()->first(),
                 'btslists' => $btslists,
                 'total_card' => $total_data,
                 // 'btslist' => $btslist,
@@ -45,6 +48,7 @@ class BtslistController extends Controller
             // 'btslists' => Btslist::all(),
             'btslists' => $btslists,
             'total_card' => $total_data,
+            'configs' => Config::all()->first(),
             // 'btslist' => $btslist,
             'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get(),
             // 'firstPhoto' => $btsphoto->where('btslist_id', $btslist->id)->get(),
@@ -92,6 +96,7 @@ class BtslistController extends Controller
             'request' => $request,
             'btstypes' => Btstype::all(),
             'kecamatans' => Kecamatan::all(),
+            'configs' => Config::all()->first(),
             'kecamatan' => $kecamatan,
             'villages' => Village::all(),
             // 'villages' => Village::where('kecamatan_id', '1')->get(),
@@ -102,7 +107,17 @@ class BtslistController extends Controller
             'value' => $request->kecamatan_id
         ]);
 
+        // if ($request->ajax()) {
+        //     return response($id)->json([
+        //         'villages' => Village::where('kecamatan_id', $id)->get()
+        //     ]);
+        // }
+
     }
+    // public function getVillage(Kecamatan $kecamatan)
+    // {
+    //     return $kecamatan->villages()->select('id', 'nama')->get();
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -176,6 +191,7 @@ class BtslistController extends Controller
     {
         return view('dashboard.admin.btslist.show', [
             'btslist' => $btslist,
+            'configs' => Config::all()->first(),
             'btsphotos' => Btsphoto::where('btslist_id', $btslist->id)->get()
         ]);
     }
@@ -193,6 +209,7 @@ class BtslistController extends Controller
             'btsphoto' => $btsphoto,
             'btslists' => Btslist::all(),
             'btstypes' => Btstype::all(),
+            'configs' => Config::all()->first(),
             'kecamatans' => Kecamatan::all(),
             'villages' => Village::all(),
             // 'villages' => Village::where('kecamatan_id', '1')->get(),
@@ -320,6 +337,7 @@ class BtslistController extends Controller
         // if($provider->foto){
         //     Storage::delete($provider->foto);
         // }
+        Monitoring::where('btslist_id', $btslist->id)->delete();
         Btslist::destroy($btslist->id);
         // DB::table('btslist_provider')->where('btslist_id', '=', $btslist->id)->delete();
         $provider = Provider::find($request->provider_id);

@@ -1,7 +1,12 @@
 <header>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-bts-1">
         <a class="navbar-brand ps-1 d-flex bg-bts-3" href="#" style="border-top-right-radius: 20px; justify-content: center;">
-            <img src="/./image/BTS logo3.png" id="logo" alt="logo" style="margin-left: -25px; width: 100px;">
+            @if($configs->sidebar_logo == null)
+                <img src="/./image/BTS logo3.png" id="logo" alt="logo" style="margin-left: -25px; width: 100px;">
+                @else
+                <img src="{{ asset('storage/' . $configs->sidebar_logo) }}" id="logo" alt="logo" style="margin-left: -25px; width: 100px;">
+                {{-- <div class='col-md-2 offset-md-1' style="width:50px;height:50px;border-radius:50%;background-image:url('{{ asset('storage/' . auth()->user()->photo) }}'); background-size: cover;"></div> --}}
+            @endif
         </a>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto">

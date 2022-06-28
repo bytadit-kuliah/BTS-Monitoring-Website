@@ -2,7 +2,7 @@
 const ctx = document.getElementById('myPieChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'pie',
-    data: {        
+    data: {
         labels: [
             '5',
             '4',

@@ -33,7 +33,7 @@
     <header>
         <div id="brand"><a href="#">
                 <img src="image/BTS logo.png" alt="logo"></a>
-            <ul>
+            {{-- <ul>
                 <li><a href="/">Home</a></li>
                 <li>
                     <div class="dropdown">
@@ -47,14 +47,14 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> --}}
         </div>
-        <nav>
+        {{-- <nav>
             <ul>
                 <li id="contact"><a href="/contact">Contact Us</a></li>
-                {{-- <li id="login"><a href="/login">Log In</a></li> --}}
+                <li id="login"><a href="/login">Log In</a></li>
             </ul>
-        </nav>
+        </nav> --}}
     </header>
     <!--Header Akhir-->
 

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Surveyor;
 use App\Models\Btslist;
+use App\Models\Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,8 @@ class UserController extends Controller
     public function index()
     {
         return view('dashboard.profile.index', [
-            'users' => User::all()
+            'users' => User::all(),
+            'configs' => Config::all()->first(),
         ]);
     }
 
@@ -36,7 +38,8 @@ class UserController extends Controller
     public function create()
     {
         return view('dashboard.profile.create', [
-            'users' => User::all()
+            'users' => User::all(),
+            'configs' => Config::all()->first(),
         ]);
     }
 
@@ -103,6 +106,7 @@ class UserController extends Controller
         return view('dashboard.profile.show', [
             'user' => $user,
             'users' => User::all(),
+            'configs' => Config::all()->first(),
         ]);
     }
 
@@ -117,6 +121,7 @@ class UserController extends Controller
         return view('dashboard.profile.edit', [
             'user' => $user,
             'users' => User::all(),
+            'configs' => Config::all()->first(),
         ]);
 
     }

@@ -12,6 +12,7 @@ use App\Models\Monitoring;
 use App\Models\Question;
 use App\Models\Offeredanswer;
 use App\Models\User;
+use App\Models\Config;
 
 use DB;
 class AnswerController extends Controller
@@ -71,6 +72,22 @@ class AnswerController extends Controller
         // foreach($btslists as $btslist){
         //     return $btslist->surveys;
         // }//dapet data survey
+
+
+
+
+        // $btslists = Btslist::all();
+        // $surveys = Survey::all();
+        // // return $surveys;
+        // // return $btslists;
+        // $data = [];
+        // foreach($btslists as $btslist){
+        //     $data[] =  $btslist->surveys;
+        // }
+        // return $data;
+
+
+
         return view('dashboard.surveyor.answer.index', [
 
             'btslists' => Btslist::all(),
@@ -78,6 +95,7 @@ class AnswerController extends Controller
             'surveys' => Survey::all(),
             'btslist' => $btslist,
             'survey' => $survey,
+            'configs' => Config::all()->first(),
             'user' => $user,
             // 'statuses' => Status::all(),
             'mysurveys' => Mysurvey::all(),
@@ -111,6 +129,7 @@ class AnswerController extends Controller
 
             'btslists' => Btslist::all(),
             'request' => $request,
+            'configs' => Config::all()->first(),
             'surveys' => Survey::all(),
             // 'statuses' => Status::all(),
             'mysurveys' => Mysurvey::all(),

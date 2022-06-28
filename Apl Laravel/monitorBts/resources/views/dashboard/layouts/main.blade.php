@@ -31,7 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
   <body>
-      @include('dashboard.layouts.header')
+      @include('dashboard.layouts.header', ['configs' => $configs])
 
       {{-- <div class="container-fluid">
           <div class="row"> --}}
@@ -43,7 +43,8 @@
                             @yield('container')
                         </div>
                       </main>
-                      @include('dashboard.layouts.footer')
+                      {{-- @include('dashboard.layouts.footer') --}}
+                      @yield('footer')
                   </div>
               </div>
 
