@@ -183,24 +183,34 @@
                                 <p class="fw-bold fs-4" name="nama_survey">{{ $question->question }}</p>
                                 <input type="hidden" name="question_id[{{$q}}]" id="question_id" value="{{ old('question_id', $question->id) }}">
                                 {{-- <input class="fw-bold" name="question_id" value="{{ $question->question }}"> --}}
-
-                                @foreach ($question->offeredanswer as $key => $offeredanswer)
-                                  <div class="form-check mb-2 mx-4">
-                                    @foreach (Auth::user()->answer as $key => $question)
-                                        @if($question->offeredanswer_id == $offeredanswer->id)
-                                            <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" checked >
-                                            @break
-                                        @elseif($loop->last)
+                                @if($mysurvey->status==false)
+                                    @foreach ($question->offeredanswer as $key => $offeredanswer)
+                                        <div class="form-check mb-2 mx-4">
                                             <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" >
-                                            @break
-                                        @endif
+                                            <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
+                                                {{ $offeredanswer->option }}
+                                            </label>
+                                        </div>
                                     @endforeach
-            
-                                    <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
-                                        {{ $offeredanswer->option }}
-                                    </label>
-                                  </div>
-                                @endforeach
+                                @else
+                                    @foreach ($question->offeredanswer as $key => $offeredanswer)
+                                    <div class="form-check mb-2 mx-4">
+                                        @foreach (Auth::user()->answer as $key => $question)
+                                            @if($question->offeredanswer_id == $offeredanswer->id)
+                                                <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" checked >
+                                                @break
+                                            @elseif($loop->last)
+                                                <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" >
+                                                @break
+                                            @endif
+                                        @endforeach
+                
+                                        <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
+                                            {{ $offeredanswer->option }}
+                                        </label>
+                                    </div>
+                                    @endforeach
+                                @endif
                                 {{-- </form> --}}
                         </div>
                         {{-- @foreach (Auth::user()->answer as $key => $question)
