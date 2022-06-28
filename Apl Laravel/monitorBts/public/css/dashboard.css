@@ -12884,3 +12884,22 @@ header .nav-item > a{
     table-layout: fixed;
     overflow-wrap: break-word;
   }
+
+table thead{
+  text-align: center;
+}
+.alert-success{
+  display:none;
+  justify-content: space-between;
+}
+tr:nth-child(odd) td{
+  background-color: var(--bs-gray-100);
+}
+tr:nth-child(even) td {
+  background-color: white;
+}
+
+/* tr:nth-child(4n + 3) td,
+tr:nth-child(4n + 4) td {
+    background-color: #f90;
+} */
