@@ -16,7 +16,7 @@
         @foreach ($surveys as $survey)
         <div class="card text-white bg-bts-3 border-3 survey-card" style="width: 18rem; margin:10px">
             <h3 class="card-header">{{ $survey->name }}</h3>
-            <div class="card-body">
+            <div class="card-body scroll">
                 <p class="card-text">{{ $survey->description }}</p>
                 {{-- <h6 class="card-title">{{ $survey->name }}</h6> --}}
                 {{-- <div class="d-flex" style="justify-content: flex-end;">
@@ -32,11 +32,11 @@
             </form>
         </div>
         @endforeach
-        <div class="card text-black bg-light border-3 add-card survey-card" style="width: 18rem; margin:10px">
+        <div class="card text-black bg-primary text-white border-3 add-card survey-card" style="width: 18rem; margin:10px">
             <h3 class="card-header">Tambah Survey</h3>
-            <div class="card-body d-flex" style="justify-content: center;">
-                <a class="text-black" style="font-size: 6em; align-self: center;" href="/dashboard/surveys/create" class="card-link">+</a>
-            </div>
+            <a class="card-body card-link d-flex mb-5" style="justify-content: center;" href="/dashboard/surveys/create">
+                <div class="text-white" style="font-size: 6em; align-self: center;">+</div>
+            </a>
         </div>
     </div>
 @endsection

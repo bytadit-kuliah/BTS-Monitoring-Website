@@ -18,30 +18,40 @@
            <br>
 
            @if($btsphotos)
-                <div id="btsPhotosCarousel" class="carousel slide text-dark" data-bs-ride="true">
+                <div id="btsPhotosCarousel" class="carousel slide text-dark d-flex" data-bs-ride="true">
                     <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide-to="0" class="active border border-dark rounded-3" aria-current="true" aria-label="Slide 1"></button>
                         @foreach ($btsphotos as $btsphoto)
-                            @if ($loop->iteration == 0)
-                                <button type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            @else
-                                <button type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide-to="{{$loop->iteration}}" aria-label="Slide {{($loop->iteration)+1}}"></button>
+                            @if($loop->iteration > 1)
+                                <button type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide-to="{{$loop->iteration-1}}" class="border border-dark rounded-3" aria-label="Slide {{($loop->iteration)}}"></button>
                             @endif
                         @endforeach
                     </div>
-                    <div class="carousel-inner">
+                    <div class="carousel-inner text-center mb-2 justify-content-center">
                         @foreach ($btsphotos as $btsphoto)
-                            <div class="carousel-item active">
-                                <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3">
-                            </div>
+                            @if($loop->iteration == 1)
+                                <div class="carousel-item active text-center">
+                                    <div alt="{{ $btslist->btstype->type }}" class="w-100 rounded-5 img-fluid mt-3 text-center"
+                                        style="width:500px;height:600px;background-size: contain;background-repeat:no-repeat;
+                                        background-position: center;background-image:url('{{ asset('storage/' . $btsphoto->url) }}')"></div>
+                                    {{-- <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3"> --}}
+                                </div>
+                            @else                            
+                                <div class="carousel-item text-center">
+                                    <div alt="{{ $btslist->btstype->type }}" class="w-100 rounded-5 img-fluid mt-3 text-center"
+                                        style="width:500px;height:600px;background-size: contain;background-repeat:no-repeat;
+                                        background-position: center;background-image:url('{{ asset('storage/' . $btsphoto->url) }}')"></div>
+                                    {{-- <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3"> --}}
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden=""></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon" style="filter: invert(100%);" aria-hidden=""></span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#btsPhotosCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden=""></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="carousel-control-next-icon" style="filter: invert(100%);" aria-hidden=""></span>
+                        <span class="visually-hidden ">Next</span>
                     </button>
                 </div>
            @else

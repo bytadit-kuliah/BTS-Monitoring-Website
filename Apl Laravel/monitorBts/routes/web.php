@@ -29,14 +29,23 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/', function(){
+    return view('index')->with('title','BTS Diskominfo Surakarta');
+})->name('landing');
+
+// Route::redirect('/', destination:'login'); //auto redirect into login url
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
+<<<<<<< HEAD
 // Route::get('/dashboard/btslists/create', 'BtslistController@getVillage')->middleware('auth');
 // Route::get('/dashboard/btslists/create', [BtslistController::class, 'getVillage'])->middleware('auth');
 
 
 Route::redirect('/', destination:'login'); //auto redirect into login url
+=======
+>>>>>>> acb9992efee4d5f182899f6f4a5d47dc9773a2dd
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']); // nyimpen data

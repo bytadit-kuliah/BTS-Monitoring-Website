@@ -31,7 +31,7 @@
     {{-- @include('partials.navbar') --}}
     <!--Header Awal-->
     <header>
-        <div id="brand"><a href="#">
+        <div id="brand"><a href="/">
                 <img src="image/BTS logo.png" alt="logo"></a>
             {{-- <ul>
                 <li><a href="/">Home</a></li>
@@ -51,14 +51,23 @@
         </div>
         {{-- <nav>
             <ul>
+<<<<<<< HEAD
                 <li id="contact"><a href="/contact">Contact Us</a></li>
                 <li id="login"><a href="/login">Log In</a></li>
+=======
+                {{-- <li id="contact"><a href="/contact">Contact Us</a></li> --}}
+                @if (Auth::check())
+                    <li id="login"><a href="/dashboard">{{Auth::user()->firstName}}</a></li>
+                @else
+                    <li id="login"><a href="/login">Log In</a></li>
+                @endif
+>>>>>>> acb9992efee4d5f182899f6f4a5d47dc9773a2dd
             </ul>
         </nav> --}}
     </header>
     <!--Header Akhir-->
 
-    <div class="container" style='min-height:73vh'>
+    <div class="container" style='min-height:100vh'>
         @yield('container')
     </div>
 
