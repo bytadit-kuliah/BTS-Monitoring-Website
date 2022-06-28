@@ -24,6 +24,18 @@
                     <!-- <a href="#" class="card-link">Edit Jawaban</a> -->
                 </div> --}}
             </div>
+            {{-- <p class='card-header text-end text-light'>
+                <span class='fw-bolder text-light'>
+                    <ul>
+                    for:
+                    @foreach ($survey->btslists as $btslist)
+                        <li>
+                            {{$btslist->nama}}
+                        </li>
+                    @endforeach
+                    </ul>
+                </span>
+            </p> --}}
             <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$survey->question->count()}}</span> pertanyaan</p>
             <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="card-footer text-center ">
                 @method('delete')

@@ -135,16 +135,6 @@ class SurveyController extends Controller
         // $btslist_many->surveys()->attach($category, ['file_id' => $file->id]);
 
         foreach($btslists as $btslist){
-            // foreach ($btslist->surveys as $survey) {
-            //     $status = new Status;
-            //     $status->btslist_id = $btslist->id;
-            //     $status->user_id = auth()->user()->id;
-            //     $status->survey_id = $survey->id;
-            //     // $status->status = true;
-            //     $status->save();
-            //     // echo $survey->name;
-            // }
-
             foreach ($monitorings->where('btslist_id', $btslist->id) as $monitoring) {
                 $mysurvey = new Mysurvey;
                 $mysurvey->btslist_id = $btslist->id;
@@ -154,6 +144,7 @@ class SurveyController extends Controller
                 $mysurvey->save();
                 // echo $survey->name;
             }
+
         }
 
         return redirect('/dashboard/surveys')->with('success', 'Survey Baru Berhasil Dibuat');

@@ -226,3 +226,5 @@ footer #fc a {
   padding-left: 25px;
   padding-right: 25px;
 } */
+
+#map { width: 500px; height: 400px; }

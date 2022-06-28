@@ -350,6 +350,7 @@ class BtslistController extends Controller
         $btslist->surveys()->detach($survey);
 
 
+
         // $provider = Provider::find($request->provider_id);
         // $btslist->providers()->attach($provider);
 

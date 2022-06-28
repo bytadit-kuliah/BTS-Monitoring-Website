@@ -156,7 +156,7 @@ header nav ul li {
     background-color: white;
     border-color: #52784F;
     color: #52784F;
-    
+
 }
 
 /* Footer */
@@ -259,7 +259,7 @@ footer #fc a {
     justify-content: space-between;
     align-items: flex-end;
     margin: -30px 30px -50px 30px;
-    
+
 }
 
 .banner_btslist h1{
@@ -320,7 +320,7 @@ footer #fc a {
     100%{
         transform: translateX(0%);
         opacity: 1;
-        
+
     }
 }
 .cards {
@@ -373,7 +373,7 @@ footer #fc a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
     padding: 200px 25px 25px 25px;
     overflow: auto;
     height: 100%;
@@ -405,7 +405,7 @@ footer #fc a {
     padding: 5px;
 }
 
-.button_close{      
+.button_close{
     position: fixed;
     z-index: 100;
     top: 20px;
@@ -431,3 +431,5 @@ footer #fc a {
     transition: none;
     transform: scale(90%);
 }
+
+#map { width: 500px; height: 400px; }

@@ -475,3 +475,5 @@ footer #fc a {
     vertical-align: middle;
     line-height: normal;
 }
+
+#map { width: 500px; height: 400px; }

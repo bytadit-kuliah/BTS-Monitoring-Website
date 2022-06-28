@@ -12930,5 +12930,7 @@ tr:nth-child(4n + 4) td {
 .scroll::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
-	background-color: var(--bs-gray-800);	
+	background-color: var(--bs-gray-800);
 }
+
+#map { width: 500px; height: 400px; }

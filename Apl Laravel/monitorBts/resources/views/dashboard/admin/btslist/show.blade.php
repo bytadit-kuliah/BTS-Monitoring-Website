@@ -49,7 +49,7 @@
                                             background-position: center;background-image:url('{{ asset('storage/' . $btsphoto->url) }}')"></div>
                                         {{-- <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3"> --}}
                                     </div>
-                                @else                            
+                                @else
                                     <div class="carousel-item text-center">
                                         <div alt="{{ $btslist->btstype->type }}" class="w-100 rounded-5 img-fluid mt-3 text-center"
                                             style="width:500px;height:600px;background-size: contain;background-repeat:no-repeat;
@@ -152,15 +152,37 @@
                     </tr>
                     <tr>
                         <td class='table-light'>Latitude</td>
-                        <td> {{ $btslist->latitude.'°'.'S' }} </td>
+                        {{-- <td> {{ $btslist->latitude.'°'.'S' }} </td> --}}
+                        <td id="latitudeVal"> {{ $btslist->latitude }} </td>
+
                     </tr>
                     <tr >
                         <td class='table-light' >Longitude</td>
-                        <td> {{ $btslist->longitude.'°'.'E' }} </td>
+                        <td id="longitudeVal"> {{ $btslist->longitude}} </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <div id="map" style="max-width:1000px; max-height:1000px"></div>
+
     </div>
 </div>
+
+<script>
+    $(document).ready(function (){
+     var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+     var myOptions = {
+         zoom: 4,
+         center: myLatlng,
+         mapTypeId: google.maps.MapTypeId.ROADMAP
+         }
+      map = new google.maps.Map($('#map'), myOptions);
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+      title:"Fast marker"
+     });
+}
+</script>
 @endsection
