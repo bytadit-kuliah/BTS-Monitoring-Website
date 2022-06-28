@@ -17,16 +17,16 @@
 
     <div class="table-responsive col-lg-12">
     {{-- <a href="/dashboard/users/create" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New Surveyor</a> --}}
-    <table class="table">
+    <table class="table fixedTable text-center">
         <thead class="table-success ">
             <tr>
-                <th style='border-top-left-radius:1rem'>No.</th>
-                <th>Foto</th>
-                <th>Nama</th>
-                <th>E-mail</th>
-                <th>Alamat</th>
-                <th>No.Telepon</th>
-                <th>Role</th>
+                <th style='width:3.8%; border-top-left-radius:1rem'>No</th>
+                <th style='width:10%'>Foto</th>
+                <th style='width:10%'>Nama</th>
+                <th style='width:'>E-mail</th>
+                <th style='width:30%'>Alamat</th>
+                <th style='width:10%'>No.Telepon</th>
+                <th style='width:10%'>Role</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
                 <th style='width:70px;border-top-right-radius:1rem'>Aksi</th>
@@ -39,16 +39,18 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                     @if($user->photo)
-                    <div style="max-height: 150px; max-width:150px; overflow:hidden;">
+                    <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
                         <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->firstName }}" class="img-thumbnail" style='width:100px; height:100px'>
                     </div>
                     @else
-                    <img src="https://source.unsplash.com/100x100?person" alt="{{ $user->firstName }}" class="img-thumbnail">
+                    <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
+                        <img src="https://source.unsplash.com/100x100?person" alt="{{ $user->firstName }}" class="img-thumbnail">
+                    </div>
                     @endif
                 </td>
                 <td>{{ $user->firstName . ' ' . $user->lastName }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->alamat }}</td>
+                <td class='text-start'>{{ $user->alamat }}</td>
                 <td>{{ $user->noTelp }}</td>
 
                 @if($user->is_admin)

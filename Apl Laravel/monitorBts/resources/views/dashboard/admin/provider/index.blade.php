@@ -17,18 +17,18 @@
 
     <div class="table-responsive col-lg-12">
     <a href="/dashboard/providers/create"   class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
-    <table class="table">
+    <table class="table fixedTable text-center">
         <thead class="table-success ">
             <tr>
-                <th style='border-top-left-radius:1rem'>No.</th>
-                <th>Foto</th>
-                <th>Nama</th>
-                <th>Alamat</th>
-                <th>No.Telepon</th>
-                <th>List BTS</th>
+                <th style='width:3.8%;border-top-left-radius:1rem'>No</th>
+                <th style='width:10%'>Foto</th>
+                <th style='width:16%'>Nama</th>
+                <th style='width:35%'>Alamat</th>
+                <th style='width:10%'>No.Telepon</th>
+                <th style='width:%'>List BTS</th>
                 <!-- <th>Pembuat Data</th> -->
                 <!-- <th>Waktu Dibuat</th> -->
-                <th style='border-top-right-radius:1rem'>Aksi</th>
+                <th style='width:70px;border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -37,17 +37,22 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                     @if($provider->foto)
-                    <div style="max-height: 100px; max-width:100px; overflow:hidden;">
+                    {{-- <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
                         <img src="{{ asset('storage/' . $provider->foto) }}" alt="{{ $provider->nama }}" class="img-fluid mt-3" style='width:100px; height:100px'>
+                    </div> --}}
+                    <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
+                        <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->name }}" class="img-thumbnail">
                     </div>
                     @else
-                    <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->nama }}" class="img-fluid mt-3">
+                    <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
+                        <img src="https://source.unsplash.com/100x100?tower" alt="{{ $user->firstName }}" class="img-thumbnail">
+                    </div>
                     @endif
                 </td>
                 <td>{{ $provider->nama }}</td>
-                <td>{{ $provider->alamat }}</td>
+                <td class='text-start'>{{ $provider->alamat }}</td>
                 <td>{{ $provider->noTelp }}</td>
-                <td>
+                <td class='text-start'>
                     @if($provider->btslists)
                         <ul>
                             @foreach($provider->btslists as $btslistProvider)
