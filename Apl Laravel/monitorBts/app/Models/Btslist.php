@@ -16,9 +16,9 @@ class Btslist extends Model
     public function village(){
         return $this->belongsTo(Village::class);
     }
-    public function owner(){
-        return $this->belongsTo(Owner::class);
-    }
+    // public function owner(){
+    //     return $this->belongsTo(Owner::class);
+    // }
     public function user(){
         return $this->belongsTo(User::class);
     }

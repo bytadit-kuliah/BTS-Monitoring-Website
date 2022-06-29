@@ -35,8 +35,8 @@
                 </span>
             </p> --}}
 
-            {{-- <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$survey->question->count()}}</span> pertanyaan</p>
-            <div class="accordion" id="myAccordion[{{ $key }}]">
+            <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$survey->question->count()}}</span> pertanyaan</p>
+            {{-- <div class="accordion" id="myAccordion[{{ $key }}]">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne[{{ $key }}]">
                         <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne[{{ $key }}]">1. What is HTML?</button>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>  --}}
             <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="card-footer text-center ">
                 @method('delete')
                 @csrf
