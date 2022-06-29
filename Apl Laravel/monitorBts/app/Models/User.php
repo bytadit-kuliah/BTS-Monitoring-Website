@@ -17,11 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    // protected $fillable = [
-    //     'name',
-    //     'email',
-    //     'password',
-    // ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -54,34 +50,11 @@ class User extends Authenticatable
     public function monitoring(){
         return $this->hasMany(Monitoring::class);
     }
-    // public function surveys()
-    // {
-    //     return $this->belongsToMany(Survey::class);
-    // }
-    // public function btslists()
-    // {
-    //     return $this->belongsToMany(Btslist::class);
-    // }
     public function answer(){
         return $this->hasMany(Answer::class);
     }
-    // public function status(){
-    //     return $this->hasMany(Status::class);
-    // }
     public function mysurvey(){
         return $this->hasMany(Mysurvey::class);
     }
-    // many-to-many
-    // public function question()
-    // {
-    //     return $this->belongsToMany(Question::class);
-    // }
-    // public function survey()
-    // {
-    //     return $this->belongsToMany(Survey::class);
-    // }
-    // public function offeredanswer()
-    // {
-    //     return $this->belongsToMany(Offeredanswer::class);
-    // }
+
 }

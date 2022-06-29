@@ -3,9 +3,6 @@
 <!-- Main Awal -->
 @section('container')
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Data BTS</h1>
-    {{-- <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">list BTS:</li>
-    </ol> --}}
 
     @if(session()->has('success'))
     <div class="alert alert-success col-lg-12" role="alert">
@@ -16,37 +13,6 @@
 
     <a href="/dashboard/btslists/create" type="button" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
 
-    {{-- <div class="container"> --}}
-
-            {{-- @foreach($btslists as $btslist)
-            <div class="card col-md-3 m-3">
-                <h3 class="card-title"><a href="/dashboard/btslists/show" class="text-decoration-none text-dark">{{ $btslist->nama }}</a></h3>
-                <div style="max-height: 350px; overflow:hidden;">
-                    @if($btsphotos)
-                        <img src="{{ asset('storage/' . $btsphoto->firstWhere('btslist_id', $btslist->id)->url) }}" class="img-thumbnail" alt="{{ $btslist->nama }}">
-                        @else
-                        <img src="https://source.unsplash.com/1200x400?tower" alt="{{ $btslist->nama }}" class="img-fluid">
-                    @endif
-                </div>
-                <div class="card-body">
-                    <a href="/dashboard/btslists/{{ $btslist->id }}" class="badge bg-info">
-                        <i class="bi bi-eye-fill"></i>
-                    </a>
-                    @can('admin')
-                    <a href="/dashboard/btslists/{{ $btslist->id }}/edit" class="badge bg-warning">
-                        <i class="bi bi-pen-fill"></i>
-                    </a>
-                    <form action="/dashboard/btslists/{{ $btslist->id }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></span></button>
-                    </form>
-                    @endcan
-                    </a>
-                </div>
-            </div>
-            @endforeach --}}
-            {{-- <h3>Nyobain Laravel 8 ajax pagination with search</h3> --}}
             <div id="search">
                 <form id="searchform" name="searchform">
                     <div class="row justify-content-around mb-3 ">
@@ -66,18 +32,16 @@
                     </div>
                 </form>
             </div>
-            {{-- <h3 align="center"><span id="total_records"></span>Data Found</h3> --}}
             <div id="pagination_data">
                 <div class="container">
                     @include("dashboard.admin.btslist.btsdata",["btslists"=>$btslists])
                 </div>
             </div>
-    {{-- </div> --}}
+
 @endsection
 <!-- Main Akhir -->
 
 @section('page-scripts')
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> --}}
     <script>
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
@@ -149,9 +113,7 @@
     <script>
         $(function() {
       $(document).on("click", "#pagination a,#search_btn", function() {
-        // $(document).on("keyup", "#search", function() {
 
-        //get url and make final url for ajax
         var url = $(this).attr("href");
         var append = url.indexOf("?") == -1 ? "?" : "&";
         var finalURL = url + append + $("#searchform").serialize();

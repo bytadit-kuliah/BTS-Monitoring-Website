@@ -31,34 +31,3 @@
         {{ $btslists->links() }}
     </div>
 </div>
-
-
-{{-- VVV test view VVV --}}
-{{-- <div class="row justify-content-around">
-    @for ($i = 0; $i < 11; $i++)
-
-    <div class="card col-md-3 m-3 p-2 text-center rounded-4">
-        <h3 class="card-title"><a href="/dashboard/btslists/show" class="text-decoration-none text-dark">nama</a></h3>
-        <div style="max-height: 350px; overflow:hidden;">
-                <img src="https://source.unsplash.com/1200x600?tower" class="img-fluid rounded-3">
-        </div>
-        <div class="card-body">
-            <a href="/dashboard/btslists/BTSID" class="badge bg-info">
-                <i class="bi bi-eye-fill"></i>
-            </a>
-            @can('admin')
-            <a href="/dashboard/btslists/BTSID/edit" class="badge bg-warning">
-                <i class="bi bi-pen-fill"></i>
-            </a>
-            <form action="/dashboard/btslists/BTSID" method="post" class="d-inline">
-                @method('delete')
-                @csrf
-                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></span></button>
-            </form>
-            @endcan
-            </a>
-        </div>
-    </div>
-
-    @endfor
-</div> --}}

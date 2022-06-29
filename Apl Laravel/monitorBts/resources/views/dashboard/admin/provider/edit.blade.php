@@ -36,18 +36,7 @@
             </div>
             @enderror
           </div>
-        {{-- <div class="mb-3">
-            <label for="category" class="form-label">Category</label>
-            <select class="form-select" name="category_id">
-            @foreach ($categories as $category)
-                @if(old('category_id') == $category->id)
-                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                @else
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endif
-            @endforeach
-            </select>
-        </div> --}}
+
         <div class="mb-3">
             <label for="foto" class="form-label @error('foto') is-invalid @enderror">Foto Provider</label>
 
@@ -71,18 +60,6 @@
 </div>
 
 <script>
-    // const nama = document.querySelector('#nama');
-    // const slug = document.querySelector('#slug');
-
-    // title.addEventListener('change', function(){
-    //     fetch('/dashboard/posts/checkSlug?title=' + title.value)
-    //         .then(response => response.json())
-    //         .then(data => slug.value = data.slug)
-    // });
-
-    // document.addEventListener('trix-file-accept', function(e){
-    //     e.preventDefault();
-    // });
 
     function previewImage() {
         const foto = document.querySelector('#foto');

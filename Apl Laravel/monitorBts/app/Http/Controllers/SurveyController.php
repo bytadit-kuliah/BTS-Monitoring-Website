@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Survey;
 use App\Models\Btslist;
-// use App\Models\Status;
 use App\Models\Mysurvey;
 use App\Models\Config;
 use App\Models\Question;
@@ -28,9 +27,6 @@ class SurveyController extends Controller
             'surveys' => Survey::all(),
             'survey' => $survey,
             'configs' => Config::all()->first(),
-            // 'questions' => Question::where('survey_id', $survey->id)->get(),
-            // 'offeredanswers' => Offeredanswer::where('question_id', $question->id)->get(),
-            // 'offeredanswer' => $offeredanswer,
             'request' => $request
         ]);
     }
@@ -72,17 +68,10 @@ class SurveyController extends Controller
         $survey = new Survey;
         $survey->name = $request->name;
         $survey->description = $request->description;
-        // $survey->provider_id = $request->provider_id;
-        // $survey->user_id = auth()->user()->id;
         $survey->save();
 
         $btslist = Btslist::find($request->btslist_id);
         $survey->btslists()->attach($btslist);
-
-        // Status::where('btslist_id', $btslist)->update(['title'=>'Updated title']);
-        // Mysurvey::where('btslist_id', $btslist)->update(['title'=>'Updated title']);
-
-        // Quiestionnaire
 
         $this->validate($request, [
             'question.*' => 'required',
@@ -126,23 +115,13 @@ class SurveyController extends Controller
         $btslists = Btslist::find($request->btslist_id);
         $monitorings = Monitoring::all();
 
-        // foreach($monitorings as $monitoring){
-        //     echo $monitoring;
-        // }
-        // $survey_btslist = Survey::find($btslist->id);
-        // $user->btslists()->attach($btslist);
-        // $user->surveys()->attach($survey_btslist);
-        // $btslist_many->surveys()->attach($category, ['file_id' => $file->id]);
-
         foreach($btslists as $btslist){
             foreach ($monitorings->where('btslist_id', $btslist->id) as $monitoring) {
                 $mysurvey = new Mysurvey;
                 $mysurvey->btslist_id = $btslist->id;
                 $mysurvey->user_id = $monitoring->user_id;
                 $mysurvey->survey_id = $survey->id;
-                // $mysurvey->mysurvey = true;
                 $mysurvey->save();
-                // echo $survey->name;
             }
 
         }
@@ -193,23 +172,16 @@ class SurveyController extends Controller
     public function destroy(Survey $survey, Question $question, Request $request)
     {
         $questions = Question::all();
-        // destroy offered answers by question_id
         foreach($questions->where('survey_id', $survey->id) as $questionlist){
             Offeredanswer::where('question_id', $questionlist->id)->delete();
         }
-        // destroy questions by survey_id
         Question::where('survey_id', $survey->id)->delete();
-        // destroy survey by id
         Survey::destroy($survey->id);
 
-        // Status::where('survey_id', $survey->id)->delete();
         Mysurvey::where('survey_id', $survey->id)->delete();
 
-        // DB::delete('delete from btslist_survey where survey_id = ?',[$survey->id]);
-        // DB::table('btslist_survey')->where('survey_id', '=', $survey->id)->delete();
         $btslist = Btslist::find($request->btslist_id);
         $survey->btslists()->detach($btslist);
-        // $surveys = Survey::find($survey->id);
 
         return redirect('/dashboard/surveys')->with('success', 'Survey telah dihapus');
     }

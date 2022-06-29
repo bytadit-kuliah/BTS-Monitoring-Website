@@ -7,7 +7,6 @@
         <main class="form-registration w-100 m-auto">
             <h1 class="h3 mb-3 fw-normal text-center">Registration <span>Form</span></h1>
             <form action="/register" method="post">
-              {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
                 @csrf
                 <div class="form-floating">
                     <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="username" required value={{ old('username') }}>
@@ -67,13 +66,7 @@
                 <input type="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" name="password_confirmation" placeholder="Password"  required autocomplete="current-password">
                 <label for="password">Confirm Password</label>
               </div>
-              {{-- <div class="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div> --}}
               <button class="w-100 btn btn-lg btn-success" type="submit">Register</button>
-              {{-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p> --}}
               <small class="d-block text-center my-3">Already Registered? <a href="/login">Login</a></small>
             </form>
         </main>

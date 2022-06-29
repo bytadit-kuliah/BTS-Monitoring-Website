@@ -12896,7 +12896,6 @@ table thead{
   text-align: center;
 }
 .alert-success{
-  display:none;
   justify-content: space-between;
 }
 tr:nth-child(odd) td{

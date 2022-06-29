@@ -16,9 +16,6 @@ class Btslist extends Model
     public function village(){
         return $this->belongsTo(Village::class);
     }
-    // public function owner(){
-    //     return $this->belongsTo(Owner::class);
-    // }
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -39,12 +36,6 @@ class Btslist extends Model
     {
         return $this->belongsToMany(Survey::class);
     }
-    // public function users(){
-    //     return $this->belongsToMany(User::class);
-    // }
-    // public function status(){
-    //     return $this->hasMany(Status::class);
-    // }
     public function mysurvey(){
         return $this->hasMany(Mysurvey::class);
     }

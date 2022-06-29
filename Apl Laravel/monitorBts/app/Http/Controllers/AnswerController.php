@@ -50,12 +50,6 @@ class AnswerController extends Controller
     {
         $monitorings = Monitoring::where('user_id', auth()->user()->id)->get();
 
-        // foreach($surveys as $survey){
-        //     return $survey->btslists;
-        // } //dapet data btslist
-        // foreach($btslists as $btslist){
-        //     return $btslist->surveys;
-        // }//dapet data survey
         return view('dashboard.surveyor.answer.create', [
 
             'btslists' => Btslist::all(),
@@ -129,7 +123,6 @@ class AnswerController extends Controller
     public function test(Request $request){
         $answers = DB::table('answers')
         ->selectRaw('count(*) as answer_count, offeredanswer_id')
-        // ->where('btslist_id', '=', 5)
         ->groupBy('offeredanswer_id')
         ->get();
         $a= array();
@@ -137,8 +130,6 @@ class AnswerController extends Controller
         foreach($answers as $i){
             array_push($a, $i->answer_count);
             array_push($b, $i->offeredanswer_id);
-
-            // dd($i->answer_count, $i->offeredanswer_id);
         }
         dd($answers);
 

@@ -91,13 +91,7 @@ class ConfigController extends Controller
             $validatedData['sidebar_logo'] = $request->file('sidebar_logo')->store('company-logo');
         }
 
-        // $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
-
-        // Config::where('id', $provider->id)->update($validatedData);
         Config::all()->first()->update($validatedData);
-
-        // return redirect('/dashboard/providers')->with('success', 'Data Provider berhasil diupdate');
 
         return back()->with('success', 'Data berhasil diupdate');
     }

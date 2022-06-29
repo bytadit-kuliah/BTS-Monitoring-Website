@@ -132,34 +132,7 @@
                 {{-- <img src="" alt="infografis"> --}}
             </div>
         </div>
-
         <br>
-
-        {{-- <div class="heading">
-            <h1><span>Galeri</span></h1>
-        </div>
-        <div class="container_content content4" id="galeri">
-            <table width="100%" cellpadding="10">
-                <tr>
-                    <td width="25%"><img class="galeri" src="image/indexgaleri1.jpg" alt="galeri1" height="200px"></td>
-                    <td width="25%"><img class="galeri" src="image/indexgaleri2.jpg" alt="galeri2" height="200px"></td>
-                    <td width="25%"><img class="galeri" src="image/indexgaleri3.jpg" alt="galeri3" height="200px"></td>
-                    <td width="25%"><img class="galeri" src="image/indexgaleri4.jpg" alt="galeri4" height="200px"></td>
-                </tr>
-                <tr>
-                    <td><br></td>
-                </tr>
-                <tr>
-                    <td><img class="galeri" src="image/indexgaleri5.jpg" alt="galeri5" height="200px"></td>
-                    <td><img class="galeri" src="image/indexgaleri6.jpg" alt="galeri6" height="200px"></td>
-                    <td><img class="galeri" src="image/indexgaleri7.jpg" alt="galeri7" height="200px"></td>
-                    <td><img class="galeri" src="image/indexgaleri8.jpg" alt="galeri8" height="200px"></td>
-                </tr>
-            </table>
-        </div>
-
-        <br> --}}
-
         <div class="heading">
             <h1><span>Alamat Kami</span></h1>
         </div>

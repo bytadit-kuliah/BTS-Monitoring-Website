@@ -8,10 +8,6 @@
         <a href="https://www.linkedin.com"><img src="image/sosmed5.png" alt="in"></a>
         <a href="https://www.whatsapp.com"><img src="image/sosmed6.png" alt="wa"></a>
     </div>
-    {{-- <div class="footer_content" id="fc">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-    </div> --}}
 </footer>
 <script>
     document.getElementById('copyright').innerHTML = new Date().getFullYear();

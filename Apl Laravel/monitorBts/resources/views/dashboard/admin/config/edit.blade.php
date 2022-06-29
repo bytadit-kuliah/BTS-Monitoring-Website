@@ -49,18 +49,6 @@
 </div>
 
 <script>
-    // const nama = document.querySelector('#nama');
-    // const slug = document.querySelector('#slug');
-
-    // title.addEventListener('change', function(){
-    //     fetch('/dashboard/posts/checkSlug?title=' + title.value)
-    //         .then(response => response.json())
-    //         .then(data => slug.value = data.slug)
-    // });
-
-    // document.addEventListener('trix-file-accept', function(e){
-    //     e.preventDefault();
-    // });
 
     function previewImage() {
         const sidebar_logo = document.querySelector('#sidebar_logo');

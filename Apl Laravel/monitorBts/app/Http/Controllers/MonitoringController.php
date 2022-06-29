@@ -58,28 +58,15 @@ class MonitoringController extends Controller
             // 'surveyor_id' => 'required',
         ]);
 
-        // if($request->file('foto')){
-        //     $validatedData['foto'] = $request->file('foto')->store('providers-foto');
-        // }
-
         $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
         $validatedData['catatan'] = Str::limit($request->catatan, 300);
-        // $validatedData['catatan'] = $request->catatan;
         Monitoring::create($validatedData);
 
-        // $survey_btslist = Survey::find($survey->btslists());
-        // $survey->btslists()->attach($btslist);
 
-        // $btslist = Btslist::find($request->btslist_id);
-        // $survey->btslists()->attach($btslist);
 
 
         $btslist = Btslist::find($request->btslist_id);
-        // $survey_btslist = Survey::find($btslist->id);
-        // $user->btslists()->attach($btslist);
-        // $user->surveys()->attach($survey_btslist);
-        // $btslist_many->surveys()->attach($category, ['file_id' => $file->id]);
+
         foreach ($btslist->surveys as $survey) {
             $mysurvey = new Mysurvey;
             $mysurvey->btslist_id = $request->btslist_id;
@@ -89,12 +76,6 @@ class MonitoringController extends Controller
             $mysurvey->save();
             // echo $survey->name;
         }
-        // return $btslist_many->surveys();
-        // $provider = Provider::find($request->provider_id);
-        // $btslist->providers()->attach($provider);
-
-        // $provider = Provider::find($request->provider_id);
-        // $btslist->providers()->sync($provider);
 
         return redirect('/dashboard/monitorings')->with('success', 'Data Monitoring telah ditambahkan');
     }
@@ -140,27 +121,9 @@ class MonitoringController extends Controller
             'btslist_id' => 'required'
         ];
 
-// // mengatasi masalah slug tidak bisa sama spt sebelumnya
-//         if($request->slug != $post->slug){
-//             $rules['slug'] = 'required|unique:posts';
-//         }
-
         $validatedData = $request->validate($rules);
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['catatan'] = Str::limit($request->catatan, 300);
-
-        // $validatedData['catatan'] = Str::limit(strip_tags($request->catatan), 500);
-        // $validatedData['catatan'] = $request->catatan;
-
-        // if($request->file('foto')){
-        //     if($request->oldFoto){
-        //         Storage::delete($request->oldFoto);
-        //     }
-        //     $validatedData['foto'] = $request->file('foto')->store('providers-foto');
-        // }
-
-        // $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Monitoring::where('id', $monitoring->id)->update($validatedData);
 
@@ -175,9 +138,6 @@ class MonitoringController extends Controller
      */
     public function destroy(Monitoring $monitoring)
     {
-        // if($monitoring->foto){
-        //     Storage::delete($monitoring->foto);
-        // }
 
         Monitoring::destroy($monitoring->id);
         return redirect('/dashboard/monitorings')->with('success', 'Data Monitoring berhasil dihapus');

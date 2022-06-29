@@ -16,7 +16,6 @@
 
 
     <div class="table-responsive col-lg-12">
-    {{-- <a href="/dashboard/users/create" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New Surveyor</a> --}}
     <table class="table fixedTable text-center">
         <thead class="table-success ">
             <tr>
@@ -27,14 +26,11 @@
                 <th style='width:30%'>Alamat</th>
                 <th style='width:10%'>No.Telepon</th>
                 <th style='width:10%'>Role</th>
-                <!-- <th>Pembuat Data</th> -->
-                <!-- <th>Waktu Dibuat</th> -->
                 <th style='width:70px;border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
-            {{-- @foreach ($users->where('is_admin', 0) as $user) --}}
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>
@@ -60,14 +56,6 @@
                 @endif
 
                 <td class="text-center">
-                    {{-- <a href="/dashboard/users/{{ $user->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
-                        <i class="bi bi-pencil-square"></i>
-                    </a> --}}
-                    {{-- <form action="/dashboard/users/{{ $user->id }}" method="post">
-                        @method('delete')
-                        @csrf
-                        <button class="badge bg-danger border-0" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
-                    </form> --}}
                     <a href="/dashboard/users/{{ $user->id }}" class="show badge bg-success" title="Show" data-toggle="tooltip">
                         <i class="bi bi-eye-fill"></i>
                     </a>
@@ -85,14 +73,6 @@
                             <i class="bi bi-star-fill"></i>
                         </a>
                     @endif
-                    {{-- <a href="/dashboard/users/{{ $user->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
-                        <i class="bi bi-eye-fill"></i>
-                    </a> --}}
-                    {{-- <form action="/dashboard/users/{{ $user->id }}" method="post">
-                        @method('patch')
-                        @csrf
-                        <button type="submit" class="badge bg-warning border-0" id="role" name="role" value = "role" title="Make Admin" data-toggle="tooltip" onclick="return confirm('Make this user role to admin?')"><i class="bi bi-trash-fill"></i></button>
-                    </form> --}}
                 </td>
             </tr>
             @endforeach
@@ -104,62 +84,4 @@
 <!-- Main Akhir -->
 
 @section('page-scripts')
-    {{-- <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-            var actions = $("table td:last-child").html();
-            // Append table with add row form on add new button click
-            $(".add-new").click(function(){
-                $(this).attr("disabled", "disabled");
-                var index = $("table tbody tr:last-child").index();
-                var row = '<tr>' +
-                    // '<td><input type="text" class="form-control" name="kode" id="kode"></td>' +
-                    '<td>005</td>' +
-                    '<td><input type="text" class="form-control" name="name" id="name"></td>' +
-                    '<td><input type="text" class="form-control" name="alamat" id="alamat"></td>' +
-                    '<td><input type="text" class="form-control" name="notelp" id="notel"></td>' +
-                    // '<td><input type="text" class="form-control" name="pembuat" id="pembuat"></td>' +
-                    // '<td><input type="text" class="form-control" name="waktu" id="waktu"></td>' +
-                    '<td>' + actions + '</td>' +
-                '</tr>';
-                $("table").append(row);
-                $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-            // Add row on add button click
-            $(document).on("click", ".add", function(){
-                var empty = false;
-                var input = $(this).parents("tr").find('input[type="text"]');
-                input.each(function(){
-                    if(!$(this).val()){
-                        $(this).addClass("error");
-                        empty = true;
-                    } else{
-                        $(this).removeClass("error");
-                    }
-                });
-                $(this).parents("tr").find(".error").first().focus();
-                if(!empty){
-                    input.each(function(){
-                        $(this).parent("td").html($(this).val());
-                    });
-                    $(this).parents("tr").find(".add, .edit").toggle();
-                    $(".add-new").removeAttr("disabled");
-                }
-            });
-            // Edit row on edit button click
-            $(document).on("click", ".edit", function(){
-                $(this).parents("tr").find("td:not(:last-child)").each(function(){
-                    $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-                });
-                $(this).parents("tr").find(".add, .edit").toggle();
-                $(".add-new").attr("disabled", "disabled");
-            });
-            // Delete row on delete button click
-            $(document).on("click", ".delete", function(){
-                $(this).parents("tr").remove();
-                $(".add-new").removeAttr("disabled");
-            });
-        });
-        </script> --}}
 @endsection

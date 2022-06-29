@@ -3,9 +3,6 @@
 <!-- Main Awal -->
 @section('container')
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Provider BTS</h1>
-    {{-- <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">List Provider BTS:</li>
-    </ol> --}}
 
     @if(session()->has('success'))
     <div class="alert alert-success col-lg-12" role="alert">
@@ -26,8 +23,6 @@
                 <th style='width:35%'>Alamat</th>
                 <th style='width:10%'>No.Telepon</th>
                 <th style='width:%'>List BTS</th>
-                <!-- <th>Pembuat Data</th> -->
-                <!-- <th>Waktu Dibuat</th> -->
                 <th style='width:70px;border-top-right-radius:1rem'>Aksi</th>
             </tr>
         </thead>
@@ -44,9 +39,6 @@
                     <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
                         <img src="https://source.unsplash.com/100x100?tower" alt="{{ $provider->name }}" class="img-thumbnail">
                     </div>
-                    {{-- <div style="max-height: 150px; text-align:center;max-width:150px; overflow:hidden;">
-                        <img src="https://source.unsplash.com/100x100?tower" alt="{{ $user->firstName }}" class="img-thumbnail">
-                    </div> --}}
                     @endif
                 </td>
                 <td>{{ $provider->nama }}</td>
@@ -67,9 +59,6 @@
                     <a href="/dashboard/providers/{{ $provider->id }}/edit" class="edit badge bg-warning" title="Edit" data-toggle="tooltip">
                         <i class="bi bi-pencil-square"></i>
                     </a>
-                    {{-- <a href="/dashboard/providers/{{ $provider->id }}" class="show badge bg-info" title="Show" data-toggle="tooltip">
-                        <i class="bi bi-eye-fill"></i>
-                    </a> --}}
                     <form action="/dashboard/providers/{{ $provider->id }}" method="post">
                         @method('delete')
                         @csrf
@@ -83,65 +72,5 @@
 
     </div>
 @endsection
-<!-- Main Akhir -->
-
 @section('page-scripts')
-    {{-- <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-            var actions = $("table td:last-child").html();
-            // Append table with add row form on add new button click
-            $(".add-new").click(function(){
-                $(this).attr("disabled", "disabled");
-                var index = $("table tbody tr:last-child").index();
-                var row = '<tr>' +
-                    // '<td><input type="text" class="form-control" name="kode" id="kode"></td>' +
-                    '<td>005</td>' +
-                    '<td><input type="text" class="form-control" name="name" id="name"></td>' +
-                    '<td><input type="text" class="form-control" name="alamat" id="alamat"></td>' +
-                    '<td><input type="text" class="form-control" name="notelp" id="notel"></td>' +
-                    // '<td><input type="text" class="form-control" name="pembuat" id="pembuat"></td>' +
-                    // '<td><input type="text" class="form-control" name="waktu" id="waktu"></td>' +
-                    '<td>' + actions + '</td>' +
-                '</tr>';
-                $("table").append(row);
-                $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-            // Add row on add button click
-            $(document).on("click", ".add", function(){
-                var empty = false;
-                var input = $(this).parents("tr").find('input[type="text"]');
-                input.each(function(){
-                    if(!$(this).val()){
-                        $(this).addClass("error");
-                        empty = true;
-                    } else{
-                        $(this).removeClass("error");
-                    }
-                });
-                $(this).parents("tr").find(".error").first().focus();
-                if(!empty){
-                    input.each(function(){
-                        $(this).parent("td").html($(this).val());
-                    });
-                    $(this).parents("tr").find(".add, .edit").toggle();
-                    $(".add-new").removeAttr("disabled");
-                }
-            });
-            // Edit row on edit button click
-            $(document).on("click", ".edit", function(){
-                $(this).parents("tr").find("td:not(:last-child)").each(function(){
-                    $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-                });
-                $(this).parents("tr").find(".add, .edit").toggle();
-                $(".add-new").attr("disabled", "disabled");
-            });
-            // Delete row on delete button click
-            $(document).on("click", ".delete", function(){
-                $(this).parents("tr").remove();
-                $(".add-new").removeAttr("disabled");
-            });
-        });
-        </script> --}}
 @endsection

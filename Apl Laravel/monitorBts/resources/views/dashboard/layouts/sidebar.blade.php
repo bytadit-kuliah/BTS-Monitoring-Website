@@ -7,7 +7,6 @@
                         <div class="row sb-nav-link-icon align-items-center">
                                 @if(auth()->user()->photo)
                                     <div class='col-md-2 offset-md-1' style="width:50px;height:50px;border-radius:50%;background-image:url('{{ asset('storage/' . auth()->user()->photo) }}'); background-size: cover;"></div>
-                                    {{-- <img src="{{ asset('storage/' . auth()->user()->photo) }}" class='' style="width:50px;height:auto;border-radius:50%;object-fit: cover;"> --}}
                                 @else
                                     <div class='col-md-2 offset-md-1' style="width:50px;height:50px;border-radius:50%;background-image:url('/./image/pp.png'); background-size: cover;"></div>
                                 @endif

@@ -3,17 +3,9 @@
 <!-- Main Awal -->
 @section('container')
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Buat Data BTS Baru</h1>
-    {{-- <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">list BTS:</li>
-    </ol> --}}
     <div class="row">
         <form action="/dashboard/btslists/" method="post" class="mb-5" enctype="multipart/form-data">
             @csrf
-            {{-- <div class="mb-3">
-                <span id="id">
-                </span>
-            </div> --}}
-            {{-- <input id="id" type="hidden" name="id" value="{{ $btslists->id }}"> --}}
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="nama" class="form-label">Nama BTS</label>
@@ -148,7 +140,6 @@
                     <label for="latitude" class="form-label">Latitude</label>
                     <div class="input-group row m-0">
                         <input type="number" onkeypress="latitude(this.value)" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" required autofocus value="{{ old('latitude') }}" step=".01">
-                        {{-- <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°S</span> --}}
                     </div>
                     @error('latitude')
                     <div class="invalid-feedback">
@@ -160,7 +151,6 @@
                     <label for="longitude" class="form-label">Longitude</label>
                     <div class="input-group row m-0">
                         <input type="number" onkeypress="longitude(this.value)" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" required autofocus value="{{ old('longitude') }}" step=".01">
-                        {{-- <span class="col-md-1 text-break fw-normal input-group-text justify-content-center align-items-center" id="basic-addon2">°E</span> --}}
                     </div>
                     @error('longitude')
                     <div class="invalid-feedback">
@@ -169,18 +159,6 @@
                     @enderror
                 </div>
             </div>
-
-            {{-- <div class="mb-3">
-                <label for="images" class="form-label @error('images') is-invalid @enderror">Foto Bts</label>
-                <img class="img-preview img-fluid mb-3 col-sm-5">
-                <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
-                @error('images')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div> --}}
-{{-- MAIN IMAGE --}}
             <div class="mb-3">
                 <label for="images" class="form-label @error('images') is-invalid @enderror">BTS Photos</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5">
@@ -191,78 +169,17 @@
                 </div>
                 @enderror
             </div>
-
-
-            {{-- <div class="row">
-                <div class="mb-3 images-preview-div">
-                    <label for="images" class="form-label @error('images') is-invalid @enderror">Foto-foto BTS</label>
-                    <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input class="form-control" type="file" id="images" name="images[]" onchange="previewImage()" multiple>
-                    @error('images')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div>
-            </div> --}}
-
-            {{-- <div class="row">
-                <div class="mb-3 images-preview-div">
-            <form method="POST" action="{{ route('store.uploadimagess') }}" enctype="multipart/form-data" >
-                {{ csrf_field() }}
-                <div>
-                    <label>Choose Images</label>
-                    <input type="file"  name="bts_photos" multiple>
-                    <img class="img-preview img-fluid mb-3 col-sm-5">
-                </div>
-                <hr>
-                <button type="submit" >Submit</button>
-            </form>
-                </div>
-            </div> --}}
-
             <div class="button-container justify-content-center d-flex">
                 <button type="submit" class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Tambah BTS</button>
             </div>
         </form>
     </div>
 
-    {{-- <script>
-        function previewImage() {
-        const image = document.querySelector('#bts_photos');
-        const imgPreview = document.querySelector('.img-preview');
-
-        imgPreview.style.display = 'block';
-
-        const oFReader = new FileReader();
-        for($i = 0; $i < image.files.length; $i++){
-            oFReader.readAsDataURL(image.files[$i]);
-        }
-        oFReader.onload = function (oFREvent) {
-            imgPreview.src = oFREvent.target.result;
-        }
-    }
-    </script> --}}
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         var kecamatan_id = document.getElementById('kecamatan_id').value
     </script>
     <script>
-        // $(function() {
-        // // Multiple images preview with JavaScript
-        // var previewImages = function(input, imgPreviewPlaceholder) {
-        //     if(input.files){
-        //         var filesAmount = input.files.length;
-        //         for (i = 0; i < filesAmount; i++) {
-        //             var reader = new FileReader();
-        //             reader.onload = function(event) {
-        //                 $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
-        //             }
-        //             reader.readAsDataURL(input.files[i]);
-        //         }
-        //     }
-        // };
 
     function previewImage() {
         const btsfoto = document.querySelector('#images');
@@ -278,93 +195,12 @@
         }
     }
 
-    // function previewImage() {
-    //     const btsphotos = document.querySelector('#images');
-    //     const imgPreview = document.querySelector('.img-preview');
-
-    //     imgPreview.style.display = 'block';
-
-    //     const oFReader = new FileReader();
-    //     oFReader.readAsDataURL(btsphotos.files[0]);
-
-    //     oFReader.onload = function (oFREvent) {
-    //         imgPreview.src = oFREvent.target.result;
-    //     }
-    // }
-
-    // $('#images').on('change', function() {
-    //     previewImages(this, 'div.images-preview-div');
-    //     });
-    // });
 </script>
-{{-- <script>
-    $(function() {
-        $('select[name=kecamatan_id]').change(function() {
-
-            var url = '/dashboard/btslists/create';
-
-            $.get(url, function(data) {
-                var select = $('form select[name=village_id]');
-
-                select.empty();
-
-                $.each(data,function(key, value) {
-                    select.append('<option value=' + value.id + '>' + value.nama + '</option>');
-                });
-            });
-        });
-    });
-</script> --}}
-
-
-{{-- <script>
-    $('#kecamatan_id').on('change', e => {
-        $('#village_id').empty()
-        $.ajax({
-            // url: `/departments/${e.value}/users`,
-            url: `/dashboard/btslists/create`,
-
-            success: data => {
-                data.villages.forEach(village =>
-                    $('#village_id').append(`<option value="${village.id}">${village.nama}</option>`)
-                )
-            }
-        })
-    })
-</script> --}}
 
 @endsection
 
 @section('page-scripts')
     <script>
-        // const title = document.querySelector('#title');
-        // const slug = document.querySelector('#slug');
-
-        // title.addEventListener('change', function(){
-        //     fetch('/dashboard/posts/checkSlug?title=' + title.value)
-        //         .then(response => response.json())
-        //         .then(data => slug.value = data.slug)
-        // });
-
-        // document.addEventListener('trix-file-accept', function(e){
-        //     e.preventDefault();
-        // });
-
-        // function previewImage() {
-        //     const image = document.querySelector('#bts_photos');
-        //     const imgPreview = document.querySelector('.img-preview');
-
-        //     imgPreview.style.display = 'block';
-
-        //     const oFReader = new FileReader();
-        //     oFReader.readAsDataURL(image.files[0]);
-
-        //     oFReader.onload = function (oFREvent) {
-        //         imgPreview.src = oFREvent.target.result;
-        //     }
-        // }
-
-
 
         function latitude( str ){
             var latInput = document.getElementById('latitude');

@@ -24,7 +24,6 @@
                                 <div alt="{{ $btslist->btstype->type }}" class="w-100 rounded-5 img-fluid mt-3 text-center"
                                     style="width:500px;height:600px;background-size: contain;background-repeat:no-repeat;
                                     background-position: center;background-image:url('{{ asset('storage/' . $btsphotos[0]->url) }}')"></div>
-                                {{-- <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3"> --}}
                             </div>
                     </div>
                 </div>
@@ -47,14 +46,12 @@
                                         <div alt="{{ $btslist->btstype->type }}" class="w-100 rounded-5 img-fluid mt-3 text-center"
                                             style="width:500px;height:600px;background-size: contain;background-repeat:no-repeat;
                                             background-position: center;background-image:url('{{ asset('storage/' . $btsphoto->url) }}')"></div>
-                                        {{-- <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3"> --}}
                                     </div>
                                 @else
                                     <div class="carousel-item text-center">
                                         <div alt="{{ $btslist->btstype->type }}" class="w-100 rounded-5 img-fluid mt-3 text-center"
                                             style="width:500px;height:600px;background-size: contain;background-repeat:no-repeat;
                                             background-position: center;background-image:url('{{ asset('storage/' . $btsphoto->url) }}')"></div>
-                                        {{-- <img src="{{ asset('storage/' . $btsphoto->url) }}" alt="{{ $btslist->btstype->type }}" class="w-75 rounded-5 img-fluid mb-5 mt-3"> --}}
                                     </div>
                                 @endif
                             @endforeach

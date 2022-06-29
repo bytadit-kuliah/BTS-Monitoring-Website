@@ -18,9 +18,7 @@
           @enderror
         </div>
         <div class="col-lg-12 mb-3">
-            {{-- <label for="description" class="form-label">Description</label>
-            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" required value="{{ old('description') }}"> --}}
-            {{-- <div class="form-floating"> --}}
+
                 <label for="description">Description</label>
                 <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" required value="{{ old('description') }}" rows="5" style="height:100%;"></textarea>
                 @error('description')
@@ -28,7 +26,7 @@
                     {{ $message }}
                 </div>
                 @enderror
-            {{-- </div> --}}
+
         </div>
 
         <div class="col-md-12 mb-3">
@@ -46,45 +44,6 @@
         <div class="col-md-12 mb-3">
             <a href="#" class="Qnew btn btn-dark mb-3">Tambah Pertanyaan</a>
             <div class="container-fluid" id="questionbar">
-                {{-- <div class="row bg-light mb-3" id="questionlists">
-                        <div class="d-inline p-2 my-3 col-lg-11">
-                            <input type="text" class="form-control" placeholder="Input question" name="addMoreInputFields[0][questions]">
-                        </div>
-                        <div class="d-inline p-2 my-3 col-lg-1">
-                            <a href="#" class="Qdelete btn btn-danger">Delete</a>
-                        </div>
-                        <div class="row" id="answerbar">
-                            <div class="row" id="jawaban"> --}}
-                                {{-- <div class="d-inline p-2 m-2 col-lg-4">
-                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="addMoreInputFields[0][answer]">
-                                </div> --}}
-
-                                {{-- <div class="d-inline p-2 m-2 col-lg-1">
-                                    <a href="#" class="Adelete btn btn-danger">X</a>
-                                </div> --}}
-
-                                {{-- <div class="d-inline p-2 m-2 col-lg-4">
-                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
-                                </div>
-                                <div class="d-inline p-2 m-2 col-lg-4">
-                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
-                                </div>
-                                <div class="d-inline p-2 m-2 col-lg-4">
-                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
-                                </div>
-                                <div class="d-inline p-2 m-2 col-lg-4">
-                                    <input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt">
-                                </div>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="p-2 m-2 col-lg-12">
-                            <a href="#" class="Anew btn btn-success">+</a>
-                        </div> --}}
-                {{-- </div> --}}
-
-
-
                 <div class="row bg-light mb-3" id="questionlists">
                     <div class="d-inline p-2 my-3 col-lg-11">
                         <input type="text" class="form-control" placeholder="Input Question" name="question[0]">
@@ -151,59 +110,6 @@
         });
 
 </script>
-{{-- <script type="text/javascript">
-    $(function() {
-        $('a.Qnew').click(function(e) {
-            e.preventDefault();
-            $('#questionbar').append('<div class="row" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input question" name="questions"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div></div>');
-        });
-        $('a.Qdelete').click(function (e) {
-            e.preventDefault();
-            if ($('#questionbar input').length > 1) {
-                $('#questionbar').children().last().remove();
-            }
-        });
-    });
-</script> --}}
-{{-- <script type="text/javascript">
-    var i = 0;
-    $(".Qnew").click(function () {
-        ++i;
-        $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input question" name="addMoreInputFields[' + i +
-            '][questions]"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="addMoreInputFields[0][answer]"></div><div class="d-inline p-2 m-2 col-lg-1"><a href="#" class="Adelete btn btn-danger">X</a></div></div></div><div class="p-2 m-2 col-lg-12"><a href="#" class="Anew btn btn-success">+</a></div></div>'
-            );
-    });
-    $(document).on('click', '.Qdelete', function () {
-        $(this).parents('.row').remove();
-    });
-</script> --}}
-
-{{-- <script type="text/javascript">
-    var i = 0;
-    $(".Qnew").click(function () {
-        ++i;
-        $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input question" name="addMoreInputFields[' + i +
-            '][questions]"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="answerOpt"></div></div></div></div>'
-            );
-    });
-    $(document).on('click', '.Qdelete', function () {
-        $(this).parents('.row').remove();
-    });
-</script> --}}
-
-{{-- <script type="text/javascript">
-    var j = 0;
-    $(".Anew").click(function () {
-        ++j;
-        $("#answerbar").append('<div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="addMoreInputFields['+ j +
-                        '][answer]"></div><div class="d-inline p-2 m-2 col-lg-1"><a href="#" class="Adelete btn btn-danger">X</a></div></div>'
-            );
-    });
-    $(document).on('click', '.Adelete', function () {
-        $(this).parents('#jawaban').remove();
-    });
-</script> --}}
-
 <script type="text/javascript">
     var i = 0;
     $(".Qnew").click(function () {
@@ -220,18 +126,5 @@
         $(this).parents('.row').remove();
     });
 </script>
-
-{{-- <script type="text/javascript">
-    var i = 0;
-    $(".Qnew").click(function () {
-        ++i;
-        $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input Question" name="question['+ i +
-            ']"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionOne"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionTwo"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionThree"></div><div class="d-inline p-2 m-2 col-lg-4"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionFour"></div></div></div></div>'
-        );
-    });
-    $(document).on('click', '.Qdelete', function () {
-        $(this).parents('.row').remove();
-    });
-</script> --}}
 
 @endsection

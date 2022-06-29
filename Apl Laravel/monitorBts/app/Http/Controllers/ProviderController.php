@@ -3,11 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Provider;
-// use App\Http\Requests\StoreProviderRequest;
-// use App\Http\Requests\UpdateProviderRequest;
-// use Illuminate\Support\Str;
-// use Illuminate\Support\Facades\Auth;
-// use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Config;
@@ -53,16 +48,12 @@ class ProviderController extends Controller
             'nama' => 'required|max:255',
             'alamat' => 'required',
             'noTelp' => 'required',
-            // 'foto' => 'image|file|max:2048'
             'foto' => 'max:2048'
         ]);
 
         if($request->file('foto')){
             $validatedData['foto'] = $request->file('foto')->store('providers-foto');
         }
-
-        // $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Provider::create($validatedData);
 
@@ -110,11 +101,6 @@ class ProviderController extends Controller
             'foto' => 'max:2048'
         ];
 
-// // mengatasi masalah slug tidak bisa sama spt sebelumnya
-//         if($request->slug != $post->slug){
-//             $rules['slug'] = 'required|unique:posts';
-//         }
-
         $validatedData = $request->validate($rules);
 
         if($request->file('foto')){
@@ -123,9 +109,6 @@ class ProviderController extends Controller
             }
             $validatedData['foto'] = $request->file('foto')->store('providers-foto');
         }
-
-        // $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Provider::where('id', $provider->id)->update($validatedData);
 

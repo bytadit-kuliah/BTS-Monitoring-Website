@@ -27,34 +27,12 @@
 
   </head>
   <body style='background-color:#FDF7F2'>
-
-    {{-- @include('partials.navbar') --}}
-    <!--Header Awal-->
     <header>
         <div id="brand"><a href="/">
                 <img src="image/BTS logo.png" alt="logo"></a>
-            {{-- <ul>
-                <li><a href="/">Home</a></li>
-                <li>
-                    <div class="dropdown">
-                        <a href="#" class="drop_btn" onclick="dropdownFunction()">
-                            Information
-                        </a>
-                        <div class="drop_content" id="myDropdown">
-                            <a href="/about">Diskominfo Surakarta</a>
-                            <a href="/btslist">Data BTS Tower</a>
-                            <!-- <a href="btsmonitor.html">Data Monitoring</a> -->
-                        </div>
-                    </div>
-                </li>
-            </ul> --}}
         </div>
         <nav>
             <ul>
-                {{-- <li id="contact"><a href="/contact">Contact Us</a></li>
-                <li id="login"><a href="/login">Log In</a></li>
-
-                <li id="contact"><a href="/contact">Contact Us</a></li> --}}
                 @if (Auth::check())
                     <li id="login"><a href="/dashboard">{{Auth::user()->firstName}}</a></li>
                 @else
