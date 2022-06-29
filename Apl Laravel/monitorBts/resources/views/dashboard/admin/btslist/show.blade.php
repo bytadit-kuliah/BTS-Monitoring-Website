@@ -120,7 +120,7 @@
                                     @if ($loop->iteration==1)
                                         {{ $providerBtslist->nama }}
                                     @else
-                                        {{ ','.$providerBtslist->nama }}
+                                        {{ ', '.$providerBtslist->nama }}
                                     @endif
                                 @endforeach
                             @else
