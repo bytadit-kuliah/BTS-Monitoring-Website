@@ -179,13 +179,7 @@
                 datasets: [{
                     label: 'My First Dataset',
                     data: count,
-                    backgroundColor: [
-                    '#198754',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)',
-                    '#ffc107',
-                    '#dc3545'
-                    ],
+                    backgroundColor: getRandomColor(),
                     hoverOffset: 4
                 }]
             },
@@ -201,6 +195,20 @@
         // ...
     }
     document.getElementById('copyright').innerHTML = new Date().getFullYear();
+
+
+    function getRandomColor() {
+    var colors = [];
+    for (var i = 0; i < Object.keys(JSON.parse("{{ json_encode($count) }}")).length; i++) {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var x = 0; x < 6; x++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        }
+        colors.push(color);
+    }
+    return colors;
+    }
 
     $(document).ready(function() {
         getChartData();

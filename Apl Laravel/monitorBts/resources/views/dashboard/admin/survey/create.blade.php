@@ -40,7 +40,7 @@
                     @endif
                 @endforeach
             </select>
-            <input type="checkbox" id="checkbox" > Select All
+            <input type="checkbox" id="checkbox" name="checkbox"> <label for='checkbox'>Select All</label>
 
         </div>
         <div class="col-md-12 mb-3">

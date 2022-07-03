@@ -34,11 +34,24 @@
                 <div class="col-md-3 mb-3">
                     <label for="provider_id" class="form-label">Provider</label>
                     <select class="js-example-basic-multiple" name="provider_id[]" multiple="multiple" style="width: 100%" required>
-                        @foreach ($btslist->providers as $provider)
-                            @if(old('provider_id', $provider->id) == $provider->id)
-                                <option value="{{ $provider->id }}" selected>{{ $provider->nama }}</option>
-                            @else
+                        <?php $mark = 1?>
+                        @foreach ($providers as $provider)
+                            @foreach ($provider->btslists as $provider_bts)
+                                @if(old('provider_id', $btslist->id) == $provider_bts->id)
+                                    <option value="{{ $provider->id }}" selected>{{ $provider->nama }}</option>
+                                    @if($provider->id == $providers->count())
+                                        <?php $mark = 0?>
+                                    @endif
+                                    @break
+                                @elseif($loop->last)
+                                    <option value="{{ $provider->id }}">{{ $provider->nama }}</option>
+                                    <?php $mark = 0?>
+                                    @break
+                                @endif
+                            @endforeach
+                            @if($loop->last && $mark)
                                 <option value="{{ $provider->id }}">{{ $provider->nama }}</option>
+                                @break
                             @endif
                         @endforeach
                     </select>
@@ -211,7 +224,7 @@
                 longInput.value = str+',';
             }
         }
-
+        
         $(function() {
             $('#kecamatan_id').on('change', function(e){
                 console.log(e.target.value);

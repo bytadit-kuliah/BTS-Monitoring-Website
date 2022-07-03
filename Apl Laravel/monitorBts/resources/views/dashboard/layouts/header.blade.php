@@ -1,6 +1,6 @@
 <header>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-bts-1">
-        <a class="navbar-brand ps-1 d-flex bg-bts-3" href="#" style="border-top-right-radius: 20px; justify-content: center;">
+        <a class="navbar-brand ps-1 d-flex bg-bts-3" href="#" style="border-top-right-radius: 20px; justify-content: center; height:3.5rem">
             @if($configs->sidebar_logo == null)
                 <img src="/./image/BTS logo3.png" id="logo" alt="logo" style="margin-left: -25px; width: 100px;">
                 @else
