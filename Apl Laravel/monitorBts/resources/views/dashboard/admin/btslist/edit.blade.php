@@ -81,15 +81,15 @@
                 <div class="col-md-2 mb-3">
                     <label for="genset" class="form-label">Genset</label>
                     <select class="form-select @error('genset') is-invalid @enderror" id="genset" name="genset" required autofocus value="{{ old('genset', $btslist->genset) }}">
-                        <option value="1">Ada</option>
-                        <option value="0">Tidak Ada</option>
+                        <option value="1" {{$btslist->genset ? 'selected' : ''}}>Ada</option>
+                        <option value="0" {{$btslist->genset ? '' : 'selected'}}>Tidak Ada</option>
                     </select>
                 </div>
                 <div class="col-md-2 mb-3">
                     <label for="tembokBatas" class="form-label">Tembok Batas</label>
                     <select class="form-select @error('tembokBatas') is-invalid @enderror" id="tembokBatas" name="tembokBatas" required autofocus value="{{ old('tembokBatas', $btslist->tembokBatas) }}">
-                        <option value="1">Ada</option>
-                        <option value="0">Tidak Ada</option>
+                        <option value="1" {{$btslist->tembokBatas ? 'selected' : ''}}>Ada</option>
+                        <option value="0" {{$btslist->tembokBatas ? '' : 'selected'}}>Tidak Ada</option>
                     </select>
                 </div>
             </div>
