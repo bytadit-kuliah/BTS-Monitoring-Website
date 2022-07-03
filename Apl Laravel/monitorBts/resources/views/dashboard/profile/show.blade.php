@@ -33,7 +33,7 @@
 
 
            <table class="table ">
-            <thead class="table-success ">
+            <thead class="bg-bts-3 text-center text-light">
                 <th style='border-top-left-radius:1rem'>
                     Keterangan
                 </th>

@@ -17,7 +17,7 @@
 
     <div class="table-responsive col-lg-12">
     <table class="table fixedTable text-center">
-        <thead class="table-success ">
+        <thead class="bg-bts-3 text-center text-light">
             <tr>
                 <th style='width:3.8%; border-top-left-radius:1rem'>No</th>
                 <th style='width:10%'>Foto</th>

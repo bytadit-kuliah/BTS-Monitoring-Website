@@ -8,7 +8,7 @@
     </ol>
 
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-12" role="alert">
+    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -18,7 +18,7 @@
     <div class="table-responsive col-lg-12">
     <a href="/dashboard/monitorings/create"  class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff"><i class="fa fa-plus"></i> Add New</a>
     <table class="table fixedTable text-center">
-        <thead class="table-success ">
+        <thead class="bg-bts-3 text-center text-light">
             <tr>
                 <th style='width:3.8%; border-top-left-radius:1rem'>No</th>
                 <th style='width:15%'>Nama Monitoring</th>
