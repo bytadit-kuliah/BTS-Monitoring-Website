@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('monitorings', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->text('catatan');
+            $table->text('catatan')->nullable();
             $table->date('waktu_monitoring');
             $table->foreignId('btslist_id');
             $table->foreignId('user_id');

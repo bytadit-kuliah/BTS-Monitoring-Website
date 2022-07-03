@@ -140,6 +140,7 @@ class MonitoringController extends Controller
     {
 
         Monitoring::destroy($monitoring->id);
+        Mysurvey::where('user_id', auth()->user()->id)->where('btslist_id', $monitoring->btslist_id)->delete();
         return redirect('/dashboard/monitorings')->with('success', 'Data Monitoring berhasil dihapus');
     }
 }
