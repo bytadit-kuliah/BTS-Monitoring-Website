@@ -12895,7 +12895,8 @@ header .nav-item > a{
 table thead{
   text-align: center;
 }
-.alert-success{
+.alert{
+  display: flex;
   justify-content: space-between;
 }
 tr:nth-child(odd) td{
