@@ -31,7 +31,7 @@
 
         <div class="col-md-12 mb-3">
             <label for="btslist_id" class="form-label">Nama BTS</label>
-            <select class="js-example-basic-multiple" name="btslist_id[]" multiple="multiple" style="width: 100%" required>
+            <select id="bts_select" class="js-example-basic-multiple" name="btslist_id[]" multiple="multiple" style="width: 100%" required>
                 @foreach ($btslists as $btslist)
                     @if(old('btslist_id') == $btslist->id)
                         <option value="{{ $btslist->id }}" selected>{{ $btslist->nama }}</option>
@@ -40,6 +40,8 @@
                     @endif
                 @endforeach
             </select>
+            <input type="checkbox" id="checkbox" > Select All
+
         </div>
         <div class="col-md-12 mb-3">
             <a href="#" class="Qnew btn btn-dark mb-3">Tambah Pertanyaan</a>
@@ -108,7 +110,18 @@
     $(document).ready(function() {
             $('.js-example-basic-multiple').select2();
         });
-
+        
+    $("#checkbox").on('click', function(){
+        if($("#checkbox").is(':checked') ){
+            $("#bts_select > option").prop("selected","selected");
+            $("#bts_select").trigger("change");
+        }else{
+            console.log('uncheck');
+            $("#bts_select > option").prop("selected","");
+            $("#bts_select").trigger("change");
+        }
+    });
+    
 </script>
 <script type="text/javascript">
     var i = 0;

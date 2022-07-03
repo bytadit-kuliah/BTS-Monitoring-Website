@@ -19,12 +19,18 @@
                     </div>
                     <p class='card-header text-end text-light'><span class='fw-bolder text-light'>{{$survey->question->count()}}</span> pertanyaan</p>
                     <p class='card-header text-first text-light'>
-                    <span class='fw-bolder text-light text-first'>Objek BTS : </span><br>
-                        <span class='text-light'>
+                    <span class='fw-bolder text-light text-first '>Objek BTS : </span><br>
+                        <div class='text-light scroll' style='height:60px'>
+                            <ul class='m-0'>
                             @foreach ($survey->btslists as $btslist)
-                                {{$btslist->nama . '; '}}
+                                @if($survey->btslists->count() == $btslist->count())
+                                    <div class='fs-1 fw-bolder '>SEMUA BTS</div>
+                                    @break
+                                @endif
+                                <li>{{$btslist->nama }}<br></li>
                             @endforeach
-                        </span>
+                            </ul>
+                        </div>
                     </p>
                     <form action="/dashboard/surveys/{{ $survey->id }}" method="post" class="card-footer text-center ">
                         @method('delete')
