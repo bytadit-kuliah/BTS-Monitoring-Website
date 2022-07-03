@@ -44,10 +44,10 @@ Route::resource('/dashboard/owners', OwnerController::class)->middleware('auth')
 Route::resource('/dashboard/monitorings', MonitoringController::class)->middleware('auth');
 Route::resource('/dashboard/providers', ProviderController::class)->middleware('auth');
 Route::resource('/dashboard/btslists', BtslistController::class)->middleware('auth');
+Route::get('/dashboard/btslists/getVillages/{selectedKecamatanID}', [BtslistController::class, 'getVillages'])->middleware('auth');
 Route::resource('/dashboard/configs', ConfigController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/dashboard/mysurveys', MysurveyController::class)->middleware('auth');
-Route::get('/test', [AnswerController::class, 'test'])->middleware('auth');
 
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('is_admin');
 Route::get('/dashboard/users/{user}/promote', [UserController::class, 'promote'])->middleware('is_admin');

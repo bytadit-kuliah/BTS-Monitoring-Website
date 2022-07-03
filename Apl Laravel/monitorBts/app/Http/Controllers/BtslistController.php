@@ -67,7 +67,7 @@ class BtslistController extends Controller
             'kecamatans' => Kecamatan::all(),
             'configs' => Config::all()->first(),
             'kecamatan' => $kecamatan,
-            'villages' => Village::all(),
+            // 'villages' => Village::all(),
             'providers' => Provider::all(),
             'value' => $request->kecamatan_id
         ]);
@@ -233,6 +233,13 @@ class BtslistController extends Controller
         $btslist->surveys()->detach($survey);
 
         return redirect('/dashboard/btslists')->with('success', 'Data BTS telah dihapus');
+    }
+
+    
+    public function getVillages(Request $request, $kecamatan_id)
+    {
+        $villages = Village::where('kecamatan_id', '=', $kecamatan_id)->get();
+        return response()->json($villages);
     }
 
 }

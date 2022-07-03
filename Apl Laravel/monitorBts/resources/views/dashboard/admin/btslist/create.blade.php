@@ -69,13 +69,15 @@
                 <div class="col-md-2 mb-3">
                     <label for="village_id" class="form-label">Desa</label>
                     <select class="form-select" name="village_id" id="village_id">
-                    @foreach ($villages as $village)
-                            @if(old('village_id') == $village->id)
-                                <option value="{{ $village->id }}" selected>{{ $village->nama }}</option>
-                            @else
-                                <option value="{{ $village->id }}">{{ $village->nama }}</option>
-                            @endif
-                        @endforeach
+                        @isset($villages)
+                            @foreach ($villages as $village)
+                                @if(old('village_id') == $village->id)
+                                    <option value="{{ $village->id }}" selected>{{ $village->nama }}</option>
+                                @else
+                                    <option value="{{ $village->id }}">{{ $village->nama }}</option>
+                                @endif
+                            @endforeach
+                        @endisset
                     </select>
                 </div>
 
@@ -214,6 +216,22 @@
                 longInput.value = str+',';
             }
         }
+        
+        $(function() {
+            $('#kecamatan_id').on('change', function(e){
+                console.log(e.target.value);
+                var kecamatan_id = e.target.value;
+                $.get('/dashboard/btslists/getVillages/' + kecamatan_id, function(data) {
+                console.log(data);
+                $('#village_id').empty();
+
+                $.each(data, function(index, villagesObj){
+                    $('#village_id').append('<option value="'+ villagesObj.id +'">'+ villagesObj.nama +'</option>');
+                })
+                });
+            });
+        });
+
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2();
         });
