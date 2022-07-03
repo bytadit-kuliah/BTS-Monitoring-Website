@@ -32,7 +32,7 @@
                                     @if($mysurvey->status==false)
                                         @foreach ($question->offeredanswer as $key => $offeredanswer)
                                             <div class="form-check mb-2 ">
-                                                <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" >
+                                                <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$loop->iteration}}]" required>
                                                 <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$loop->iteration}}]">
                                                     {{ $offeredanswer->option }}
                                                 </label>
@@ -44,13 +44,13 @@
                                             <div class="form-check mb-2 ">
                                                 @foreach (Auth::user()->answer as $key => $question)
                                                     @if($question->offeredanswer_id == $offeredanswer->id)
-                                                        <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$counter}}]" checked >
+                                                        <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$counter}}]" checked required >
                                                         <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$counter}}]">
                                                             {{ $offeredanswer->option }}
                                                         </label>
                                                         @break
                                                     @elseif($loop->last)
-                                                        <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$counter}}]" >
+                                                        <input class="form-check-input" name="offeredanswer_id[{{$q}}]" type="radio" value="{{ $offeredanswer->id }}" id="offeredanswer_id[{{$q.'-'.$counter}}]" required>
                                                         <label class="form-check-label" for="offeredanswer_id[{{$q.'-'.$counter}}]">
                                                             {{ $offeredanswer->option }}
                                                         </label>
