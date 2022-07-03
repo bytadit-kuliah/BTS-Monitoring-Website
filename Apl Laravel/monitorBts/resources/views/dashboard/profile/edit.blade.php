@@ -6,7 +6,6 @@
     @if(session()->has('success'))
     <div class="alert alert-success col-lg-12" role="alert">
         {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
     <form class="col mb-5" action="/dashboard/users/{{ $user->id }}" method="post" enctype="multipart/form-data" >
