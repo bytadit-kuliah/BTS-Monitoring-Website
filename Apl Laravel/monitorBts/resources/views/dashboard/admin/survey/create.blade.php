@@ -31,7 +31,7 @@
 
         <div class="col-md-12 mb-3">
             <label for="btslist_id" class="form-label">Nama BTS</label>
-            <select class="js-example-basic-multiple" name="btslist_id[]" multiple="multiple" style="width: 100%">
+            <select class="js-example-basic-multiple" name="btslist_id[]" multiple="multiple" style="width: 100%" required>
                 @foreach ($btslists as $btslist)
                     @if(old('btslist_id') == $btslist->id)
                         <option value="{{ $btslist->id }}" selected>{{ $btslist->nama }}</option>
@@ -46,7 +46,7 @@
             <div class="container-fluid" id="questionbar">
                 <div class="row bg-light mb-3" id="questionlists">
                     <div class="d-inline p-2 my-3 col-lg-11">
-                        <input type="text" class="form-control" placeholder="Input Question" name="question[0]">
+                        <input type="text" class="form-control" placeholder="Input Question" name="question[0]" required>
                     </div>
                     <div class="d-inline p-2 my-3 col-lg-1">
                         <a href="#" class="Qdelete btn btn-danger">Delete</a>
@@ -59,7 +59,7 @@
                     <div class="row" id="answerbar">
                         <div class="row" id="jawaban">
                             <div class="d-inline my-2 col-lg-6">
-                                <input type="text" class="form-control @error('optionOne') is-invalid @enderror" placeholder="Add Answer Option" name="optionOne[]">
+                                <input type="text" class="form-control @error('optionOne') is-invalid @enderror" placeholder="Add Answer Option" name="optionOne[]" required>
                                 @error('optionOne')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -67,7 +67,7 @@
                                 @enderror
                             </div>
                             <div class="d-inline my-2 col-lg-6">
-                                <input type="text" class="form-control @error('optionTwo') is-invalid @enderror" placeholder="Add Answer Option" name="optionTwo[]">
+                                <input type="text" class="form-control @error('optionTwo') is-invalid @enderror" placeholder="Add Answer Option" name="optionTwo[]" required>
                                 @error('optionTwo')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -77,7 +77,7 @@
                         </div>
                         <div class="row" id="jawaban">
                             <div class="d-inline my-2 col-lg-6">
-                                <input type="text" class="form-control @error('optionThree') is-invalid @enderror" placeholder="Add Answer Option" name="optionThree[]">
+                                <input type="text" class="form-control @error('optionThree') is-invalid @enderror" placeholder="Add Answer Option" name="optionThree[]" required>
                                 @error('optionThree')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -85,7 +85,7 @@
                                 @enderror
                             </div>
                             <div class="d-inline my-2 col-lg-6">
-                                <input type="text" class="form-control @error('optionFour') is-invalid @enderror" placeholder="Add Answer Option" name="optionFour[]">
+                                <input type="text" class="form-control @error('optionFour') is-invalid @enderror" placeholder="Add Answer Option" name="optionFour[]" required>
                                 @error('optionFour')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -115,11 +115,11 @@
     $(".Qnew").click(function () {
         ++i;
         $("#questionbar").append('<div class="row bg-light mb-3" id="questionlists"><div class="d-inline p-2 my-3 col-lg-11"><input type="text" class="form-control" placeholder="Input Question" name="question['+ i +
-            ']"></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionOne['+ i +
-                ']"></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionTwo['+ i +
-                    ']"></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionThree['+ i +
-                        ']"></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionFour['+ i +
-                            ']"></div></div></div></div>'
+            ']" required></div><div class="d-inline p-2 my-3 col-lg-1"><a href="#" class="Qdelete btn btn-danger">Delete</a></div><div class="row" id="answerbar"><div class="row" id="jawaban"><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionOne['+ i +
+                ']" required></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionTwo['+ i +
+                    ']" required></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionThree['+ i +
+                        ']" required></div><div class="d-inline my-2 col-lg-6"><input type="text" class="form-control" placeholder="Add Answer Option" name="optionFour['+ i +
+                            ']" required></div></div></div></div>'
         );
     });
     $(document).on('click', '.Qdelete', function () {
