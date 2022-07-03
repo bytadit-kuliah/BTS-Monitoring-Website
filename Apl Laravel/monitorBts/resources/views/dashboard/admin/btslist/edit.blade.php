@@ -34,8 +34,8 @@
                 <div class="col-md-3 mb-3">
                     <label for="provider_id" class="form-label">Provider</label>
                     <select class="js-example-basic-multiple" name="provider_id[]" multiple="multiple" style="width: 100%" required>
-                        @foreach ($providers as $provider)
-                            @if(old('provider_id', $btslist->provider_id) == $provider->id)
+                        @foreach ($btslist->providers as $provider)
+                            @if(old('provider_id', $provider->id) == $provider->id)
                                 <option value="{{ $provider->id }}" selected>{{ $provider->nama }}</option>
                             @else
                                 <option value="{{ $provider->id }}">{{ $provider->nama }}</option>
@@ -211,7 +211,7 @@
                 longInput.value = str+',';
             }
         }
-        
+
         $(function() {
             $('#kecamatan_id').on('change', function(e){
                 console.log(e.target.value);
