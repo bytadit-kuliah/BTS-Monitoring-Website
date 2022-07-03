@@ -16,18 +16,12 @@
             <div id="search">
                 <form id="searchform" name="searchform">
                     <div class="row justify-content-around mb-3 ">
-                        <div class="col-lg-10 col-md-8">
-                            <div class="form-group">
+                        <div class="input-group mb-3">
                                 <input type="text" placeholder="search bts by name...." name="nama" id="name" value="{{request()->get('nama','')}}" class="form-control" />
                                 @csrf
-                            </div>
-                        </div>
-                        {{-- <div class="form-group">
-                        <label>Search by body</label>
-                        <input type="text" name="body" value="{{request()->get('body','')}}" class="form-control" />
-                        </div> --}}
-                        <div class="col-sm-2 col-sm-1 text-center">
-                            <a href='/dashboard/btslists' id='search_btn' class="btn border-0 btn-success add-new mb-4" style="background: #52784F; color: #fff">Search</a>
+                                <div class="input-group-append">
+                                    <a href='/dashboard/btslists' id='search_btn' class="btn btn-success add-new" style="background: #52784F; color: #fff"><i class="fas fa-search"></i></a>
+                                </div>
                         </div>
                     </div>
                 </form>
