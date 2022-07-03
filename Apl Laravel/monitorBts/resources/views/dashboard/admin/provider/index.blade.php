@@ -5,8 +5,9 @@
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Data Provider BTS</h1>
 
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-12" role="alert">
+    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
         {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
 

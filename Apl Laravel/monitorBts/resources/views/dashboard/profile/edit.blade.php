@@ -4,8 +4,9 @@
 @section('container')
     <h1 class="mt-4 border-3 rounded-3 border-bottom">Edit Profil</h1>
     @if(session()->has('success'))
-    <div class="alert alert-success col-lg-12" role="alert">
+    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
         {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
     <form class="col mb-5" action="/dashboard/users/{{ $user->id }}" method="post" enctype="multipart/form-data" >
