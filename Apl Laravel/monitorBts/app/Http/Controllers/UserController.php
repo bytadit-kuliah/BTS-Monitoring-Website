@@ -68,7 +68,7 @@ class UserController extends Controller
 
         User::create($validatedData);
 
-        return redirect('/dashboard/users')->with('success', 'New User has been added');
+        return redirect('/dashboard/users')->with('success', 'User baru berhasil ditambahkan');
 
     }
 
@@ -182,7 +182,7 @@ class UserController extends Controller
         }
         User::destroy($user->id);
 
-        return redirect('/dashboard/users')->with('success', 'Surveyor has been deleted');
+        return redirect('/dashboard/users')->with('success', 'Akun surveyor berhasil dihapus');
     }
 
 
