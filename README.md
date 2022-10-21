@@ -1,11 +1,8 @@
 # BTS-Monitoring-Website
-[WEB PROGRAMMING PROJECT]  : A Base Transceiver Station Website based on Laravel 8, Made By Group 3
+[WEB PROGRAMMING PROJECT]  : A Base Transceiver Station Website based on Laravel 8
 
-# 'Apl Laravel'/monitorBts
+### General Description
+1. This is a dashboard type website that accommodates the results of BTS Monitoring in Fiction City based on the survey results provided by surveyors
+2. The website is connected/has an admin page, to monitor BTS data, and a Surveyor page to provide data about BTS in ABC City.
+3. Website built with Laravel 8, Bootstrap 5, and MySQL Database
 
-### Penjelasan Umum
-1. Ini adalah website tipe dashboard yang menampung hasil monitoring BTS di Kota ABC berdasarkan hasil survey yang diberikan surveyor
-2. Website terhubung/memiliki laman admin, untuk memonitoring Data BTS, dan laman Surveyor untuk memberikan data tentang BTS di Kota ABC.
-3. Website dibuat dengan Laravel 8 dan DataBase MySQL
-
-https://trello.com/b/UyOXl5J5/bts-monitoring-website
